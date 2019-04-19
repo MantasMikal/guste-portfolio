@@ -1,0 +1,11 @@
+@import '../styles/media-queries.css';
+
+.root {
+  box-sizing: border-box;
+  padding: 0 1.5em;
+  margin: 0.625rem auto;
+
+  @media (--media-min-small) {
+    padding: 2em;
+  }
+}
