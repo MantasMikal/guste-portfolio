@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "example-company-website-gatsby-sanity-combo",
+  "name": "gugis-sanity",
   "builds": [
     {
       "src": "web/package.json",
@@ -8,5 +8,5 @@
       "config": { "distDir": "web/public" }
     }
   ],
-  "alias": ["example-company-website-gatsby-sanity-combo.now.sh"]
+  "alias": ["gugis-sanity.now.sh"]
 }
