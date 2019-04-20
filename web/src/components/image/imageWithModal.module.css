@@ -1,0 +1,24 @@
+.Overlay {
+
+}
+
+.zoomedImage {
+  width: 60%;
+  margin: 0.625rem auto;
+}
+
+.wrapper {
+   position: relaitive;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.hoverEffect {
+    animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -12,6 +12,7 @@
     "build:favicons": "node scripts/favicons",
     "now-build": "npm run build",
     "start": "npm run develop",
+    "start-shared": "gatsby develop --host 0.0.0.0",
     "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },

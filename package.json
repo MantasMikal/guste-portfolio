@@ -14,6 +14,7 @@
     "postinstall": "lerna bootstrap",
     "sanity-deploy": "lerna run sanity-deploy",
     "start": "lerna run empty-cache && lerna run start --parallel",
+    "start-shared": "lerna run empty-cache && lerna run start-shared --parallel",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

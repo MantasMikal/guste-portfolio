@@ -10,6 +10,7 @@
     "sanity-deploy": "sanity deploy",
     "lint": "eslint .",
     "start": "sanity start",
+    "start-shared": "sanity start --host 0.0.0.0",
     "test": "sanity check"
   },
   "dependencies": {
