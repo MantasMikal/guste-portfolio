@@ -2,10 +2,10 @@
 
 .root {
   box-sizing: border-box;
-  padding: 0 1.5em;
-  margin: 0.625rem auto;
+  padding: 0 2.5em;
+  margin: 0 auto 0.625rem auto;
 
-  @media (--media-min-small) {
-    padding: 2em;
+  @media (--media-max-small) {
+    padding: 0 0.5em;
   }
 }

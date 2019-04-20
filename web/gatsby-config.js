@@ -4,6 +4,9 @@ const {
 } = requireConfig('../studio/sanity.json')
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://www.gugis.co`,
+  },
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
@@ -18,7 +21,10 @@ module.exports = {
         watchMode: true,
         overlayDrafts: true
       }
-    }
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-offline`,
   ]
 }
 

@@ -14,9 +14,34 @@ export default {
       type: 'string'
     },
     {
+      name: 'titleShort',
+      title: 'Short Title',
+      type: 'string'
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'text'
+    },
+    {
+      name: 'siteUrl',
+      title: 'Site URL',
+      type: 'string',
+    },
+    {
+      name: 'themeColor',
+      title: 'Theme color',
+      type: 'string'
+    },
+    {
+      name: 'backgroundColor',
+      title: 'Background color',
+      type: 'string'
+    },
+    {
+      name: 'logo',
+      title: 'Logo',
+      type: 'image'
     },
     {
       name: 'keywords',
@@ -27,10 +52,5 @@ export default {
         layout: 'tags'
       }
     },
-    {
-      name: 'author',
-      title: 'Author',
-      type: 'string'
-    }
   ]
 }
