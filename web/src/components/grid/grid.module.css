@@ -1,5 +1,15 @@
+@import '../../styles/media-queries.css';
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1em;
+
+  @media (--media-max-medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--media-max-small) {
+    display: block;
+  }
 }
