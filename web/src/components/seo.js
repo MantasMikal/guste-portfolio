@@ -9,7 +9,6 @@ const detailsQuery = graphql`
       title
       description
       keywords
-      author
     }
   }
 `

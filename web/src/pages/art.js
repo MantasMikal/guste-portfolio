@@ -53,6 +53,7 @@ const Art = props => {
         <Grid>
           {
             artNodes.map((item) => {
+              // item && item.artwork && item.artwork.asset?
               return (
                 <ImageWithModal key={item.id} image={item.artwork.asset.fluid} alt={item.artwork.alt} />
               )

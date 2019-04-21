@@ -5,36 +5,33 @@ import Head from './head/head'
 import '../styles/layout.css'
 import styles from './layout.module.css'
 
-const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitle }) => (
+const Layout = ({ children, personalInfo, contactInfo, footerText, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
-    <Head/>
-    <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
+    <Head />
+    <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} contactInfo={contactInfo} />
     <div className={styles.content}>{children}</div>
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
-        <div className={styles.companyAddress}>
-          {companyInfo && (
+        {/* <div className={styles.personalInfo}>
+          {personalInfo && (
             <div>
-              {companyInfo.name}
+              {personalInfo.name}
               <br />
-              {companyInfo.address1}
+              {personalInfo.address1}
               <br />
-              {companyInfo.address2 && (
+              {personalInfo.address2 && (
                 <span>
-                  {companyInfo.address2}
+                  {personalInfo.address2}
                   <br />
                 </span>
               )}
-              {companyInfo.zipCode} {companyInfo.city}
-              {companyInfo.country && <span>, {companyInfo.country}</span>}
+              {personalInfo.zipCode} {personalInfo.city}
+              {personalInfo.country && <span>, {personalInfo.country}</span>}
             </div>
           )}
-        </div>
-
+        </div> */}
         <div className={styles.siteInfo}>
-          © {new Date().getFullYear()}, Built with <a href='https://www.sanity.io'>Sanity</a> &amp;
-          {` `}
-          <a href='https://www.gatsbyjs.org'>Gatsby</a>
+          © {new Date().getFullYear()}, {footerText}
         </div>
       </div>
     </footer>

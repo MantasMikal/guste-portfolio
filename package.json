@@ -20,5 +20,6 @@
   "devDependencies": {
     "lerna": "^3.13.3",
     "rimraf": "^2.6.3"
-  }
+  },
+  "dependencies": {}
 }

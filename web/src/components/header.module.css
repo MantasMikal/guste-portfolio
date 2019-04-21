@@ -10,9 +10,9 @@
   box-sizing: border-box;
   margin: 0 auto;
   display: flex;
-
+  padding: 0 0.325em;
   @media (--media-min-small) {
-    padding: 0.625em 2em;
+    padding: 0.325em 0.325em;
   }
 }
 
@@ -23,7 +23,7 @@
 
   @nest & a {
     display: inline-block;
-    padding: 0.5em;
+    padding: var(--header-padding);
     color: inherit;
     text-decoration: none;
 
@@ -79,7 +79,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     left: 0;
     right: 0;
-    top: 4rem;
+    top: 2rem;
 
     @nest & ul {
       padding: 1rem 0;

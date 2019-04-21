@@ -2,10 +2,10 @@ import { Link } from 'gatsby'
 import React from 'react'
 import Icon from './icons'
 import { cn } from '../lib/helpers'
-
+import ContactPage from './contactPage'
 import styles from './header.module.css'
 
-const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
+const Header = ({ onHideNav, onShowNav, showNav, siteTitle, contactInfo }) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
       <h1 className={styles.branding}>
@@ -19,9 +19,6 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
       <nav className={cn(styles.nav, showNav && styles.showNav)}>
         <ul>
           <li>
-            <Link to='/about/'>About</Link>
-          </li>
-          <li>
             <Link to='/art/'>Art</Link>
           </li>
           <li>
@@ -31,7 +28,7 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
             <Link to='/blog/'>Blog</Link>
           </li>
           <li>
-            <Link to='/contact/'>Contact</Link>
+            <ContactPage contactInfo={contactInfo} />
           </li>
         </ul>
       </nav>

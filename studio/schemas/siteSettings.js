@@ -5,7 +5,8 @@ export default {
   title: 'Site Settings',
   type: 'document',
   liveEdit: false,
-  __experimental_actions: ['update', 'publish', /*'create', 'delete'*/],
+  // eslint-disable-next-line standard/array-bracket-even-spacing
+  __experimental_actions: ['update', 'publish' /* 'create', 'delete' */],
   icon: MdSettings,
   fields: [
     {
@@ -26,7 +27,12 @@ export default {
     {
       name: 'siteUrl',
       title: 'Site URL',
-      type: 'string',
+      type: 'string'
+    },
+    {
+      name: 'footerText',
+      title: 'Footer Text',
+      type: 'string'
     },
     {
       name: 'themeColor',
@@ -51,6 +57,6 @@ export default {
       options: {
         layout: 'tags'
       }
-    },
+    }
   ]
 }

@@ -15,10 +15,10 @@
 
 .footerWrapper {
   box-sizing: border-box;
-  margin: 0.625rem auto;
+  margin: 0.325rem auto;
 
   @media (--media-min-small) {
-    
+
   }
 }
 

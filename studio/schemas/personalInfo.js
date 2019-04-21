@@ -1,16 +1,16 @@
 import MdBusiness from 'react-icons/lib/md/business'
 
 export default {
-  name: 'companyInfo',
-  title: 'Company Info',
+  name: 'personalInfo',
+  title: 'Personal Info',
   type: 'document',
   liveEdit: false,
-  __experimental_actions: ['update', 'publish', /*'create', 'delete'*/],
+  __experimental_actions: ['update', 'publish' /* 'create', 'delete' */],
   icon: MdBusiness,
   fields: [
     {
       name: 'name',
-      title: 'Company name',
+      title: 'Name',
       type: 'string'
     },
     {

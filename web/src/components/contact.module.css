@@ -1,0 +1,42 @@
+@import '../styles/media-queries.css';
+.wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 60%;
+  padding: 0 3.625em;
+  color: white;
+  text-align: justify;
+  @media (--media-max-small) {
+    padding: 0 1.625em;
+    width: auto;
+    font-size: calc(14 / 17 * 1rem)
+  }
+}
+
+.limitWidth {
+  @media (--media-min-small) {
+    width: 90%;
+  }
+}
+
+.iconGrid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  z-index: 200;
+
+  padding-top: 2vh;
+  color: white;
+}
+
+.icon {
+  padding: 0 !important;
+}
+
+.icon:hover {
+  color: lightpink;
+  transition: 0.2s ease-in-out;
+}

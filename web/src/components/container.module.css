@@ -2,10 +2,11 @@
 
 .root {
   box-sizing: border-box;
-  padding: 0 2.5em;
-  margin: 0 auto 0.625rem auto;
+  /* Compensate header padding */
+  padding: 0 calc(0.625em + var(--header-padding));
+  margin: 0 auto 0.625em auto;
 
   @media (--media-max-small) {
-    padding: 0 0.5em;
+
   }
 }

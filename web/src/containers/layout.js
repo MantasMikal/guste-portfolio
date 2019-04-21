@@ -6,15 +6,20 @@ const query = graphql`
   query SiteTitleQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
+      footerText
     }
-    companyInfo: sanityCompanyInfo(_id: { regex: "/(drafts.|)companyInfo/" }) {
-      name
-      address1
-      address2
-      zipCode
-      city
-      country
+    contact: sanityPage(_id: { regex: "/(drafts.|)contact/" }) {
+      title
+      _rawBody
     }
+    # personalInfo: sanityPersonalInfo {
+    #   name
+    #   address1
+    #   address2
+    #   zipCode
+    #   city
+    #   country
+    # }
   }
 `
 
@@ -35,19 +40,27 @@ function LayoutContainer (props) {
             'Missing "Site settings". Open the studio at http://localhost:3333 and add "Site settings" data'
           )
         }
-        if (!data.companyInfo) {
+        if (!data.contact) {
           throw new Error(
-            'Missing "Company info". Open the studio at http://localhost:3333 and add "Company info" data'
+            'Missing "Contact info". Open the studio at http://localhost:3333 and add "Site settings" data'
           )
         }
+
+        // if (!data.personalInfo) {
+        //   throw new Error(
+        //     'Missing "Company info". Open the studio at http://localhost:3333 and add "Company info" data'
+        //   )
+        // }
         return (
           <Layout
             {...props}
             showNav={showNav}
-            companyInfo={data.companyInfo}
+            // personalInfo={data.personalInfo}
             siteTitle={data.site.title}
+            footerText={data.site.footerText}
             onHideNav={handleHideNav}
             onShowNav={handleShowNav}
+            contactInfo={data.contact}
           />
         )
       }}
