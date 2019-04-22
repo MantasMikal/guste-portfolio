@@ -45,6 +45,9 @@ export function makeMediaComponent (component) {
 }
 
 export function makeComponents (components) {
+  if(!components){
+    return <> </>
+  }
   return components.map((component) => {
     switch (component._type) {
     case 'grid':
