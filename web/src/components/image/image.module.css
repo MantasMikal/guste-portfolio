@@ -1,0 +1,8 @@
+@import '../../styles/media-queries.css';
+
+.image {
+
+  @media(--media-max-medium) {
+    margin-bottom: 0.325em;
+  }
+}

@@ -1,10 +1,16 @@
+@import '../../styles/media-queries.css';
+
 .Overlay {
 
 }
 
 .zoomedImage {
-  width: 60%;
-  margin: 0.625rem auto;
+  width: 47rem;
+  margin: 0.325em auto;
+
+  @media (--media-max-medium) {
+    max-width: 90vw;
+  }
 }
 
 .wrapper {

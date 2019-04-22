@@ -15,6 +15,7 @@ export const query = graphql`
         _id
         title
       }
+      _rawContent(resolveReferences: { maxDepth: 5})
       relatedProjects {
         title
         _id
@@ -23,6 +24,11 @@ export const query = graphql`
         }
       }
       mainImage {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
         crop {
           _key
           _type
@@ -84,6 +90,7 @@ export const query = graphql`
 const ProjectTemplate = props => {
   const { data, errors } = props
   const project = data && data.project
+  console.log(project)
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}

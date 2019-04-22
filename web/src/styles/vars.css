@@ -3,5 +3,7 @@
   --color-white: #fff;
   --color-accent: #f43;
   --header-padding: 0.325em;
-  --page-margin: 0.325em;
+  --page-margin: 1.325em;
+  --page-margin-mobile: 0.325em;
+
 }

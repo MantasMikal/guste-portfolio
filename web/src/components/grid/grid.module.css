@@ -3,7 +3,8 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1em;
+  grid-gap: 0.625em;
+  margin: 0.625em auto;
 
   @media (--media-max-medium) {
     grid-template-columns: repeat(2, 1fr);

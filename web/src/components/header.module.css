@@ -8,16 +8,20 @@
 
 .wrapper {
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0 var(--page-margin);
   display: flex;
-  padding: 0 0.325em;
-  @media (--media-min-small) {
-    padding: 0.325em 0.325em;
+  justify-content: center;
+  padding: 0 0;
+
+  @media (--media-max-medium) {
+    padding: 0.325em 0em;
+    margin: 0 var(--page-margin-mobile);
   }
 }
 
 .branding {
   font-size: inherit;
+  text-transform: uppercase;
   margin: 0;
   flex: 1;
 
@@ -55,7 +59,7 @@
 
 .nav {
   display: none;
-
+  text-transform: uppercase;
   @nest & ul {
     margin: 0;
     padding: 0;

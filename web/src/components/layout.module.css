@@ -15,7 +15,7 @@
 
 .footerWrapper {
   box-sizing: border-box;
-  margin: 0.325rem auto;
+  margin: 0.325rem var(--page-margin);
 
   @media (--media-min-small) {
 
@@ -28,7 +28,7 @@
 }
 
 .siteInfo {
-  text-align: center;
+  text-align: left;
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
 

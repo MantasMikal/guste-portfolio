@@ -68,19 +68,31 @@
  * Responsively sized elements
  */
 
+.paragraphLimited {
+  max-width: 70%;
+
+  @media(--media-max-medium) {
+    max-width: 100%;
+  }
+}
+
 .paragraph {
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
   margin: 0.5rem 0 1rem 0;
+  text-align: justify;
+
 
   @media (--media-min-small) {
     font-size: var(--font-base-size);
     line-height: var(--font-base-line-height);
+    /* max-width: 100%; */
   }
 
   @media (--media-min-medium) {
     font-size: var(--font-large-size);
     line-height: var(--font-large-line-height);
+    /* max-width: 100%; */
   }
 }
 

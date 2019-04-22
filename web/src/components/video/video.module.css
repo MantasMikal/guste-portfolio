@@ -1,0 +1,9 @@
+.videoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.video {
+  margin: auto 0;
+}
