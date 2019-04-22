@@ -5,7 +5,6 @@ import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
 import Container from './container'
-import Image from 'gatsby-image'
 import RoleList from './role-list'
 import { makeComponents } from '../templates/dynamicComponents'
 

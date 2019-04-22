@@ -5,7 +5,7 @@ import { imageUrlFor } from '../lib/image-url'
 import BlockText from './block-text'
 
 import styles from './blog-post-preview.module.css'
-import { responsiveTitle3 } from './typography.module.css'
+import { responsiveTitle4 } from './typography.module.css'
 
 function BlogPostPreview (props) {
   return (
@@ -21,7 +21,7 @@ function BlogPostPreview (props) {
           />
         )}
       </div>
-      <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
+      <h4 className={cn(responsiveTitle4, styles.title)}>{props.title}</h4>
       {props._rawExcerpt && (
         <div className={styles.excerpt}>
           <BlockText blocks={props._rawExcerpt} />

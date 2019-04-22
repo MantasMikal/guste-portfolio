@@ -6,7 +6,7 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 import ImageWithModal from '../components/image/imageWithModal'
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { responsiveTitle2 } from '../components/typography.module.css'
 import Grid from '../components/grid/grid'
 
 export const query = graphql`
@@ -49,7 +49,7 @@ const Art = props => {
     <Layout>
       <SEO title='Art' />
       <Container>
-        <h1 className={responsiveTitle1}>Art</h1>
+        <h1 className={responsiveTitle2}>Art</h1>
         <Grid>
           {
             artNodes.map((item) => {

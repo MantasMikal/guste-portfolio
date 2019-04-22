@@ -7,7 +7,7 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { responsiveTitle2 } from '../components/typography.module.css'
 
 export const query = graphql`
   query ProjectsPageQuery {
@@ -49,7 +49,7 @@ const ProjectsPage = props => {
     <Layout>
       <SEO title='Projects' />
       <Container>
-        <h1 className={responsiveTitle1}>Projects</h1>
+        <h1 className={responsiveTitle2}>Projects</h1>
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
       </Container>
     </Layout>

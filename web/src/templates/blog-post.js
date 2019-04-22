@@ -15,7 +15,13 @@ export const query = graphql`
         _id
         title
       }
+      _rawContent(resolveReferences: { maxDepth: 5})
       mainImage {
+        asset {
+          fluid {
+            ...GatsbySanityImageFluid
+          }
+        }
         crop {
           _key
           _type

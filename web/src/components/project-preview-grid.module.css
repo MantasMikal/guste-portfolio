@@ -2,11 +2,11 @@
 @import '../styles/vars.css';
 
 .root {
-  margin: 0.325rem 0 4rem;
+  margin: 0.325rem 0 0.625rem;
 }
 
 .headline {
-  font-size: var(--font-small-size);
+  font-size: var(--font-large-size);
   line-height: var(--font-small-line-height);
   margin: 0.325rem 0;
 
@@ -22,8 +22,8 @@
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  grid-column-gap: 2rem;
-  grid-row-gap: 2rem;
+  grid-column-gap: 0.625em;
+  grid-row-gap: 0.625em;
 
   @media (--media-min-small) {
     grid-template-columns: 1fr 1fr;
