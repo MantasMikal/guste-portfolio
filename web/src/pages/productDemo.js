@@ -3,16 +3,29 @@ export default class ProductDemo extends React.Component {
   render () {
     return (
       <div>
-        <button
+        <a
+          href='#'
           className='snipcart-add-item'
-          data-item-id='2'
-          data-item-name='Bacon'
-          data-item-price='3.00'
-          data-item-weight='20'
-          data-item-url='https://gustore.netlify.com/productDemo'
-          data-item-description='Some fresh bacon'>
-        Buy bacon
-        </button>
+          data-item-id={1}
+          data-item-price={1}
+          data-item-name='Baconija'
+          data-item-description='Very baconija'
+          data-item-url={'http://gustore.netlify.com/productDemo'}
+        >
+          Buy
+        </a>
+
+        <a
+          href='#'
+          className='snipcart-add-item'
+          data-item-id={1}
+          data-item-price={1}
+          data-item-name='Baconija'
+          data-item-description='Very baconija'
+          data-item-url={'http://gustore.netlify.com/productDemo'}
+        >
+          Buy2
+        </a>
       </div>
     )
   }
