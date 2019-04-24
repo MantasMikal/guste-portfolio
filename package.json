@@ -21,7 +21,5 @@
     "lerna": "^3.13.3",
     "rimraf": "^2.6.3"
   },
-  "dependencies": {
-    "gatsby-plugin-snipcart": "^1.0.6"
-  }
+  "dependencies": {}
 }
