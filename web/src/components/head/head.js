@@ -82,6 +82,12 @@ const Head = ({
         type='image/png'
       />
 
+      <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js' />
+
+      <script src='https://cdn.snipcart.com/scripts/2.0/snipcart.js' data-api-key='ODBjMDM3MDItOGY5Zi00Nzk5LWJhYjctMWY2ZDAwMjUxYzA1NjM2OTE2NDM3MjAyODQwODE0' id='snipcart' />
+
+      <link href='https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css' rel='stylesheet' type='text/css' />
+
       <link href='/icons/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png' />
       <link href='/icons/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png' />
 
