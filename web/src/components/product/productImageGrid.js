@@ -2,12 +2,13 @@
 import React from 'react'
 import Grid from '../grid/grid'
 import Image from '../image/image'
+import styles from './productImageGrid.module.css'
 
 export default function productImageGrid (props) {
   const { images, handleClick } = props
 
   return (
-    <Grid colCount={4} colWidth='1fr' rowHeight='30%'>
+    <div className={styles.grid}>
       {
         images && images.map((img, i) => {
           console.log(i)
@@ -19,6 +20,6 @@ export default function productImageGrid (props) {
           )
         })
       }
-    </Grid>
+    </div>
   )
 }

@@ -29,8 +29,13 @@
   grid-column-gap: 2em;
 
   @media (--media-min-medium) {
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 2fr;
   }
+}
+
+
+.limitWidth {
+  max-width: 70%;
 }
 
 .mainContent {

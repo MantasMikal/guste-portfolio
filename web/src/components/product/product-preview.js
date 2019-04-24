@@ -5,7 +5,7 @@ import { imageUrlFor } from '../../lib/image-url'
 import BlockText from '../block-text'
 import Image from '../image/image'
 import styles from './product-preview.module.css'
-import { responsiveTitle4 } from '../typography.module.css'
+import { responsiveTitle4, paragraphLimited } from '../typography.module.css'
 
 function ProductPreview (props) {
   return (

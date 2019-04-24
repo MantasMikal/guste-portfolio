@@ -10,7 +10,7 @@ import ImageWithModal from '../image/imageWithModal'
 import Button from '../button/button'
 import ProductImageGrid from './productImageGrid'
 import ProductShowcase from './productShowcase'
-
+import { paragraphLimited } from '../typography.module.css'
 import styles from './product.module.css'
 
 class Product extends React.Component {
@@ -29,7 +29,9 @@ class Product extends React.Component {
               <h1 className={styles.title}>{title}</h1>
               <h3>Price: {price}</h3>
               <h3>Quantity: {quantity}</h3>
-              {_rawBody && <BlockContent blocks={_rawBody || []} />}
+              <div className={paragraphLimited}>
+                {_rawBody && <BlockContent blocks={_rawBody || []} />}
+              </div>
               {publishedAt && (
                 <div className={styles.publishedAt}>
                   {differenceInDays(new Date(publishedAt), new Date()) > 3
@@ -38,7 +40,7 @@ class Product extends React.Component {
                 </div>
               )}
               {categories && (
-                <div className={styles.categories}>
+                <div className={[styles.categories, styles.limitWidth].join(' ')}>
                   <h3 className={styles.categoriesHeadline}>Categories</h3>
                   <ul>
                     {categories.map(category => (
