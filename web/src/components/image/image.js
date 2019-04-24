@@ -4,10 +4,10 @@ import NoImage from '../../images/noImage.svg'
 import styles from './image.module.css'
 
 export default function Image (props) {
-  const { fluid, alt } = props
+  const { fluid, alt, imageStyles } = props
   return (
     fluid
-      ? <GatsbyImage fluid={fluid} alt={alt} className={styles.image} />
+      ? <GatsbyImage fluid={fluid} alt={alt} style={imageStyles} className={styles.image} />
       : <NoImage />
   )
 }

@@ -25,7 +25,7 @@ const serializers = {
         return <blockquote className={typography.blockQuote}>{props.children}</blockquote>
 
       default:
-        return <p className={[typography.paragraph, typography.paragraphLimited].join(' ')}>{props.children}</p>
+        return <p className={typography.paragraph}>{props.children}</p>
       }
     },
     figure (props) {

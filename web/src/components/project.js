@@ -7,7 +7,7 @@ import BlockContent from './block-content'
 import Container from './container'
 import RoleList from './role-list'
 import { makeComponents } from '../templates/dynamicComponents'
-
+import typography from './typography.module.css'
 import styles from './project.module.css'
 
 class Project extends React.Component {
@@ -39,7 +39,7 @@ class Project extends React.Component {
             <h1 className={styles.title}>{title}</h1>
             {this.components}
             <div style={{ borderTop: '1px solid black', width: '100%', marginTop: '1em' }} />
-            {_rawBody && <BlockContent blocks={_rawBody || []} />}
+            {_rawBody && <BlockContent blocks={_rawBody || []} className={typography.paragraphLimited} />}
             <div style={{ borderTop: '1px solid black', width: '100%' }} />
           </div>
         </Container>

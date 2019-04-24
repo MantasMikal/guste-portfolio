@@ -62,16 +62,18 @@ export default class ModalImage extends Component {
     this.closeModal = this.closeModal.bind(this)
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    // console.log(this.state.modalIsOpen, nextState.modalIsOpen)
-    if (this.state.modalIsOpen === nextState.modalIsOpen) {
-      console.log('NO UPDATE FOR YOU')
-      return false
-    } else {
-      console.log('UPDATE')
-      return true
-    }
-  }
+  // shouldComponentUpdate (nextProps, nextState) {
+  //   // console.log(this.state.modalIsOpen, nextState.modalIsOpen)
+  //   if (this.state.modalIsOpen === nextState.modalIsOpen) {
+  //     console.log('NO UPDATE FOR YOU')
+  //     console.log('Prev: ', this.state)
+  //     console.log("Next: ", nextState)
+  //     return false
+  //   } else {
+  //     console.log('UPDATE')
+  //     return true
+  //   }
+  // }
 
   openModal () {
     this.setState({ modalIsOpen: true })

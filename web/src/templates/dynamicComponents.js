@@ -8,15 +8,15 @@ import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 const cfg = { projectId: 'ee0lu4ue', dataset: 'production' }
 
 export function makeMediaComponent (component) {
+
   switch (component._type) {
   case 'figure':
     const image = component.asset
     const imageAlt = component.alt ? component.alt : ' '
-
     // Determine if it is a gif and render aproprietly
     if (image.mimeType === 'image/gif') {
       return (
-        <img src={image.url} alt={imageAlt} style={{ width: '100%' }} />
+        <img src={image.url} alt={imageAlt} style={{ width: '100%' }} key={component._key} />
       )
     } else {
       const fluidProps = getFluidGatsbyImage(image._id, { maxWidth: 1024 }, cfg)
@@ -45,7 +45,7 @@ export function makeMediaComponent (component) {
 }
 
 export function makeComponents (components) {
-  if(!components){
+  if (!components) {
     return <> </>
   }
   return components.map((component) => {

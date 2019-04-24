@@ -28,6 +28,9 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle, contactInfo }) => (
             <Link to='/blog/'>Blog</Link>
           </li>
           <li>
+            <Link to='/store/'>Store</Link>
+          </li>
+          <li>
             <ContactPage contactInfo={contactInfo} />
           </li>
         </ul>

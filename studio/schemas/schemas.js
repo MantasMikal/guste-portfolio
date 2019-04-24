@@ -25,6 +25,9 @@ import moduleContent from './moduleContent'
 import imageGrid from './imageGrid'
 import video from './video'
 import grid from './grid'
+import productCategory from './productCategory'
+import product from './product'
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -53,7 +56,9 @@ export default createSchema({
     moduleContent,
     imageGrid,
     video,
-    grid
+    grid,
+    product,
+    productCategory
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

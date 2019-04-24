@@ -37,7 +37,7 @@ async function createBlogPostPages (graphql, actions, reporter) {
 
     createPage({
       path,
-      component: require.resolve('./src/templates/blog-post.js'),
+      component: require.resolve('./src/templates/blogPostTemplate.js'),
       context: { id }
     })
 
@@ -75,7 +75,45 @@ async function createProjectPages (graphql, actions, reporter) {
 
     createPage({
       path,
-      component: require.resolve('./src/templates/project.js'),
+      component: require.resolve('./src/templates/projectTemplate.js'),
+      context: { id }
+    })
+
+    createPageDependency({ path, nodeId: id })
+  })
+}
+
+async function createProductPages (graphql, actions, reporter) {
+  const { createPage, createPageDependency } = actions
+  const result = await graphql(`
+    {
+      allSanityProduct(filter: { slug: { current: { ne: null } } }) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  const productEdges = (result.data.allSanityProduct || {}).edges || []
+
+  productEdges.forEach(edge => {
+    const id = edge.node.id
+    const slug = edge.node.slug.current
+    const path = `/store/${slug}/`
+
+    reporter.info(`Creating project page: ${path}`)
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/productTemplate.js'),
       context: { id }
     })
 
@@ -86,4 +124,5 @@ async function createProjectPages (graphql, actions, reporter) {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createBlogPostPages(graphql, actions, reporter)
   await createProjectPages(graphql, actions, reporter)
+  await createProductPages(graphql, actions, reporter)
 }

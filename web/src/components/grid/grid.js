@@ -2,9 +2,9 @@ import React from 'react'
 import styles from './grid.module.css'
 
 function Grid (props) {
-  const { colCount } = props
+  const { colCount, colWidth, rowHeight } = props
   return (
-    <div className={styles.grid} style={{ gridTemplateColumns: `repeat(${colCount}, 1fr)` }}>
+    <div className={styles.grid} style={{ gridTemplateColumns: `repeat(${colCount}, ${colWidth || `1fr`})`, gridAutoRows: `${rowHeight || 'fr'}` }}>
       {props.children}
     </div>
   )
