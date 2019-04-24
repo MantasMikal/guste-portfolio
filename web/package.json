@@ -30,6 +30,7 @@
     "gatsby-plugin-react-helmet": "^3.0.11",
     "gatsby-plugin-sharp": "^2.0.35",
     "gatsby-plugin-sitemap": "^2.0.12",
+    "gatsby-plugin-snipcart": "^1.0.6",
     "gatsby-source-sanity": "^2.0.2",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.6.0",
