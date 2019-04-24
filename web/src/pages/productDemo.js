@@ -23,9 +23,7 @@ export default class ProductDemo extends React.Component {
             },
             {
               type: 'text/javascript',
-              src: 'https://code.jquery.com/jquery-2.2.4.min.js',
-              integrity: 'sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=',
-              crossOrigin: 'anonymous'
+              src: 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'
             }
           ]}
         />
