@@ -30,7 +30,7 @@ export default class ProductShowcase extends Component {
 
     return (
       <div>
-        <ImageWithModal image={this.state.currentImage.asset.fluid} alt={this.props.alt}></ImageWithModal>
+          <ImageWithModal image={this.state.currentImage.asset.fluid} alt={this.props.alt}></ImageWithModal>
         <ProductImageGrid images={this.props.images} handleClick={this.handleClick}></ProductImageGrid>
       </div>
     )

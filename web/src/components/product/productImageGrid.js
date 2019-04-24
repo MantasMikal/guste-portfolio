@@ -11,9 +11,9 @@ export default function productImageGrid (props) {
     <div className={styles.grid}>
       {
         images && images.map((img, i) => {
-          console.log(i)
+          console.log(img.asset.id)
           return (
-            <div key={img.asset.id} style={{ position: 'relative' }}>
+            <div key={img.asset.id + i} style={{ position: 'relative' }}>
               <div style={{ position: 'absolute', width: '100%', height: '100%', zIndex: 1 }} onClick={handleClick.bind(this)} imgid={i} />
               <Image fluid={img.asset.fluid} alt={img.asset.alt} imageStyles={{ maxWidth: '100%', maxHeight: '100%' }} />
             </div>

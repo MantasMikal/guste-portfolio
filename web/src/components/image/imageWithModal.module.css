@@ -5,11 +5,14 @@
 }
 
 .zoomedImage {
-  width: 47rem;
-  margin: 0.325em auto;
+  width: 95vh;
+  margin: auto auto;
 
   @media (--media-max-medium) {
-    max-width: 90vw;
+    width: 70vh;
+  }
+  @media (--media-max-small) {
+    width: 50vh;
   }
 }
 

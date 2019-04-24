@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Modal from '../modal/modal'
 import Img from 'gatsby-image'
 import styles from './imageWithModal.module.css'
+//import { MapInteractionCSS } from 'react-map-interaction';
 
 // const Overlay = styled('div')`
 //     /*  */
@@ -82,7 +83,7 @@ export default class ModalImage extends Component {
   closeModal () {
     this.setState({ modalIsOpen: false })
   }
-
+  // It is possbile to optimize this by using css to place image on click and add Overlay
   render () {
     const image = this.props.image ? this.props.image : ''
     const caption = this.props.caption ? this.props.caption : 'Image '

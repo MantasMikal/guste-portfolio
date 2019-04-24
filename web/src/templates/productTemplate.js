@@ -24,6 +24,8 @@ export const query = graphql`
       }
       mainImage {
           asset {
+            url
+            id
             fluid {
               ...GatsbySanityImageFluid
             }
@@ -33,6 +35,7 @@ export const query = graphql`
 
     images {
       asset {
+        url
         id
         fluid {
           ...GatsbySanityImageFluid

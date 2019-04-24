@@ -18,6 +18,8 @@ export const query = graphql`
       _rawContent(resolveReferences: { maxDepth: 5})
       mainImage {
         asset {
+          id
+          url
           fluid {
             ...GatsbySanityImageFluid
           }
