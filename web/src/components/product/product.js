@@ -16,12 +16,13 @@ import styles from './product.module.css'
 class Product extends React.Component {
   render () {
     const { _rawBody, title, quantity, images, id, price, discount, categories, mainImage, publishedAt, slug } = this.props
+    let allImages = [mainImage, ...images]
     return (
       <article className={styles.root}>
         <Container>
           <div className={styles.grid}>
             <div className={styles.mainContent}>
-              <ProductShowcase image={mainImage.asset.fluid} alt={mainImage.asset.alt} images={images} />
+              <ProductShowcase image={mainImage.asset.fluid} alt={mainImage.asset.alt} images={allImages} />
               {/* <ProductImageGrid images={images} /> */}
             </div>
             <aside className={styles.metaContent}>
