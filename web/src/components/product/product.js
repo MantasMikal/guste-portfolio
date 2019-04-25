@@ -13,15 +13,15 @@ import styles from './product.module.css'
 
 class Product extends React.Component {
   render () {
-    const { _rawBody, title, quantity, images, id, price, _rawDescription, discount, categories, mainImage, publishedAt, slug } = this.props
+    const { title, quantity, images, id, price, _rawDescription, discount, categories, mainImage, publishedAt, slug } = this.props
     let allImages = [mainImage, ...images] // Concat all images
+    const shortDescription = _rawDescription[0].children[0].text
     return (
       <article className={styles.root}>
         <Container>
           <div className={styles.grid}>
             <div className={styles.mainContent}>
               <ProductShowcase image={mainImage.asset.fluid} alt={mainImage.asset.alt} images={allImages} />
-              {/* <ProductImageGrid images={images} /> */}
             </div>
             <aside className={styles.metaContent}>
               <h1 className={styles.title}>{title}</h1>
@@ -53,6 +53,8 @@ class Product extends React.Component {
                 id={id}
                 price={price}
                 name={title}
+                description={shortDescription}
+                image={mainImage.asset.url}
                 url={`http://gustore.netlify.com/store/${slug.current}`} > GRAB NOW </Button>
             </aside>
           </div>
