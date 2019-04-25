@@ -6,7 +6,7 @@ export default function Video (props) {
 
   return (
     <div className={styles.videoWrapper}>
-      <video className={styles.video} width='100%' height='auto' alt={alt} controls autoPlay muted loop>
+      <video className={styles.video} width='100%' height='auto' alt={alt} autoPlay muted loop>
         <source src={src} type='video/mp4' />
         Your browser does not support the video tag.
       </video>

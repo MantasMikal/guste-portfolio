@@ -44,23 +44,20 @@ const Art = props => {
     )
   }
   const artNodes = data && data.art && mapEdgesToNodes(data.art)
-  console.log(artNodes)
   return (
     <Layout>
       <SEO title='Art' />
       <Container>
         <h1 className={responsiveTitle2}>Art</h1>
-        <Grid>
+        <Grid colCount={4}>
           {
             artNodes.map((item) => {
-              // item && item.artwork && item.artwork.asset?
               return (
                 <ImageWithModal key={item.id} image={item.artwork.asset.fluid} alt={item.artwork.alt} />
               )
             })
           }
         </Grid>
-        {/* {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />} */}
       </Container>
     </Layout>
   )
