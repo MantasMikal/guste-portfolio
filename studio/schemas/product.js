@@ -16,7 +16,7 @@ export default {
     {
       name: 'discount',
       title: 'Discount',
-      description: 'Discount %',
+      description: 'Discount %. Leave blank if no discount!',
       type: 'number'
     },
     {
@@ -41,15 +41,15 @@ export default {
       }
     },
     {
+      name: 'mainImage',
+      title: 'Main image',
+      type: 'mainImage'
+    },
+    {
       name: 'images',
       title: 'Images',
       type: 'array',
       of: [{ type: 'image' }]
-    },
-    {
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'mainImage'
     },
     {
       name: 'categories',
@@ -58,9 +58,9 @@ export default {
       of: [{ type: 'reference', to: { type: 'productCategory' } }]
     },
     {
-      name: 'body',
+      name: 'description',
       title: 'Description',
-      type: 'blockContent'
+      type: 'blockText'
     }
   ],
   preview: {

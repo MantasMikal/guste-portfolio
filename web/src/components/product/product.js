@@ -1,22 +1,20 @@
 import { format, distanceInWords, differenceInDays } from 'date-fns'
 import React from 'react'
-import { Link } from 'gatsby'
-import { buildImageObj } from '../../lib/helpers'
-import { imageUrlFor } from '../../lib/image-url'
+// import { Link } from 'gatsby'
+// import { buildImageObj } from '../../lib/helpers'
+// import { imageUrlFor } from '../../lib/image-url'
 import BlockContent from '../block-content'
 import Container from '../container'
-import RoleList from '../role-list'
-import ImageWithModal from '../image/imageWithModal'
 import Button from '../button/button'
-import ProductImageGrid from './productImageGrid'
 import ProductShowcase from './productShowcase'
+import BlockText from '../block-text'
 import { paragraphLimited } from '../typography.module.css'
 import styles from './product.module.css'
 
 class Product extends React.Component {
   render () {
-    const { _rawBody, title, quantity, images, id, price, discount, categories, mainImage, publishedAt, slug } = this.props
-    let allImages = [mainImage, ...images]
+    const { _rawBody, title, quantity, images, id, price, _rawDescription, discount, categories, mainImage, publishedAt, slug } = this.props
+    let allImages = [mainImage, ...images] // Concat all images
     return (
       <article className={styles.root}>
         <Container>
@@ -29,9 +27,11 @@ class Product extends React.Component {
               <h1 className={styles.title}>{title}</h1>
               <h3>Price: {price}</h3>
               <h3>Quantity: {quantity}</h3>
-              <div className={paragraphLimited}>
-                {_rawBody && <BlockContent blocks={_rawBody || []} />}
-              </div>
+              {_rawDescription && (
+                <div className={paragraphLimited}>
+                  <BlockText blocks={_rawDescription} />
+                </div>
+              )}
               {publishedAt && (
                 <div className={styles.publishedAt}>
                   {differenceInDays(new Date(publishedAt), new Date()) > 3

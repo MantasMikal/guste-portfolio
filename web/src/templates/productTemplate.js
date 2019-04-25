@@ -22,6 +22,7 @@ export const query = graphql`
         _id
         title
       }
+
       mainImage {
           asset {
             url
@@ -42,7 +43,7 @@ export const query = graphql`
         }
       }
     }
-      _rawBody
+      _rawDescription
     }
   }
 `
