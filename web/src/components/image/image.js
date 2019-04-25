@@ -7,7 +7,7 @@ export default function Image (props) {
   const { fluid, alt, imageStyles } = props
   return (
     fluid
-      ? <GatsbyImage fluid={fluid} alt={alt} style={imageStyles} className={styles.image} />
+      ? <GatsbyImage fluid={fluid} alt={alt} className={styles.image} />
       : <NoImage />
   )
 }
