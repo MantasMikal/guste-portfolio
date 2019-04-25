@@ -5,3 +5,14 @@
   grid-gap: 0.625em;
   margin: 0.625em auto;
 }
+
+.gridWrapper {
+  position: relative;
+}
+
+.clickHandler {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
