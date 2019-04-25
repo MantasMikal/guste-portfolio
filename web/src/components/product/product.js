@@ -53,7 +53,7 @@ class Product extends React.Component {
                 id={id}
                 price={price}
                 name={title}
-                url={`http://gustore.netlify.com/productDemo/store/${slug.current}`} > GRAB NOW </Button>
+                url={`http://gustore.netlify.com/store/${slug.current}`} > GRAB NOW </Button>
             </aside>
           </div>
         </Container>
