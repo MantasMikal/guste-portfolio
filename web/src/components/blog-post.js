@@ -28,7 +28,7 @@ class BlogPost extends React.Component {
                 <div className={styles.content}>
 
                   <BlockContent blocks={_rawBody} />
-                  <div>{date}</div>
+                  <i>{date}</i>
                 </div>
               )}
             </div>
