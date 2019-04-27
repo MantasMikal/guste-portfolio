@@ -37,9 +37,6 @@ export const query = graphql`
     }
   }
 `
-const customGridStyle = {
-  gridTemplateColumns: '1fr 1fr'
-}
 
 const ProjectsPage = props => {
   const { data, errors } = props
@@ -57,7 +54,7 @@ const ProjectsPage = props => {
       <SEO title='Projects' />
       <Container>
         <h1 className={cn(responsiveTitle2, uppercase)}>Projects</h1>
-        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} gridStyle={customGridStyle} />}
+        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} colCount={2}/>}
       </Container>
     </Layout>
   )

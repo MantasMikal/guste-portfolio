@@ -48,6 +48,14 @@
   }
 }
 
+.twoColGrid {
+  grid-template-columns: 1fr;
+
+  @media (--media-min-medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .browseMoreNav {
   composes: small from './typography.module.css';
   margin-top: 1rem;

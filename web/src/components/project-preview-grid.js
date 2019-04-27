@@ -5,7 +5,9 @@ import { cn } from '../lib/helpers'
 import styles from './project-preview-grid.module.css'
 
 function ProjectPreviewGrid (props) {
-  const { gridStyle } = props
+  const { colCount } = props
+  /* TODO FIX THIS NASTY THING */
+  const gridStyle = colCount === 2 ? cn(styles.grid, styles.twoColGrid) : styles.grid
   return (
     <div className={styles.root} >
       {props.title && (
@@ -17,7 +19,7 @@ function ProjectPreviewGrid (props) {
           )}
         </h2>
       )}
-      <ul className={styles.grid} style={gridStyle}>
+      <ul className={gridStyle}>
         {props.nodes &&
           props.nodes.map((node, idx) => (
             <li key={node.id}>
