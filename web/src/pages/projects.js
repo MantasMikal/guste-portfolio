@@ -50,7 +50,7 @@ const ProjectsPage = props => {
       </Layout>
     )
   }
-  console.log(data.projects)
+
   const projectNodes = data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>

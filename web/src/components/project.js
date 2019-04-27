@@ -17,7 +17,7 @@ class Project extends React.Component {
   }
 
   render () {
-    console.log('Produced components: ', this.components)
+
     const { _rawBody, _rawContent, title, categories, mainImage, members, publishedAt, relatedProjects } = this.props
     return (
       <article className={styles.root}>

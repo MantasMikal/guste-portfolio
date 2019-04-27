@@ -8,7 +8,7 @@ import { responsiveTitle5 } from './typography.module.css'
 
 function ProjectPreview (props) {
   const { index } = props
-  console.log(props.mainImage.asset.fluid)
+
   return (
     <>
       <Link className={styles.root} to={`/project/${props.slug.current}`}>

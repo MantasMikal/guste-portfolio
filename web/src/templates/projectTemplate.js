@@ -57,34 +57,6 @@ export const query = graphql`
         current
       }
       _rawBody
-      members {
-        _key
-        person {
-          image {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-          }
-          name
-        }
-        roles
-      }
     }
   }
 `
@@ -92,7 +64,6 @@ export const query = graphql`
 const ProjectTemplate = props => {
   const { data, errors } = props
   const project = data && data.project
-  console.log(project)
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}

@@ -8,24 +8,34 @@ import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 const cfg = { projectId: 'ee0lu4ue', dataset: 'production' }
 
 export function makeMediaComponent (component) {
-
   switch (component._type) {
   case 'figure':
+    if (!component || !component.asset || !component.asset.mimeType) {
+      console.log('Could not create component, because it is invalid', component.asset)
+      return // Safety
+    }
+
     const image = component.asset
     const imageAlt = component.alt ? component.alt : ' '
     // Determine if it is a gif and render aproprietly
+
     if (image.mimeType === 'image/gif') {
       return (
         <img src={image.url} alt={imageAlt} style={{ width: '100%' }} key={component._key} />
       )
     } else {
-      const fluidProps = getFluidGatsbyImage(image._id, { maxWidth: 1024 }, cfg)
+      const fluidProps = getFluidGatsbyImage(image._id, { maxWidth: 1920 }, cfg)
       return (
         <Img fluid={fluidProps} alt={imageAlt} key={component._key} />
       )
     }
 
   case 'video':
+    if (!component || !component.asset || !component.asset.url) {
+      console.log('Could not create component, because it is invalid', component.asset)
+      return // Safety
+    }
+
     const video = component.asset.url
     const videoAlt = component.alt ? component.alt : ' '
     // const videoCaption = component.caption ? component.caption : " "
