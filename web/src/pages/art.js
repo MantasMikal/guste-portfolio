@@ -7,7 +7,7 @@ import Layout from '../containers/layout'
 import { mapEdgesToNodes, cn } from '../lib/helpers'
 import ImageWithModal from '../components/image/imageWithModal'
 import { responsiveTitle2, uppercase } from '../components/typography.module.css'
-import Grid from '../components/grid/grid'
+import ArtPreviewGrid from '../components/art-preview-grid'
 
 export const query = graphql`
   query ArtPageQuery {
@@ -50,15 +50,7 @@ const Art = props => {
       <SEO title='Art' />
       <Container>
         <h1 className={cn(responsiveTitle2, uppercase)}>Art</h1>
-        <Grid colCount={3}>
-          {
-            artNodes.map((item) => {
-              return (
-                <ImageWithModal key={item.id} image={item.artwork.asset.fluid} alt={item.artwork.alt} />
-              )
-            })
-          }
-        </Grid>
+        <ArtPreviewGrid media={artNodes} />
       </Container>
     </Layout>
   )
