@@ -7,7 +7,7 @@ import Container from './container'
 import RoleList from './role-list'
 import Image from './image/image'
 import { makeComponents } from '../templates/dynamicComponents'
-import typography from './typography.module.css'
+import { uppercase, limitParagraph } from './typography.module.css'
 import styles from './blog-post.module.css'
 
 class BlogPost extends React.Component {
@@ -16,18 +16,25 @@ class BlogPost extends React.Component {
   }
 
   render () {
-    console.log('Produced components: ', this.components)
-    const { _rawBody, authors, categories, title, mainImage, publishedAt } = this.props
+    const { _rawBody, authors, categories, title, mainImage, date } = this.props
     return (
       <article className={styles.root}>
         <Container>
           <div className={styles.mainContent}>
-            <h1 className={cn(styles.title, typography.uppercase)}>{title}</h1>
-            {this.components}
-            <div style={{ borderTop: '1px solid black', width: '100%', marginTop: '1em' }} />
-            {_rawBody && <BlockContent blocks={_rawBody} className={typography.paragraphLimited} />}
-            <div style={{ borderTop: '1px solid black', width: '100%' }} />
+            <h1 className={cn(styles.title, uppercase)}>{title}</h1>
+            <div className={styles.gridLayout}>
+              {this.components}
+              {_rawBody && (
+                <div className={styles.content}>
+
+                  <BlockContent blocks={_rawBody} />
+                  <div>{date}</div>
+                </div>
+              )}
+            </div>
           </div>
+          <div style={{ height: '23vh'}} />
+
         </Container>
       </article>
     )

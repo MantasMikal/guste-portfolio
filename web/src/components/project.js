@@ -26,7 +26,7 @@ class Project extends React.Component {
             <h1 className={cn(styles.title, typography.uppercase)}>{title}</h1>
             {this.components}
             <div style={{ borderTop: '1px solid black', width: '100%', marginTop: '1em' }} />
-            <div className={typography.paragraphLimited}>
+            <div className={typography.limitParagraph}>
               {_rawBody && <BlockContent blocks={_rawBody || []} />}
             </div>
           </div>

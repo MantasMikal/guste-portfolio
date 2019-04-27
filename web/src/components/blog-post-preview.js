@@ -5,7 +5,7 @@ import { imageUrlFor } from '../lib/image-url'
 import BlockText from './block-text'
 import Image from './image/image'
 import styles from './blog-post-preview.module.css'
-import { responsiveTitle5 } from './typography.module.css'
+import { responsiveTitle5, limitParagraph } from './typography.module.css'
 
 function BlogPostPreview (props) {
   const { publishedAt } = props
@@ -25,11 +25,11 @@ function BlogPostPreview (props) {
         <div>{date}</div>
       </Link>
       {props._rawExcerpt && (
-          <div className={styles.excerpt}>
-            {/* <div>{date}</div> */}
-            <BlockText blocks={props._rawExcerpt} />
-          </div>
-        )}
+        <div className={styles.excerpt}>
+          {/* <div>{date}</div> */}
+          <BlockText blocks={props._rawExcerpt} />
+        </div>
+      )}
     </>
   )
 }

@@ -68,7 +68,7 @@
  * Responsively sized elements
  */
 
-.paragraphLimited {
+.limitParagraph {
   max-width: 70%;
 
   @media(--media-max-medium) {

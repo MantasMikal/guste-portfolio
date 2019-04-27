@@ -45,6 +45,8 @@
   padding: calc(14 / 17 / 2 * 1rem);
   outline: none;
 
+  transition: 0.25s;
+
   & svg {
     display: block;
   }

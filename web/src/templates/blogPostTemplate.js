@@ -56,6 +56,7 @@ export const query = graphql`
 const BlogPostTemplate = props => {
   const { data, errors } = props
   const post = data && data.post
+  const date = post.publishedAt.replace(/(\d{4})\-(\d{2})\-(\d{2}).*/, '$3-$2-$1')
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
@@ -66,7 +67,7 @@ const BlogPostTemplate = props => {
         </Container>
       )}
 
-      {post && <BlogPost {...post} />}
+      {post && <BlogPost {...post} date={date} />}
     </Layout>
   )
 }

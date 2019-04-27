@@ -12,22 +12,23 @@ import Grid from '../components/grid/grid'
 export const query = graphql`
   query ArtPageQuery {
     art: allSanityArt(
-      limit: 12
+      limit: 18
       sort: { fields: [publishedAt], order: DESC }
     ) {
       edges {
         node {
+          publishedAt
           id
           title
           artwork {
-          alt
-          caption
-          asset{
-            fluid(maxWidth: 1000, maxHeight: 1000){
-              ...GatsbySanityImageFluid
+            alt
+            caption
+            asset{
+              fluid(maxWidth: 1000, maxHeight: 1000){
+                ...GatsbySanityImageFluid
+              }
             }
           }
-        }
         }
       }
     }

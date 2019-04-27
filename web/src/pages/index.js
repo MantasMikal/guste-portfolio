@@ -18,7 +18,7 @@ export const query = graphql`
 
     projects: allSanityProject(
       limit: 6
-      sort: { fields: [publishedAt], order: ASC }
+      sort: { fields: [publishedAt], order: DESC }
     ) {
       edges {
         node {
@@ -43,7 +43,7 @@ export const query = graphql`
 
     posts: allSanityPost(
       limit: 3
-      sort: { fields: [publishedAt], order: ASC }
+      sort: { fields: [publishedAt], order: DESC }
     ) {
       edges {
         node {

@@ -18,6 +18,12 @@ export default {
       type: 'datetime'
     },
     {
+      name: 'artworkCategory',
+      title: 'Art Categories',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'artworkCategory' } }]
+    },
+    {
       name: 'artwork',
       title: 'Artwork',
       type: 'artwork',
