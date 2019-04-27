@@ -7,8 +7,6 @@ import styles from './project-preview.module.css'
 import { responsiveTitle5 } from './typography.module.css'
 
 function ProjectPreview (props) {
-  const { index } = props
-
   return (
     <>
       <Link className={styles.root} to={`/project/${props.slug.current}`}>
@@ -17,7 +15,6 @@ function ProjectPreview (props) {
         )}
       </Link>
       <Link className={cn(styles.descriptionWrapper, styles.root)} to={`/project/${props.slug.current}`}>
-        <div className={cn(responsiveTitle5, styles.title)}>0{index}</div>
         <h6 className={cn(responsiveTitle5, styles.title)}>{props.title}</h6>
       </Link>
     </>

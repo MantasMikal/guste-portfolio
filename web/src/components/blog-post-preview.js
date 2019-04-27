@@ -3,31 +3,34 @@ import React from 'react'
 import { buildImageObj, cn, getBlogUrl } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import BlockText from './block-text'
-
+import Image from './image/image'
 import styles from './blog-post-preview.module.css'
-import { responsiveTitle4 } from './typography.module.css'
+import { responsiveTitle5 } from './typography.module.css'
 
 function BlogPostPreview (props) {
+  const { publishedAt } = props
+  const date = publishedAt.replace(/(\d{4})\-(\d{2})\-(\d{2}).*/, '$3-$2-$1')
   return (
-    <Link className={styles.root} to={getBlogUrl(props.publishedAt, props.slug.current)}>
-      <div className={styles.leadMediaThumb}>
+    <>
+      <Link className={styles.root} to={getBlogUrl(props.publishedAt, props.slug.current)}>
         {props.mainImage && props.mainImage.asset && (
-          <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
-              .url()}
-            alt={props.mainImage.alt}
-          />
+          <Image fluid={props.mainImage.asset.fluid} alt={props.mainImage.alt} />
         )}
-      </div>
-      <h4 className={cn(responsiveTitle4, styles.title)}>{props.title}</h4>
+      </Link>
+      <Link
+        className={cn(styles.descriptionWrapper, styles.root)}
+        to={getBlogUrl(props.publishedAt, props.slug.current)}
+      >
+        <h6 className={cn(responsiveTitle5, styles.title)}>{props.title}</h6>
+        <div>{date}</div>
+      </Link>
       {props._rawExcerpt && (
-        <div className={styles.excerpt}>
-          <BlockText blocks={props._rawExcerpt} />
-        </div>
-      )}
-    </Link>
+          <div className={styles.excerpt}>
+            {/* <div>{date}</div> */}
+            <BlockText blocks={props._rawExcerpt} />
+          </div>
+        )}
+    </>
   )
 }
 

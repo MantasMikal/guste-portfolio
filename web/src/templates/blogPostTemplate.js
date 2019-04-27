@@ -16,35 +16,6 @@ export const query = graphql`
         title
       }
       _rawContent(resolveReferences: { maxDepth: 5})
-      mainImage {
-        asset {
-          id
-          url
-          fluid {
-            ...GatsbySanityImageFluid
-          }
-        }
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
-        }
-        asset {
-          _id
-        }
-        alt
-      }
       title
       slug {
         current
@@ -89,7 +60,6 @@ const BlogPostTemplate = props => {
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
       {post && <SEO title={post.title || 'Untitled'} />}
-
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />

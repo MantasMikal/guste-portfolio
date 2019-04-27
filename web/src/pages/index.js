@@ -18,11 +18,12 @@ export const query = graphql`
 
     projects: allSanityProject(
       limit: 6
-      sort: { fields: [publishedAt], order: DESC }
+      sort: { fields: [publishedAt], order: ASC }
     ) {
       edges {
         node {
           id
+          publishedAt
           mainImage {
             alt
             asset {
@@ -30,18 +31,6 @@ export const query = graphql`
                 ...GatsbySanityImageFluid
               }
             }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
           }
           title
           _rawExcerpt
@@ -53,34 +42,20 @@ export const query = graphql`
     }
 
     posts: allSanityPost(
-      limit: 6
-      sort: { fields: [publishedAt], order: DESC }
+      limit: 3
+      sort: { fields: [publishedAt], order: ASC }
     ) {
       edges {
         node {
           id
           publishedAt
           mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
             alt
+            asset {
+              fluid(maxWidth: 1000, maxHeight: 600){
+                ...GatsbySanityImageFluid
+              }
+            }
           }
           title
           _rawExcerpt
@@ -95,7 +70,6 @@ export const query = graphql`
 
 const IndexPage = props => {
   const { data, errors } = props
-
   if (errors) {
     return (
       <Layout>

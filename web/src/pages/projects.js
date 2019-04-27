@@ -12,7 +12,7 @@ export const query = graphql`
   query ProjectsPageQuery {
     projects: allSanityProject(
       limit: 12
-      sort: { fields: [publishedAt], order: DESC }
+      sort: { fields: [publishedAt], order: ASC }
     ) {
       edges {
         node {

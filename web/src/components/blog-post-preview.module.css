@@ -4,6 +4,15 @@
   text-decoration: none;
 }
 
+.title {
+  @media (hover: hover) {
+    @nest .root:hover & {
+      text-decoration: underline;
+    }
+  }
+}
+
+
 .leadMediaThumb {
   position: relative;
   padding-bottom: 66.666%;
@@ -19,20 +28,19 @@
   }
 }
 
-.title {
-  @media (hover: hover) {
-    @nest .root:hover & {
-      text-decoration: underline;
-    }
-  }
-}
 
 .excerpt {
   @nest & p {
-    margin: 0.5em 0;
+    margin: 0.325em 0;
   }
 
   @nest & strong {
     font-weight: 600;
   }
+}
+
+.descriptionWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
