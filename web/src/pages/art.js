@@ -12,7 +12,7 @@ import ArtPreviewGrid from '../components/art-preview-grid'
 export const query = graphql`
   query ArtPageQuery {
     art: allSanityArt(
-      limit: 18
+      limit: 100
       sort: { fields: [publishedAt], order: DESC }
     ) {
       edges {
