@@ -12,7 +12,7 @@
     width: 70vh;
   }
   @media (--media-max-small) {
-    width: 50vh;
+    width: 55vh;
   }
 }
 

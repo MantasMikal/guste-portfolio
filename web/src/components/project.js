@@ -1,7 +1,7 @@
 import { format, distanceInWords, differenceInDays } from 'date-fns'
 import React from 'react'
 import { Link } from 'gatsby'
-import { buildImageObj } from '../lib/helpers'
+import { cn } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
 import Container from './container'
@@ -21,26 +21,14 @@ class Project extends React.Component {
     const { _rawBody, _rawContent, title, categories, mainImage, members, publishedAt, relatedProjects } = this.props
     return (
       <article className={styles.root}>
-        {/* <Image fluid={mainImage.asset.fluid} alt='Main image' /> */}
-        {/* {props.mainImage && mainImage.asset && (
-          <div className={styles.mainImage}>
-            <img
-              src={imageUrlFor(buildImageObj(mainImage))
-                .width(1200)
-                .height(Math.floor((9 / 16) * 1200))
-                .fit('crop')
-                .url()}
-              alt={mainImage.alt}
-            />
-          </div>
-        )} */}
         <Container>
           <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
+            <h1 className={cn(styles.title, typography.uppercase)}>{title}</h1>
             {this.components}
             <div style={{ borderTop: '1px solid black', width: '100%', marginTop: '1em' }} />
-            {_rawBody && <BlockContent blocks={_rawBody || []} className={typography.paragraphLimited} />}
-            <div style={{ borderTop: '1px solid black', width: '100%' }} />
+            <div className={typography.paragraphLimited}>
+              {_rawBody && <BlockContent blocks={_rawBody || []} />}
+            </div>
           </div>
         </Container>
       </article>

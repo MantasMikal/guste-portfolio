@@ -1,12 +1,13 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import ProjectPreview from './project-preview'
-
+import { cn } from '../lib/helpers'
 import styles from './project-preview-grid.module.css'
 
 function ProjectPreviewGrid (props) {
+  const { gridStyle } = props
   return (
-    <div className={styles.root}>
+    <div className={styles.root} >
       {props.title && (
         <h2 className={styles.headline}>
           {props.browseMoreHref ? (
@@ -16,11 +17,11 @@ function ProjectPreviewGrid (props) {
           )}
         </h2>
       )}
-      <ul className={styles.grid}>
+      <ul className={styles.grid} style={gridStyle}>
         {props.nodes &&
-          props.nodes.map(node => (
+          props.nodes.map((node, idx) => (
             <li key={node.id}>
-              <ProjectPreview {...node} />
+              <ProjectPreview {...node} index={idx} />
             </li>
           ))}
       </ul>

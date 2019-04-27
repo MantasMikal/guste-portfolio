@@ -6,14 +6,28 @@
 }
 
 .headline {
+  text-transform: uppercase;
   font-size: var(--font-large-size);
   line-height: var(--font-small-line-height);
-  margin: 0.325rem 0;
+  margin: 1rem 0 0.5rem;
+  font-weight: 400;
 
   @nest & a {
     color: inherit;
     text-decoration: none;
   }
+
+
+  @media (--media-min-small) {
+    font-size: var(--font-title3-size);
+    line-height: var(--font-title3-line-height);
+  }
+
+  @media (--media-min-medium) {
+    font-size: var(--font-title2-size);
+    line-height: var(--font-title2-line-height);
+  }
+
 }
 
 .grid {
@@ -30,7 +44,7 @@
   }
 
   @media (--media-min-medium) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 

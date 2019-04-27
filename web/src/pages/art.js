@@ -4,9 +4,9 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
+import { mapEdgesToNodes, cn } from '../lib/helpers'
 import ImageWithModal from '../components/image/imageWithModal'
-import { responsiveTitle2 } from '../components/typography.module.css'
+import { responsiveTitle2, uppercase } from '../components/typography.module.css'
 import Grid from '../components/grid/grid'
 
 export const query = graphql`
@@ -48,8 +48,8 @@ const Art = props => {
     <Layout>
       <SEO title='Art' />
       <Container>
-        <h1 className={responsiveTitle2}>Art</h1>
-        <Grid colCount={4}>
+        <h1 className={cn(responsiveTitle2, uppercase)}>Art</h1>
+        <Grid colCount={3}>
           {
             artNodes.map((item) => {
               return (

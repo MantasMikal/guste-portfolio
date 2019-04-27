@@ -5,7 +5,7 @@
 }
 
 .title {
-  composes: responsiveTitle1 from './typography.module.css';
+  composes: responsiveTitle2 from './typography.module.css';
 }
 
 .leadMediaThumb {
@@ -39,4 +39,10 @@
   @nest & strong {
     font-weight: 600;
   }
+}
+
+.descriptionWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

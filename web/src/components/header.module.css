@@ -11,23 +11,20 @@
   margin: 0 var(--page-margin);
   display: flex;
   justify-content: center;
-  padding: 0 0;
+
 
   @media (--media-max-medium) {
-    padding: 0.325em 0em;
-    margin: 0 var(--page-margin-mobile);
+
   }
 }
 
 .branding {
   font-size: inherit;
   text-transform: uppercase;
-  margin: 0;
   flex: 1;
-
+  margin: auto;
   @nest & a {
     display: inline-block;
-    padding: var(--header-padding);
     color: inherit;
     text-decoration: none;
 

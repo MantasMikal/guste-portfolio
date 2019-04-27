@@ -6,9 +6,8 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import PeopleGrid from '../components/people-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
-
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs, cn } from '../lib/helpers'
+import { responsiveTitle2, uppercase } from '../components/typography.module.css'
 
 export const query = graphql`
   query AboutPageQuery {
@@ -59,7 +58,7 @@ const AboutPage = props => {
     <Layout>
       <SEO title={page.title} />
       <Container>
-        <h1 className={responsiveTitle1}>{page.title}</h1>
+        <h1 className={cn(responsiveTitle2, uppercase)}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
         {personNodes &&
           personNodes.length > 0 && (

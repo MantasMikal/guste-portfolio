@@ -100,11 +100,16 @@
   background: #eee;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .responsiveTitle1 {
-  font-weight: 900;
+  font-weight: 400;
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
-  margin: 1rem 0 2rem;
+  margin: 1rem 0 0.5rem;
+  border-bottom: 1px solid hsla(0,0%,0%,0.07);
 
   @media (--media-min-small) {
     font-size: var(--font-title2-size);
@@ -118,10 +123,11 @@
 }
 
 .responsiveTitle2 {
-  font-weight: 900;
+  font-weight: 400;
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
-  margin: 1.5rem 0 0.5rem;
+  margin: 1rem 0 0.5rem;
+  border-bottom: 1px solid hsla(0,0%,0%,0.07);
 
   @media (--media-min-small) {
     font-size: var(--font-title3-size);
@@ -135,11 +141,11 @@
 }
 
 .responsiveTitle3 {
-  font-weight: 900;
+  font-weight: 400;
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
   margin: 1rem 0 0.5rem;
-
+  border-bottom: 1px solid hsla(0,0%,0%,0.07);
   @media (--media-min-small) {
     font-size: var(--font-large-size);
     line-height: var(--font-large-line-height);
@@ -152,10 +158,11 @@
 }
 
 .responsiveTitle4 {
+  font-weight: 400;
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
   margin: 1rem 0 0.5rem;
-
+  border-bottom: 1px solid hsla(0,0%,0%,0.07);
   @media (--media-min-small) {
     font-size: var(--font-base-size);
     line-height: var(--font-base-line-height);
@@ -164,5 +171,22 @@
   @media (--media-min-medium) {
     font-size: var(--font-large-size);
     line-height: var(--font-large-line-height);
+  }
+}
+
+.responsiveTitle5 {
+  font-weight: 500;
+  font-size: var(--font-base-size);
+  line-height: var(--font-base-line-height);
+  margin: 0.325rem 0 0.325rem;
+  border-bottom: 1px solid hsla(0,0%,0%,0.07);
+  @media (--media-min-small) {
+    font-size: var(--font-base-size);
+    line-height: var(--font-base-line-height);
+  }
+
+  @media (--media-min-medium) {
+    font-size: var(--font-medium-size);
+    line-height: var(--font-medium-line-height);
   }
 }

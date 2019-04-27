@@ -4,7 +4,7 @@
 .root {}
 
 .title {
-  composes: responsiveTitle1 from './typography.module.css';
+  composes: responsiveTitle2 from './typography.module.css';
 }
 
 .mainImage {

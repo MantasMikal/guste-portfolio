@@ -1,8 +1,8 @@
 @import './vars.css';
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans'); */
 
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
 }

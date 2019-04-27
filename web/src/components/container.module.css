@@ -4,9 +4,9 @@
   box-sizing: border-box;
   /* Compensate header padding */
   /* padding: 0 calc(0.625em + var(--header-padding)); */
-  margin: 0 calc(var(--page-margin) + var(--header-padding)) 0.625em var(--page-margin);
-
+  /* margin: 0 calc(var(--page-margin) + var(--header-padding)) 0.625em var(--page-margin); */
+  margin: 0 var(--page-margin);
   @media (--media-max-medium) {
-    margin: 0 calc(var(--page-margin-mobile) + var(--header-padding));
+    /* margin: 0 calc(var(--page-margin-mobile) + var(--header-padding)); */
   }
 }

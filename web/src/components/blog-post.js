@@ -1,6 +1,6 @@
 import { format, distanceInWords, differenceInDays } from 'date-fns'
 import React from 'react'
-import { buildImageObj } from '../lib/helpers'
+import { cn } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
 import Container from './container'
@@ -22,8 +22,7 @@ class BlogPost extends React.Component {
       <article className={styles.root}>
         <Container>
           <div className={styles.mainContent}>
-            {/* <Image fluid={mainImage.asset.fluid} alt='Main Image' /> */}
-            <h1 className={styles.title}>{title}</h1>
+            <h1 className={cn(styles.title, typography.uppercase)}>{title}</h1>
             {this.components}
             <div style={{ borderTop: '1px solid black', width: '100%', marginTop: '1em' }} />
             {_rawBody && <BlockContent blocks={_rawBody} className={typography.paragraphLimited} />}

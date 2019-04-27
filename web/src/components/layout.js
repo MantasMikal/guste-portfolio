@@ -31,7 +31,7 @@ const Layout = ({ children, personalInfo, contactInfo, footerText, onHideNav, on
           )}
         </div> */}
         <div className={styles.siteInfo}>
-          © {new Date().getFullYear()}, {footerText}
+          © {new Date().getFullYear()} {footerText}
         </div>
       </div>
     </footer>

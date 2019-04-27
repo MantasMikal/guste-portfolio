@@ -2,32 +2,25 @@ import { Link } from 'gatsby'
 import React from 'react'
 import { cn, buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
-import BlockText from './block-text'
-
+import Image from './image/image'
 import styles from './project-preview.module.css'
-import { responsiveTitle4 } from './typography.module.css'
+import { responsiveTitle5 } from './typography.module.css'
 
 function ProjectPreview (props) {
+  const { index } = props
+  console.log(props.mainImage.asset.fluid)
   return (
-    <Link className={styles.root} to={`/project/${props.slug.current}`}>
-      <div className={styles.leadMediaThumb}>
+    <>
+      <Link className={styles.root} to={`/project/${props.slug.current}`}>
         {props.mainImage && props.mainImage.asset && (
-          <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
-              .url()}
-            alt={props.mainImage.alt}
-          />
+          <Image fluid={props.mainImage.asset.fluid} alt={props.mainImage.alt} />
         )}
-      </div>
-      <h4 className={cn(responsiveTitle4, styles.title)}>{props.title}</h4>
-      {props._rawExcerpt && (
-        <div className={styles.excerpt}>
-          <BlockText blocks={props._rawExcerpt} />
-        </div>
-      )}
-    </Link>
+      </Link>
+      <Link className={cn(styles.descriptionWrapper, styles.root)} to={`/project/${props.slug.current}`}>
+        <div className={cn(responsiveTitle5, styles.title)}>0{index}</div>
+        <h6 className={cn(responsiveTitle5, styles.title)}>{props.title}</h6>
+      </Link>
+    </>
   )
 }
 

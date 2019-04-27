@@ -9,6 +9,8 @@
   padding: 0 3.625em;
   color: white;
   text-align: justify;
+  text-transform: none;
+
   @media (--media-max-small) {
     padding: 0 1.625em;
     width: auto;
