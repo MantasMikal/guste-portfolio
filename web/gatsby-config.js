@@ -5,7 +5,7 @@ const {
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.gugis.co`
+    siteUrl: `https://gugis.co`
   },
   plugins: [
     'gatsby-plugin-postcss',
@@ -20,13 +20,6 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
         watchMode: true,
         overlayDrafts: true
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-snipcart',
-      options: {
-        apiKey: 'ODBjMDM3MDItOGY5Zi00Nzk5LWJhYjctMWY2ZDAwMjUxYzA1NjM2OTE2NDM3MjAyODQwODE0',
-        autopop: true
       }
     },
     `gatsby-plugin-sharp`,
