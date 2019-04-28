@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styles from './video.module.css'
 
-export default function Video (props) {
-  const { src, alt } = props
+export default class Video extends Component {
+  componentWillUnmount () {
+    this.refs.video.src = ''
+    this.refs.video.load()
+  }
 
-  return (
-    <div className={styles.videoWrapper}>
-      <video className={styles.video} width='100%' height='auto' alt={alt} muted loop>
-        <source src={src} type='video/mp4' />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  )
+  render () {
+    const { src, alt } = this.props
+    return (
+      <div className={styles.videoWrapper}>
+        <video className={styles.video} width='100%' height='auto' src={src} type='video/mp4' alt={alt} muted autoPlay loop playsInline ref={'video'}>
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    )
+  }
 }
