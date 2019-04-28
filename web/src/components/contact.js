@@ -13,8 +13,7 @@ const Contacts = props => {
       <SEO title={title} />
       <h2 className={typography.responsiveTitle1}>{title}</h2>
       <BlockContent blocks={_rawBody || []} />
-      {/* <Seperator /> */}
-      <hr />
+
       <div className={styles.iconGrid}>
         <a className={styles.icon} href='tel:+1-303-499-7111' target='_blank' rel='noopener noreferrer'><FaPhone size={'3em'} /></a>
         <a className={styles.icon} href='mailto:guste.vasil@gmail.com, vasilia2@coventry.ac.uk' target='_blank' rel='noopener noreferrer'><FaEnvelope size={'3em'} /></a>
