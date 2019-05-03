@@ -15,10 +15,38 @@ const Contacts = props => {
       <BlockContent blocks={_rawBody || []} />
 
       <div className={styles.iconGrid}>
-        <a className={styles.icon} href='tel:+1-303-499-7111' target='_blank' rel='noopener noreferrer'><FaPhone size={'3em'} /></a>
-        <a className={styles.icon} href='mailto:guste.vasil@gmail.com, vasilia2@coventry.ac.uk' target='_blank' rel='noopener noreferrer'><FaEnvelope size={'3em'} /></a>
-        <a className={styles.icon} href='https://www.messenger.com/t/guste.vasiliauskaite' target='_blank' rel='noopener noreferrer'><FaFacebook size={'3em'} /></a>
-        <a className={styles.icon} href='https://www.instagram.com/vasssil' target='_blank' rel='noopener noreferrer'><FaInstagram size={'3em'} /></a>
+        <a
+          className={styles.icon}
+          href='tel:+1-303-499-7111'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FaPhone size={'3em'} />
+        </a>
+        <a
+          className={styles.icon}
+          href='mailto:guste.vasil@gmail.com, vasilia2@coventry.ac.uk'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FaEnvelope size={'3em'} />
+        </a>
+        <a
+          className={styles.icon}
+          href='https://www.messenger.com/t/guste.vasiliauskaite'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FaFacebook size={'3em'} />
+        </a>
+        <a
+          className={styles.icon}
+          href='https://www.instagram.com/vasssil'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <FaInstagram size={'3em'} />
+        </a>
       </div>
     </div>
   )

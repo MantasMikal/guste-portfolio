@@ -26,15 +26,13 @@ class BlogPost extends React.Component {
               {this.components}
               {_rawBody && (
                 <div className={styles.content}>
-
                   <BlockContent blocks={_rawBody} />
                   <i>{date}</i>
                 </div>
               )}
             </div>
           </div>
-          <div style={{ height: '23vh'}} />
-
+          <div style={{ height: '23vh' }} />
         </Container>
       </article>
     )

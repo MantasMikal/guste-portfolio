@@ -14,7 +14,10 @@ function ProjectPreview (props) {
           <Image fluid={props.mainImage.asset.fluid} alt={props.mainImage.alt} />
         )}
       </Link>
-      <Link className={cn(styles.descriptionWrapper, styles.root)} to={`/project/${props.slug.current}`}>
+      <Link
+        className={cn(styles.descriptionWrapper, styles.root)}
+        to={`/project/${props.slug.current}`}
+      >
         <div>0{props.index}</div>
         <h6 className={cn(responsiveTitle5, styles.title)}>{props.title}</h6>
       </Link>

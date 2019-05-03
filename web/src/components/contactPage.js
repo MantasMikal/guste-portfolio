@@ -22,8 +22,14 @@ export default class Nav extends React.Component {
   render () {
     return (
       <>
-        <a onClick={this.handleOverlay} style={{ cursor: 'pointer' }}>Contact</a>
-        <Modal isOpen={this.state.isOpen} closeModal={this.handleOverlay} color='rgba(0, 0, 0, 0.6)'>
+        <a onClick={this.handleOverlay} style={{ cursor: 'pointer' }}>
+          Contact
+        </a>
+        <Modal
+          isOpen={this.state.isOpen}
+          closeModal={this.handleOverlay}
+          color='rgba(0, 0, 0, 0.6)'
+        >
           <Contact contactInfo={this.props.contactInfo} />
         </Modal>
       </>

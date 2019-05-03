@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Modal from '../modal/modal'
 import Img from 'gatsby-image'
 import styles from './imageWithModal.module.css'
-//import { MapInteractionCSS } from 'react-map-interaction';
+// import { MapInteractionCSS } from 'react-map-interaction';
 
 // const Overlay = styled('div')`
 //     /*  */

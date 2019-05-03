@@ -5,30 +5,38 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, cn } from '../lib/helpers'
-import ImageWithModal from '../components/image/imageWithModal'
 import { responsiveTitle2, uppercase } from '../components/typography.module.css'
 import ArtPreviewGrid from '../components/art-preview-grid'
 
 export const query = graphql`
   query ArtPageQuery {
-    art: allSanityArt(
-      limit: 100
-      sort: { fields: [publishedAt], order: DESC }
-    ) {
+    art: allSanityArt(limit: 100, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           publishedAt
           id
           title
+          artworkCategory {
+            title
+          }
           artwork {
             alt
             caption
-            asset{
-              fluid(maxWidth: 1000, maxHeight: 1000){
+            asset {
+              fluid(maxWidth: 1000, maxHeight: 1000) {
                 ...GatsbySanityImageFluid
               }
             }
           }
+        }
+      }
+    }
+
+    categories: allSanityArtworkCategory {
+      edges {
+        node {
+          id
+          title
         }
       }
     }
@@ -45,12 +53,13 @@ const Art = props => {
     )
   }
   const artNodes = data && data.art && mapEdgesToNodes(data.art)
+  const categories = data && data.categories && mapEdgesToNodes(data.categories)
   return (
     <Layout>
-      <SEO title='Art' />
+      <SEO title="Art" />
       <Container>
         <h1 className={cn(responsiveTitle2, uppercase)}>Art</h1>
-        <ArtPreviewGrid media={artNodes} />
+        <ArtPreviewGrid categories={categories} media={artNodes} />
       </Container>
     </Layout>
   )

@@ -16,10 +16,7 @@ export const query = graphql`
       keywords
     }
 
-    projects: allSanityProject(
-      limit: 6
-      sort: { fields: [publishedAt], order: DESC }
-    ) {
+    projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           id
@@ -41,10 +38,7 @@ export const query = graphql`
       }
     }
 
-    posts: allSanityPost(
-      limit: 3
-      sort: { fields: [publishedAt], order: DESC }
-    ) {
+    posts: allSanityPost(limit: 3, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           id
@@ -52,7 +46,7 @@ export const query = graphql`
           mainImage {
             alt
             asset {
-              fluid(maxWidth: 1000, maxHeight: 600){
+              fluid(maxWidth: 1000, maxHeight: 600) {
                 ...GatsbySanityImageFluid
               }
             }
@@ -79,8 +73,12 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const postNodes = (data || {}).posts ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs) : []
-  const projectNodes = (data || {}).projects ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs) : []
+  const postNodes = (data || {}).posts
+    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
+    : []
+  const projectNodes = (data || {}).projects
+    ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+    : []
 
   if (!site) {
     throw new Error(

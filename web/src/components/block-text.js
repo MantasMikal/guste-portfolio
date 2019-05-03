@@ -7,8 +7,8 @@ const serializers = {
   types: {
     block (props) {
       switch (props.node.style) {
-        default:
-          return <p className={typography.paragraph}>{props.children}</p>
+      default:
+        return <p className={typography.paragraph}>{props.children}</p>
       }
     }
   }

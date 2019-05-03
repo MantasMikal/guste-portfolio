@@ -6,7 +6,16 @@ import MdSubject from 'react-icons/lib/md/subject'
 import FaFileO from 'react-icons/lib/fa/file-o'
 import MdImage from 'react-icons/lib/fa/image'
 // import MdImportContacts from 'react-icons/lib/fa/importContacts'
-const hiddenTypes = ['category', 'personalInfo', 'page', 'person', 'post', 'project', 'siteSettings', 'art']
+const hiddenTypes = [
+  'category',
+  'personalInfo',
+  'page',
+  'person',
+  'post',
+  'project',
+  'siteSettings',
+  'art'
+]
 
 export default () =>
   S.list()

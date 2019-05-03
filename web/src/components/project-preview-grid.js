@@ -9,7 +9,7 @@ function ProjectPreviewGrid (props) {
   /* TODO FIX THIS NASTY THING */
   const gridStyle = colCount === 2 ? cn(styles.grid, styles.twoColGrid) : styles.grid
   return (
-    <div className={styles.root} >
+    <div className={styles.root}>
       {props.title && (
         <h2 className={styles.headline}>
           {props.browseMoreHref ? (

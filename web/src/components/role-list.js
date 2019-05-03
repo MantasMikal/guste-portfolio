@@ -37,12 +37,12 @@ function RoleList ({ items, title }) {
                 <div>
                   {item.roles.map((role, idx) => {
                     switch (true) {
-                      case idx === 0:
-                        return <span key={role}>{ucfirst(role)}</span>
-                      case idx === item.roles.length - 1:
-                        return <span key={role}> & {role}</span>
-                      default:
-                        return <span key={role}>, {role}</span>
+                    case idx === 0:
+                      return <span key={role}>{ucfirst(role)}</span>
+                    case idx === item.roles.length - 1:
+                      return <span key={role}> & {role}</span>
+                    default:
+                      return <span key={role}>, {role}</span>
                     }
                   })}
                 </div>

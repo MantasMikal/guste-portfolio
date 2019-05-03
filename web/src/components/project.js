@@ -11,14 +11,21 @@ import typography from './typography.module.css'
 import styles from './project.module.css'
 
 class Project extends React.Component {
-
   componentWillMount () {
     this.components = makeComponents(this.props._rawContent)
   }
 
   render () {
-
-    const { _rawBody, _rawContent, title, categories, mainImage, members, publishedAt, relatedProjects } = this.props
+    const {
+      _rawBody,
+      _rawContent,
+      title,
+      categories,
+      mainImage,
+      members,
+      publishedAt,
+      relatedProjects
+    } = this.props
     return (
       <article className={styles.root}>
         <Container>

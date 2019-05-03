@@ -3,14 +3,12 @@ import PropTypes from 'prop-types'
 import styles from './modal.module.css'
 
 const Modal = ({ children, isOpen, closeModal, color }) => {
-  return (
-    isOpen
-      ? <div onClick={closeModal} className={styles.Overlay}>
-        <div className={styles.Content}>
-          {children}
-        </div>
-      </div>
-      : <></>
+  return isOpen ? (
+    <div onClick={closeModal} className={styles.Overlay}>
+      <div className={styles.Content}>{children}</div>
+    </div>
+  ) : (
+    <></>
   )
 }
 

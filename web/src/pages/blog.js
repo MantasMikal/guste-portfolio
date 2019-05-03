@@ -11,10 +11,7 @@ import { responsiveTitle2, uppercase } from '../components/typography.module.css
 
 export const query = graphql`
   query BlogPageQuery {
-    posts: allSanityPost(
-      limit: 12
-      sort: { fields: [publishedAt], order: DESC }
-    ) {
+    posts: allSanityPost(limit: 12, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           id
@@ -22,7 +19,7 @@ export const query = graphql`
           mainImage {
             asset {
               _id
-              fluid(maxWidth: 1000, maxHeight: 600){
+              fluid(maxWidth: 1000, maxHeight: 600) {
                 ...GatsbySanityImageFluid
               }
             }

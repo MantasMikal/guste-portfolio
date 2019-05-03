@@ -5,10 +5,25 @@ import Head from './head/head'
 import '../styles/layout.css'
 import styles from './layout.module.css'
 
-const Layout = ({ children, personalInfo, contactInfo, footerText, onHideNav, onShowNav, showNav, siteTitle }) => (
+const Layout = ({
+  children,
+  personalInfo,
+  contactInfo,
+  footerText,
+  onHideNav,
+  onShowNav,
+  showNav,
+  siteTitle
+}) => (
   <>
     <Head />
-    <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} contactInfo={contactInfo} />
+    <Header
+      siteTitle={siteTitle}
+      onHideNav={onHideNav}
+      onShowNav={onShowNav}
+      showNav={showNav}
+      contactInfo={contactInfo}
+    />
     <div className={styles.content}>{children}</div>
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>

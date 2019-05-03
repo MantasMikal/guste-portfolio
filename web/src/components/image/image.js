@@ -5,9 +5,5 @@ import styles from './image.module.css'
 
 export default function Image (props) {
   const { fluid, alt } = props
-  return (
-    fluid
-      ? <GatsbyImage fluid={fluid} alt={alt} className={styles.image} />
-      : <NoImage />
-  )
+  return fluid ? <GatsbyImage fluid={fluid} alt={alt} className={styles.image} /> : <NoImage />
 }

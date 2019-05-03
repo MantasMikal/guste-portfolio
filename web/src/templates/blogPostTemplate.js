@@ -15,7 +15,7 @@ export const query = graphql`
         _id
         title
       }
-      _rawContent(resolveReferences: { maxDepth: 5})
+      _rawContent(resolveReferences: { maxDepth: 5 })
       title
       slug {
         current

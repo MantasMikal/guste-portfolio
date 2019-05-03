@@ -20,14 +20,10 @@ export function makeMediaComponent (component) {
     // Determine if it is a gif and render aproprietly
 
     if (image.mimeType === 'image/gif') {
-      return (
-        <img src={image.url} alt={imageAlt} style={{ width: '100%' }} key={component._key} />
-      )
+      return <img src={image.url} alt={imageAlt} style={{ width: '100%' }} key={component._key} />
     } else {
       const fluidProps = getFluidGatsbyImage(image._id, { maxWidth: 1920 }, cfg)
-      return (
-        <Img fluid={fluidProps} alt={imageAlt} key={component._key} />
-      )
+      return <Img fluid={fluidProps} alt={imageAlt} key={component._key} />
     }
 
   case 'video':
@@ -39,18 +35,12 @@ export function makeMediaComponent (component) {
     const video = component.asset.url
     const videoAlt = component.alt ? component.alt : ' '
     // const videoCaption = component.caption ? component.caption : " "
-    return (
-      <Video src={video} alt={videoAlt} key={component._key} />
-    )
+    return <Video src={video} alt={videoAlt} key={component._key} />
 
   default:
     console.log(component._type, ' does not exist!')
     console.log('COMPONENT:', component)
-    return (
-      <div>
-          Missing component
-      </div>
-    )
+    return <div>Missing component</div>
   }
 }
 
@@ -58,19 +48,20 @@ export function makeComponents (components) {
   if (!components) {
     return <> </>
   }
-  return components.map((component) => {
+  return components.map(component => {
     switch (component._type) {
     case 'grid':
       const gridMedia = component.gridMedia
       const colCount = component.colCount
-      const gridComponents = gridMedia.map((item) => {
+      const gridComponents = gridMedia.map(item => {
         return makeMediaComponent(item)
       })
       // console.log('Grid Components: ', gridComponents)
       return (
         <Grid key={component._key} colCount={colCount}>
-          { gridComponents }
-        </Grid>)
+          {gridComponents}
+        </Grid>
+      )
 
     case 'figure':
       return makeMediaComponent(component)
@@ -78,11 +69,7 @@ export function makeComponents (components) {
       return makeMediaComponent(component)
     default:
       console.log(component._type, ' does not exist!')
-      return (
-        <div>
-                Missing component
-        </div>
-      )
+      return <div>Missing component</div>
     }
   })
 }
