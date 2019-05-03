@@ -5,7 +5,7 @@ module.exports = {
   siteTitleShort: `G.G.`,
   siteDescription: `Graphic designer, artist, clothes designer`,
   siteUrl: `https://gugis.co`,
-  themeColor: `#000`,
+  themeColor: `#231f20`,
   backgroundColor: `#fff`,
   pathPrefix: null,
   logo: path.resolve(__dirname, 'src/images/icon.png'),

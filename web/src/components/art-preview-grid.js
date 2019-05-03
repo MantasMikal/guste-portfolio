@@ -7,14 +7,14 @@ import styles from './art-preview-grid.module.css'
 // Array of artwork nodes
 const filterArt = (tag, list) => {
   // Return if no tag selected
-  if(!tag){
+  if (!tag) {
     return list
   }
 
-  return list.filter((item) => {
+  return list.filter(item => {
     let categoryList = item.artworkCategory
 
-    for(item in categoryList){
+    for (item in categoryList) {
       const title = categoryList[item].title
 
       if (title === tag) {
@@ -25,55 +25,56 @@ const filterArt = (tag, list) => {
 }
 
 // Takes in artwork nodes and returns list of components
-const generate = (list) => {
+const generate = list => {
   return list.map(item => {
-    return (
-      <ImageWithModal key={item.id} image={item.artwork.asset.fluid} alt={item.artwork.alt} />
-    )
+    return <ImageWithModal key={item.id} image={item.artwork.asset.fluid} alt={item.artwork.alt} />
   })
 }
 
 export default class ArtPrieviewGrid extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
-      galleryItems: []
+      galleryItems: [],
+      activeButton: null,
     }
   }
 
-  componentWillMount () {
+  componentWillMount() {
     this.setState({
-      galleryItems: filterArt(null, this.props.media)
+      galleryItems: filterArt(this.state.activeButton, this.props.media)
     })
   }
 
   // Filters gallery on click
-  handleClick = (e) => {
+  handleClick = e => {
     e.preventDefault()
     const category = e.target.getAttribute('cattitle')
     this.setState({
+      activeButton: category,
       galleryItems: filterArt(category, this.props.media)
     })
   }
 
-  render () {
+  render() {
     const { categories } = this.props
     let art = generate(this.state.galleryItems)
     return (
-      <div>
-        {
-          categories.map((item) => {
+      <>
+        <div className={styles.categoryWrapper}>
+          {categories.map(item => {
+            // Check if button is active to change its color
+            const isActive = this.state.activeButton === item.title ? true : false
             return (
-              <CategoryButton cattitle={item.title} key={item.id} onClick={this.handleClick}>{item.title}</CategoryButton>
+              <CategoryButton isActive={isActive} cattitle={item.title} key={item.id} onClick={this.handleClick}>
+                {item.title}
+              </CategoryButton>
             )
-          })
-        }
-        <div className={styles.grid}>
-          {art}
+          })}
         </div>
-
-      </div>
+        <div className={styles.grid}>{art}</div>
+      </>
     )
   }
 }

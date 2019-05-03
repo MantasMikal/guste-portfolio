@@ -1,14 +1,11 @@
 import React from 'react'
 import styles from './button.module.css'
+import { cn } from '../../lib/helpers'
 
 export default function SnipcartButton (props) {
-  const {cattitle, onClick} = props
+  const { cattitle, onClick, isActive } = props
   return (
-    <button
-      className={styles.button}
-      cattitle={cattitle}
-      onClick={onClick}
-    >
+    <button role='button' className={isActive ? cn(styles.button, styles.btnActive) : styles.button} cattitle={cattitle} onClick={onClick}>
       {props.children}
     </button>
   )

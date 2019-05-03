@@ -56,7 +56,7 @@ const Art = props => {
   const categories = data && data.categories && mapEdgesToNodes(data.categories)
   return (
     <Layout>
-      <SEO title="Art" />
+      <SEO title='Art' />
       <Container>
         <h1 className={cn(responsiveTitle2, uppercase)}>Art</h1>
         <ArtPreviewGrid categories={categories} media={artNodes} />
