@@ -14,7 +14,7 @@ const hiddenTypes = [
   'post',
   'project',
   'siteSettings',
-  'art'
+  'illustrations'
 ]
 
 export default () =>
@@ -45,9 +45,9 @@ export default () =>
         .child(S.documentTypeList('project'))
         .icon(MdPanorama),
       S.listItem()
-        .title('Art')
-        .schemaType('art')
-        .child(S.documentTypeList('art'))
+        .title('Illustrations')
+        .schemaType('illustrations')
+        .child(S.documentTypeList('illustrations'))
         .icon(MdImage),
       S.listItem()
         .title('Blog posts')

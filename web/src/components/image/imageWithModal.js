@@ -85,17 +85,17 @@ export default class ModalImage extends Component {
   }
   // It is possbile to optimize this by using css to place image on click and add Overlay
   render () {
-    const image = this.props.image ? this.props.image : ''
+    const fluid = this.props.fluid ? this.props.fluid : ''
     const caption = this.props.caption ? this.props.caption : 'Image '
     return (
       <>
         <div onClick={this.openModal} className={styles.Overlay}>
-          <Img fluid={image} alt={caption} className={styles.hoverEffect} />
+          <Img fluid={fluid} alt={caption} className={styles.hoverEffect} />
         </div>
 
         <Modal isOpen={this.state.modalIsOpen} closeModal={this.closeModal}>
           <div className={styles.wrapper}>
-            <Img fluid={image} alt={caption} className={styles.zoomedImage} />
+            <Img fluid={fluid} alt={caption} className={styles.zoomedImage} />
           </div>
         </Modal>
       </>

@@ -1,11 +1,11 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { buildImageObj, cn, getBlogUrl } from '../lib/helpers'
-import { imageUrlFor } from '../lib/image-url'
+import { cn, getBlogUrl } from '../lib/helpers'
+// import { imageUrlFor } from '../lib/image-url'
 import BlockText from './block-text'
 import Image from './image/image'
 import styles from './blog-post-preview.module.css'
-import { responsiveTitle5, limitParagraph } from './typography.module.css'
+import { responsiveTitle5 } from './typography.module.css'
 
 function BlogPostPreview (props) {
   const { publishedAt } = props

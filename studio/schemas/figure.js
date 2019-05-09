@@ -7,6 +7,14 @@ export default {
   },
   fields: [
     {
+      name: 'isZoomable',
+      title: 'Is image Zoomable?',
+      type: 'boolean',
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
       name: 'alt',
       title: 'Alternative text (for screen readers)',
       type: 'string',

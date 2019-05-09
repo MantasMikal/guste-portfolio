@@ -27,7 +27,7 @@ const filterArt = (tag, list) => {
 // Takes in artwork nodes and returns list of components
 const generate = list => {
   return list.map(item => {
-    return <ImageWithModal key={item.id} image={item.artwork.asset.fluid} alt={item.artwork.alt} />
+    return <ImageWithModal key={item.id} fluid={item.artwork.asset.fluid} alt={item.artwork.alt} />
   })
 }
 
@@ -37,7 +37,7 @@ export default class ArtPrieviewGrid extends React.Component {
 
     this.state = {
       galleryItems: [],
-      activeButton: null,
+      activeButton: null
     }
   }
 
@@ -67,7 +67,12 @@ export default class ArtPrieviewGrid extends React.Component {
             // Check if button is active to change its color
             const isActive = this.state.activeButton === item.title ? true : false
             return (
-              <CategoryButton isActive={isActive} cattitle={item.title} key={item.id} onClick={this.handleClick}>
+              <CategoryButton
+                isActive={isActive}
+                cattitle={item.title}
+                key={item.id}
+                onClick={this.handleClick}
+              >
                 {item.title}
               </CategoryButton>
             )

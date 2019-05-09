@@ -2,7 +2,7 @@ import React from 'react'
 import Grid from '../components/grid/grid'
 import Video from '../components/video/video'
 
-import Img from '../components/image/image'
+import Img from '../components/image/zoomableImage'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 
 const cfg = { projectId: 'ee0lu4ue', dataset: 'production' }
@@ -20,10 +20,11 @@ export function makeMediaComponent (component) {
     // Determine if it is a gif and render aproprietly
 
     if (image.mimeType === 'image/gif') {
-      return <img src={image.url} alt={imageAlt} style={{ width: '100%' }} key={component._key} />
+      return <img src={image.url} alt={imageAlt} style={{ width: '100%' }} key={component.asset.id} />
     } else {
-      const fluidProps = getFluidGatsbyImage(image._id, { maxWidth: 1920 }, cfg)
-      return <Img fluid={fluidProps} alt={imageAlt} key={component._key} />
+      const fluidProps = image.fluid ? image.fluid : getFluidGatsbyImage(image._id, { maxWidth: 1920 }, cfg)
+      const isZoomable = component.isZoomable
+      return <Img fluid={fluidProps} alt={imageAlt} key={component.asset.id} isZoomable={isZoomable} />
     }
 
   case 'video':
@@ -35,7 +36,7 @@ export function makeMediaComponent (component) {
     const video = component.asset.url
     const videoAlt = component.alt ? component.alt : ' '
     // const videoCaption = component.caption ? component.caption : " "
-    return <Video src={video} alt={videoAlt} key={component._key} />
+    return <Video src={video} alt={videoAlt} key={component.asset.id} />
 
   default:
     console.log(component._type, ' does not exist!')

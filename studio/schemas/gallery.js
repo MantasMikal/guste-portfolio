@@ -1,6 +1,6 @@
 export default {
-  name: 'art',
-  title: 'Art',
+  name: 'gallery',
+  title: 'Gallery Items',
   type: 'document',
   fields: [
     {
@@ -26,8 +26,7 @@ export default {
     {
       name: 'artwork',
       title: 'Artwork',
-      type: 'artwork',
-      of: { type: 'image' }
+      type: 'figure'
     }
   ],
   preview: {

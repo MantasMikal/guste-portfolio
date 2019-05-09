@@ -7,7 +7,6 @@
 .zoomedImage {
   width: 95vh;
   margin: auto auto;
-
   @media (--media-max-medium) {
     width: 70vh;
   }

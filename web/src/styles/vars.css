@@ -5,7 +5,7 @@
   --color-white: #fff;
   --color-accent: #f43;
   --header-padding: 0.325em;
-  --page-margin: 3.325em;
+  --page-margin: 0.625em;
   --page-margin-mobile: 0.325em;
 
   @media(--media-max-medium){

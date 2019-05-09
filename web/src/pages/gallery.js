@@ -6,11 +6,11 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, cn } from '../lib/helpers'
 import { responsiveTitle2, uppercase } from '../components/typography.module.css'
-import ArtPreviewGrid from '../components/art-preview-grid'
+import GalleryPreviewLayout from '../components/gallery-preview-layout'
 
 export const query = graphql`
-  query ArtPageQuery {
-    art: allSanityArt(limit: 100, sort: { fields: [publishedAt], order: DESC }) {
+  query GalleryPageQuery {
+    gallery: allSanityGallery (limit: 100, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           publishedAt
@@ -20,10 +20,15 @@ export const query = graphql`
             title
           }
           artwork {
+            _type
             alt
             caption
+            isZoomable
             asset {
-              fluid(maxWidth: 1000, maxHeight: 1000) {
+              id
+              url
+              mimeType
+              fluid {
                 ...GatsbySanityImageFluid
               }
             }
@@ -43,7 +48,7 @@ export const query = graphql`
   }
 `
 
-const Art = props => {
+const Gallery = props => {
   const { data, errors } = props
   if (errors) {
     return (
@@ -52,17 +57,17 @@ const Art = props => {
       </Layout>
     )
   }
-  const artNodes = data && data.art && mapEdgesToNodes(data.art)
+  const galleryNodes = data && data.gallery && mapEdgesToNodes(data.gallery)
   const categories = data && data.categories && mapEdgesToNodes(data.categories)
   return (
     <Layout>
-      <SEO title='Art' />
+      <SEO title='Gallery' />
       <Container>
-        <h1 className={cn(responsiveTitle2, uppercase)}>Art</h1>
-        <ArtPreviewGrid categories={categories} media={artNodes} />
+        <h1 className={cn(responsiveTitle2, uppercase)}>Gallery</h1>
+        <GalleryPreviewLayout categories={categories} media={galleryNodes} />
       </Container>
     </Layout>
   )
 }
 
-export default Art
+export default Gallery

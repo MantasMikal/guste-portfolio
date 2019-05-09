@@ -1,6 +1,6 @@
 export default {
-  name: 'artwork',
-  title: 'Artwork',
+  name: 'illustration',
+  title: 'Illustration',
   type: 'image',
   options: {
     hotspot: true
@@ -9,14 +9,6 @@ export default {
     {
       name: 'alt',
       title: 'Alternative text (for screen readers)',
-      type: 'string',
-      options: {
-        isHighlighted: true
-      }
-    },
-    {
-      name: 'caption',
-      title: 'Caption',
       type: 'string',
       options: {
         isHighlighted: true
