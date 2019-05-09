@@ -17,29 +17,23 @@
 
 .masonry { /* Masonry container */
   column-count: 4;
-  column-fill: balance;
-  column-gap: 1em;
+  column-gap: 0.825em;
   /* height: 100vh; */
 
   @media (--media-max-medium) {
     column-count: 3;
+    column-gap: 0.325em;
   }
 
   @media (--media-max-small) {
     column-count: 2;
+    column-gap: 0.325em;
   }
 }
 
-.item { /* Masonry bricks or child elements */
-  /* background-color: #eee;
-  display: inline-block;
-  margin: 0;
-  width: 100%;
-  vertical-align: middle;
-  transform: translateX(0); */
-}
 
 .title {
+  text-align: right;
   @media (hover: hover) {
     @nest .root:hover & {
       text-decoration: underline;

@@ -178,8 +178,8 @@
   font-weight: 500;
   font-size: var(--font-micro-size);
   line-height: var(--font-micro-line-height);
-  margin: 0.325rem 0 0.325rem;
-  border-bottom: 1px solid hsla(0,0%,0%,0.07);
+  margin: 0.05rem 0 0.125rem;
+
 
   @media (--media-min-small) {
     font-size: var(--font-small-size);
