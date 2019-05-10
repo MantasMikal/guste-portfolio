@@ -1,7 +1,7 @@
 import React from 'react'
 import Grid from '../components/grid/grid'
 import Video from '../components/video/video'
-
+import BlockContent from '../components/block-content'
 import Img from '../components/image/zoomableImage'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 
@@ -11,7 +11,7 @@ export function makeMediaComponent (component) {
   switch (component._type) {
   case 'figure':
     if (!component || !component.asset || !component.asset.mimeType) {
-      console.log('Could not create component, because it is invalid', component.asset)
+      console.log('Could not create figure component, because asset is invalid', component.asset)
       return // Safety
     }
 
@@ -35,7 +35,7 @@ export function makeMediaComponent (component) {
 
   case 'video':
     if (!component || !component.asset || !component.asset.url) {
-      console.log('Could not create component, because it is invalid', component.asset)
+      console.log('Could not create video component, because it is invalid', component.asset)
       return // Safety
     }
 
@@ -44,11 +44,29 @@ export function makeMediaComponent (component) {
     // const videoCaption = component.caption ? component.caption : " "
     return <Video src={video} alt={videoAlt} key={component.asset.id} />
 
+  case 'contentBlock':
+    return <BlockContent key={component._key} blocks={component.contentBlock} />
+
   default:
     console.log(component._type, ' does not exist!')
     console.log('COMPONENT:', component)
     return <div>Missing component</div>
   }
+}
+
+export function makeGrid (component) {
+  const gridMedia = component.gridMedia
+  const colCount = component.colCount
+  // Build content
+  const gridComponents = gridMedia.map(item => {
+    return makeMediaComponent(item)
+  })
+
+  return (
+    <Grid key={component._key} colCount={colCount}>
+      {gridComponents}
+    </Grid>
+  )
 }
 
 export function makeComponents (components) {
@@ -58,17 +76,7 @@ export function makeComponents (components) {
   return components.map(component => {
     switch (component._type) {
     case 'grid':
-      const gridMedia = component.gridMedia
-      const colCount = component.colCount
-      const gridComponents = gridMedia.map(item => {
-        return makeMediaComponent(item)
-      })
-      // console.log('Grid Components: ', gridComponents)
-      return (
-        <Grid key={component._key} colCount={colCount}>
-          {gridComponents}
-        </Grid>
-      )
+      return makeGrid(component)
 
     case 'figure':
       return makeMediaComponent(component)

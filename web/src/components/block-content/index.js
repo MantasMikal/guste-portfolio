@@ -2,6 +2,7 @@ import BaseBlockContent from '@sanity/block-content-to-react'
 import React from 'react'
 import Figure from './figure'
 import Slideshow from './slideshow'
+import { makeGrid } from '../../templates/dynamicComponents'
 
 import typography from '../typography.module.css'
 
@@ -33,6 +34,10 @@ const serializers = {
     },
     slideshow (props) {
       return <Slideshow {...props.node} />
+    },
+    grid (props) {
+      console.log(props.node)
+      return makeGrid(props.node)
     }
   }
 }

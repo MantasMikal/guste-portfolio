@@ -8,7 +8,7 @@ export default {
   fields: [
     {
       name: 'isZoomable',
-      title: 'Is image Zoomable?',
+      title: 'Is figre can be zoomed?',
       type: 'boolean',
       options: {
         isHighlighted: true

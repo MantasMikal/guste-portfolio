@@ -15,7 +15,7 @@ export default {
       name: 'gridMedia',
       title: 'Grid Media',
       type: 'array',
-      of: [{ type: 'figure' }, { type: 'video' }]
+      of: [{ type: 'figure' }, { type: 'video' }, { type: 'contentBlock' }]
     }
   ]
 }

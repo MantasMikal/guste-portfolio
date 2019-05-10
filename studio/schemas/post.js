@@ -46,12 +46,6 @@ export default {
       type: 'blockText'
     },
     {
-      name: 'authors',
-      title: 'Authors',
-      type: 'array',
-      of: [{ type: 'postAuthor' }]
-    },
-    {
       name: 'mainImage',
       title: 'Main image',
       type: 'mainImage'
