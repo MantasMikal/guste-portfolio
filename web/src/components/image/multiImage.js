@@ -29,7 +29,10 @@ export default class ModalImage extends Component {
     })
 
     if (this.state.mouseMoveSkip < 0) {
-      const imageIdx = this.state.currentImageIdx < this.props.images.length - 1 ? this.state.currentImageIdx + 1 : 0
+      const imageIdx =
+        this.state.currentImageIdx < this.props.images.length - 1
+          ? this.state.currentImageIdx + 1
+          : 0
       this.setState({
         currentImageIdx: imageIdx,
         mouseMoveSkip: this.state.initialSkip
@@ -45,9 +48,7 @@ export default class ModalImage extends Component {
     return (
       <>
         <div onMouseMove={this.handleHover} className={styles.Overlay}>
-          {
-            fluid ? <Img fluid={fluid} alt={alt} /> : <> </>
-          }
+          {fluid ? <Img fluid={fluid} alt={alt} /> : <> </>}
         </div>
       </>
     )

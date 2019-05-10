@@ -10,7 +10,10 @@ import IllustrationsPreviewGrid from '../components/illustrations-preview-grid'
 
 export const query = graphql`
   query IllustrationsPageQuery {
-    illustrations: allSanityIllustrations(limit: 100, sort: { fields: [publishedAt], order: DESC }) {
+    illustrations: allSanityIllustrations(
+      limit: 100
+      sort: { fields: [publishedAt], order: DESC }
+    ) {
       edges {
         node {
           publishedAt

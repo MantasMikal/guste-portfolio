@@ -20,11 +20,17 @@ export function makeMediaComponent (component) {
     // Determine if it is a gif and render aproprietly
 
     if (image.mimeType === 'image/gif') {
-      return <img src={image.url} alt={imageAlt} style={{ width: '100%' }} key={component.asset.id} />
+      return (
+        <img src={image.url} alt={imageAlt} style={{ width: '100%' }} key={component.asset.id} />
+      )
     } else {
-      const fluidProps = image.fluid ? image.fluid : getFluidGatsbyImage(image._id, { maxWidth: 1920 }, cfg)
+      const fluidProps = image.fluid
+        ? image.fluid
+        : getFluidGatsbyImage(image._id, { maxWidth: 1920 }, cfg)
       const isZoomable = component.isZoomable
-      return <Img fluid={fluidProps} alt={imageAlt} key={component.asset.id} isZoomable={isZoomable} />
+      return (
+        <Img fluid={fluidProps} alt={imageAlt} key={component.asset.id} isZoomable={isZoomable} />
+      )
     }
 
   case 'video':

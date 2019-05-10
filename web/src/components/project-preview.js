@@ -11,9 +11,7 @@ function ProjectPreview (props) {
   return (
     <>
       <Link className={styles.root} to={`/project/${props.slug.current}`}>
-        {props.mainImages && (
-          <MultiImage images={props.mainImages} />
-        )}
+        {props.mainImages && <MultiImage images={props.mainImages} />}
       </Link>
       <Link
         className={cn(styles.descriptionWrapper, styles.root)}

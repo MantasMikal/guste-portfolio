@@ -10,7 +10,7 @@ import GalleryPreviewLayout from '../components/gallery-preview-layout'
 
 export const query = graphql`
   query GalleryPageQuery {
-    gallery: allSanityGallery (limit: 100, sort: { fields: [publishedAt], order: DESC }) {
+    gallery: allSanityGallery(limit: 100, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           publishedAt

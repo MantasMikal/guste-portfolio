@@ -1,4 +1,3 @@
-
 import React from 'react'
 import ZoomableImage from './image/zoomableImage'
 // import CategoryButton from './button/category-button'
@@ -43,7 +42,6 @@ const generate = list => {
     } else {
       return <> </>
     }
-
   })
 }
 
