@@ -5,7 +5,7 @@ import BlockContent from './block-content'
 import { Link } from 'gatsby'
 import Container from './container'
 import { makeComponents } from '../templates/dynamicComponents'
-import { uppercase } from './typography.module.css'
+import { uppercase, responsiveText1 } from './typography.module.css'
 import styles from './blog-post.module.css'
 
 class BlogPost extends React.Component {
@@ -33,8 +33,8 @@ class BlogPost extends React.Component {
             </div>
           </div>
           <div className={styles.navWrapper}>
-            <Link className={prev ? null : styles.invisible} to={prev}>Previous</Link>
-            <Link className={next ? null : styles.invisible} to={next}>Next</Link>
+            <Link className={prev ? cn(responsiveText1, uppercase) : styles.invisible} to={prev}>Previous</Link>
+            <Link className={next ? cn(responsiveText1, uppercase) : styles.invisible} to={next}>Next</Link>
           </div>
           {/* <div style={{ height: '23vh' }} /> */}
         </Container>

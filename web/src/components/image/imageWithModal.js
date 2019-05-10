@@ -2,54 +2,6 @@ import React, { Component } from 'react'
 import Modal from '../modal/modal'
 import Img from 'gatsby-image'
 import styles from './imageWithModal.module.css'
-// import { MapInteractionCSS } from 'react-map-interaction';
-
-// const Overlay = styled('div')`
-//     /*  */
-// `
-
-// const BigImg = styled(Img)`
-
-//   width: 47rem;
-//   margin: auto auto;
-
-//   ${MEDIA.TABLET`
-//     width: 52vh;
-
-//   `}
-
-//   ${MEDIA.TABLET`
-//     width: 50vh;
-
-//   `}
-// `
-
-// const FadeIn = keyframes`
-//   0%{
-//     opacity: 0;
-//   }
-
-//   100%{
-//     opacity: 1;
-//   }
-// `
-
-// const StyledImg = styled(Img)`
-
-//   animation: ${FadeIn} 0.25s ease-in-out;
-
-//   &:hover{
-//       filter: ${hoverEffect => hoverEffect.hoverEffect ? `hue-rotate(90deg) contrast(1.1)` : `none`};
-//       transition: 0.25s;
-//   }
-// `
-
-// const Wrapper = styled.div`
-//   position: relaitive;
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-// `
 
 export default class ModalImage extends Component {
   constructor (props) {

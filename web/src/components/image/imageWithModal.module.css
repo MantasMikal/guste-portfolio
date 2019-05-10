@@ -1,7 +1,9 @@
 @import '../../styles/media-queries.css';
 
 .Overlay {
-
+  @media (--media-max-small) {
+    margin: 0.325rem;
+  }
 }
 
 .zoomedImage {

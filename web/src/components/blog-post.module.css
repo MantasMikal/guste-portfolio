@@ -18,13 +18,25 @@
 .navWrapper {
   display: flex;
   justify-content: space-between;
-  text-transform: uppercase;
-  font-size: 4rem;
 
   @nest & a {
     color: inherit;
     text-decoration: none;
   }
+}
+
+.navLink {
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+  transition: 0.25s;
+}
+
+.navLink:hover::after {
+  content: '>';
 }
 
 .invisible {

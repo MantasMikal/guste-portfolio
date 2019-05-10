@@ -6,6 +6,7 @@
   grid-gap: 0.625em;
   margin: 0.625em auto;
   width: 100%;
+
   @media (--media-max-medium) {
     grid-template-columns: repeat(2, 1fr);
   }

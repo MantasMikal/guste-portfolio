@@ -12,12 +12,17 @@
   --font-base-line-height: calc(22 / var(--base-unit));
   --font-large-size: calc(20 / var(--base-unit) * 1rem);
   --font-large-line-height: calc(24 / 19);
+  --font-extraLarge-size: calc(44 / var(--base-unit) * 1rem);
+  --font-extraLarge-line-height: calc(56 / 44);
+  --font-huge-size: calc(60 / var(--base-unit) * 1rem);
+  --font-huge-line-height: calc(56 / 60);
   --font-title3-size: calc(24 / var(--base-unit) * 1rem);
   --font-title3-line-height: calc(28 / 24);
   --font-title2-size: calc(32 / var(--base-unit) * 1rem);
   --font-title2-line-height: calc(36 / 32);
   --font-title1-size: calc(44 / var(--base-unit) * 1rem);
   --font-title1-line-height: calc(56 / 44);
+
 }
 
 
@@ -102,6 +107,24 @@
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.responsiveText1 {
+  font-weight: 400;
+  font-size: var(--font-large-size);
+  line-height: var(--font-large-line-height);
+  margin: 1rem 0 0.5rem;
+  border-bottom: 1px solid hsla(0,0%,0%,0.07);
+
+  @media (--media-min-small) {
+    font-size: var(--font-extraLarge-size);
+    line-height: var(--font-extraLarge-line-height);
+  }
+
+  @media (--media-min-medium) {
+    font-size: var(--font-huge-size);
+    line-height: var(--font-huge-line-height);
+  }
 }
 
 .responsiveTitle1 {

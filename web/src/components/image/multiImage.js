@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import Img from 'gatsby-image'
-import styles from './imageWithModal.module.css'
+import Img from './image'
 
-export default class ModalImage extends Component {
+export default class MultiImage extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
       currentImageIdx: 0,
       mouseMoveSkip: 10, // Skips pixels for image swaping
-      initialSkip: 20
+      initialSkip: 30
     }
     this.handleHover = this.handleHover.bind(this)
   }
@@ -24,6 +23,7 @@ export default class ModalImage extends Component {
   }
 
   handleHover () {
+    console.log("LEFT: ", this.state.mouseMoveSkip)
     this.setState({
       mouseMoveSkip: this.state.mouseMoveSkip - 1
     })
@@ -47,8 +47,8 @@ export default class ModalImage extends Component {
 
     return (
       <>
-        <div onMouseMove={this.handleHover} className={styles.Overlay}>
-          {fluid ? <Img fluid={fluid} alt={alt} /> : <> </>}
+        <div onMouseMove={this.handleHover}>
+          <Img fluid={fluid} alt={alt} />
         </div>
       </>
     )
