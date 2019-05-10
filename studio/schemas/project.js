@@ -62,9 +62,10 @@ export default {
       type: 'datetime'
     },
     {
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'mainImage'
+      name: 'mainImages',
+      title: 'Main images',
+      type: 'array',
+      of: [{ type: 'figure' }]
     },
     {
       name: 'categories',

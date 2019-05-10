@@ -6,12 +6,39 @@ const { format } = require('date-fns')
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+// exports.onCreateNode = ({ node, getNode, actions }) => {
+//   const { createNodeField } = actions
+
+//   if (node.internal.type === 'SanityPosty') {
+//     const slug = 'POOP'
+//     console.log('SLUG: ', slug)
+
+//     createNodeField({
+//       node,
+//       name: 'next',
+//       value: slug
+//     })
+//   }
+// }
+
 async function createBlogPostPages (graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions
   const result = await graphql(`
     {
       allSanityPost(filter: { slug: { current: { ne: null } } }) {
         edges {
+          previous {
+            publishedAt
+            slug {
+              current
+            }
+          }
+          next {
+            publishedAt
+            slug {
+              current
+            }
+          }
           node {
             id
             publishedAt
@@ -33,12 +60,19 @@ async function createBlogPostPages (graphql, actions, reporter) {
     const dateSegment = format(publishedAt, 'YYYY/MM')
     const path = `/blog/${dateSegment}/${slug.current}/`
 
+    // Next and previous pages
+    const prevDate = edge.previous ? format(edge.previous.publishedAt, 'YYYY/MM') : null
+    const nextDate = edge.next ? format(edge.next.publishedAt, 'YYYY/MM') : null
+
+    const prev = edge.previous ? `/blog/${prevDate}/${edge.previous.slug.current}/` : null
+    const next = edge.next ? `/blog/${nextDate}/${edge.next.slug.current}/` : null
+
     reporter.info(`Creating blog post page: ${path}`)
 
     createPage({
       path,
       component: require.resolve('./src/templates/blogPostTemplate.js'),
-      context: { id }
+      context: { id, prev: prev, next: next }
     })
 
     createPageDependency({ path, nodeId: id })

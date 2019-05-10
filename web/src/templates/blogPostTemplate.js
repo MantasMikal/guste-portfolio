@@ -21,34 +21,6 @@ export const query = graphql`
         current
       }
       _rawBody
-      authors {
-        _key
-        person {
-          image {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-          }
-          name
-        }
-        roles
-      }
     }
   }
 `
@@ -67,7 +39,7 @@ const BlogPostTemplate = props => {
         </Container>
       )}
 
-      {post && <BlogPost {...post} date={date} />}
+      {post && <BlogPost {...post} pageContext={props.pageContext} date={date} />}
     </Layout>
   )
 }

@@ -5,7 +5,6 @@ import ZoomableImage from './image/zoomableImage'
 import styles from './gallery-preview-layout.module.css'
 import { responsiveTitle5 } from './typography.module.css'
 import { makeMediaComponent } from '../templates/dynamicComponents'
-
 import { cn } from '../lib/helpers'
 // Filters art gallery items by category and returns
 // Array of artwork nodes
@@ -38,7 +37,7 @@ const generate = list => {
             {makeMediaComponent(item.artwork)}
             {/* <ZoomableImage isZoomable={item.artwork.isZoomable} key={item.id} fluid={item.artwork.asset.fluid} alt={item.artwork.alt} /> */}
           </div>
-          <h6 className={cn(responsiveTitle5, styles.title)}>{item.title}</h6>
+          {/* <h6 className={cn(responsiveTitle5, styles.title)}>{item.title}</h6> */}
         </div>
       )
     } else {

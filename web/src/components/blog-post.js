@@ -2,6 +2,7 @@
 import React from 'react'
 import { cn } from '../lib/helpers'
 import BlockContent from './block-content'
+import { Link } from 'gatsby'
 import Container from './container'
 import { makeComponents } from '../templates/dynamicComponents'
 import { uppercase } from './typography.module.css'
@@ -14,6 +15,8 @@ class BlogPost extends React.Component {
 
   render () {
     const { _rawBody, title, date } = this.props
+    const { prev, next } = this.props.pageContext
+    console.log("PREV", prev, 'Next' ,next)
     return (
       <article className={styles.root}>
         <Container>
@@ -31,6 +34,8 @@ class BlogPost extends React.Component {
               )}
             </div>
           </div>
+          <Link to={prev? prev : '#'}>Previous</Link>
+          <Link to={next? next : '#'}>Next</Link>
           <div style={{ height: '23vh' }} />
         </Container>
       </article>

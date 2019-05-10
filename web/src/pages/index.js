@@ -21,7 +21,7 @@ export const query = graphql`
         node {
           id
           publishedAt
-          mainImage {
+          mainImages {
             alt
             asset {
               fluid(maxWidth: 1000, maxHeight: 600) {

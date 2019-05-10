@@ -26,7 +26,7 @@
   }
 
   @media (--media-max-small) {
-    column-count: 2;
+    column-count: 1;
     column-gap: 0.325em;
   }
 }
@@ -34,6 +34,7 @@
 
 .title {
   text-align: right;
+  margin: 0.625em;
   @media (hover: hover) {
     @nest .root:hover & {
       text-decoration: underline;
@@ -43,6 +44,6 @@
 
 .itemWrapper {
   display: inline-block;
-  margin: 0;
+  margin: 0.325rem 0;
   width: 100%;
 }

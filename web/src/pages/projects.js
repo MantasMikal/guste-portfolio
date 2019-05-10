@@ -14,20 +14,18 @@ export const query = graphql`
       edges {
         node {
           id
-          mainImage {
-            alt
-            asset {
-              _id
-              fluid(maxWidth: 1000, maxHeight: 600) {
-                ...GatsbySanityImageFluid
-              }
-            }
-            alt
-          }
           title
           _rawExcerpt
           slug {
             current
+          }
+          mainImages {
+            alt
+            asset {
+              fluid(maxWidth: 1000, maxHeight: 600) {
+                ...GatsbySanityImageFluid
+              }
+            }
           }
         }
       }
