@@ -1,4 +1,5 @@
 import External from 'react-icons/lib/fa/external-link'
+
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -34,7 +35,10 @@ export default {
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
-        decorators: [{ title: 'Strong', value: 'strong' }, { title: 'Emphasis', value: 'em' }],
+        decorators: [
+          { title: 'Strong', value: 'strong' },
+          { title: 'Emphasis', value: 'em' }
+        ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
@@ -63,6 +67,39 @@ export default {
               }
             ]
           }
+          // {
+          //   title: 'Alignment',
+          //   name: 'align',
+          //   type: 'object',
+          //   blockEditor: {
+          //     icon: External
+          //   },
+          //   fields: [
+          //     {
+          //       title: 'URL',
+          //       name: 'href',
+          //       type: 'url',
+          //       validation: Rule =>
+          //         Rule.uri({
+          //           allowRelative: true,
+          //           scheme: ['https', 'http', 'mailto', 'tel']
+          //         })
+          //     },
+          //     {
+          //       title: 'Open in new tab',
+          //       name: 'blank',
+          //       description: 'Read https://css-tricks.com/use-target_blank/',
+          //       type: 'boolean'
+          //     }
+          //   ]
+          // },
+          // {
+          //   {
+          //     title: 'alignment',
+          //     name: 'align',
+          //     type: 'string'
+          //   }
+          // }
         ]
       }
     },

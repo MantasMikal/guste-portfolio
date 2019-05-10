@@ -24,7 +24,6 @@ const serializers = {
 
       case 'blockquote':
         return <blockquote className={typography.blockQuote}>{props.children}</blockquote>
-
       default:
         return <p className={typography.paragraph}>{props.children}</p>
       }
@@ -36,12 +35,29 @@ const serializers = {
       return <Slideshow {...props.node} />
     },
     grid (props) {
-      console.log(props.node)
       return makeGrid(props.node)
     }
+  },
+  marks: {
+    center (props) {
+      return (
+        <p style={{ margin: '0 auto' }}>
+          {props.children}
+        </p>
+      )
+    }
+    // mark (props) {
+    //   console.log('MARK PROPS: ', props)
+    //   switch (props.node.marks) {
+    //   case 'center':
+    //     console.log('IT WORKS!')
+    //     break
+
+    //   default:
+    //     console.log('default')
+    //   }
   }
 }
 
 const BlockContent = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />
-
 export default BlockContent

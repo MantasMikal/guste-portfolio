@@ -7,6 +7,11 @@ export default {
   },
   fields: [
     {
+      name: 'maxWidth',
+      title: 'Max width',
+      type: 'number'
+    },
+    {
       name: 'contentBlock',
       title: 'Content Block',
       type: 'blockContent'

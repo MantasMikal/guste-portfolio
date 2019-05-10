@@ -9,7 +9,7 @@ import { responsiveTitle5 } from './typography.module.css'
 
 function BlogPostPreview (props) {
   const { publishedAt } = props
-  const date = publishedAt.replace(/(\d{4})\-(\d{2})\-(\d{2}).*/, '$3-$2-$1')
+  const date = publishedAt && publishedAt.replace(/(\d{4})\-(\d{2})\-(\d{2}).*/, '$3-$2-$1')
   return (
     <>
       <Link className={styles.root} to={getBlogUrl(props.publishedAt, props.slug.current)}>

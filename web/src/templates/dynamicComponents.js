@@ -4,7 +4,6 @@ import Video from '../components/video/video'
 import BlockContent from '../components/block-content'
 import Img from '../components/image/zoomableImage'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
-
 const cfg = { projectId: 'ee0lu4ue', dataset: 'production' }
 
 export function makeMediaComponent (component) {
@@ -45,7 +44,12 @@ export function makeMediaComponent (component) {
     return <Video src={video} alt={videoAlt} key={component.asset.id} />
 
   case 'contentBlock':
-    return <BlockContent key={component._key} blocks={component.contentBlock} />
+    const maxWidth = component.maxWidth ? component.maxWidth : 100
+    return (
+      <div style={{ maxWidth: `${maxWidth}%` }} key={component._key}>
+        <BlockContent blocks={component.contentBlock} />
+      </div>
+    )
 
   default:
     console.log(component._type, ' does not exist!')
@@ -61,9 +65,8 @@ export function makeGrid (component) {
   const gridComponents = gridMedia.map(item => {
     return makeMediaComponent(item)
   })
-
   return (
-    <Grid key={component._key} colCount={colCount}>
+    <Grid colCount={colCount} key={component._key}>
       {gridComponents}
     </Grid>
   )
@@ -77,7 +80,6 @@ export function makeComponents (components) {
     switch (component._type) {
     case 'grid':
       return makeGrid(component)
-
     case 'figure':
       return makeMediaComponent(component)
     case 'video':
