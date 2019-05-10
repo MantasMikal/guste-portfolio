@@ -72,7 +72,7 @@ async function createBlogPostPages (graphql, actions, reporter) {
     createPage({
       path,
       component: require.resolve('./src/templates/blogPostTemplate.js'),
-      context: { id, prev: prev, next: next }
+      context: { id, prev, next }
     })
 
     createPageDependency({ path, nodeId: id })
@@ -85,6 +85,16 @@ async function createProjectPages (graphql, actions, reporter) {
     {
       allSanityProject(filter: { slug: { current: { ne: null } } }) {
         edges {
+          previous {
+            slug {
+              current
+            }
+          }
+          next {
+            slug {
+              current
+            }
+          }
           node {
             id
             slug {
@@ -105,12 +115,16 @@ async function createProjectPages (graphql, actions, reporter) {
     const slug = edge.node.slug.current
     const path = `/project/${slug}/`
 
+    // Next and previous pages
+    const prev = edge.previous ? `/project/${edge.previous.slug.current}/` : null
+    const next = edge.next ? `/project/${edge.next.slug.current}/` : null
+    console.log("prev", prev)
     reporter.info(`Creating project page: ${path}`)
 
     createPage({
       path,
       component: require.resolve('./src/templates/projectTemplate.js'),
-      context: { id }
+      context: { id, next, prev }
     })
 
     createPageDependency({ path, nodeId: id })

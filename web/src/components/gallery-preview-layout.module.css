@@ -33,8 +33,7 @@
 
 
 .title {
-  text-align: right;
-  margin: 0.625em;
+  margin: 0.325em 0;
   @media (hover: hover) {
     @nest .root:hover & {
       text-decoration: underline;

@@ -23,7 +23,6 @@ export default class MultiImage extends Component {
   }
 
   handleHover () {
-    console.log("LEFT: ", this.state.mouseMoveSkip)
     this.setState({
       mouseMoveSkip: this.state.mouseMoveSkip - 1
     })

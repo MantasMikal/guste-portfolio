@@ -98,13 +98,13 @@ const IndexPage = props => {
             browseMoreHref='/projects/'
           />
         )}
-        {postNodes && (
+        {/* {postNodes && (
           <BlogPostPreviewGrid
             title='Latest blog posts'
             nodes={postNodes}
             browseMoreHref='/blog/'
           />
-        )}
+        )} */}
       </Container>
     </Layout>
   )

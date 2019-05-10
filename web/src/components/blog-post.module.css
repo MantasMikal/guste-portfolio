@@ -35,10 +35,6 @@
   transition: 0.25s;
 }
 
-.navLink:hover::after {
-  content: '>';
-}
-
 .invisible {
   visibility: hidden;
 }

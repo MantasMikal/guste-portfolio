@@ -101,3 +101,27 @@
   width: 70%;
   border: 1px solid black;
 }
+
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+
+  @nest & a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.navLink {
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+  transition: 0.25s;
+}
+
+.invisible {
+  visibility: hidden;
+}

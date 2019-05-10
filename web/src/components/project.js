@@ -9,7 +9,7 @@ import RoleList from './role-list'
 import { makeComponents } from '../templates/dynamicComponents'
 import typography from './typography.module.css'
 import styles from './project.module.css'
-
+import { uppercase, responsiveText1 } from './typography.module.css'
 class Project extends React.Component {
   componentWillMount () {
     this.components = makeComponents(this.props._rawContent)
@@ -26,6 +26,10 @@ class Project extends React.Component {
       publishedAt,
       relatedProjects
     } = this.props
+    console.log(this.props.pageContext)
+    const { prev, next } = this.props.pageContext
+
+
     return (
       <article className={styles.root}>
         <Container>
@@ -36,6 +40,10 @@ class Project extends React.Component {
             <div>
               {_rawBody && <BlockContent blocks={_rawBody || []} />}
             </div>
+          </div>
+          <div className={styles.navWrapper}>
+            <Link className={prev ? cn(responsiveText1, uppercase) : styles.invisible} to={prev}>Previous</Link>
+            <Link className={next ? cn(responsiveText1, uppercase) : styles.invisible} to={next}>Next</Link>
           </div>
         </Container>
       </article>
