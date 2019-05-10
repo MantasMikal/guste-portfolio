@@ -10,7 +10,7 @@
   --font-small-line-height: calc(18 / 14);
   --font-base-size: calc(var(--base-unit) / 16 * 100%);
   --font-base-line-height: calc(22 / var(--base-unit));
-  --font-large-size: calc(19 / var(--base-unit) * 1rem);
+  --font-large-size: calc(20 / var(--base-unit) * 1rem);
   --font-large-line-height: calc(24 / 19);
   --font-title3-size: calc(24 / var(--base-unit) * 1rem);
   --font-title3-line-height: calc(28 / 24);

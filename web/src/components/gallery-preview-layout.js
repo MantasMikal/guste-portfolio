@@ -36,7 +36,7 @@ const generate = list => {
             {makeMediaComponent(item.artwork)}
             {/* <ZoomableImage isZoomable={item.artwork.isZoomable} key={item.id} fluid={item.artwork.asset.fluid} alt={item.artwork.alt} /> */}
           </div>
-          {/* <h6 className={cn(responsiveTitle5, styles.title)}>{item.title}</h6> */}
+          <h6 className={cn(responsiveTitle5, styles.title)}>{item.title}</h6>
         </div>
       )
     } else {
