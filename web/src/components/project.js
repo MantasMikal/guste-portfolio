@@ -36,7 +36,7 @@ class Project extends React.Component {
           <div className={styles.mainContent}>
             <h1 className={cn(styles.title, typography.uppercase)}>{title}</h1>
             {this.components}
-            <div style={{ borderTop: '1px solid black', width: '100%', marginTop: '1em' }} />
+            {/* <div style={{ borderTop: '1px solid black', width: '100%', marginTop: '1em' }} /> */}
             <div>
               {_rawBody && <BlockContent blocks={_rawBody || []} />}
             </div>
