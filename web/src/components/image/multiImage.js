@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Img from './image'
+import styles from './multiImage.module.css'
+import Img from 'gatsby-image'
 
 export default class MultiImage extends Component {
   constructor (props) {
@@ -8,7 +9,6 @@ export default class MultiImage extends Component {
     this.state = {
       currentImageIdx: 0,
       mouseMoveSkip: 8, // Skips pixels for image swaping
-      initialSkip: 8
     }
     this.handleHover = this.handleHover.bind(this)
   }
@@ -23,6 +23,7 @@ export default class MultiImage extends Component {
   }
 
   handleHover () {
+    const skipAmount = this.props.skipAmount ? this.props.skipAmount : 8 // How much pixels to go trough to change image
     this.setState({
       mouseMoveSkip: this.state.mouseMoveSkip - 1
     })
@@ -34,20 +35,34 @@ export default class MultiImage extends Component {
           : 0
       this.setState({
         currentImageIdx: imageIdx,
-        mouseMoveSkip: this.state.initialSkip
+        mouseMoveSkip: skipAmount
       })
     }
   }
-
+  // TODO
+  // Render all on load and then just switch between with css to improve performance
   render () {
-    const image = this.props.images ? this.props.images[this.state.currentImageIdx] : null
-    const fluid = image && image.asset && image.asset.fluid ? image.asset.fluid : null
-    const alt = image.alt ? image.alt : 'Image'
-
     return (
       <>
         <div onMouseMove={this.handleHover}>
-          <Img fluid={fluid} alt={alt} />
+          {
+            this.props.images.map((item, i) => {
+              if (this.state.currentImageIdx === i) {
+                const fluid = item.asset && item.asset.fluid ? item.asset.fluid : null
+                const alt = item.alt ? item.alt : ''
+                return (
+                  <Img key={item.asset.id} className={[styles.multiImage, styles.active].join('')} fluid={fluid} alt={alt} />
+                )
+              }
+              // else {
+              //   const fluid = item.asset && item.asset.fluid ? item.asset.fluid : null
+              //   const alt = item.alt ? item.alt : 'Image'
+              //   return (
+              //     <Img key={item.asset.id}  className={styles.multiImage} fluid={fluid} alt={alt} fadeIn={false} />
+              //   )
+              // }
+            })
+          }
         </div>
       </>
     )
