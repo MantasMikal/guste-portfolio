@@ -2,7 +2,7 @@ const favicons = require('favicons')
 const path = require('path')
 const fs = require('fs')
 
-const { siteTitleShort, themeColor, backgroundColor } = require('../siteConfig')
+const { siteTitleShort, themeColor, backgroundColor, siteDescription } = require('../siteConfig')
 
 const dir = path.resolve(__dirname, '../public/icons/')
 if (!fs.existsSync(dir)) {
@@ -15,9 +15,9 @@ const source = 'src/images/icon.png'
 const configuration = {
   path: '/icons/',
   appName: siteTitleShort,
-  appDescription: null,
-  developerName: null,
-  developerURL: null,
+  appDescription: siteDescription,
+  developerName: 'Mantas Mikalauskas',
+  developerURL: 'https://github.com/MantasMikal',
   dir: 'auto',
   lang: 'en-US',
   background: backgroundColor,
@@ -33,7 +33,7 @@ const configuration = {
     appleStartup: true,
     coast: false,
     favicons: true,
-    firefox: false,
+    firefox: true,
     windows: true,
     yandex: false
   }

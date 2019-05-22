@@ -5,7 +5,7 @@ const {
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://gugis.co`
+    siteUrl: `https://guste.design`
   },
   plugins: [
     'gatsby-plugin-postcss',

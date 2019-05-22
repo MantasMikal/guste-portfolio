@@ -4,7 +4,7 @@ module.exports = {
   siteTitle: `G.G.`,
   siteTitleShort: `G.G.`,
   siteDescription: `Graphic designer, artist, clothes designer`,
-  siteUrl: `https://gugis.co`,
+  siteUrl: `https://guste.design`,
   themeColor: `#231f20`,
   backgroundColor: `#fff`,
   pathPrefix: null,

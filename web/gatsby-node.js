@@ -118,7 +118,6 @@ async function createProjectPages (graphql, actions, reporter) {
     // Next and previous pages
     const prev = edge.previous ? `/project/${edge.previous.slug.current}/` : null
     const next = edge.next ? `/project/${edge.next.slug.current}/` : null
-    console.log("prev", prev)
     reporter.info(`Creating project page: ${path}`)
 
     createPage({
