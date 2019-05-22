@@ -16,7 +16,7 @@
 .footerWrapper {
   box-sizing: border-box;
   margin: 0.325rem var(--page-margin);
-  border-top: 1px solid black;
+  /* border-top: 1px solid black; */
   @media (--media-min-small) {
 
   }
