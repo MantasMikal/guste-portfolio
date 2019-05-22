@@ -7,8 +7,8 @@ export default class MultiImage extends Component {
 
     this.state = {
       currentImageIdx: 0,
-      mouseMoveSkip: 10, // Skips pixels for image swaping
-      initialSkip: 30
+      mouseMoveSkip: 8, // Skips pixels for image swaping
+      initialSkip: 8
     }
     this.handleHover = this.handleHover.bind(this)
   }

@@ -6,3 +6,7 @@
     margin-bottom: 0.325em;
   }
 }
+@keyframes fadeIn {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
