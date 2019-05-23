@@ -80,13 +80,5 @@ export default () =>
                 .icon(FaFileO)
             ])
         ),
-      S.listItem()
-        .title('People')
-        .schemaType('person')
-        .child(S.documentTypeList('person').title('People')),
-      S.listItem()
-        .title('Categories')
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
       ...S.documentTypeListItems().filter(listItem => !hiddenTypes.includes(listItem.getId()))
     ])

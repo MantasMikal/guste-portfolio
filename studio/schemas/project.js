@@ -89,7 +89,7 @@ export default {
     select: {
       title: 'title',
       publishedAt: 'publishedAt',
-      image: 'mainImage'
+      image: 'mainImages'
     },
     prepare ({ title = 'No title', publishedAt, image }) {
       return {
@@ -97,7 +97,7 @@ export default {
         subtitle: publishedAt
           ? new Date(publishedAt).toLocaleDateString()
           : 'Missing publishing date',
-        media: image
+        media: image[0]
       }
     }
   }
