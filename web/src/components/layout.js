@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from './header'
 import Head from './head/head'
-
 import '../styles/layout.css'
 import styles from './layout.module.css'
 
@@ -24,6 +23,7 @@ const Layout = ({
       showNav={showNav}
       contactInfo={contactInfo}
     />
+
     <div className={styles.content}>{children}</div>
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>

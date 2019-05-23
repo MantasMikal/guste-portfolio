@@ -3,7 +3,6 @@ import React from 'react'
 import ProjectPreview from './project-preview'
 import { cn } from '../lib/helpers'
 import styles from './project-preview-grid.module.css'
-
 function ProjectPreviewGrid (props) {
   const { colCount } = props
   /* TODO FIX THIS NASTY THING */
