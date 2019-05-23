@@ -114,7 +114,6 @@
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
   margin: 1rem 0 0.5rem;
-  border-bottom: 1px solid hsla(0,0%,0%,0.07);
 
   @media (--media-min-small) {
     font-size: var(--font-extraLarge-size);
@@ -132,7 +131,6 @@
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
   margin: 1rem 0 0.5rem;
-  border-bottom: 1px solid hsla(0,0%,0%,0.07);
 
   @media (--media-min-small) {
     font-size: var(--font-title2-size);
@@ -150,7 +148,6 @@
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
   margin: 0.125rem 0 0.5rem;
-  border-bottom: 1px solid hsla(0,0%,0%,0.07);
 
   @media (--media-min-small) {
     font-size: var(--font-title3-size);
@@ -168,7 +165,6 @@
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
   margin: 1rem 0 0.5rem;
-  border-bottom: 1px solid hsla(0,0%,0%,0.07);
   @media (--media-min-small) {
     font-size: var(--font-large-size);
     line-height: var(--font-large-line-height);
@@ -185,7 +181,6 @@
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
   margin: 1rem 0 0.5rem;
-  border-bottom: 1px solid hsla(0,0%,0%,0.07);
   @media (--media-min-small) {
     font-size: var(--font-base-size);
     line-height: var(--font-base-line-height);
@@ -202,7 +197,6 @@
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
   margin: 0.325rem 0 0.325rem;
-  border-bottom: 1px solid hsla(0,0%,0%,0.07);
 
   @media (--media-min-small) {
     font-size: var(--font-base-size);
