@@ -25,7 +25,7 @@ export default class MultiImage extends Component {
   handleHover () {
     const skipAmount = this.props.skipAmount ? this.props.skipAmount : 10 // How much pixels to go trough to change image
     this.setState({
-      mouseMoveSkip: this.state.mouseMoveSkip - 1
+      mouseMoveSkip: this.state.mouseMoveSkip - 1 // Decrease pixels left before changing image
     })
 
     if (this.state.mouseMoveSkip < 0) {
@@ -42,27 +42,17 @@ export default class MultiImage extends Component {
   // TODO
   // Render all on load and then just switch between with css to improve performance
   render () {
+    const imageId = this.state.currentImageIdx
+    const image = this.props.images[imageId]
     return (
       <>
         <div onMouseMove={this.handleHover}>
-          {
-            this.props.images.map((item, i) => {
-              if (this.state.currentImageIdx === i) {
-                const fluid = item.asset && item.asset.fluid ? item.asset.fluid : null
-                const alt = item.alt ? item.alt : ''
-                return (
-                  <Img key={item.asset.id} className={[styles.multiImage, styles.active].join('')} fluid={fluid} alt={alt} />
-                )
-              }
-              // else {
-              //   const fluid = item.asset && item.asset.fluid ? item.asset.fluid : null
-              //   const alt = item.alt ? item.alt : 'Image'
-              //   return (
-              //     <Img key={item.asset.id}  className={styles.multiImage} fluid={fluid} alt={alt} fadeIn={false} />
-              //   )
-              // }
-            })
-          }
+          <Img
+            key={image.asset.id}
+            className={[styles.multiImage, styles.active].join('')}
+            fluid={image.asset.fluid}
+            alt={image.alt}
+          />
         </div>
       </>
     )
