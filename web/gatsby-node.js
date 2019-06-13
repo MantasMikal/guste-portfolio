@@ -22,7 +22,7 @@ const { format } = require('date-fns')
 // }
 
 async function createBlogPostPages (graphql, actions, reporter) {
-  const { createPage, createPageDependency } = actions
+  const { createPage } = actions
   const result = await graphql(`
     {
       allSanityPost(filter: { slug: { current: { ne: null } } }) {
@@ -74,13 +74,11 @@ async function createBlogPostPages (graphql, actions, reporter) {
       component: require.resolve('./src/templates/blogPostTemplate.js'),
       context: { id, prev, next }
     })
-
-    createPageDependency({ path, nodeId: id })
   })
 }
 
 async function createProjectPages (graphql, actions, reporter) {
-  const { createPage, createPageDependency } = actions
+  const { createPage } = actions
   const result = await graphql(`
     {
       allSanityProject(filter: { slug: { current: { ne: null } } }) {
@@ -125,8 +123,6 @@ async function createProjectPages (graphql, actions, reporter) {
       component: require.resolve('./src/templates/projectTemplate.js'),
       context: { id, next, prev }
     })
-
-    createPageDependency({ path, nodeId: id })
   })
 }
 

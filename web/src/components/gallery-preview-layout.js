@@ -33,6 +33,7 @@ const generate = list => {
       return (
         <div className={styles.itemWrapper} key={item.id}>
           <div className={styles.item}>
+
             {makeMediaComponent(item.artwork)}
             {/* <ZoomableImage isZoomable={item.artwork.isZoomable} key={item.id} fluid={item.artwork.asset.fluid} alt={item.artwork.alt} /> */}
           </div>

@@ -23,6 +23,7 @@ export default class MultiImage extends Component {
   }
 
   handleHover () {
+    // Decrease counter on mouse move and change images
     const skipAmount = this.props.skipAmount ? this.props.skipAmount : 10 // How much pixels to go trough to change image
     this.setState({
       mouseMoveSkip: this.state.mouseMoveSkip - 1 // Decrease pixels left before changing image
