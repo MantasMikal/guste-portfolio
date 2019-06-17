@@ -46,7 +46,7 @@
   margin: 0;
   padding: calc(14 / 17 / 2 * 1rem);
   outline: none;
-
+  color:  var(--color-white);
   transition: 0.25s;
 
   & svg {
@@ -61,7 +61,10 @@
 .nav {
   display: none;
   text-transform: uppercase;
+
+
   @nest & ul {
+    background-color: var(--color-black);
     margin: 0;
     padding: 0;
   }
