@@ -8,7 +8,7 @@ function Grid (props) {
       className={styles.grid}
       style={{
         gridTemplateColumns: `repeat(${colCount}, ${colWidth || `1fr`})`,
-        gridAutoRows: `${rowHeight || 1}fr`
+        gridAutoRows: `${rowHeight || 'fr'}`
       }}
     >
       {props.children}
