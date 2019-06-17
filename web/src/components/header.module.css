@@ -4,6 +4,8 @@
 .root {
   position: relative;
   z-index: 100;
+  background-color: var(--color-black);
+  color:  var(--color-white);
 }
 
 .wrapper {

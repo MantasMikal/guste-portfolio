@@ -51,7 +51,7 @@ const ProjectsPage = props => {
       <Container>
         <h1 className={cn(responsiveTitle2, uppercase)}>Projects</h1>
         {projectNodes && projectNodes.length > 0 && (
-          <ProjectPreviewGrid nodes={projectNodes} colCount={2} />
+          <ProjectPreviewGrid nodes={projectNodes} colCount={3} />
         )}
       </Container>
     </Layout>
