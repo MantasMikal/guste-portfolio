@@ -30,13 +30,11 @@ export default {
   ],
   preview: {
     select: {
-      title: 'colCount',
-      image: 'gridMedia'
+      title: 'colCount'
     },
-    prepare ({ title = 'No title', image }) {
+    prepare ({ title = 'No title' }) {
       return {
-        title: `Grid, Column count: ` + title,
-        media: image ? image[0] : undefined
+        title: `Grid, Column count: ` + title
       }
     }
   }

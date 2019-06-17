@@ -16,5 +16,17 @@ export default {
       title: 'Content Block',
       type: 'blockContent'
     }
-  ]
+  ],
+  preview: {
+    select: {
+      image: 'mainImages',
+      maxWidth: 'maxWidth'
+    },
+    prepare ({ title = 'Content Block', maxWidth }) {
+      return {
+        title,
+        maxWidth: maxWidth || '100'
+      }
+    }
+  }
 }
