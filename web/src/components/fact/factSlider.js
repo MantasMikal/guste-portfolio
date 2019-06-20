@@ -41,11 +41,9 @@ export default class FactSlider extends Component {
             <Image fluid={image.asset.fluid} alt={image.alt} />
           )}
         </div>
-        <div>
+        <div className={styles.factText}>
           {_rawBody && (
-            <div>
               <BlockContent blocks={_rawBody} />
-            </div>
           )}
         </div>
         <div className={styles.buttonWrapper}>

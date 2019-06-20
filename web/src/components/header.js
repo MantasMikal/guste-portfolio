@@ -3,11 +3,13 @@ import React from 'react'
 import Icon from './icons'
 import { cn } from '../lib/helpers'
 import ContactPage from './contactPage'
+import logoImg from '../images/logo2.png'
 import styles from './header.module.css'
 
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle, contactInfo }) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
+      <img className={styles.logo} src={logoImg} alt='Logo' />
       <h1 className={styles.branding}>
         <Link to='/'>{siteTitle}</Link>
       </h1>

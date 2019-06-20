@@ -20,6 +20,13 @@
   }
 }
 
+.logo {
+  align-self: flex-start;
+  margin: auto;
+  width: 2.5%;
+  margin-right: 0.625rem;
+}
+
 .branding {
   font-size: inherit;
   text-transform: uppercase;

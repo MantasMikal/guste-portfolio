@@ -1,8 +1,8 @@
 @import './vars.css';
-/* @import url('https://fonts.googleapis.com/css?family=Open+Sans'); */
+ @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
 html {
-  font-family: 'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  font-family: 'Quicksand', serif;
   font-size: var(--font-base-size);
   font-display: auto;
   line-height: var(--font-base-line-height);
