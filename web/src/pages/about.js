@@ -48,7 +48,6 @@ const AboutPage = props => {
   const page = data && data.page
   const personNodes =
     data && data.people && mapEdgesToNodes(data.people).filter(filterOutDocsWithoutSlugs)
-  console.log(personNodes)
   if (!page) {
     throw new Error(
       'Missing "About" page data. Open the studio at http://localhost:3333 and add "About" page data and restart the development server.'

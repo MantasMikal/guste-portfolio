@@ -26,7 +26,6 @@ class Project extends React.Component {
       publishedAt,
       relatedProjects
     } = this.props
-    console.log(this.props.pageContext)
     const { prev, next } = this.props.pageContext
 
 

@@ -7,7 +7,6 @@ import SEO from '../components/seo'
 
 const Contacts = props => {
   const { title, _rawBody } = props.contactInfo
-  console.log(title, _rawBody)
   return (
     <div className={styles.wrapper}>
       <SEO title={title} />

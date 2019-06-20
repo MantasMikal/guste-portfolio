@@ -34,7 +34,6 @@ export function makeMediaComponent (component) {
     }
 
   case 'video':
-    console.log('VIDEO:', component)
     if (!component && !component.url) {
       console.error('Could not create video component, because url is undefined', component)
     }
@@ -58,7 +57,6 @@ export function makeMediaComponent (component) {
 
   default:
     console.log(component._type, ' does not exist!')
-    console.log('COMPONENT:', component)
     return <div>Missing component</div>
   }
 }
