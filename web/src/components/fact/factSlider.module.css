@@ -1,3 +1,5 @@
+@import '../../styles/media-queries.css';
+
 .factsWrapper {
   position: relative;
   display: grid;
@@ -6,10 +8,22 @@
   grid-column-gap: 10px;
 
   margin: 10px 0 0 0;
+
+  @media (--media-max-medium){
+    display: block;
+  }
 }
 
 .buttonWrapper {
   position: absolute;
   bottom: 10px;
   right: 10px;
+
+  @media (--media-max-medium){
+    position: relative;
+    margin: 10px;
+    & > button {
+      right: 0;
+    }
+  }
 }

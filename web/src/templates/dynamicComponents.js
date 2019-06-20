@@ -25,7 +25,7 @@ export function makeMediaComponent (component) {
     } else {
       const fluidProps = image.fluid
         ? image.fluid
-        : getFluidGatsbyImage(image._id, { maxWidth: 1920, maxHeight: 1200 }, cfg)
+        : getFluidGatsbyImage(image._id, { maxWidth: 1920 }, cfg)
       const isZoomable = component.isZoomable
       return (
         <Img fluid={fluidProps} alt={imageAlt} key={component.asset.id} isZoomable={isZoomable} />
