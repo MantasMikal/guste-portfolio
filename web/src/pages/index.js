@@ -5,6 +5,7 @@ import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
+import FactSlider from '../components/fact/factSlider'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
@@ -60,7 +61,24 @@ export const query = graphql`
         }
       }
     }
+
+  facts: allSanityFact {
+    edges {
+      node {
+        title
+        _rawBody(resolveReferences: { maxDepth: 5 })
+        image {
+          alt
+          asset {
+            fluid(maxWidth: 1000, maxHeight: 600) {
+                ...GatsbySanityImageFluid
+              }
+          }
+        }
+      }
+    }
   }
+}
 `
 
 const IndexPage = props => {
@@ -80,18 +98,20 @@ const IndexPage = props => {
   const projectNodes = (data || {}).projects
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : []
-
+  const factNodes = (data || {}).facts ? mapEdgesToNodes(data.facts)
+    : []
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     )
   }
-
+  console.log("Facts: ", factNodes)
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
+        <FactSlider facts={factNodes} />
         {projectNodes && (
           <ProjectPreviewGrid
             title='Latest projects'

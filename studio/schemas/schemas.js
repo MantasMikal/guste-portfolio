@@ -26,6 +26,7 @@ import grid from './grid'
 import artworkCategory from './artworkCategory'
 import Gallery from './gallery'
 import ContentBlock from './contentBlock'
+import fact from './fact'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -55,7 +56,8 @@ export default createSchema({
     grid,
     artworkCategory,
     Gallery,
-    ContentBlock
+    ContentBlock,
+    fact
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

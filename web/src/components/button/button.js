@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './button.module.css'
 import { cn } from '../../lib/helpers'
 
-export default function SnipcartButton (props) {
+export default function Button (props) {
   const { cattitle, onClick, isActive } = props
   return (
     <button

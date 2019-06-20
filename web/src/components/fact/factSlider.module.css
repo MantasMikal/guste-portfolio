@@ -1,0 +1,15 @@
+.factsWrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+
+  margin: 10px 0 0 0;
+}
+
+.buttonWrapper {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
