@@ -40,7 +40,7 @@ export const query = graphql`
       }
     }
 
-    posts: allSanityPost(limit: 3, sort: { fields: [publishedAt], order: DESC }) {
+    posts: allSanityPost(limit: 4, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           id
