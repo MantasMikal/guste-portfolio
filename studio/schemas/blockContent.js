@@ -110,6 +110,9 @@ export default {
       type: 'figure'
     },
     {
+      type: 'video'
+    },
+    {
       type: 'slideshow'
     },
     {

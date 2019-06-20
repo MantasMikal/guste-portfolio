@@ -2,7 +2,7 @@ import BaseBlockContent from '@sanity/block-content-to-react'
 import React from 'react'
 import Figure from './figure'
 import Slideshow from './slideshow'
-import { makeGrid } from '../../templates/dynamicComponents'
+import { makeGrid, makeMediaComponent } from '../../templates/dynamicComponents'
 
 import typography from '../typography.module.css'
 
@@ -33,6 +33,9 @@ const serializers = {
     },
     slideshow (props) {
       return <Slideshow {...props.node} />
+    },
+    video (props) {
+      return makeMediaComponent(props.node)
     },
     grid (props) {
       return makeGrid(props.node)

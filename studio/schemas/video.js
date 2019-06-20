@@ -1,11 +1,16 @@
 export default {
   name: 'video',
   title: 'Video',
-  type: 'file',
+  type: 'object',
   options: {
     hotspot: true
   },
   fields: [
+    {
+      name: 'url',
+      title: 'URL',
+      type: 'url'
+    },
     {
       name: 'alt',
       title: 'Alternative text (for screen readers)',
@@ -14,5 +19,16 @@ export default {
         isHighlighted: true
       }
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'alt',
+      url: 'url'
+    },
+    prepare ({ title = 'No title', url }) {
+      return {
+        title: title + ', ' + url
+      }
+    }
+  }
 }

@@ -14,7 +14,7 @@ export default class Video extends Component {
         <video
           className={styles.video}
           width='100%'
-          height='auto'
+          height='100%'
           src={src}
           type='video/mp4'
           alt={alt}

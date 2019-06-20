@@ -1,6 +1,7 @@
 import React from 'react'
 import Grid from '../components/grid/grid'
 import Video from '../components/video/video'
+import UrlVideo from '../components/video/urlVideo'
 import BlockContent from '../components/block-content'
 import Img from '../components/image/zoomableImage'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
@@ -33,15 +34,19 @@ export function makeMediaComponent (component) {
     }
 
   case 'video':
-    if (!component || !component.asset || !component.asset.url) {
-      console.log('Could not create video component, because it is invalid', component.asset)
-      return // Safety
+    console.log('VIDEO:', component)
+    if (!component && !component.url) {
+      console.error('Could not create video component, because url is undefined', component)
     }
+    // if (!component || !component.asset || !component.asset.url) {
+    //   console.log('Could not create video component, because it is invalid', component.asset)
+    //   return // Safety
+    // }
 
-    const video = component.asset.url
-    const videoAlt = component.alt ? component.alt : ' '
+    // const video = component.asset.url
+    // const videoAlt = component.alt ? component.alt : ' '
     // const videoCaption = component.caption ? component.caption : " "
-    return <Video src={video} alt={videoAlt} key={component.asset.id} />
+    return <UrlVideo url={component.url} alt={component.alt} key={component.id} />
 
   case 'contentBlock':
     const maxWidth = component.maxWidth ? component.maxWidth : 100
