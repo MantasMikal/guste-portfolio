@@ -1,0 +1,22 @@
+@import '../styles/media-queries.css';
+
+.title {
+  margin: 0.325em 0.325rem;
+  @media (hover: hover) {
+    @nest .root:hover & {
+      text-decoration: underline;
+    }
+  }
+}
+
+.item {
+  margin: 0 0.324rem;
+}
+
+.itemWrapper {
+  display: inline-block;
+  margin: 0.325rem 0;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 5px 60px -10px rgba(0,0,0,0.22);
+}
