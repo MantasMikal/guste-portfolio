@@ -67,14 +67,6 @@ export const query = graphql`
       node {
         title
         _rawBody(resolveReferences: { maxDepth: 5 })
-        image {
-          alt
-          asset {
-            fluid(maxWidth: 1000, maxHeight: 600) {
-                ...GatsbySanityImageFluid
-              }
-          }
-        }
       }
     }
   }
