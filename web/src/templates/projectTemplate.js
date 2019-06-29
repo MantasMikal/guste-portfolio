@@ -16,13 +16,13 @@ export const query = graphql`
         title
       }
       _rawContent(resolveReferences: { maxDepth: 5 })
-      relatedProjects {
-        title
-        _id
-        slug {
-          current
-        }
-      }
+      # relatedProjects {
+      #   title
+      #   _id
+      #   slug {
+      #     current
+      #   }
+      # }
       title
       slug {
         current
