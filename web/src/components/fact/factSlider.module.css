@@ -3,7 +3,7 @@
 .factsWrapper {
   position: relative;
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 4fr 2fr;
   grid-template-rows: 1fr;
   grid-column-gap: 10px;
   margin: 10px 0 0px 0;

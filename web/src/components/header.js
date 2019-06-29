@@ -14,7 +14,8 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle, contactInfo }) => (
       </Link>
 
       <h1 className={styles.branding}>
-        {siteTitle}      </h1>
+        <Link to='/'>{siteTitle}</Link>
+      </h1>
 
       <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
         <Icon symbol='hamburger' />

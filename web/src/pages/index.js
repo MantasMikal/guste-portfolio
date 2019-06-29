@@ -111,7 +111,6 @@ const IndexPage = props => {
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
         <FactSlider facts={factNodes} />
-        {/* <h1 style={{maxWidth: '60vw'}}>{site.description}</h1> */}
         {projectNodes && (
           <ProjectPreviewGrid
             title='Latest projects'
