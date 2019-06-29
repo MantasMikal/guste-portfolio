@@ -8,8 +8,26 @@ export default {
   fields: [
     {
       name: 'colCount',
-      title: 'Column Count',
+      title: 'Column Count - DO NOT USE. For compatability only. Use colTemplate instead',
       type: 'number'
+    },
+    {
+      name: 'colTemplate',
+      title: 'Column Template eg.: 1fr 2fr',
+      description: 'Defines size of each column in the grid. Available units: px, em, %, fr, rem. You can mix units if you need fixed size: "100px 1fr 30em" ',
+      type: 'string'
+    },
+    {
+      name: 'rowGap',
+      title: 'Row Gap eg.: 10px',
+      description: 'Defines size of gap in the grid. Available units: px, em, %, rem',
+      type: 'string'
+    },
+    {
+      name: 'colGap',
+      title: 'Column Gap eg.: 10px',
+      description: 'Defines size of gap in the grid. Available units: px, em, %, rem',
+      type: 'string'
     },
     {
       name: 'gridMedia',
@@ -30,11 +48,11 @@ export default {
   ],
   preview: {
     select: {
-      title: 'colCount'
+      colTemplate: 'colTemplate'
     },
-    prepare ({ title = 'No title' }) {
+    prepare ({ colTemplate = 'No title' }) {
       return {
-        title: `Grid, Column count: ` + title
+        title: `Grid, ` + colTemplate
       }
     }
   }

@@ -19,7 +19,7 @@ export default {
     },
     {
       name: 'artworkCategory',
-      title: 'Art Categories',
+      title: 'Artwork Category',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'artworkCategory' } }]
     },

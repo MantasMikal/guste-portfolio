@@ -12,7 +12,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'Some frontend will require a slug to be set to be able to show the post',
+      description: 'This will set an url of the post',
       options: {
         source: 'title',
         maxLength: 96
@@ -20,7 +20,7 @@ export default {
     },
     {
       name: 'content',
-      title: 'Content',
+      title: 'Content - DO NOT USE THIS. PLACE EVERYTHING IN BODY INSTEAD',
       type: 'array',
       of: [
         {
@@ -43,21 +43,25 @@ export default {
     {
       name: 'excerpt',
       title: 'Excerpt',
+      description: 'Short post description',
       type: 'blockText'
     },
     {
       name: 'mainImage',
       title: 'Main image',
+      description: 'Main image of the document (thumbnail)',
       type: 'mainImage'
     },
     {
       name: 'categories',
       title: 'Categories',
+      description: 'Helps filter and categorize posts',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }]
     },
     {
       name: 'body',
+      description: 'Main content',
       title: 'Body',
       type: 'blockContent'
     }

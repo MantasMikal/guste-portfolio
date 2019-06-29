@@ -48,9 +48,10 @@ export function makeMediaComponent (component) {
     return <UrlVideo url={component.url} alt={component.alt} key={component.id} />
 
   case 'contentBlock':
-    const maxWidth = component.maxWidth ? component.maxWidth : 100
+    // const maxWidth = component.maxWidth ? component.maxWidth : 100
+    // style={{ maxWidth: `${maxWidth}%` }}
     return (
-      <div style={{ maxWidth: `${maxWidth}%` }} key={component._key}>
+      <div key={component._key}>
         <BlockContent blocks={component.contentBlock} />
       </div>
     )
@@ -64,12 +65,15 @@ export function makeMediaComponent (component) {
 export function makeGrid (component) {
   const gridMedia = component.gridMedia
   const colCount = component.colCount
+  const colTemplate = component.colTemplate
+  const rowGap = component.rowGap
+  const colGap = component.colGap
   // Build content
   const gridComponents = gridMedia.map(item => {
     return makeMediaComponent(item)
   })
   return (
-    <Grid colCount={colCount} key={component._key}>
+    <Grid colCount={colCount} key={component._key} colTemplate={colTemplate} rowGap={rowGap} colGap={colGap}>
       {gridComponents}
     </Grid>
   )

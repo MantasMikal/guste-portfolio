@@ -9,6 +9,7 @@ export default {
     {
       name: 'url',
       title: 'URL',
+      description: 'Youtube and Vimeo are supported',
       type: 'url'
     },
     {

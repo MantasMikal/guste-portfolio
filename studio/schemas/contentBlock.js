@@ -7,11 +7,6 @@ export default {
   },
   fields: [
     {
-      name: 'maxWidth',
-      title: 'Max width',
-      type: 'number'
-    },
-    {
       name: 'contentBlock',
       title: 'Content Block',
       type: 'blockContent'
@@ -19,13 +14,11 @@ export default {
   ],
   preview: {
     select: {
-      image: 'mainImages',
-      maxWidth: 'maxWidth'
+      image: 'mainImages'
     },
-    prepare ({ title = 'Content Block', maxWidth }) {
+    prepare ({ title = 'Content Block' }) {
       return {
-        title,
-        maxWidth: maxWidth || '100'
+        title
       }
     }
   }

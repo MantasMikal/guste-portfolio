@@ -10,7 +10,7 @@ export default {
     },
     {
       name: 'content',
-      title: 'Content',
+      title: 'Content - DO NOT USE. USE BODY INSTEAD',
       type: 'array',
       of: [
         {
@@ -43,13 +43,8 @@ export default {
     {
       name: 'excerpt',
       title: 'Excerpt',
+      description: 'Short post description',
       type: 'blockText'
-    },
-    {
-      name: 'members',
-      title: 'Members',
-      type: 'array',
-      of: [{ type: 'projectMember' }]
     },
     {
       name: 'startedAt',
@@ -64,12 +59,14 @@ export default {
     {
       name: 'mainImages',
       title: 'Main images',
+      description: 'Main image of the document (thumbnail)',
       type: 'array',
       of: [{ type: 'figure' }]
     },
     {
       name: 'categories',
       title: 'Categories',
+      description: 'Helps filter and categorize posts',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }]
     },
@@ -77,13 +74,13 @@ export default {
       name: 'body',
       title: 'Body',
       type: 'blockContent'
-    },
-    {
-      name: 'relatedProjects',
-      title: 'Related projects',
-      type: 'array',
-      of: [{ type: 'reference', to: { type: 'project' } }]
     }
+    // {
+    //   name: 'relatedProjects',
+    //   title: 'Related projects',
+    //   type: 'array',
+    //   of: [{ type: 'reference', to: { type: 'project' } }]
+    // }
   ],
   preview: {
     select: {

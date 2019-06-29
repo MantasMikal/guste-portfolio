@@ -8,7 +8,8 @@ export default {
   fields: [
     {
       name: 'isZoomable',
-      title: 'Is figre can be zoomed?',
+      title: 'Zoom',
+      description: 'Wether the image can be zoomed',
       type: 'boolean',
       options: {
         isHighlighted: true
@@ -21,14 +22,5 @@ export default {
       options: {
         isHighlighted: true
       }
-    },
-    {
-      name: 'caption',
-      title: 'Caption',
-      type: 'string',
-      options: {
-        isHighlighted: true
-      }
-    }
-  ]
+    }]
 }
