@@ -5,6 +5,8 @@ import React, { Component } from 'react'
 import Image from '../image/zoomableImage'
 import BlockContent from '../block-content'
 import Button from '../button/button'
+import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
+
 import styles from './factSlider.module.css'
 
 export default class FactSlider extends Component {
@@ -12,7 +14,7 @@ export default class FactSlider extends Component {
     super(props)
 
     this.state = {
-      currentFact: 1
+      currentFact: 0
     }
   }
 
@@ -33,23 +35,28 @@ export default class FactSlider extends Component {
   }
 
   render () {
-    const { image, _rawBody } = this.props.facts[this.state.currentFact]
+    const fact = this.props.facts[this.state.currentFact]
     return (
       <div className={styles.factsWrapper}>
-        <div>
-          { image && image.asset.fluid && (
-            <Image fluid={image.asset.fluid} alt={image.alt} />
-          )}
-        </div>
         <div className={styles.factText}>
-          {_rawBody && (
-              <BlockContent blocks={_rawBody} />
+          {fact && fact._rawBody && (
+              <BlockContent blocks={fact._rawBody} />
           )}
         </div>
-        <div className={styles.buttonWrapper}>
-          <Button onClick={this.handlePrev} > Previous </Button>
-          <Button onClick={this.handleNext} > Next </Button>
+        <div className={styles.imageWrapper}>
+          { fact && fact.image && fact.image.asset && fact.image.asset.fluid && (
+            <Image fluid={fact.image.asset.fluid} alt={fact.image.alt} />
+          )}
         </div>
+        {
+          this.props.facts.length > 1 && (
+            <div className={styles.buttonWrapper}>
+              <FaAngleLeft onClick={this.handlePrev} className={styles.arrow}
+              size={'2em'} > Previous </FaAngleLeft>
+              <FaAngleRight onClick={this.handleNext} size={'2em'} className={styles.arrow} > Next </FaAngleRight>
+          </div>
+          )
+        }
       </div>
     )
   }

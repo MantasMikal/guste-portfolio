@@ -24,14 +24,15 @@ function BlogPostPreview (props) {
         <h6 className={cn(responsiveTitle5, styles.title)}>{props.title}</h6>
         <div>{date}</div>
       </Link>
-      {props._rawExcerpt && (
-        <div className={styles.excerpt}>
-          {/* <div>{date}</div> */}
-          <BlockText blocks={props._rawExcerpt} />
-        </div>
-      )}
     </>
   )
 }
 
 export default BlogPostPreview
+
+// {props._rawExcerpt && (
+//   <div className={styles.excerpt}>
+//     {/* <div>{date}</div> */}
+//     <BlockText blocks={props._rawExcerpt} />
+//   </div>
+// )}

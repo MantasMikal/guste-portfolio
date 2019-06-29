@@ -9,10 +9,12 @@ import styles from './header.module.css'
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle, contactInfo }) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
-      <img className={styles.logo} src={logoImg} alt='Logo' />
+      <Link to='/'>
+        <img className={styles.logo} src={logoImg} alt='Logo' />
+      </Link>
+
       <h1 className={styles.branding}>
-        <Link to='/'>{siteTitle}</Link>
-      </h1>
+        {siteTitle}      </h1>
 
       <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
         <Icon symbol='hamburger' />
