@@ -22,5 +22,13 @@ export default {
       options: {
         isHighlighted: true
       }
+    },
+    {
+      name: 'caption',
+      title: 'Caption',
+      type: 'string',
+      options: {
+        isHighlighted: true
+      }
     }]
 }
