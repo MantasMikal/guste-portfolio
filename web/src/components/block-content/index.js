@@ -29,7 +29,7 @@ const serializers = {
       }
     },
     figure (props) {
-      return <Figure {...props.node} />
+      return makeMediaComponent(props.node)
     },
     slideshow (props) {
       return <Slideshow {...props.node} />
