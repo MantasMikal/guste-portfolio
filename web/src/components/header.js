@@ -9,9 +9,9 @@ import styles from './header.module.css'
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle, contactInfo }) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
-      <Link to='/'>
+      {/* <Link to='/'>
         <img className={styles.logo} src={logoImg} alt='Logo' />
-      </Link>
+      </Link> */}
 
       <h1 className={styles.branding}>
         <Link to='/'>{siteTitle}</Link>
