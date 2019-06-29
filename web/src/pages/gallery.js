@@ -16,6 +16,7 @@ export const query = graphql`
           publishedAt
           id
           title
+          _rawBody(resolveReferences: {maxDepth: 5})
           artworkCategory {
             title
           }
@@ -64,7 +65,7 @@ const Gallery = props => {
       <SEO title='Gallery' />
       <Container>
         <h1 className={cn(responsiveTitle2, uppercase)}>Gallery</h1>
-        <GalleryPreviewLayout categories={categories} media={galleryNodes} />
+        <GalleryPreviewLayout categories={categories} nodes={galleryNodes} />
       </Container>
     </Layout>
   )

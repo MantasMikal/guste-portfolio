@@ -24,6 +24,11 @@ export default {
       of: [{ type: 'reference', to: { type: 'artworkCategory' } }]
     },
     {
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent'
+    },
+    {
       name: 'artwork',
       title: 'Artwork',
       type: 'figure'

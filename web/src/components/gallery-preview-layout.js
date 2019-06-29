@@ -2,8 +2,9 @@ import React from 'react'
 import ZoomableImage from './image/zoomableImage'
 // import CategoryButton from './button/category-button'
 import styles from './gallery-preview-layout.module.css'
-import { responsiveTitle5 } from './typography.module.css'
+import { responsiveTitle3 } from './typography.module.css'
 import { makeMediaComponent } from '../templates/dynamicComponents'
+import BlockContent from '../components/block-content'
 import { cn } from '../lib/helpers'
 // Filters art gallery items by category and returns
 // Array of artwork nodes
@@ -29,70 +30,25 @@ import { cn } from '../lib/helpers'
 // Takes in artwork nodes and returns list of components
 const generate = list => {
   return list.map(item => {
-    if (item && item.artwork && item.artwork.asset && item.artwork.asset.fluid) {
+    if (item._rawBody) {
       return (
         <div className={styles.itemWrapper} key={item.id}>
+          <h1 className={cn(responsiveTitle3, styles.title)}>{item.title}</h1>
           <div className={styles.item}>
-
-            {makeMediaComponent(item.artwork)}
-            {/* <ZoomableImage isZoomable={item.artwork.isZoomable} key={item.id} fluid={item.artwork.asset.fluid} alt={item.artwork.alt} /> */}
+            <BlockContent blocks={item._rawBody || []} />
           </div>
-          <h6 className={cn(responsiveTitle5, styles.title)}>{item.title}</h6>
         </div>
       )
-    } else {
-      return <> </>
     }
   })
 }
 
 export default class GalleryPreviewLayout extends React.Component {
-  // constructor(props) {
-  //   super(props)
-
-  //   this.state = {
-  //     galleryItems: [],
-  //     activeButton: null
-  //   }
-  // }
-
-  // componentWillMount() {
-  //   this.setState({
-  //     galleryItems: filterArt(this.state.activeButton, this.props.media)
-  //   })
-  // }
-
-  // Filters gallery on click
-  // handleClick = e => {
-  //   e.preventDefault()
-  //   const category = e.target.getAttribute('cattitle')
-  //   this.setState({
-  //     activeButton: category,
-  //     galleryItems: filterArt(category, this.props.media)
-  //   })
-  // }
-
   render () {
-    // const { categories } = this.props
-    let art = generate(this.props.media)
+    const art = generate(this.props.nodes)
+    console.log(this.props.nodes)
     return (
       <>
-        {/* <div className={styles.categoryWrapper}>
-          {categories.map(item => {
-            // Check if button is active to change its color
-            const isActive = this.state.activeButton === item.title ? true : false
-            return (
-              <CategoryButton
-                isActive={isActive}
-                cattitle={item.title}
-                key={item.id}
-                onClick={this.handleClick}
-              >
-                {item.title}
-              </CategoryButton>
-            )
-          })}
-        </div> */}
         <div className={styles.masonry}>{art}</div>
       </>
     )
