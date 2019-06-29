@@ -40,27 +40,27 @@ export const query = graphql`
       }
     }
 
-    posts: allSanityPost(limit: 4, sort: { fields: [publishedAt], order: DESC }) {
-      edges {
-        node {
-          id
-          publishedAt
-          mainImage {
-            alt
-            asset {
-              fluid(maxWidth: 1000, maxHeight: 600) {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
+    # posts: allSanityPost(limit: 4, sort: { fields: [publishedAt], order: DESC }) {
+    #   edges {
+    #     node {
+    #       id
+    #       publishedAt
+    #       mainImage {
+    #         alt
+    #         asset {
+    #           fluid(maxWidth: 1000, maxHeight: 600) {
+    #             ...GatsbySanityImageFluid
+    #           }
+    #         }
+    #       }
+    #       title
+    #       _rawExcerpt
+    #       slug {
+    #         current
+    #       }
+    #     }
+    #   }
+    # }
 
   slides: allSanitySlide {
     edges {
@@ -84,9 +84,9 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
-    : []
+  // const postNodes = (data || {}).posts
+  //   ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
+  //   : []
   const projectNodes = (data || {}).projects
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : []
@@ -110,13 +110,13 @@ const IndexPage = props => {
             browseMoreHref='/projects/'
           />
         )}
-        {postNodes && (
+        {/* {postNodes && (
           <BlogPostPreviewGrid
             title='Latest blog posts'
             nodes={postNodes}
             browseMoreHref='/blog/'
           />
-        )}
+        )} */}
       </Container>
     </Layout>
   )
