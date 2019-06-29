@@ -1,8 +1,8 @@
 import MdApps from 'react-icons/lib/md/apps'
 
 export default {
-  name: 'fact',
-  title: 'Fact',
+  name: 'slide',
+  title: 'Home Page Slide',
   icon: MdApps,
   type: 'document',
   fields: [
@@ -10,11 +10,6 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string'
-    },
-    {
-      name: 'image',
-      title: 'Image',
-      type: 'figure'
     },
     {
       name: 'body',

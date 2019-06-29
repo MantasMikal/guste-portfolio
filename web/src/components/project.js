@@ -24,7 +24,6 @@ class Project extends React.Component {
       mainImage,
       members,
       publishedAt,
-      relatedProjects
     } = this.props
     const { prev, next } = this.props.pageContext
 

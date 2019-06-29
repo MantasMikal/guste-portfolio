@@ -7,49 +7,49 @@ import BlockContent from '../block-content'
 import Button from '../button/button'
 import { FaAngleRight, FaAngleLeft } from 'react-icons/fa'
 
-import styles from './factSlider.module.css'
+import styles from './slider.module.css'
 
-export default class FactSlider extends Component {
+export default class slider extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      currentFact: 0
+      currentSlide: 0
     }
   }
 
   handleNext = () => {
-    const total = this.props.facts.length - 1
-    const nextFact = this.state.currentFact + 1 > total ? 0 : this.state.currentFact + 1
+    const total = this.props.slides.length - 1
+    const nextSlide = this.state.currentSlide + 1 > total ? 0 : this.state.currentSlide + 1
     this.setState({
-      currentFact: nextFact
+      currentSlide: nextSlide
     })
   }
 
   handlePrev = () => {
-    const total = this.props.facts.length - 1
-    const nextFact = this.state.currentFact - 1 < 0 ? total : this.state.currentFact - 1
+    const total = this.props.slides.length - 1
+    const nextSlide = this.state.currentSlide - 1 < 0 ? total : this.state.currentSlide - 1
     this.setState({
-      currentFact: nextFact
+      currentSlide: nextSlide
     })
   }
 
   render () {
-    const fact = this.props.facts[this.state.currentFact]
+    const slide = this.props.slides[this.state.currentSlide]
     return (
-      <div className={styles.factsWrapper}>
-        <div className={styles.factText}>
-          {fact && fact._rawBody && (
-              <BlockContent blocks={fact._rawBody} />
+      <div className={styles.slidesWrapper}>
+        <div className={styles.slideText}>
+          {slide && slide._rawBody && (
+              <BlockContent blocks={slide._rawBody} />
           )}
         </div>
-        <div className={styles.imageWrapper}>
-          { fact && fact.image && fact.image.asset && fact.image.asset.fluid && (
-            <Image fluid={fact.image.asset.fluid} alt={fact.image.alt} />
+        {/* <div className={styles.imageWrapper}>
+          { slide && slide.image && slide.image.asset && slide.image.asset.fluid && (
+            <Image fluid={slide.image.asset.fluid} alt={slide.image.alt} />
           )}
-        </div>
+        </div> */}
         {
-          this.props.facts.length > 1 && (
+          this.props.slides.length > 1 && (
             <div className={styles.buttonWrapper}>
               <FaAngleLeft onClick={this.handlePrev} className={styles.arrow}
               size={'2em'} > Previous </FaAngleLeft>

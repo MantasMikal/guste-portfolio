@@ -13,20 +13,20 @@ export default {
     },
     {
       name: 'colTemplate',
-      title: 'Column Template eg.: 1fr 2fr',
-      description: 'Defines size of each column in the grid. Available units: px, em, %, fr, rem. You can mix units if you need fixed size: "100px 1fr 30em" ',
+      title: 'Column Template',
+      description: 'E.g.: "1fr 2fr". Defines size of each column in the grid. Available units: px, em, %, fr, rem. You can mix units if you need fixed size: "100px 1fr 30em" ',
       type: 'string'
     },
     {
       name: 'rowGap',
-      title: 'Row Gap eg.: 10px',
-      description: 'Defines size of gap in the grid. Available units: px, em, %, rem',
+      title: 'Row Gap',
+      description: 'eg.: "10px". Defines size of gap in the grid. Available units: px, em, %, rem',
       type: 'string'
     },
     {
       name: 'colGap',
-      title: 'Column Gap eg.: 10px',
-      description: 'Defines size of gap in the grid. Available units: px, em, %, rem',
+      title: 'Column Gap',
+      description: 'eg.: "10px". Defines size of gap in the grid. Available units: px, em, %, rem',
       type: 'string'
     },
     {

@@ -1,11 +1,11 @@
 @import '../../styles/media-queries.css';
 
-.factsWrapper {
+.slidesWrapper {
   position: relative;
-  display: grid;
-  grid-template-columns: 4fr 2fr;
+  display: flex;
+  /* grid-template-columns: 4fr 2fr;
   grid-template-rows: 1fr;
-  grid-column-gap: 10px;
+  grid-column-gap: 10px; */
   margin: 0px 0 1rem 0;
   @media (--media-max-medium){
     display: block;
@@ -17,7 +17,7 @@
   width: 100%;
 }
 
-.factText {
+.slideText {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
