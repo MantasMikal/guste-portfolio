@@ -20,20 +20,6 @@ export const query = graphql`
           artworkCategory {
             title
           }
-          artwork {
-            _type
-            alt
-            caption
-            isZoomable
-            asset {
-              id
-              url
-              mimeType
-              fluid {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
         }
       }
     }
