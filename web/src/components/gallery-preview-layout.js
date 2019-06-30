@@ -37,7 +37,7 @@ export default class GalleryPreviewLayout extends React.Component {
       nodes[i] && posts.push(<GalleryPreview item={nodes[i]} key={nodes[i].id} />)
     }
     return (
-      <InfiniteScroll pageStart={0} loadMore={this.loadMore} hasMore={this.state.hasMore} threshold={1850} initialLoad={true}>
+      <InfiniteScroll pageStart={0} loadMore={this.loadMore} hasMore={this.state.hasMore} threshold={1800} initialLoad={true}>
         <MasonryLayout columns={3} gap={25}>
             {posts}
         </MasonryLayout>
