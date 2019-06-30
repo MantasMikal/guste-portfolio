@@ -13,6 +13,15 @@ export default {
       type: 'url'
     },
     {
+      name: 'hasBorder',
+      title: 'Border',
+      description: 'Wether the image has broder',
+      type: 'boolean',
+      options: {
+        isHighlighted: true
+      }
+    },
+    {
       name: 'alt',
       title: 'Alternative text (for screen readers)',
       type: 'string',

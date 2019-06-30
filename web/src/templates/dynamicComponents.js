@@ -8,6 +8,7 @@ import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 const cfg = { projectId: 'ee0lu4ue', dataset: 'production' }
 
 export function makeMediaComponent (component) {
+  const hasBorder = component.hasBorder ? component.hasBorder : false
   switch (component._type) {
   case 'figure':
     if (!component || !component.asset || !component.asset.mimeType) {
@@ -29,7 +30,7 @@ export function makeMediaComponent (component) {
         : getFluidGatsbyImage(image._id, { maxWidth: 1920 }, cfg)
       const isZoomable = component.isZoomable
       return (
-        <Img fluid={fluidProps} alt={imageAlt} key={component.asset.id} isZoomable={isZoomable} />
+        <Img fluid={fluidProps} alt={imageAlt} key={component.asset.id} isZoomable={isZoomable} hasBorder={hasBorder} />
       )
     }
 
@@ -38,15 +39,8 @@ export function makeMediaComponent (component) {
       console.error('Could not create video component, because url is undefined', component)
       break
     }
-    // if (!component || !component.asset || !component.asset.url) {
-    //   console.log('Could not create video component, because it is invalid', component.asset)
-    //   return // Safety
-    // }
 
-    // const video = component.asset.url
-    // const videoAlt = component.alt ? component.alt : ' '
-    // const videoCaption = component.caption ? component.caption : " "
-    return <UrlVideo url={component.url} alt={component.alt} key={component.id} />
+    return <UrlVideo url={component.url} alt={component.alt} key={component._key} hasBorder={hasBorder} />
 
   case 'contentBlock':
     // const maxWidth = component.maxWidth ? component.maxWidth : 100

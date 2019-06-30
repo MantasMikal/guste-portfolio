@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Modal from '../modal/modal'
 import Img from 'gatsby-image'
+import { cn } from '../../lib/helpers'
 import styles from './imageWithModal.module.css'
 
 export default class ModalImage extends Component {
@@ -39,9 +40,10 @@ export default class ModalImage extends Component {
   render () {
     const fluid = this.props.fluid ? this.props.fluid : ''
     const caption = this.props.caption ? this.props.caption : 'Image '
+    const hasBorder = this.props.hasBorder
     return (
       <>
-        <div onClick={this.openModal} className={styles.Overlay}>
+        <div onClick={this.openModal} className={ hasBorder ? cn(styles.Overlay, styles.border) : styles.Overlay} >
           <Img fluid={fluid} alt={caption} className={styles.hoverEffect} />
         </div>
 
