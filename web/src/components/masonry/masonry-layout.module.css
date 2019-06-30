@@ -1,0 +1,8 @@
+@import '../../styles/media-queries.css';
+
+.masonryLayout {
+  display: flex;
+  @media (--media-max-medium) {
+    display: block;
+  }
+}
