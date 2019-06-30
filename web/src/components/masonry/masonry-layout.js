@@ -12,40 +12,54 @@ function getColCount (width) {
   } else return 1
 }
 
-export default function MasonryLayout (props) {
+export default class MasonryLayout extends React.Component {
+  constructor(props) {
+    super(props)
 
-  const [width, setWidth] = useState(window.innerWidth)
-  useEffect(() => {
-    const handleResize = _debounce(() => {
-      setWidth(window.innerWidth)
-    }, 100)
-
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
+    this.state = {
+      colCount: 3
     }
-  }, [])
+  }
 
+  handleResize = () => this.setState({
+    colCount: getColCount(window.innerWidth)
+  });
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if(this.state.colCount === nextState.colCount && this.props.children === nextProps.children) {
+      console.log("Prevent update")
+      return false
+    } else return true
+  }
+
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize)
+  }
+
+  render() {
   const columnWrapper = {}
   const result = []
-  let colCount = getColCount(width)
   // create columns
-  for (let i = 0; i < colCount; i++) {
+  for (let i = 0; i < this.state.colCount; i++) {
     columnWrapper[`column${i}`] = []
   }
 
   // divide children into columns
-  for (let i = 0; i < props.children.length; i++) {
-    const columnIndex = i % colCount
+  for (let i = 0; i < this.props.children.length; i++) {
+    const columnIndex = i % this.state.colCount
     columnWrapper[`column${columnIndex}`].push(
-      <div style={{ marginBottom: `${props.gap}px` }} key={`column-${columnIndex}-${i}`}>
-        {props.children[i]}
+      <div style={{ marginBottom: `${this.props.gap}px` }} key={`column-${columnIndex}-${i}`}>
+        {this.props.children[i]}
       </div>
     )
   }
   // wrap children in each column with a div
-  for (let i = 0; i < colCount; i++) {
+  for (let i = 0; i < this.state.colCount; i++) {
     result.push(
       <div
         style={{
@@ -57,12 +71,12 @@ export default function MasonryLayout (props) {
       </div>
     )
   }
-  console.log(getColCount(width))
-  return (
-    <div className={styles.masonryLayout}>
-      {result}
-    </div>
-  )
+    return (
+      <div className={styles.masonryLayout}>
+        {result}
+      </div>
+    )
+  }
 }
 
 MasonryLayout.propTypes = {
@@ -71,5 +85,6 @@ MasonryLayout.propTypes = {
 }
 
 MasonryLayout.defaultProps = {
-  gap: 20
+  gap: 20,
+  colCount: 3
 }
