@@ -27,11 +27,6 @@ export default {
       name: 'body',
       title: 'Body',
       type: 'blockContent'
-    },
-    {
-      name: 'artwork',
-      title: 'Artwork',
-      type: 'figure'
     }
   ],
   preview: {
@@ -40,13 +35,12 @@ export default {
       image: 'artwork',
       publishedAt: 'publishedAt'
     },
-    prepare ({ title = 'No title', image, publishedAt }) {
+    prepare ({ title = 'No title', publishedAt }) {
       return {
         title,
         subtitle: publishedAt
           ? new Date(publishedAt).toLocaleDateString()
-          : 'Missing publishing date',
-        media: image
+          : 'Missing publishing date'
       }
     }
   }
