@@ -3,6 +3,6 @@
 .masonryLayout {
   display: flex;
   @media (--media-max-medium) {
-    display: block;
+    /* display: block; */
   }
 }
