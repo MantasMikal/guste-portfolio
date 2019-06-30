@@ -11,8 +11,8 @@ export function makeMediaComponent (component) {
   switch (component._type) {
   case 'figure':
     if (!component || !component.asset || !component.asset.mimeType) {
-      console.log('Could not create figure component, because asset is invalid', component.asset)
-      return // Safety
+      console.log('Could not create figure component, because asset is invalid: ', component)
+      break
     }
 
     const image = component.asset
@@ -36,6 +36,7 @@ export function makeMediaComponent (component) {
   case 'video':
     if (!component && !component.url) {
       console.error('Could not create video component, because url is undefined', component)
+      break
     }
     // if (!component || !component.asset || !component.asset.url) {
     //   console.log('Could not create video component, because it is invalid', component.asset)
