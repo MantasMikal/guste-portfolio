@@ -9,7 +9,7 @@ import { responsiveTitle5 } from './typography.module.css'
 
 function ProjectPreview (props) {
   return (
-    <>
+    <div className={styles.wrapper}>
       <Link className={styles.root} to={`/project/${props.slug.current}`}>
         {props.mainImages && <MultiImage images={props.mainImages} />}
       </Link>
@@ -19,7 +19,7 @@ function ProjectPreview (props) {
       >
         <h6 className={cn(responsiveTitle5, styles.title)}>{props.title}</h6>
       </Link>
-    </>
+    </div>
   )
 }
 
