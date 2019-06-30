@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 function getColCount (width) {
   if (width > 750) {
-    if (width > 900) {
+    if (width > 1000) {
       return 3
     } else return 2
   } else return 1
