@@ -25,7 +25,8 @@ export default function MasonryLayout (props) {
     result.push(
       <div
         style={{
-          marginLeft: `${i > 0 ? props.gap : 0}px`,
+          // marginLeft: `${i > 0 ? props.gap : 0}px`,
+          margin: '0 5px',
           flex: 1
         }}
         key={`masonry-column-${i}`}>
