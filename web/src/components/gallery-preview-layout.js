@@ -35,10 +35,10 @@ export default class GalleryPreviewLayout extends React.Component {
     for(let i = 0; i < this.state.loaded - 1; i++){
       nodes[i] && posts.push(<GalleryPreview item={nodes[i]} key={nodes[i].id} />)
     }
-
+    console.log(this.props.nodes)
     return (
       <LazyLoader loadMore={this.loadMore} hasMore={this.state.hasMore}>
-        <MasonryLayout gap={5}>
+        <MasonryLayout gap={10}>
         {posts}
         </MasonryLayout>
       </LazyLoader>

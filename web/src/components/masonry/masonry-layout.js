@@ -62,7 +62,7 @@ export default class MasonryLayout extends React.Component {
     result.push(
       <div
         style={{
-          margin: '0 10px',
+          marginLeft: `${i > 0 ? '10px' : '0px'}`,
           flex: 1
         }}
         key={`masonry-column-${i}`}>
