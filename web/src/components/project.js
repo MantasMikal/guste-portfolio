@@ -11,30 +11,19 @@ import typography from './typography.module.css'
 import styles from './project.module.css'
 import { uppercase, responsiveText1 } from './typography.module.css'
 class Project extends React.Component {
-  componentWillMount () {
-    this.components = makeComponents(this.props._rawContent)
-  }
-
   render () {
     const {
       _rawBody,
-      _rawContent,
       title,
       categories,
-      mainImage,
-      members,
       publishedAt,
     } = this.props
     const { prev, next } = this.props.pageContext
-
-
     return (
       <article className={styles.root}>
         <Container>
           <div className={styles.mainContent}>
             <h1 className={cn(styles.title, typography.uppercase)}>{title}</h1>
-            {this.components}
-            {/* <div style={{ borderTop: '1px solid black', width: '100%', marginTop: '1em' }} /> */}
             <div>
               {_rawBody && <BlockContent blocks={_rawBody || []} />}
             </div>

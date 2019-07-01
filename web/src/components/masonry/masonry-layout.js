@@ -27,7 +27,6 @@ export default class MasonryLayout extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if(this.state.colCount === nextState.colCount && this.props.children === nextProps.children) {
-      console.log("Prevent update")
       return false
     } else return true
   }

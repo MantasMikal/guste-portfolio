@@ -1,6 +1,6 @@
 import React from 'react'
 import GalleryPreview from './gallery-preview'
-import InfiniteScroll from 'react-infinite-scroller'
+import LazyLoader from './lazy-loader/lazyLoader'
 import MasonryLayout from './masonry/masonry-layout'
 export default class GalleryPreviewLayout extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ export default class GalleryPreviewLayout extends React.Component {
          hasMore: true,
       }
     }
+
     loadMore = () => {
       const postsLeft = this.props.nodes.length - this.state.loaded // Posts left
       const totalAmount = this.state.loaded + this.state.amountToLoad // Total amount of posts to load
@@ -35,13 +36,12 @@ export default class GalleryPreviewLayout extends React.Component {
       nodes[i] && posts.push(<GalleryPreview item={nodes[i]} key={nodes[i].id} />)
     }
 
-    // console.log("W: ", this.state.width, " H: ", this.state.height)
     return (
-      <InfiniteScroll pageStart={0} loadMore={this.loadMore} hasMore={this.state.hasMore} threshold={1250} initialLoad={true}>
+      <LazyLoader loadMore={this.loadMore} hasMore={this.state.hasMore}>
         <MasonryLayout gap={20}>
-            {posts}
+        {posts}
         </MasonryLayout>
-      </InfiniteScroll>
+      </LazyLoader>
     )
   }
 }

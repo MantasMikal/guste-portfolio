@@ -9,22 +9,6 @@ export default {
       type: 'string'
     },
     {
-      name: 'content',
-      title: 'Content - DO NOT USE. USE BODY INSTEAD',
-      type: 'array',
-      of: [
-        {
-          type: 'figure'
-        },
-        {
-          type: 'video'
-        },
-        {
-          type: 'grid'
-        }
-      ]
-    },
-    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
