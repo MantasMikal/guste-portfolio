@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './gallery-preview.module.css'
-import { responsiveTitle3 } from './typography.module.css'
+import { responsiveTitle5 } from './typography.module.css'
 import BlockContent from '../components/block-content'
 import BlockText from './block-text'
 import MainImage from './image/zoomableImage'
@@ -24,15 +24,17 @@ export default class GalleryPreviewLayout extends React.Component {
 
   render () {
     const { item } = this.props
-    console.log(this.props)
     return (
       <div className={styles.itemWrapper}>
-        <h1 className={cn(responsiveTitle3, styles.title)}>{item.title}</h1>
         {item.mainImage && item.mainImage.asset && (<MainImage isZoomable fluid={item.mainImage.asset.fluid} />)}
         {item._rawExcerpt && (<BlockText blocks={item._rawExcerpt || []} />)}
+        <div className={styles.titleWrapper}>
+          <h1 className={cn(responsiveTitle5, styles.title)}>{item.title}</h1>
+          {item._rawBody && (<button className={styles.button} onClick={this.handleOpen}>Read More</button>) }
+        </div>
         {item._rawBody && (
           <>
-            <button className={styles.button} onClick={this.handleOpen}>Read More</button>
+            <div className={styles.buttonWrapper}></div>
             <div className={this.state.isOpen? styles.open : styles.closed}>
               <BlockContent blocks={item._rawBody || []} />
             </div>

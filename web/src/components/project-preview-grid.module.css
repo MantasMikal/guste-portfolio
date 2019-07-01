@@ -11,7 +11,7 @@
   font-size: var(--font-large-size);
   line-height: var(--font-small-line-height);
   margin: 0.125rem 0 0.5rem;
-  font-weight: 400;
+  font-weight: 600;
 
   @nest & a {
     color: inherit;

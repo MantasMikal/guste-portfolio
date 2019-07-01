@@ -38,7 +38,7 @@ export default class GalleryPreviewLayout extends React.Component {
 
     return (
       <LazyLoader loadMore={this.loadMore} hasMore={this.state.hasMore}>
-        <MasonryLayout gap={20}>
+        <MasonryLayout gap={5}>
         {posts}
         </MasonryLayout>
       </LazyLoader>

@@ -18,29 +18,36 @@
   display: none;
 }
 
+
 .button {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
   border: none;
   border-radius: 5px;
   padding: 0.125rem 0.325rem;
-  margin: 0.125rem;
+  margin: 0.325rem 0.325rem;
+  float: right;
   text-decoration: none;
 }
 
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .button:hover {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: #db7070;
   transition: 0.25s;
+  cursor: pointer;
 }
 
 .itemWrapper {
   display: inline-block;
   margin: 0.325rem 0;
-  padding: 0 0.325rem;
+  padding: 0.325rem 0.325rem 0;
   width: 100%;
   border-radius: 5px;
-  box-shadow: 0px 0rem 1rem 0px rgba(0,0,0,0.10);
+  box-shadow: 0px 0rem 1rem 0px rgba(0,0,0,0.15);
   animation: mymove 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
