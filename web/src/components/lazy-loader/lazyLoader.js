@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import debounce from 'lodash/debounce'
 
 export default class LazyLoader extends Component {
+  constructor(props) {
+    super(props)
+    this.handleScroll = debounce(this.handleScroll.bind(this), 80)
+  }
 
-  handleScroll = () => {
+  handleScroll () {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop
 
@@ -14,7 +19,6 @@ export default class LazyLoader extends Component {
     const scrolled = winScroll / height
 
     if(scrolled > this.props.threshold){
-      console.log("LOAD MORE")
       this.props.loadMore()
       if(!this.props.hasMore) this.deattachListiner()
     }
@@ -53,6 +57,6 @@ LazyLoader.propTypes = {
 }
 
 LazyLoader.defaultProps = {
-  threshold: 0.6,
+  threshold: 0.5,
   hasMore: true
 }
