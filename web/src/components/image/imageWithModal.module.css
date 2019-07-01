@@ -27,7 +27,7 @@
 
 .portrait {
   height: 90%;
-  width: 900px;
+  width: 35vw;
   margin: auto auto;
   @media (--media-max-medium) {
     height: 80%;
