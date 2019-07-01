@@ -3,6 +3,17 @@ import Modal from '../modal/modal'
 import Img from 'gatsby-image'
 import { cn } from '../../lib/helpers'
 import styles from './imageWithModal.module.css'
+// TODO
+const ImgWithOrient = (props) => {
+  const { aspectRatio } = props.fluid
+  console.log(aspectRatio)
+  let orientation
+  if (aspectRatio > 1) orientation = styles.landspace
+  else if (aspectRatio < 1) orientation = styles.portrait
+  else orientation = styles.square
+
+  return <Img className={orientation} {...props} />
+}
 
 export default class ModalImage extends Component {
   constructor (props) {
@@ -49,7 +60,7 @@ export default class ModalImage extends Component {
 
         <Modal isOpen={this.state.modalIsOpen} closeModal={this.closeModal}>
           <div className={styles.wrapper}>
-            <Img fluid={fluid} alt={caption} className={styles.zoomedImage} />
+            <ImgWithOrient fluid={fluid} alt={caption} />
           </div>
         </Modal>
       </>

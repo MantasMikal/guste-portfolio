@@ -13,6 +13,34 @@
 }
 
 .zoomedImage {
+  /* margin: auto; */
+  /* width: 95vh;
+  margin: auto auto;
+  @media (--media-max-medium) {
+    width: 70vh;
+  }
+  @media (--media-max-small) {
+    width: 55vh;
+  } */
+  width: 100%
+}
+
+.portrait {
+  height: 90%;
+  width: 900px;
+  margin: auto auto;
+  @media (--media-max-medium) {
+    height: 80%;
+    width: 900px;
+  }
+  @media (--media-max-small) {
+    height: 75%;
+    width: 90%;
+  }
+}
+
+.square {
+  /* height: 100%; */
   width: 95vh;
   margin: auto auto;
   @media (--media-max-medium) {
@@ -23,11 +51,21 @@
   }
 }
 
+.landspace {
+  width: 80vw;
+  margin: auto auto;
+  @media (--media-max-medium) {
+    width: 80vw;
+  }
+  @media (--media-max-small) {
+    width: 80vw;
+  }
+}
+
 .wrapper {
-   position: relaitive;
-   height: 100%;
-   display: flex;
-   justify-content: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .hoverEffect {
