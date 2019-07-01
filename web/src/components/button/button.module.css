@@ -1,23 +1,22 @@
 .button {
-  background-color: rgb(10, 10, 10); /* Green */
+  font-family: inherit;
+  background-color: var(--color-white);
+  color: var(--color-black);
   border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
+  border-radius: 5px;
+  padding: 0.125rem 0.325rem;
+  margin: 0.325rem 0.325rem;
+  float: right;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-right: 0.325rem;
 }
 
-.button:hover{
-  background-color: rgb(236, 236, 236); /* Green */
-  color: black;
+.button:hover {
+  color: #db7070;
   transition: 0.25s;
   cursor: pointer;
 }
 
 .btnActive {
-  background-color: rgb(236, 236, 236); /* Green */
-  color: black;
+  background-color: black; /* Green */
+  color: white;
 }
