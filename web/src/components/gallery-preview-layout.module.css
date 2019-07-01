@@ -1,32 +1,4 @@
-@import '../styles/media-queries.css';
-
-.grid {
-  display: grid;
-  grid-gap: 0.325em;
-  margin: 0.625em auto;
-  grid-template-columns: repeat(3, 1fr);
-
-  @media (--media-max-medium) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (--media-max-small) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-.masonry { /* Masonry container */
-  column-count: 4;
-  column-gap: 0.825em;
-  /* height: 100vh; */
-
-  @media (--media-max-medium) {
-    column-count: 3;
-    column-gap: 0.325em;
-  }
-
-  @media (--media-max-small) {
-    column-count: 1;
-    column-gap: 0.325em;
-  }
+.categoryWrapper {
+  display: flex;
+  padding-bottom: 0.625rem;
 }

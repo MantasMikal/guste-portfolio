@@ -84,7 +84,7 @@
 .paragraph {
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
-  margin: 0rem 0 0.125rem 0;
+  margin: 0;
   text-align: justify;
 
 
@@ -196,7 +196,7 @@
   font-weight: 400;
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
-  margin: 0.225rem 0 0.325rem;
+  margin: 0.225rem 0 0.225rem;
 
   @media (--media-min-small) {
     font-size: var(--font-base-size);

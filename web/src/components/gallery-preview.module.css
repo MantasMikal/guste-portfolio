@@ -19,14 +19,13 @@
 }
 
 
-.button {
+.readMore {
+  font-family: inherit;
   background-color: var(--color-white);
   color: var(--color-black);
-  border: none;
-  border-radius: 5px;
   padding: 0.125rem 0.325rem;
-  margin: 0.325rem 0.325rem;
-  float: right;
+  border: none;
+  margin: auto 0;
   text-decoration: none;
 }
 
@@ -35,7 +34,7 @@
   justify-content: space-between;
 }
 
-.button:hover {
+.readMore:hover {
   color: #db7070;
   transition: 0.25s;
   cursor: pointer;
