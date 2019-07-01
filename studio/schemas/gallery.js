@@ -12,6 +12,12 @@ export default {
       }
     },
     {
+      name: 'mainImage',
+      title: 'Main image',
+      description: 'Main image of the document (thumbnail)',
+      type: 'mainImage'
+    },
+    {
       name: 'publishedAt',
       title: 'Published at',
       description: 'You can use this field to schedule projects where you show them',
@@ -24,6 +30,12 @@ export default {
       of: [{ type: 'reference', to: { type: 'artworkCategory' } }]
     },
     {
+      name: 'excerpt',
+      title: 'Excerpt',
+      description: 'Short post description',
+      type: 'blockText'
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent'
@@ -32,12 +44,13 @@ export default {
   preview: {
     select: {
       title: 'title',
-      image: 'artwork',
+      image: 'mainImage',
       publishedAt: 'publishedAt'
     },
-    prepare ({ title = 'No title', publishedAt }) {
+    prepare ({ title = 'No title', publishedAt, image }) {
       return {
         title,
+        media: image,
         subtitle: publishedAt
           ? new Date(publishedAt).toLocaleDateString()
           : 'Missing publishing date'

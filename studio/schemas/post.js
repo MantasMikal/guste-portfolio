@@ -19,22 +19,6 @@ export default {
       }
     },
     {
-      name: 'content',
-      title: 'Content - DO NOT USE THIS. PLACE EVERYTHING IN BODY INSTEAD',
-      type: 'array',
-      of: [
-        {
-          type: 'figure'
-        },
-        {
-          type: 'video'
-        },
-        {
-          type: 'grid'
-        }
-      ]
-    },
-    {
       name: 'publishedAt',
       title: 'Published at',
       description: 'You can use this field to schedule post where you show them',

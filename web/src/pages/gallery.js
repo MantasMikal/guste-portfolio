@@ -16,6 +16,14 @@ export const query = graphql`
           publishedAt
           id
           title
+          mainImage {
+            asset {
+              fluid (maxHeight: 1000) {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+          _rawExcerpt
           _rawBody(resolveReferences: {maxDepth: 5})
           artworkCategory {
             title

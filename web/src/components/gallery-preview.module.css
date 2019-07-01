@@ -1,7 +1,7 @@
 @import '../styles/media-queries.css';
+@import '../styles/vars.css'
 
 .title {
-  margin: 0.325em 0.325rem;
   @media (hover: hover) {
     @nest .root:hover & {
       text-decoration: underline;
@@ -9,14 +9,35 @@
   }
 }
 
-.item {
-  margin: 0 0.324rem;
-  padding: 0.325rem 0;
+
+.open {
+  display: block;
+}
+
+.closed {
+  display: none;
+}
+
+.button {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  padding: 0.125rem 0.325rem;
+  margin: 0.125rem;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  transition: 0.25s;
 }
 
 .itemWrapper {
   display: inline-block;
   margin: 0.325rem 0;
+  padding: 0 0.325rem;
   width: 100%;
   border-radius: 5px;
   box-shadow: 0px 0rem 1rem 0px rgba(0,0,0,0.10);
