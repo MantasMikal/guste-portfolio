@@ -22,6 +22,12 @@ module.exports = {
         overlayDrafts: true
       }
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-127375966-2'
+      }
+    },
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`
