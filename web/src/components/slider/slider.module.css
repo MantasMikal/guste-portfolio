@@ -6,7 +6,7 @@
   /* grid-template-columns: 4fr 2fr;
   grid-template-rows: 1fr;
   grid-column-gap: 10px; */
-  margin: 0px 0 1rem 0;
+  margin: 0px 0 0rem 0;
   @media (--media-max-medium){
     display: block;
   }
