@@ -12,6 +12,11 @@ export default {
       type: 'blockContent'
     },
     {
+      name: 'border',
+      title: 'Border',
+      type: 'string'
+    },
+    {
       name: 'margin',
       title: 'Margin',
       description: 'Used to create space around elements, outside of any defined borders. Setting this to "auto" will center it!. More info: https://www.w3schools.com/css/css_margin.asp',
