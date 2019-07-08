@@ -39,6 +39,7 @@
 
 .descriptionWrapper {
   padding: 0 0.325rem;
+  background-color: var(--color-white);
 }
 
 .readMore:hover {
