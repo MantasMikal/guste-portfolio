@@ -4,7 +4,7 @@
   display: grid;
   grid-auto-columns: 1fr;
   grid-gap: 0.625em;
-  margin: 0.625em auto;
+  margin: auto;
   width: 100%;
 
   @media (--media-max-medium) {
