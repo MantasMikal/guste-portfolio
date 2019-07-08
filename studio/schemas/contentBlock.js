@@ -14,7 +14,8 @@ export default {
     {
       name: 'border',
       title: 'Border',
-      type: 'string'
+      type: 'string',
+      description: 'Adds border around the block. Example: 1px solid black. More info: https://www.w3schools.com/css/css_border.asp'
     },
     {
       name: 'margin',
