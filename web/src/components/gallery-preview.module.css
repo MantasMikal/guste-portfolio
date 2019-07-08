@@ -1,5 +1,5 @@
 @import '../styles/media-queries.css';
-@import '../styles/vars.css'
+@import '../styles/vars.css';
 
 .title {
   @media (hover: hover) {
@@ -18,6 +18,9 @@
   display: none;
 }
 
+.inner {
+  border-bottom: 2px solid black;
+}
 
 .readMore {
   font-family: inherit;
@@ -34,6 +37,10 @@
   justify-content: space-between;
 }
 
+.descriptionWrapper {
+  padding: 0 0.325rem;
+}
+
 .readMore:hover {
   color: #db7070;
   transition: 0.25s;
@@ -41,9 +48,10 @@
 }
 
 .itemWrapper {
-  padding: 0.325rem;
-  border-radius: 5px;
-  box-shadow: 0px 0rem 1rem 0px rgba(0,0,0,0.15);
+  /* padding: 0.325rem; */
+  /* border-radius: 5px;
+  box-shadow: 0px 0rem 1rem 0px rgba(0,0,0,0.15); */
+  border: 2px solid black;
   animation: mymove 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 

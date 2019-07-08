@@ -9,7 +9,7 @@ export default class IllustrationsPreviewGrid extends React.Component {
         <div className={styles.grid}>
           {media.map(item => {
             return (
-              <div className={styles.wrapper} key={item.id}>
+              <div className={styles.itemWrapper} key={item.id}>
                 <ImageWithModal
                   fluid={item.illustration.asset.fluid}
                   alt={item.illustration.alt}

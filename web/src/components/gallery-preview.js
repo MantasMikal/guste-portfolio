@@ -26,7 +26,10 @@ export default class GalleryPreviewLayout extends React.Component {
     const { item } = this.props
     return (
       <div className={styles.itemWrapper}>
+        <div className={styles.inner}>
         {item.mainImage && item.mainImage.asset && (<MainImage isZoomable fluid={item.mainImage.asset.fluid} />)}
+        </div>
+        <div className={styles.descriptionWrapper}>
         <div className={styles.titleWrapper}>
           <h1 className={cn(responsiveTitle5, styles.title)}>{item.title}</h1>
           {item._rawBody && item._rawBody.length > 0 && (
@@ -35,10 +38,11 @@ export default class GalleryPreviewLayout extends React.Component {
         </div>
         {item._rawExcerpt && (<BlockText blocks={item._rawExcerpt || []} />)}
         {item._rawBody && (
-          <div className={this.state.isOpen? styles.open : styles.closed}>
-            <BlockContent blocks={item._rawBody || []} />
-          </div>
-        )}
+            <div className={this.state.isOpen? styles.open : styles.closed}>
+              <BlockContent blocks={item._rawBody || []} />
+            </div>
+          )}
+</div>
       </div>
     )
   }

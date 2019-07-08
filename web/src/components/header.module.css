@@ -5,8 +5,11 @@
   position: fixed;
   z-index: 100;
   width: 100%;
-  background-color: var(--color-black);
-  color:  var(--color-white);
+  color:  var(--color-black);
+  background-color: var(--color-white);
+  border: 2px solid black;
+  /* background-color: var(--color-black);
+  color:  var(--color-white); */
 }
 
 .wrapper {
@@ -55,6 +58,7 @@
   padding: calc(14 / 17 / 2 * 1rem);
   outline: none;
   color:  var(--color-white);
+  background-color: var(--color-white);
   transition: 0.25s;
 
   & svg {
@@ -72,7 +76,7 @@
 
 
   @nest & ul {
-    background-color: var(--color-black);
+    /* background-color: var(--color-black); */
     margin: 0;
     padding: 0;
   }

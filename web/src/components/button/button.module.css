@@ -9,16 +9,20 @@
   padding: 0.125rem 0.325rem;
   float: right;
   text-decoration: none;
+  margin: 0.125rem;
+  border: 1px solid white;
 }
 
 .button:hover {
-  color: var(--color-white);
-  background-color: var(--color-black);
+  /* color: var(--color-white);
+  background-color: var(--color-black); */
+  border: 1px solid black;
   transition: 0.25s;
   cursor: pointer;
 }
 
 .btnActive {
-  background-color: var(--color-black); /* Green */
-  color: var(--color-white);
+  /* background-color: var(--color-black);
+  color: var(--color-white); */
+  border: 1px solid black inset;
 }
