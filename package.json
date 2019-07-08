@@ -22,7 +22,6 @@
     "rimraf": "^2.6.3"
   },
   "dependencies": {
-    "react-icons": "^3.7.0",
-    "react-spring": "^8.0.25"
+    "react-icons": "^3.7.0"
   }
 }
