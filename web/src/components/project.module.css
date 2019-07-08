@@ -111,6 +111,10 @@
     text-decoration: none;
     border: 2px solid black;
   }
+
+  @nest & a:hover{
+    background-color: var(--color-accent);
+  }
 }
 
 .navLink {
