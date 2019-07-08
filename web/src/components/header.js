@@ -23,21 +23,21 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle, contactInfo }) => (
 
       <nav className={cn(styles.nav, showNav && styles.showNav)}>
         <ul>
-          <li>
+          <div>
             <Link to='/projects/'>Projects</Link>
-          </li>
-          <li>
+          </div>
+          <div>
             <Link to='/illustrations/'>Illustrations</Link>
-          </li>
-          <li>
+          </div>
+          <div>
             <Link to='/gallery/'>Gallery</Link>
-          </li>
+          </div>
           {/* <li>
             <Link to='/blog/'>Blog</Link>
           </li> */}
-          <li>
+          <div>
             <ContactPage contactInfo={contactInfo} />
-          </li>
+          </div>
         </ul>
       </nav>
     </div>

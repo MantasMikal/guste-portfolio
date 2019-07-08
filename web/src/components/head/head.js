@@ -82,7 +82,7 @@ const Head = ({
       />
       <link href='/icons/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png' />
       <link href='/icons/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png' />
-      <link href='https://fonts.googleapis.com/css?family=Quicksand&display=swap' rel='stylesheet' />
+      <link href="https://fonts.googleapis.com/css?family=Archivo&display=swap" rel="stylesheet" />
       <script type='application/ld+json'>
         {JSON.stringify(
           schemaGenerator({

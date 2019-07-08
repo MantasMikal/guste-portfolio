@@ -7,7 +7,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
-import { responsiveTitle2, uppercase } from '../components/typography.module.css'
+import { responsiveTitle3, uppercase } from '../components/typography.module.css'
 
 export const query = graphql`
   query BlogPageQuery {
@@ -53,7 +53,7 @@ const BlogPage = props => {
     <Layout>
       <SEO title='Blog' />
       <Container>
-        <h1 className={cn(responsiveTitle2, uppercase)}>Blog</h1>
+        <h1 className={cn(responsiveTitle3, uppercase)}>Blog</h1>
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
     </Layout>
