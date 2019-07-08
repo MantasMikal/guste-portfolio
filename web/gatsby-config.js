@@ -28,6 +28,7 @@ module.exports = {
         trackingId: 'UA-127375966-2'
       }
     },
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`
