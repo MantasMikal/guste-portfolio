@@ -6,7 +6,7 @@ import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs, cn } from '../lib/helpers'
-import { responsiveTitle2, uppercase } from '../components/typography.module.css'
+import { responsiveTitle2, uppercase, border } from '../components/typography.module.css'
 
 export const query = graphql`
   query ProjectsPageQuery {
@@ -49,7 +49,7 @@ const ProjectsPage = props => {
     <Layout>
       <SEO title='Projects' />
       <Container>
-        <h1 className={cn(responsiveTitle2, uppercase)}>Projects</h1>
+        <h1 className={cn(responsiveTitle2, uppercase, border)}>Projects</h1>
         {projectNodes && projectNodes.length > 0 && (
           <ProjectPreviewGrid nodes={projectNodes} colCount={3} />
         )}

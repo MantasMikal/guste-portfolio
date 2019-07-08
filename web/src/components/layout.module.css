@@ -2,7 +2,7 @@
 @import '../styles/vars.css';
 
 .content {
-  padding-top: 2.325rem;
+  padding-top: 2.525rem;
   min-height: calc(100% - 73px - 152px);
   @media (--media-min-small) {
     min-height: calc(100% - 90px - 169px);

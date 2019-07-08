@@ -5,7 +5,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, cn } from '../lib/helpers'
-import { responsiveTitle2, uppercase } from '../components/typography.module.css'
+import { responsiveTitle2, uppercase, border } from '../components/typography.module.css'
 import GalleryPreviewLayout from '../components/gallery-preview-layout'
 
 export const query = graphql`
@@ -58,7 +58,7 @@ const Gallery = props => {
     <Layout>
       <SEO title='Gallery' />
       <Container>
-        <h1 className={cn(responsiveTitle2, uppercase)}>Gallery</h1>
+        <h1 className={cn(responsiveTitle2, uppercase, border)}>Gallery</h1>
         <GalleryPreviewLayout categories={categories} nodes={galleryNodes} />
       </Container>
     </Layout>

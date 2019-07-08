@@ -3,6 +3,7 @@ import React from 'react'
 import ProjectPreview from './project-preview'
 import { cn } from '../lib/helpers'
 import styles from './project-preview-grid.module.css'
+import { border } from './typography.module.css'
 function ProjectPreviewGrid (props) {
   const { colCount } = props
   /* TODO FIX THIS NASTY THING */
@@ -10,7 +11,7 @@ function ProjectPreviewGrid (props) {
   return (
     <div className={styles.root}>
       {props.title && (
-        <h2 className={styles.headline}>
+        <h2 className={cn(styles.headline, border)}>
           {props.browseMoreHref ? (
             <Link to={props.browseMoreHref}>{props.title}</Link>
           ) : (

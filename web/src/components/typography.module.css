@@ -101,6 +101,11 @@
   }
 }
 
+.border {
+  border: 2px solid black;
+  padding-left: 2px;
+}
+
 .blockQuote {
   background: #eee;
 }

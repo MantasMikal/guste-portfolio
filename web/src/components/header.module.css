@@ -14,10 +14,9 @@
 
 .wrapper {
   box-sizing: border-box;
-  margin: 0 var(--page-margin);
+  margin: 0 0 0 var(--page-margin);
   display: flex;
   justify-content: center;
-
 
   @media (--media-max-medium) {
 
@@ -82,14 +81,20 @@
   }
 
   @nest & ul li a {
+    border-left: 2px solid black;
     display: block;
     color: inherit;
     text-decoration: none;
   }
 
+  @nest & ul li:last-child {
+    border-right: 2px solid black;
+  }
+
   @media (hover: hover) {
     @nest & ul li a:hover {
-      text-decoration: underline;
+      /* text-decoration: underline; */
+      background-color: var(--color-accent);
     }
   }
 
