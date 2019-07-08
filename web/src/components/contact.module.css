@@ -10,12 +10,18 @@
   color: white;
   text-align: justify;
   text-transform: none;
-
+  background-color: none !important;
+  border: none;
+  font-style: normal !important;
   @media (--media-max-small) {
     padding: 0 1.625em;
     width: auto;
     font-size: calc(14 / 17 * 1rem)
   }
+}
+
+.wrapper:hover {
+  background-color: transparent !important;
 }
 
 .limitWidth {
@@ -32,10 +38,12 @@
 
   padding-top: 2vh;
   color: white;
+  border: none !important;
 }
 
 .icon {
   padding: 0 !important;
+  border: none;
 }
 
 .icon:hover {

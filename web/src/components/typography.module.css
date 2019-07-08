@@ -1,5 +1,4 @@
 @import '../styles/media-queries.css';
-
 :root {
   --base-unit: 17;
 
@@ -103,7 +102,7 @@
 
 .border {
   border: 2px solid black;
-  padding-left: 2px;
+  padding-left: 0.425em;
 }
 
 .blockQuote {

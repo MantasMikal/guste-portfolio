@@ -5,16 +5,17 @@
   background-color: var(--color-white);
   color: var(--color-black);
   border: none;
-  padding: 0.125rem 0.325rem;
+  padding: 0.125rem 0.425rem;
   text-decoration: none;
   margin-right:0.325em;
 }
-
-.button:hover {
-  /* color: var(--color-white);
-  background-color: var(--color-black); */
-  outline: 2px solid black;
-  cursor: pointer;
+@media (hover: hover) {
+  .button:hover {
+    /* color: var(--color-white);
+    background-color: var(--color-black); */
+    outline: 2px solid black;
+    cursor: pointer;
+  }
 }
 
 .btnActive {

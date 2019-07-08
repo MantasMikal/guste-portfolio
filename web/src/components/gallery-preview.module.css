@@ -31,12 +31,13 @@
   margin: auto 0;
   text-decoration: none;
 }
-
-.readMore:hover {
-  cursor: pointer;
-  outline: 2px solid black;
+@media (hover: hover) {
+  .readMore:hover {
+    cursor: pointer;
+    outline: 2px solid black;
+    background-color: var(--color-accent);
+  }
 }
-
 .titleWrapper {
   padding: 0 0.325rem;
   display: flex;
@@ -58,9 +59,9 @@
   animation: mymove 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.titleWrapper:hover {
+/* .titleWrapper:hover {
   background-color: var(--color-accent);
-}
+} */
 
 
 @keyframes mymove {
