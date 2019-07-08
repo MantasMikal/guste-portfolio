@@ -4,23 +4,20 @@
 .root {
   position: fixed;
   z-index: 100;
-  width: 100%;
-  color:  var(--color-black);
+  color: var(--color-black);
   background-color: var(--color-white);
-  border: 2px solid black;
+  width: 100%;
   /* background-color: var(--color-black);
   color:  var(--color-white); */
 }
 
 .wrapper {
+  border: 2px solid black;
+  margin: 0 var(--page-margin);
+  padding-left: var(--page-margin);
   box-sizing: border-box;
-  margin: 0 0 0 var(--page-margin);
   display: flex;
   justify-content: center;
-
-  @media (--media-max-medium) {
-
-  }
 }
 
 .logo {
@@ -56,7 +53,7 @@
   margin: 0;
   padding: calc(14 / 17 / 2 * 1rem);
   outline: none;
-  color:  var(--color-white);
+  color:  var(--color-black);
   background-color: var(--color-white);
   transition: 0.25s;
 
@@ -64,10 +61,15 @@
     display: block;
   }
 
-  @media (--media-min-small) {
+  @media (--media-min-medium) {
     display: none;
   }
 }
+
+/*
+border-top: 2px solid black;
+border-left: 2px solid black;
+border-right: 2px solid black; */
 
 .nav {
   display: none;
@@ -76,6 +78,7 @@
 
   @nest & ul {
     /* background-color: var(--color-black); */
+    list-style: none;
     margin: 0;
     padding: 0;
   }
@@ -85,10 +88,15 @@
     display: block;
     color: inherit;
     text-decoration: none;
+    /* border-bottom: 2px solid black; */
+  }
+
+  @nest & ul li a:last-child{
+    /* border: none; */
   }
 
   @nest & ul li:last-child {
-    border-right: 2px solid black;
+    /* border-right: 2px solid black; */
   }
 
   @media (hover: hover) {
@@ -98,24 +106,37 @@
     }
   }
 
-  @media (--media-max-small) {
+  @media (--media-max-medium2) {
     position: absolute;
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     left: 0;
     right: 0;
-    top: 2rem;
+    top: 2.3rem;
+    margin: 0 0.625em;
 
     @nest & ul {
-      padding: 1rem 0;
+      padding: 0rem 0;
     }
 
     @nest & ul li a {
       padding: 0.5rem 1.5rem;
+      /* border-top: 2px solid black; */
+      border-right: 2px solid black;
+
     }
+
+    @nest & ul li {
+      border-top: 2px solid black;
+    }
+
+    @nest & ul li:last-child {
+      border-bottom: 2px solid black;
+    }
+
   }
 
-  @media (--media-min-small) {
+  @media (--media-min-medium) {
     display: block;
 
     @nest & ul {

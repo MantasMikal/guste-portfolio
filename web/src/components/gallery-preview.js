@@ -31,16 +31,16 @@ export default class GalleryPreviewLayout extends React.Component {
             <MainImage isZoomable fluid={item.mainImage.asset.fluid} />
           )}
         </div>
+        <div className={styles.titleWrapper}>
+          <h1 className={cn(responsiveTitle5, styles.title)}>{item.title}</h1>
+          {item._rawBody && item._rawBody.length > 0 && (
+            <button to="#" className={styles.readMore} onClick={this.handleOpen}>
+              {' '}
+              {this.state.isOpen ? 'Close' : 'Read More'}
+            </button>
+          )}
+        </div>
         <div className={styles.descriptionWrapper}>
-          <div className={styles.titleWrapper}>
-            <h1 className={cn(responsiveTitle5, styles.title)}>{item.title}</h1>
-            {item._rawBody && item._rawBody.length > 0 && (
-              <button to="#" className={styles.readMore} onClick={this.handleOpen}>
-                {' '}
-                {this.state.isOpen ? 'Close' : 'Read More'}
-              </button>
-            )}
-          </div>
           {item._rawExcerpt && <BlockText blocks={item._rawExcerpt || []} />}
           {item._rawBody && (
             <div className={this.state.isOpen ? styles.open : styles.closed}>

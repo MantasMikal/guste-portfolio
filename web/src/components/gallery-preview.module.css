@@ -24,7 +24,7 @@
 
 .readMore {
   font-family: inherit;
-  background-color: var(--color-white);
+  background-color: inherit;
   color: var(--color-black);
   padding: 0.125rem 0.325rem;
   border: none;
@@ -32,7 +32,13 @@
   text-decoration: none;
 }
 
+.readMore:hover {
+  cursor: pointer;
+  outline: 2px solid black;
+}
+
 .titleWrapper {
+  padding: 0 0.325rem;
   display: flex;
   justify-content: space-between;
 }
@@ -42,18 +48,18 @@
   background-color: var(--color-white);
 }
 
-.readMore:hover {
-  color: #db7070;
-  transition: 0.25s;
-  cursor: pointer;
-}
+
 
 .itemWrapper {
   /* padding: 0.325rem; */
   /* border-radius: 5px;
   box-shadow: 0px 0rem 1rem 0px rgba(0,0,0,0.15); */
-  outline: 2px solid black;
+  border: 2px solid black;
   animation: mymove 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.titleWrapper:hover {
+  background-color: var(--color-accent);
 }
 
 

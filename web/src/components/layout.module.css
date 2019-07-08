@@ -3,6 +3,7 @@
 
 .content {
   padding-top: 2.525rem;
+  margin: 0 var(--page-margin);
   min-height: calc(100% - 73px - 152px);
   @media (--media-min-small) {
     min-height: calc(100% - 90px - 169px);
@@ -15,7 +16,6 @@
 
 .footerWrapper {
   box-sizing: border-box;
-  margin: 0.325rem var(--page-margin);
   /* border-top: 1px solid black; */
   @media (--media-min-small) {
 
