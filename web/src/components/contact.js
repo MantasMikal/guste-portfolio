@@ -16,7 +16,7 @@ const Contacts = props => {
       <div className={styles.iconGrid}>
         <a
           className={styles.icon}
-          href='tel:+1-303-499-7111'
+          href='tel:+447501714439'
           target='_blank'
           rel='noopener noreferrer'
         >

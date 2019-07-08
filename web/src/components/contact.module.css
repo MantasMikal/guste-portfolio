@@ -10,9 +10,14 @@
   color: white;
   text-align: justify;
   text-transform: none;
-  background-color: none !important;
   border: none;
   font-style: normal !important;
+
+  @nest & > * {
+    background-color: transparent !important;
+  }
+
+
   @media (--media-max-small) {
     padding: 0 1.625em;
     width: auto;

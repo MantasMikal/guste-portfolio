@@ -28,7 +28,6 @@ export default class Nav extends React.Component {
         <Modal
           isOpen={this.state.isOpen}
           closeModal={this.handleOverlay}
-          color='rgba(0, 0, 0, 0.6)'
         >
           <Contact contactInfo={this.props.contactInfo} />
         </Modal>
