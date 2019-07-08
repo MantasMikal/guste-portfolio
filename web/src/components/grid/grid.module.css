@@ -3,7 +3,6 @@
 .grid {
   display: grid;
   grid-auto-columns: 1fr;
-  grid-gap: 0.625em;
   margin: auto;
   width: 100%;
 

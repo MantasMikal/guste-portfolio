@@ -75,7 +75,6 @@ border-right: 2px solid black; */
   display: none;
   text-transform: uppercase;
 
-
   @nest & ul {
     /* background-color: var(--color-black); */
     list-style: none;
@@ -102,6 +101,7 @@ border-right: 2px solid black; */
   @media (hover: hover) {
     @nest & ul li a:hover {
       /* text-decoration: underline; */
+      font-style: italic;
       background-color: var(--color-accent);
     }
   }

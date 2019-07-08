@@ -7,11 +7,6 @@ export default {
   },
   fields: [
     {
-      name: 'colCount',
-      title: 'Column Count - DO NOT USE. For compatability only. Use colTemplate instead',
-      type: 'number'
-    },
-    {
       name: 'colTemplate',
       title: 'Column Template',
       description: 'E.g.: "1fr 2fr". Defines size of each column in the grid. Available units: px, em, %, fr, rem. You can mix units if you need fixed size: "100px 1fr 30em" ',

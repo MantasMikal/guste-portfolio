@@ -43,10 +43,12 @@ export function makeMediaComponent (component) {
     return <UrlVideo url={component.url} alt={component.alt} key={component._key} hasBorder={hasBorder} />
 
   case 'contentBlock':
-    // const maxWidth = component.maxWidth ? component.maxWidth : 100
-    // style={{ maxWidth: `${maxWidth}%` }}
+    const margin = component.margin ? { margin: `${component.margin}` } : { margin: '' }
+    const padding = component.padding ? { padding: `${component.padding}` } : { padding: '' }
+
+    const styles = Object.assign({}, padding, margin)
     return (
-      <div key={component._key}>
+      <div key={component._key} style={styles}>
         <BlockContent blocks={component.contentBlock} />
       </div>
     )
