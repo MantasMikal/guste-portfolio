@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Mantas Mikalauskas <mikalauskas.it@gmail.com>",
   "scripts": {
-    "build": "npm run bUuild:dir && npm run build:favicons && gatsby build",
+    "build": "npm run build:dir && npm run build:favicons && gatsby build",
     "develop": "gatsby develop",
     "lint": "eslint .",
     "build:dir": "mkdir -p public/icons/",
