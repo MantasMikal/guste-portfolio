@@ -8,7 +8,7 @@ import { mapEdgesToNodes, cn } from '../lib/helpers'
 import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 import GalleryPreviewLayout from '../components/gallery-preview-layout'
 import CategoryButton from '../components/button/button'
-
+import { FaFilter } from 'react-icons/fa'
 export const query = graphql`
   query GalleryPageQuery {
     gallery: allSanityGallery(limit: 100, sort: { fields: [publishedAt], order: DESC }) {
@@ -105,27 +105,44 @@ export default class Gallery extends React.Component {
       )
     }
 
+    // TODO
+    // Fix this prototype mess
     return (
       <Layout>
         <SEO title="Gallery" />
         <Container>
-          <div className={border} style={{display: 'flex', alignContent: 'center', justifyContent: 'space-between'}}>
-            <h1 className={cn(responsiveTitle3, uppercase)} style={{paddingRight: '1em', margin: 'auto 0'}}>Gallery</h1>
-            <div style={{paddingRight: '0.625em', margin: 'auto 0'}}>
-            {categories.map(category => {
-              // Check if filter is active to change its color
-              const isActive = this.state.activeFilters.includes(category.title) ? true : false
-              return (
-                <CategoryButton
-                  isActive={isActive}
-                  cattitle={category.title}
-                  key={category.id}
-                  onClick={this.handleClick}
-                >
-                  {category.title}
-                </CategoryButton>
-              )
-            })}
+          <div
+            className={border}
+            style={{
+              display: 'flex',
+              alignContent: 'center',
+              justifyContent: 'space-between'
+            }}
+          >
+            <h1
+              className={cn(responsiveTitle3, uppercase)}
+              style={{ paddingRight: '1em', margin: 'auto 0', flex: 1 }}
+            >
+              Gallery
+            </h1>
+            <div style={{ display: 'flex', margin: '0 0.25em 0' }}>
+              <FaFilter style={{ margin: 'auto 0' }} />
+            </div>
+            <div style={{ paddingRight: '0.625em', margin: 'auto 0' }}>
+              {categories.map(category => {
+                // Check if filter is active to change its color
+                const isActive = this.state.activeFilters.includes(category.title) ? true : false
+                return (
+                  <CategoryButton
+                    isActive={isActive}
+                    cattitle={category.title}
+                    key={category.id}
+                    onClick={this.handleClick}
+                  >
+                    {category.title}
+                  </CategoryButton>
+                )
+              })}
             </div>
           </div>
           <GalleryPreviewLayout nodes={filterdNodes} />
