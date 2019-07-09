@@ -5,7 +5,7 @@ import debounce from 'lodash/debounce'
 export default class LazyLoader extends Component {
   constructor(props) {
     super(props)
-    this.handleScroll = debounce(this.handleScroll.bind(this), 80)
+    this.handleScroll = debounce(this.handleScroll.bind(this), 10)
   }
 
   handleScroll () {
@@ -57,6 +57,6 @@ LazyLoader.propTypes = {
 }
 
 LazyLoader.defaultProps = {
-  threshold: 0.5,
+  threshold: 0.7,
   hasMore: true
 }

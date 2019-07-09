@@ -9,21 +9,21 @@ import RoleList from './role-list'
 import { makeComponents } from '../templates/dynamicComponents'
 import typography from './typography.module.css'
 import styles from './project.module.css'
-import { uppercase, responsiveText1 } from './typography.module.css'
+import { uppercase, responsiveText1, border } from './typography.module.css'
 class Project extends React.Component {
   render () {
     const {
       _rawBody,
       title,
-      categories,
-      publishedAt,
+      // categories,
+      // publishedAt,
     } = this.props
     const { prev, next } = this.props.pageContext
     return (
       <article className={styles.root}>
         <Container>
           <div className={styles.mainContent}>
-            <h1 className={cn(styles.title, typography.uppercase)}>{title}</h1>
+            <h1 className={cn(styles.title, uppercase, border)}>{title}</h1>
             <div>
               {_rawBody && <BlockContent blocks={_rawBody || []} />}
             </div>

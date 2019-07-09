@@ -2,7 +2,7 @@
 
 .image {
   @media(--media-max-medium) {
-    margin-bottom: 0.325em;
+    /* margin-bottom: 0.325em; */
   }
 }
 @keyframes fadeIn {

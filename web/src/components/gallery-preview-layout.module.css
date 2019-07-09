@@ -3,6 +3,6 @@
   padding-bottom: 0.625rem;
 }
 
-/* .wrapper {
-  animation: mymove 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-} */
+.wrapper {
+  margin: 0.225em 0 0;
+}

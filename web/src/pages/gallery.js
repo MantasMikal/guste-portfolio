@@ -7,6 +7,7 @@ import Layout from '../containers/layout'
 import { mapEdgesToNodes, cn } from '../lib/helpers'
 import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 import GalleryPreviewLayout from '../components/gallery-preview-layout'
+import CategoryButton from '../components/button/button'
 
 export const query = graphql`
   query GalleryPageQuery {
@@ -24,7 +25,7 @@ export const query = graphql`
             }
           }
           _rawExcerpt
-          _rawBody(resolveReferences: {maxDepth: 5})
+          _rawBody(resolveReferences: { maxDepth: 5 })
           artworkCategory {
             title
           }
@@ -43,26 +44,91 @@ export const query = graphql`
   }
 `
 
-const Gallery = props => {
-  const { data, errors } = props
-  if (errors) {
+export default class Gallery extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      activeFilters: [],
+      shouldFilter: false
+    }
+  }
+
+  handleClick = e => {
+    e.preventDefault()
+    const category = e.target.getAttribute('cattitle')
+
+    let willAdd = true // If the category does not exist it should add
+
+    //Filter categories and exclude/include recently selected
+    const nextActiveFilters = this.state.activeFilters.filter(item => {
+      if (item === category) {
+        willAdd = false // Same category exist, so dont add
+        return false // Remove
+      } else {
+        return true // Not category we're looking from, add
+      }
+    })
+
+    if (willAdd) nextActiveFilters.push(category) // Check if category was found and include if not
+
+    this.setState({
+      activeFilters: nextActiveFilters
+    })
+  }
+
+  render() {
+    const { data, errors } = this.props
+
+    const galleryNodes = data && data.gallery && mapEdgesToNodes(data.gallery)
+    const categories = data && data.categories && mapEdgesToNodes(data.categories)
+
+    //Filter posts if category is seleceted
+    const filterdNodes = (() => {
+      if (this.state.activeFilters.length > 0) {
+        return galleryNodes.filter(post => {
+          for (let i = 0; i < post.artworkCategory.length; i++) {
+            if (this.state.activeFilters.includes(post.artworkCategory[i].title)) return true
+          }
+          return false
+        })
+      } else {
+        return galleryNodes
+      }
+    })()
+
+    if (errors) {
+      return (
+        <Layout>
+          <GraphQLErrorList errors={errors} />
+        </Layout>
+      )
+    }
+
     return (
       <Layout>
-        <GraphQLErrorList errors={errors} />
+        <SEO title="Gallery" />
+        <Container>
+          <div className={border}>
+            <h1 className={cn(responsiveTitle3, uppercase)}>Gallery</h1>
+            {categories.map(category => {
+              // Check if filter is active to change its color
+              const isActive = this.state.activeFilters.includes(category.title) ? true : false
+              return (
+                <CategoryButton
+                  isActive={isActive}
+                  cattitle={category.title}
+                  key={category.id}
+                  onClick={this.handleClick}
+                >
+                  {category.title}
+                </CategoryButton>
+              )
+            })}
+          </div>
+          <GalleryPreviewLayout nodes={filterdNodes} />
+        </Container>
       </Layout>
     )
   }
-  const galleryNodes = data && data.gallery && mapEdgesToNodes(data.gallery)
-  const categories = data && data.categories && mapEdgesToNodes(data.categories)
-  return (
-    <Layout>
-      <SEO title='Gallery' />
-      <Container>
-        <h1 className={cn(responsiveTitle3, uppercase, border)}>Gallery</h1>
-        <GalleryPreviewLayout categories={categories} nodes={galleryNodes} />
-      </Container>
-    </Layout>
-  )
 }
-
-export default Gallery

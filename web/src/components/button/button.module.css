@@ -7,7 +7,7 @@
   border: none;
   padding: 0.125rem 0.425rem;
   text-decoration: none;
-  margin-right:0.325em;
+  margin: 0 0.055em 0.625em;
 }
 @media (hover: hover) {
   .button:hover {
@@ -15,11 +15,13 @@
     background-color: var(--color-black); */
     outline: 2px solid black;
     cursor: pointer;
+    background-color: var(--color-accent)
   }
 }
 
 .btnActive {
   /* background-color: var(--color-black);
   color: var(--color-white); */
+  background-color: var(--color-accent);
   outline: 2px solid black;
 }

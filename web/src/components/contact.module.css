@@ -11,11 +11,11 @@
   color: white;
   text-align: justify;
   text-transform: none;
-  border: none;
-  font-style: normal !important;
 
-  @nest & > * {
+  @nest &, & > * {
     background-color: transparent !important;
+    border: none !important;
+    font-style: normal !important;
   }
 
 
@@ -44,7 +44,6 @@
 
   padding-top: 2vh;
   color: white;
-  border: none !important;
 }
 
 .icon {

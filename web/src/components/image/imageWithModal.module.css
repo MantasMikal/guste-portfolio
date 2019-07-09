@@ -2,7 +2,7 @@
 
 .Overlay {
   @media (--media-max-small) {
-    margin: 0.325rem;
+    margin-bottom: 0.325rem;
   }
 }
 

@@ -6,42 +6,45 @@ import ContactPage from './contactPage'
 import logoImg from '../images/logo2.png'
 import styles from './header.module.css'
 
-const Header = ({ onHideNav, onShowNav, showNav, siteTitle, contactInfo }) => (
-  <div className={styles.root}>
-    <div className={styles.wrapper}>
-      {/* <Link to='/'>
+export default class Header extends React.Component {
+  render () {
+    const { onHideNav, onShowNav, showNav, siteTitle, contactInfo } = this.props
+    return (
+      <div className={styles.root}>
+        <div className={styles.wrapper}>
+          {/* <Link to='/'>
         <img className={styles.logo} src={logoImg} alt='Logo' />
       </Link> */}
 
-      <h1 className={styles.branding}>
-        <Link to='/'>{siteTitle}</Link>
-      </h1>
+          <h1 className={styles.branding}>
+            <Link to="/">{siteTitle}</Link>
+          </h1>
 
-      <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
-        <Icon symbol='hamburger' />
-      </button>
+          <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
+            <Icon symbol="hamburger" />
+          </button>
 
-      <nav className={cn(styles.nav, showNav && styles.showNav)}>
-        <ul>
-          <div>
-            <Link to='/projects/'>Projects</Link>
-          </div>
-          {/* <div>
+          <nav className={cn(styles.nav, showNav && styles.showNav)}>
+            <ul>
+              <div>
+                <Link to="/projects/">Projects</Link>
+              </div>
+              {/* <div>
             <Link to='/illustrations/'>Illustrations</Link>
           </div> */}
-          <div>
-            <Link to='/gallery/'>Gallery</Link>
-          </div>
-          {/* <li>
+              <div>
+                <Link to="/gallery/">Gallery</Link>
+              </div>
+              {/* <li>
             <Link to='/blog/'>Blog</Link>
           </li> */}
-          <div>
-            <ContactPage contactInfo={contactInfo} />
-          </div>
-        </ul>
-      </nav>
-    </div>
-  </div>
-)
-
-export default Header
+              <div>
+                <ContactPage contactInfo={contactInfo} />
+              </div>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    )
+  }
+}
