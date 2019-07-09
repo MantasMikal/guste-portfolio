@@ -49,7 +49,7 @@ const ProjectsPage = props => {
     <Layout>
       <SEO title='Projects' />
       <Container>
-        <h1 className={cn(responsiveTitle3, uppercase, border)}>Projects</h1>
+        <h1 className={cn(responsiveTitle3, uppercase, border)} style={{margin: '0'}}>Projects</h1>
         {projectNodes && projectNodes.length > 0 && (
           <ProjectPreviewGrid nodes={projectNodes} colCount={3} />
         )}
