@@ -41,14 +41,13 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1em;
   z-index: 200;
-
-  padding-top: 2vh;
   color: white;
 }
 
 .icon {
-  padding: 0 !important;
+  padding: 0.5em 1em;
   border: none;
+
 }
 
 .icon:hover {
