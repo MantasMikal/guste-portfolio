@@ -5,11 +5,12 @@
   grid-auto-columns: 1fr;
   margin: auto;
   width: 100%;
-  /* margin: 0.625rem 0 0.625rem 0; */
+  margin: 0.625rem 0 0.625rem 0;
   grid-gap: 0.325em;
-  @media (--media-max-medium) {
+
+  /* @media (--media-max-medium) {
     grid-template-columns: repeat(2, 1fr);
-  }
+  } */
 
   @media (--media-max-small) {
     display: block;

@@ -39,6 +39,12 @@ export default {
           }
         }
       }
+    },
+    {
+      name: 'margin',
+      title: 'Margin',
+      description: 'Used to create space around elements, outside of any defined borders. Setting this to "auto" will center it! Default: "0.625rem 0 0.625rem 0" More info: https://www.w3schools.com/css/css_margin.asp',
+      type: 'string'
     }
   ],
   preview: {

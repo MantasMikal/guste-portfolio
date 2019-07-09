@@ -61,16 +61,22 @@ export function makeMediaComponent (component) {
 
 export function makeGrid (component) {
   const gridMedia = component.gridMedia
-  const colCount = component.colCount
-  const colTemplate = component.colTemplate
-  const rowGap = component.rowGap
-  const colGap = component.colGap
+
+  const colCount = component.colCount ? { colCount: `${component.colCount}` } : { colCount: '' }
+  const colTemplate = component.colTemplate ? { gridTemplateColumns: `${component.colTemplate}` } : { gridTemplateColumns: '' }
+  const rowGap = component.rowGap ? { gridRowGap: `${component.rowGap}` } : { gridRowGap: '' }
+  const colGap = component.colGap ? { gridColumnGap: `${component.colGap}` } : { gridColumnGap: '' }
+  const margin = component.margin ? { margin: component.margin } : { margin: '' }
+
+  const styles = Object.assign({}, colCount, colTemplate, rowGap, colGap, margin)
+
+  console.log(styles)
   // Build content
   const gridComponents = gridMedia.map(item => {
     return makeMediaComponent(item)
   })
   return (
-    <Grid colCount={colCount} key={component._key} colTemplate={colTemplate} rowGap={rowGap} colGap={colGap}>
+    <Grid style={styles} key={component._key}>
       {gridComponents}
     </Grid>
   )
