@@ -109,8 +109,9 @@ export default class Gallery extends React.Component {
       <Layout>
         <SEO title="Gallery" />
         <Container>
-          <div className={border}>
-            <h1 className={cn(responsiveTitle3, uppercase)}>Gallery</h1>
+          <div className={border} style={{display: 'flex', alignContent: 'center', justifyContent: 'space-between'}}>
+            <h1 className={cn(responsiveTitle3, uppercase)} style={{paddingRight: '1em'}}>Gallery</h1>
+            <div style={{paddingRight: '0.625em', margin: 'auto 0'}}>
             {categories.map(category => {
               // Check if filter is active to change its color
               const isActive = this.state.activeFilters.includes(category.title) ? true : false
@@ -125,6 +126,7 @@ export default class Gallery extends React.Component {
                 </CategoryButton>
               )
             })}
+            </div>
           </div>
           <GalleryPreviewLayout nodes={filterdNodes} />
         </Container>

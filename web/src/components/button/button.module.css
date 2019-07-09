@@ -7,7 +7,8 @@
   border: none;
   padding: 0.125rem 0.425rem;
   text-decoration: none;
-  margin: 0 0.055em 0.625em;
+  margin: 0.425em 0.07em;
+  text-transform: uppercase;
 }
 @media (hover: hover) {
   .button:hover {

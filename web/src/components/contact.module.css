@@ -4,9 +4,9 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
-  width: 60%;
+  width: 100%;
   padding: 0 3.625em;
   color: white;
   text-align: justify;
@@ -39,7 +39,7 @@
 .iconGrid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-gap: 1em;
   z-index: 200;
 
   padding-top: 2vh;
