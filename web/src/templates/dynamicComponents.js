@@ -70,7 +70,6 @@ export function makeGrid (component) {
 
   const styles = Object.assign({}, colCount, colTemplate, rowGap, colGap, margin)
 
-  console.log(styles)
   // Build content
   const gridComponents = gridMedia.map(item => {
     return makeMediaComponent(item)
