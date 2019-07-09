@@ -132,7 +132,6 @@ export default class Gallery extends React.Component {
               style={{
                 display: 'flex',
                 alignContent: 'center',
-                justifyContent: 'space-around',
                 flexWrap: 'wrap',
                 paddingRight: '0.125em'
               }}
