@@ -66,22 +66,22 @@ export default {
                 type: 'boolean'
               }
             ]
+          },
+          {
+            title: 'Properties',
+            name: 'properties',
+            type: 'object',
+            blockEditor: {
+              icon: FaMagic
+            },
+            fields: [
+              {
+                title: 'Font color',
+                name: 'color',
+                type: 'string'
+              }
+            ]
           }
-          // {
-          //   title: 'Properties',
-          //   name: 'properties',
-          //   type: 'object',
-          //   blockEditor: {
-          //     icon: FaMagic
-          //   },
-          //   fields: [
-          //     {
-          //       title: 'Font color',
-          //       name: 'color',
-          //       type: 'string'
-          //     }
-          //   ]
-          // }
         ]
       }
     },

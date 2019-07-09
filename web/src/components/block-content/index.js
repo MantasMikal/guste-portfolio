@@ -42,14 +42,14 @@ const serializers = {
     }
   },
   marks: {
-    // properties (props) {
-    //   const { color } = props
-    //   return (
-    //     <p style={{ color: color }}>
-    //       {props.children}
-    //     </p>
-    //   )
-    // }
+    properties (props) {
+      const { color } = props.mark
+      return (
+        <span style={color? { color: color } : {}}>
+          {props.children}
+        </span>
+      )
+    }
   }
 }
 
