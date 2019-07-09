@@ -1,5 +1,5 @@
 import External from 'react-icons/lib/fa/external-link'
-
+import FaMagic from 'react-icons/lib/fa/magic'
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -68,37 +68,19 @@ export default {
             ]
           }
           // {
-          //   title: 'Alignment',
-          //   name: 'align',
+          //   title: 'Properties',
+          //   name: 'properties',
           //   type: 'object',
           //   blockEditor: {
-          //     icon: External
+          //     icon: FaMagic
           //   },
           //   fields: [
           //     {
-          //       title: 'URL',
-          //       name: 'href',
-          //       type: 'url',
-          //       validation: Rule =>
-          //         Rule.uri({
-          //           allowRelative: true,
-          //           scheme: ['https', 'http', 'mailto', 'tel']
-          //         })
-          //     },
-          //     {
-          //       title: 'Open in new tab',
-          //       name: 'blank',
-          //       description: 'Read https://css-tricks.com/use-target_blank/',
-          //       type: 'boolean'
+          //       title: 'Font color',
+          //       name: 'color',
+          //       type: 'string'
           //     }
           //   ]
-          // },
-          // {
-          //   {
-          //     title: 'alignment',
-          //     name: 'align',
-          //     type: 'string'
-          //   }
           // }
         ]
       }

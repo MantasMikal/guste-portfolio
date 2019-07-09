@@ -12,6 +12,11 @@ export default {
       type: 'blockContent'
     },
     {
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'string'
+    },
+    {
       name: 'border',
       title: 'Border',
       type: 'string',
