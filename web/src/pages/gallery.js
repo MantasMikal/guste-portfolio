@@ -128,8 +128,15 @@ export default class Gallery extends React.Component {
             <div style={{ display: 'flex', margin: '0 0.25em 0' }}>
               <FaFilter style={{ margin: 'auto 0' }} />
             </div>
-            <div style={{display: 'flex',               alignContent: 'center',
-              justifyContent: 'space-around', flexWrap: 'wrap', paddingRight: '0.125em',  }}>
+            <div
+              style={{
+                display: 'flex',
+                alignContent: 'center',
+                justifyContent: 'space-around',
+                flexWrap: 'wrap',
+                paddingRight: '0.125em'
+              }}
+            >
               {categories.map(category => {
                 // Check if filter is active to change its color
                 const isActive = this.state.activeFilters.includes(category.title) ? true : false
