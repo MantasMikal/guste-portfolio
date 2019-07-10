@@ -2,16 +2,15 @@
 @import '../styles/vars.css';
 .wrapper {
   height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  padding: 0 3.625em;
   color: white;
   text-align: justify;
   text-transform: none;
-
+  margin: auto;
   @nest &, & > * {
     background-color: transparent !important;
     border: none !important;
@@ -39,13 +38,14 @@
 .iconGrid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 0.325em;
+  grid-gap: 1em;
   z-index: 200;
   color: white;
+  flex-wrap: wrap;
 }
 
 .icon {
-  padding: 0.5em 1em;
+  padding: 0 !important;
   border: none;
 
 }

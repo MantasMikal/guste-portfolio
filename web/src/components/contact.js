@@ -20,7 +20,7 @@ const Contacts = props => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <FaPhone size={'4em'} />
+          <FaPhone size={'3em'} />
         </a>
         <a
           className={styles.icon}
@@ -28,7 +28,7 @@ const Contacts = props => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <FaEnvelope size={'4em'} />
+          <FaEnvelope size={'3em'} />
         </a>
         <a
           className={styles.icon}
@@ -36,7 +36,7 @@ const Contacts = props => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <FaFacebook size={'4em'} />
+          <FaFacebook size={'3em'} />
         </a>
         <a
           className={styles.icon}
@@ -44,7 +44,7 @@ const Contacts = props => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <FaInstagram size={'4em'} />
+          <FaInstagram size={'3em'} />
         </a>
       </div>
     </div>
