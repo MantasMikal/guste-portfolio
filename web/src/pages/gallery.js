@@ -51,8 +51,7 @@ export default class Gallery extends React.Component {
     super(props)
 
     this.state = {
-      activeFilters: [],
-      shouldFilter: false
+      activeFilter: null
     }
   }
 
@@ -60,22 +59,10 @@ export default class Gallery extends React.Component {
     e.preventDefault()
     const category = e.target.getAttribute('cattitle')
 
-    let willAdd = true // If the category does not exist it should add
-
-    //Filter categories and exclude/include recently selected
-    const nextActiveFilters = this.state.activeFilters.filter(item => {
-      if (item === category) {
-        willAdd = false // Same category exist, so dont add
-        return false // Remove
-      } else {
-        return true // Not category we're looking from, add
-      }
-    })
-
-    if (willAdd) nextActiveFilters.push(category) // Check if category was found and include if not
+    const nextActiveFilter = category !== this.state.activeFilter ? category : null
 
     this.setState({
-      activeFilters: nextActiveFilters
+      activeFilter: nextActiveFilter
     })
   }
 
@@ -87,12 +74,12 @@ export default class Gallery extends React.Component {
 
     //Filter posts if category is seleceted
     const filterdNodes = (() => {
-      if (this.state.activeFilters.length > 0) {
+      if (this.state.activeFilter) {
         return galleryNodes.filter(post => {
           for (let i = 0; i < post.artworkCategory.length; i++) {
-            if (this.state.activeFilters.includes(post.artworkCategory[i].title)) return true
+            if (post.artworkCategory[i].title === this.state.activeFilter) return true
+            else return false
           }
-          return false
         })
       } else {
         return galleryNodes
@@ -114,17 +101,14 @@ export default class Gallery extends React.Component {
         <SEO title="Gallery" />
         <Container>
           <div className={cn(border, styles.wrapper)}>
-            <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>
-              Gallery
-            </h1>
-              <div className={styles.iconWrapper}>
+            <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
+            <div className={styles.iconWrapper}>
               <FaFilter style={{ margin: 'auto 0' }} />
-              </div>
-
+            </div>
             <div className={styles.categoryWrapper}>
               {categories.map(category => {
                 // Check if filter is active to change its color
-                const isActive = this.state.activeFilters.includes(category.title) ? true : false
+                const isActive = this.state.activeFilter === category.title
                 return (
                   <CategoryButton
                     isActive={isActive}
