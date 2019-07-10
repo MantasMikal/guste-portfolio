@@ -46,7 +46,8 @@ export function makeMediaComponent (component) {
     const margin = component.margin ? { margin: `${component.margin}` } : { margin: '' }
     const padding = component.padding ? { padding: `${component.padding}` } : { padding: '' }
     const border = component.border ? { border: `${component.border}` } : { border: '' }
-    const styles = Object.assign({}, padding, margin, border)
+    const backgroundColor = component.backgroundColor ? { backgroundColor: `${component.backgroundColor}` } : { backgroundColor: '' }
+    const styles = Object.assign({}, padding, margin, border, backgroundColor)
     return (
       <div key={component._key} style={styles}>
         <BlockContent blocks={component.contentBlock} />

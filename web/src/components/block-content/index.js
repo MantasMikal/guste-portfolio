@@ -42,23 +42,14 @@ const serializers = {
     }
   },
   marks: {
-    // properties (props) {
-    //   return (
-    //     <p style={{ margin: '0 auto' }}>
-    //       {props.children}
-    //     </p>
-    //   )
-    // }
-    // mark (props) {
-    //   console.log('MARK PROPS: ', props)
-    //   switch (props.node.marks) {
-    //   case 'center':
-    //     console.log('IT WORKS!')
-    //     break
-
-    //   default:
-    //     console.log('default')
-    //   }
+    properties (props) {
+      const { color } = props.mark
+      return (
+        <span style={color? { color: color } : {}}>
+          {props.children}
+        </span>
+      )
+    }
   }
 }
 
