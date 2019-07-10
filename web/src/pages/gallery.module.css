@@ -4,6 +4,7 @@
   display: flex;
   align-content: center;
   justify-content: space-between;
+  overflow-x: hidden;
 }
 
 .title {
@@ -53,7 +54,7 @@
   background-color: white;
   z-index: 10;
   animation: slideIn 0.25s;
-
+  overflow-x: hidden;
   & > button {
     border-bottom: 2px solid black;
   }
