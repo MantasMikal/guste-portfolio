@@ -12,7 +12,7 @@
   text-align: left;
 
   @media (--media-min-medium){
-    margin: 0.325em 0.1em;
+    margin: 0.325em 0.225em;
     padding: 0.125em 0.425rem;
   }
 }

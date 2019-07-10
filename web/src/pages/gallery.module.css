@@ -4,7 +4,7 @@
   display: flex;
   align-content: center;
   justify-content: space-between;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .title {
