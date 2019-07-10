@@ -1,15 +1,22 @@
 @import '../../styles/vars.css';
-
+@import '../../styles/media-queries.css';
 .button {
   font-family: inherit;
   background-color: var(--color-white);
   color: var(--color-black);
   border: none;
-  padding: 0rem 0.425rem;
+  padding: 0.425em 0.425rem;
   text-decoration: none;
-  margin: 0.425em 0.08em;
+  margin: 0 0em;
   text-transform: uppercase;
+  text-align: left;
+
+  @media (--media-min-medium){
+    margin: 0.325em 0.1em;
+    padding: 0.125em 0.425rem;
+  }
 }
+
 @media (hover: hover) {
   .button:hover {
     /* color: var(--color-white);

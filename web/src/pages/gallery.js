@@ -51,8 +51,19 @@ export default class Gallery extends React.Component {
     super(props)
 
     this.state = {
-      activeFilter: null
+      activeFilter: null,
+      showFilter: false
     }
+  }
+
+  handleShowFilter = () => {
+    console.log("Show")
+    this.setState({showFilter: true})
+  }
+
+  handleHideFilter = () => {
+    console.log("hide")
+    this.setState({showFilter: false})
   }
 
   handleClick = e => {
@@ -102,10 +113,10 @@ export default class Gallery extends React.Component {
         <Container>
           <div className={cn(border, styles.wrapper)}>
             <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
-            <div className={styles.iconWrapper}>
+            <div onClick={this.state.showFilter ? this.handleHideFilter : this.handleShowFilter}  className={styles.iconWrapper}>
               <FaFilter style={{ margin: 'auto 0' }} />
             </div>
-            <div className={styles.categoryWrapper}>
+            <div className={this.state.showFilter ? styles.categoryWrapper : styles.hideCategories}>
               {categories.map(category => {
                 // Check if filter is active to change its color
                 const isActive = this.state.activeFilter === category.title
@@ -122,6 +133,7 @@ export default class Gallery extends React.Component {
               })}
             </div>
           </div>
+
           <GalleryPreviewLayout nodes={filterdNodes} />
         </Container>
       </Layout>

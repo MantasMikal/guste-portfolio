@@ -1,3 +1,5 @@
+@import '../styles/media-queries.css';
+@import '../styles/vars.css';
 .wrapper {
   display: flex;
   align-content: center;
@@ -11,12 +13,64 @@
 }
 
 .iconWrapper {
+  position: fixed;
+  right: 0;
   display: flex;
-  margin: 0 0.25em 0;
+  margin: 0 0.755em;
+  z-index: 10;
+  padding: 0.625em;
+  outline: 2px solid black;
+  background-color: white;
+
+  @media (--media-min-medium) {
+    position: relative;
+    display: flex;
+    margin: 0;
+    padding: 0 0.425em;
+    outline: none;
+  }
 }
+
+@media (hover : hover){
+  .iconWrapper:hover {
+    background-color: var(--color-accent);
+    outline: 2px solid black;
+  }
+}
+
 .categoryWrapper {
   display: flex;
+  position: fixed;
   align-content: flex-end;
+  flex-direction: column;
   flex-wrap: wrap;
-  padding-right: 0.125em;
+  right: 0;
+  margin: 2.325em 0.755em 0;
+  outline: 2px solid black;
+  background-color: white;
+  z-index: 10;
+
+  & > button {
+    border-bottom: 2px solid black;
+  }
+
+  & > button:last-child {
+    border-bottom: none;
+  }
+
+  @media (--media-min-medium) {
+    position: relative;
+    outline: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: auto 0.125em;
+
+    & > button {
+      border: none;
+    }
+  }
+}
+
+.hideCategories {
+  display: none;
 }
