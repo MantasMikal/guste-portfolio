@@ -9,6 +9,8 @@ import { responsiveTitle3, uppercase, border } from '../components/typography.mo
 import GalleryPreviewLayout from '../components/gallery-preview-layout'
 import CategoryButton from '../components/button/button'
 import { FaFilter } from 'react-icons/fa'
+import styles from './gallery.module.css'
+
 export const query = graphql`
   query GalleryPageQuery {
     gallery: allSanityGallery(limit: 100, sort: { fields: [publishedAt], order: DESC }) {
@@ -111,31 +113,15 @@ export default class Gallery extends React.Component {
       <Layout>
         <SEO title="Gallery" />
         <Container>
-          <div
-            className={border}
-            style={{
-              display: 'flex',
-              alignContent: 'center',
-              justifyContent: 'space-between'
-            }}
-          >
-            <h1
-              className={cn(responsiveTitle3, uppercase)}
-              style={{ paddingRight: '1em', margin: 'auto 0', flex: 1 }}
-            >
+          <div className={cn(border, styles.wrapper)}>
+            <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>
               Gallery
             </h1>
-            <div style={{ display: 'flex', margin: '0 0.25em 0' }}>
+              <div className={styles.iconWrapper}>
               <FaFilter style={{ margin: 'auto 0' }} />
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                alignContent: 'center',
-                flexWrap: 'wrap',
-                paddingRight: '0.125em'
-              }}
-            >
+              </div>
+
+            <div className={styles.categoryWrapper}>
               {categories.map(category => {
                 // Check if filter is active to change its color
                 const isActive = this.state.activeFilters.includes(category.title) ? true : false
