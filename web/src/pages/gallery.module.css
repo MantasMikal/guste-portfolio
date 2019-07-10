@@ -16,16 +16,18 @@
   position: fixed;
   right: 0;
   display: flex;
-  margin: 0 0.755em;
+  margin: 0 1em;
   z-index: 10;
-  padding: 0.625em;
+  padding: 0.425em;
   outline: 2px solid black;
+  border: none;
   background-color: white;
+  cursor: pointer;
 
   @media (--media-min-medium) {
     position: relative;
     display: flex;
-    margin: 0;
+    margin: 0.225em 0.255em;
     padding: 0 0.425em;
     outline: none;
   }
@@ -45,10 +47,11 @@
   flex-direction: column;
   flex-wrap: wrap;
   right: 0;
-  margin: 2.325em 0.755em 0;
+  margin: 1.6em 0.755em 0;
   outline: 2px solid black;
   background-color: white;
   z-index: 10;
+  animation: slideIn 0.25s;
 
   & > button {
     border-bottom: 2px solid black;
@@ -57,6 +60,8 @@
   & > button:last-child {
     border-bottom: none;
   }
+
+
 
   @media (--media-min-medium) {
     position: relative;
@@ -73,4 +78,14 @@
 
 .hideCategories {
   display: none;
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(30vw);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

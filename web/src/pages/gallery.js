@@ -49,20 +49,19 @@ export const query = graphql`
 export default class Gallery extends React.Component {
   constructor(props) {
     super(props)
-
+    const firstCategory = this.props.data.categories.edges[0].node.title
     this.state = {
-      activeFilter: null,
-      showFilter: false
+      activeFilter: firstCategory,
+      showFilter: true
     }
+
   }
 
   handleShowFilter = () => {
-    console.log("Show")
     this.setState({showFilter: true})
   }
 
   handleHideFilter = () => {
-    console.log("hide")
     this.setState({showFilter: false})
   }
 
@@ -79,7 +78,7 @@ export default class Gallery extends React.Component {
 
   render() {
     const { data, errors } = this.props
-
+    console.log(this.props)
     const galleryNodes = data && data.gallery && mapEdgesToNodes(data.gallery)
     const categories = data && data.categories && mapEdgesToNodes(data.categories)
 
@@ -113,9 +112,9 @@ export default class Gallery extends React.Component {
         <Container>
           <div className={cn(border, styles.wrapper)}>
             <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
-            <div onClick={this.state.showFilter ? this.handleHideFilter : this.handleShowFilter}  className={styles.iconWrapper}>
+            <button onClick={this.state.showFilter ? this.handleHideFilter : this.handleShowFilter}  className={styles.iconWrapper}>
               <FaFilter style={{ margin: 'auto 0' }} />
-            </div>
+            </button>
             <div className={this.state.showFilter ? styles.categoryWrapper : styles.hideCategories}>
               {categories.map(category => {
                 // Check if filter is active to change its color
