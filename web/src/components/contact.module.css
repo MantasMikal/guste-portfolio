@@ -38,16 +38,15 @@
 .iconGrid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1em;
+  grid-row-gap: 1em;
   z-index: 200;
   color: white;
   flex-wrap: wrap;
 }
 
 .icon {
-  padding: 0 !important;
+  padding: 0 0.325em !important;
   border: none;
-
 }
 
 .icon:hover {
