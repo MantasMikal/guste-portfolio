@@ -11,13 +11,17 @@
 .filterWrapper {
   position: fixed;
   display: flex;
-  justify-content: space-around;
   right: 0.755rem;
   z-index: 10;
-  outline: 2px solid black;
-  background-color: white;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
 
+  @media (--media-min-medium) {
+    outline: 2px solid black;
+    background-color: white;
+    width: auto;
+    height: auto;
+  }
 }
 
 .title {
@@ -45,7 +49,6 @@
   cursor: pointer;
   line-height: inherit;
   font-size: inherit;
-
   @media (--media-min-medium) {
     position: relative;
     display: flex;
