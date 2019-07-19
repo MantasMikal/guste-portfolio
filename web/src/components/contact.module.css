@@ -2,27 +2,43 @@
 @import '../styles/vars.css';
 .wrapper {
   height: 100%;
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   color: white;
   text-align: justify;
   text-transform: none;
   margin: auto;
+
   @nest &, & > * {
     background-color: transparent !important;
     border: none !important;
     font-style: normal !important;
   }
 
+  @nest & > div:hover {
+    background-color: transparent !important;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1em;
+  grid-gap: 1em;
 
   @media (--media-max-small) {
-    padding: 0 1.625em;
-    width: auto;
-    font-size: calc(14 / 17 * 1rem)
+    display: block !important;
   }
+}
+
+
+.title {
+  font-size: 5rem;
+  margin: auto;
+  padding: 0.325em 0;
 }
 
 .wrapper:hover {
@@ -37,19 +53,42 @@
 
 .iconGrid{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-row-gap: 1em;
+  flex-direction: column;
   z-index: 200;
   color: white;
   flex-wrap: wrap;
+  border: none !important;
+}
+
+.iconGrid:hover {
+  background-color: transparent !important;
+  font-style: normal !important;
 }
 
 .icon {
-  padding: 0 0.325em !important;
+  padding: 0.125em 0.325em !important;
   border: none;
+  display: flex;
+  border: none;
+  margin: auto 0;
+  @nest & > * {
+    border-left: none !important;
+  }
+
+  @nest & > svg {
+    margin: auto 0;
+  }
+
+  @nest & > span {
+    margin: auto 0 0 0.325em;
+    font-size: 1.5em;
+  }
 }
 
 .icon:hover {
   color: var(--color-accent);
   transition: 0.2s ease-in-out;
+  @nest & > * {
+    background-color: transparent !important;
+  }
 }

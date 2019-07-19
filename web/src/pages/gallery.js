@@ -79,7 +79,6 @@ export default class Gallery extends React.Component {
 
   render() {
     const { data, errors } = this.props
-    console.log(this.props)
     const galleryNodes = data && data.gallery && mapEdgesToNodes(data.gallery)
     const categories = data && data.categories && mapEdgesToNodes(data.categories)
 
