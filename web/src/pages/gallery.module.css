@@ -17,6 +17,7 @@
   outline: 2px solid black;
   background-color: white;
   overflow: hidden;
+
 }
 
 .title {
@@ -49,7 +50,7 @@
     position: relative;
     display: flex;
     margin: 0.225em 0.225em;
-    padding: 0.085em 0.225em;
+    padding: 0.085em 0.125em;
     outline: none;
   }
 }
@@ -88,7 +89,7 @@
     outline: none;
     flex-direction: row;
     justify-content: flex-start;
-    margin: auto 0.125em;
+    margin: auto 0.125em auto 0;
 
     & > button {
       border: none;
