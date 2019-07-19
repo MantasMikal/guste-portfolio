@@ -1,5 +1,6 @@
 @import '../../styles/vars.css';
 @import '../../styles/media-queries.css';
+
 .button {
   font-family: inherit;
   background-color: var(--color-white);
@@ -12,7 +13,7 @@
   text-align: left;
 
   @media (--media-min-medium){
-    margin: 0.325em 0.225em;
+    margin: 0em 0.225em;
     padding: 0.125em 0.425rem;
   }
 }

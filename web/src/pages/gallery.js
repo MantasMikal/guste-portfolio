@@ -9,6 +9,7 @@ import { responsiveTitle3, uppercase, border } from '../components/typography.mo
 import GalleryPreviewLayout from '../components/gallery-preview-layout'
 import CategoryButton from '../components/button/button'
 import { FaFilter } from 'react-icons/fa'
+import { FaArrowRight } from 'react-icons/fa'
 import styles from './gallery.module.css'
 
 export const query = graphql`
@@ -112,24 +113,27 @@ export default class Gallery extends React.Component {
         <Container>
           <div className={cn(border, styles.wrapper)}>
             <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
-            <button onClick={this.state.showFilter ? this.handleHideFilter : this.handleShowFilter}  className={styles.iconWrapper}>
-              <FaFilter style={{ margin: 'auto 0' }} />
-            </button>
-            <div className={this.state.showFilter ? styles.categoryWrapper : styles.hideCategories}>
-              {categories.map(category => {
-                // Check if filter is active to change its color
-                const isActive = this.state.activeFilter === category.title
-                return (
-                  <CategoryButton
-                    isActive={isActive}
-                    cattitle={category.title}
-                    key={category.id}
-                    onClick={this.handleClick}
-                  >
-                    {category.title}
-                  </CategoryButton>
-                )
-              })}
+            <div className={styles.filterWrapper}>
+              <button onClick={this.state.showFilter ? this.handleHideFilter : this.handleShowFilter}  className={styles.iconWrapper}>
+                <FaFilter style={{ margin: 'auto 0' }} />
+                <FaArrowRight className={this.state.showFilter ? styles.closeBtn : styles.hide} />
+              </button>
+              <div className={this.state.showFilter ? styles.categoryWrapper : styles.hide}>
+                {categories.map(category => {
+                  // Check if filter is active to change its color
+                  const isActive = this.state.activeFilter === category.title
+                  return (
+                    <CategoryButton
+                      isActive={isActive}
+                      cattitle={category.title}
+                      key={category.id}
+                      onClick={this.handleClick}
+                    >
+                      {category.title}
+                    </CategoryButton>
+                  )
+                })}
+              </div>
             </div>
           </div>
 

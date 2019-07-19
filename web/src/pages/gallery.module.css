@@ -1,9 +1,21 @@
 @import '../styles/media-queries.css';
 @import '../styles/vars.css';
 .wrapper {
+  position: relative;
   display: flex;
   align-content: center;
   justify-content: space-between;
+  overflow: hidden;
+}
+
+.filterWrapper {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  right: 0.755rem;
+  z-index: 10;
+  outline: 2px solid black;
+  background-color: white;
   overflow: hidden;
 }
 
@@ -13,9 +25,15 @@
   flex: 1;
 }
 
+.closeBtn {
+  color: var(--color-black);
+  width: 0.525em;
+  margin: auto;
+}
+
 .iconWrapper {
   position: fixed;
-  right: 0;
+  right: 0em;
   display: flex;
   margin: 0 0.745em;
   z-index: 10;
@@ -26,11 +44,12 @@
   cursor: pointer;
   line-height: inherit;
   font-size: inherit;
+
   @media (--media-min-medium) {
     position: relative;
     display: flex;
-    margin: 0.225em 0.255em;
-    padding: 0 0.425em;
+    margin: 0.225em 0.225em;
+    padding: 0.085em 0.225em;
     outline: none;
   }
 }
@@ -54,7 +73,6 @@
   background-color: white;
   z-index: 10;
   animation: slideIn 0.25s;
-  overflow-x: hidden;
   & > button {
     border-bottom: 2px solid black;
   }
@@ -78,7 +96,7 @@
   }
 }
 
-.hideCategories {
+.hide {
   display: none;
 }
 
