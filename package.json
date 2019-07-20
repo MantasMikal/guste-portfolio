@@ -1,7 +1,7 @@
 {
   "private": false,
-  "name": "gugis-sanity",
-  "version": "1.0.0",
+  "name": "guste-portfolio",
+  "version": "1.1.0",
   "author": "Mantas Mikalauskas <mikalauskas.it@gmail.com>",
   "scripts": {
     "clean": "lerna clean",
