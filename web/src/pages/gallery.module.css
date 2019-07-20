@@ -1,5 +1,6 @@
 @import '../styles/media-queries.css';
 @import '../styles/vars.css';
+
 .wrapper {
   position: relative;
   display: flex;
@@ -49,6 +50,7 @@
   cursor: pointer;
   line-height: inherit;
   font-size: inherit;
+
   @media (--media-min-medium) {
     position: relative;
     display: flex;

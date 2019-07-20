@@ -38,7 +38,7 @@
 .title {
   font-size: 5rem;
   margin: auto;
-  padding: 0.325em 0;
+  padding: 0.325em 0.325em;
 }
 
 .wrapper:hover {
