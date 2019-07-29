@@ -9,7 +9,7 @@ import RoleList from './role-list'
 import { makeComponents } from '../templates/dynamicComponents'
 import typography from './typography.module.css'
 import styles from './project.module.css'
-import { uppercase, responsiveText1, border } from './typography.module.css'
+import { uppercase, responsiveTitle2, border } from './typography.module.css'
 class Project extends React.Component {
   render () {
     const {
@@ -29,8 +29,8 @@ class Project extends React.Component {
             </div>
           </div>
           <div className={styles.navWrapper}>
-            <Link className={prev ? cn(responsiveText1, uppercase) : styles.invisible} to={prev}>Previous</Link>
-            <Link className={next ? cn(responsiveText1, uppercase) : styles.invisible} to={next}>Next</Link>
+            <Link className={prev ? cn(responsiveTitle2, uppercase) : styles.invisible} to={prev}>Previous</Link>
+            <Link className={next ? cn(responsiveTitle2, uppercase) : styles.invisible} to={next}>Next</Link>
           </div>
         </Container>
       </article>

@@ -11,7 +11,7 @@
 }
 
 .footer {
-  margin: 5px 0;
+  margin: 5px var(--page-margin);
 }
 
 .footerWrapper {

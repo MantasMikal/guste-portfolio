@@ -17,7 +17,6 @@
     outline: 2px solid black;
     cursor: pointer;
     background-color: var(--color-accent);
-    font-style: italic;
   }
 }
 

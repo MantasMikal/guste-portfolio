@@ -23,6 +23,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-snipcart',
+      options: {
+        apiKey: 'ODBjMDM3MDItOGY5Zi00Nzk5LWJhYjctMWY2ZDAwMjUxYzA1NjM2OTE2NDM3MjAyODQwODE0',
+        autopop: true
+      }
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-127375966-2'

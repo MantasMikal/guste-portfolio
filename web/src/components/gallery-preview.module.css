@@ -56,16 +56,18 @@
   /* border-radius: 5px;
   box-shadow: 0px 0rem 1rem 0px rgba(0,0,0,0.15); */
   border: 2px solid black;
-  animation: mymove 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: slideIn 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
+
 
 /* .titleWrapper:hover {
   background-color: var(--color-accent);
 } */
 
 
-@keyframes mymove {
-  from {transform: translateY(100px)}
+@keyframes slideIn {
+  from {transform: translateY(10vh)}
   to {transform: translateY(0px)}
 }
 
