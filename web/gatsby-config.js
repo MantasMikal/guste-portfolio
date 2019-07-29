@@ -11,6 +11,16 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Quicksand`
+          }
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId,
