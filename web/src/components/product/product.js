@@ -12,6 +12,8 @@ export default class Product extends React.Component {
     const { title, quantity, images, id, price, _rawDescription, discount, categories, mainImage, publishedAt, slug } = this.props
     const allImages = images ? [mainImage, ...images] : [mainImage] // Concat main image with other product images
     const shortDescription = _rawDescription[0].children[0].text // Nasty TODO
+    console.log('Slug: ', slug.current)
+    console.log("WWWWWWWWWWw")
     return (
       <article className={styles.root}>
         <Container>
@@ -35,24 +37,13 @@ export default class Product extends React.Component {
                     : format(new Date(publishedAt), 'MMMM Do YYYY')}
                 </div>
               )}
-              {categories && (
-                <div className={[styles.categories, styles.limitWidth].join(' ')}>
-                  <h3 className={styles.categoriesHeadline}>Categories</h3>
-                  <ul>
-                    {categories.map(category => (
-                      <li key={category._id}>{category.title}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
               <BuyButton
                 id={id}
                 price={{'usd': price, 'gbp': price}}
                 name={title}
                 description={shortDescription}
                 image={mainImage.asset.url}
-                url={`http://gustedesigndev.netlify.com/store/${slug.current}`} > GRAB NOW </BuyButton>
+                url={`http://guste.design/store/${slug.current}`} > GRAB NOW </BuyButton>
             </aside>
           </div>
         </Container>
