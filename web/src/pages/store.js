@@ -8,7 +8,7 @@ import Layout from '../containers/layout'
 import styles from './store.module.css'
 import { CurrencyContext, currencies } from '../context/currency-context'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs, cn } from '../lib/helpers'
-
+import { CurrencyProvider, currency } from '../context/currency-context'
 import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 
 export const query = graphql`
@@ -54,29 +54,31 @@ class Store extends React.Component {
     return (
       <Layout>
         <SEO title="Store" />
-        <CurrencyContext.Consumer>
-          {({currency, switchCurrency}) => {
-            return (
-              <Container>
-                <div className={cn(styles.headWraper, border)}>
-                  <h1
-                    className={cn(responsiveTitle3, uppercase)}
-                    style={{ paddingRight: '1em', margin: 'auto 0', flex: 1 }}
-                  >
-                    Store
-                  </h1>
-                  <div className={styles.currencyWrapper}>
-                    <div onClick={switchCurrency} currency='eur' className={currency === currencies.eur ? cn(styles.currency, styles.active) : styles.currency}>EUR</div>
-                    <div onClick={switchCurrency} currency='gbp' className={currency === currencies.gbp ? cn(styles.currency, styles.active) : styles.currency}>GBP</div>
+        <CurrencyProvider>
+          <CurrencyContext.Consumer>
+            {({currency, switchCurrency}) => {
+              return (
+                <Container>
+                  <div className={cn(styles.headWraper, border)}>
+                    <h1
+                      className={cn(responsiveTitle3, uppercase)}
+                      style={{ paddingRight: '1em', margin: 'auto 0', flex: 1 }}
+                    >
+                      Store
+                    </h1>
+                    <div className={styles.currencyWrapper}>
+                      <div onClick={switchCurrency} currency='eur' className={currency === currencies.eur ? cn(styles.currency, styles.active) : styles.currency}>EUR</div>
+                      <div onClick={switchCurrency} currency='gbp' className={currency === currencies.gbp ? cn(styles.currency, styles.active) : styles.currency}>GBP</div>
+                    </div>
                   </div>
-                </div>
-                {productNodes && productNodes.length > 0 && (
-                  <ProductPreviewGrid nodes={productNodes} />
-                )}
-              </Container>
-          )}
-            }
-        </CurrencyContext.Consumer>
+                  {productNodes && productNodes.length > 0 && (
+                    <ProductPreviewGrid nodes={productNodes} />
+                  )}
+                </Container>
+            )}
+              }
+          </CurrencyContext.Consumer>
+        </CurrencyProvider>
       </Layout>
     )
   }

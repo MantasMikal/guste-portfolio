@@ -5,9 +5,9 @@
  */
 
 // You can delete this file if you're not using it
-import React from "react"
-import { CurrencyProvider, currency } from './src/context/currency-context'
+// import React from "react"
+// import { CurrencyProvider, currency } from './src/context/currency-context'
 
-export const wrapRootElement = ({ element }) => (
-  <CurrencyProvider>{element}</CurrencyProvider>
-)
+// export const wrapRootElement = ({ element }) => (
+//   <CurrencyProvider>{element}</CurrencyProvider>
+// )

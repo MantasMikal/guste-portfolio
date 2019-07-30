@@ -35,6 +35,7 @@ export default class ProductPreviewGrid extends React.Component {
   }
 
   render () {
+
     const products = []
     let nodes = this.props.nodes
 

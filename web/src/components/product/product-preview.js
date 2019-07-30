@@ -6,8 +6,9 @@ import MainImage from '../image/zoomableImage'
 import styles from './product-preview.module.css'
 import { responsiveTitle5 } from '../typography.module.css'
 import { CurrencyContext, currencies } from '../../context/currency-context'
+
 function ProductPreview(props) {
-  console.log("RENDER!")
+  console.log("RENDER!", )
   return (
     <div className={styles.itemWrapper}>
       <Link to={`/store/${props.slug.current}`}>
@@ -21,6 +22,10 @@ function ProductPreview(props) {
           <CurrencyContext.Consumer>
             {({currency, rates}) => {
               // Calculate value in difference currency if it is not euros
+              //console.log(Math.round((rates[currency.name.toUpperCase()] * props.price)))
+              // console.log(rates)
+              // console.log(currency.name.toUpperCase())
+              // console.log((rates[currency.name.toUpperCase()]))
               if(currency && rates){
                 const newPrice = Math.round((rates[currency.name.toUpperCase()] * props.price))
                 return (

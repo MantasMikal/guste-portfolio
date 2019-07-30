@@ -43,36 +43,30 @@ export class CurrencyProvider extends React.Component {
     this.setState({
       currency: selectedCurrency
     })
-
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const url = 'https://api.exchangeratesapi.io/latest?base=EUR'
-    //Wait for snipcart to be ready get current currency and fetch exchange rates
-    Snipcart.subscribe('cart.ready', function() {
-      const cur = currencies[Snipcart.api.cart.currency()]
-      fetch(url)
-      .then(data => data.json())
-      .then(res => {
-        const rates = {"EUR": 1, ...res.rates}
-        this.setState({
-          rates: rates,
-          currency: cur,
-          isLoading: false
-        })
-      }, (error) => {
-        console.log("Error: ", error)
-      })
-    }.bind(this));
+    const currency = await Snipcart.api.cart.currency()
+    const rates = await fetch(url).then(data => data.json())
+    const cur = currencies[currency]
+
+    this.setState({
+      rates: rates.rates,
+      currency: cur,
+      isLoading: false
+    })
+    // Snipcart.subscribe('cart.ready', function() {
+
+    // }.bind(this));
   }
 
   componentWillUnmount() {
-    Snipcart.unsubscribe('cart.ready')
+    // Snipcart.unsubscribe('cart.ready')
   }
 
   render() {
-
-    if(this.state.isLoading){
+    if (this.state.isLoading) {
       <p>Loading...</p>
     }
 
@@ -84,8 +78,24 @@ export class CurrencyProvider extends React.Component {
           rates: this.state.rates
         }}
       >
-        {this.state.rates && this.props.children}
+        {this.props.children}
       </CurrencyContext.Provider>
+    )
+  }
+}
+
+export class CurrencyConsumer extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {}
+  }
+
+  render() {
+    return (
+      <CurrencyContext.Consumer>
+        {this.props.children}
+      </CurrencyContext.Consumer>
     )
   }
 }
