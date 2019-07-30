@@ -28,7 +28,8 @@ export default class Product extends React.Component {
     return (
       <CurrencyContext.Consumer>
         {({ currency, rates }) => {
-          const newPrice = Math.round(rates[currency.name] * price)
+          console.log("CURRENCY", rates[currency.name.toUpperCase()])
+          const newPrice = Math.round(rates[currency.name.toUpperCase()] * price)
           return (
             <article className={styles.root}>
               <Container>
@@ -58,7 +59,7 @@ export default class Product extends React.Component {
                     )}
                     <BuyButton
                       id={id}
-                      price={{ eur: price, gbp: Math.round(rates['GBP'] * price)}}
+                      price={{ eur: price, gbp: Math.round(rates['gbp'] * price)}}
                       name={title}
                       description={shortDescription}
                       image={mainImage.asset.url}

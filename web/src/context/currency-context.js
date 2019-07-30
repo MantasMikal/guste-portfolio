@@ -2,12 +2,12 @@ import React from 'react'
 import SnipcartButton from '../components/button/snipcart-button'
 
 export const currencies = {
-  EUR: { name: 'EUR', sign: '€' },
-  GBP: { name: 'GBP', sign: '£' }
+  eur: { name: 'eur', sign: '€' },
+  gbp: { name: 'gbp', sign: '£' }
 }
 
 export const CurrencyContext = React.createContext({
-  currency: currencies.EUR,
+  currency: currencies.eur,
   switchCurrency: e => {},
   rates: []
 })
@@ -17,8 +17,9 @@ export class CurrencyProvider extends React.Component {
     super(props)
 
     this.state = {
-      currency: currencies.EUR,
-      rates: null
+      currency: currencies.eur,
+      rates: null,
+      isLoading: true
     }
   }
 
@@ -26,39 +27,55 @@ export class CurrencyProvider extends React.Component {
     e.persist()
     let selectedCurrency
     switch (e.target.getAttribute('currency')) {
-      case 'EUR':
-        selectedCurrency = currencies.EUR
+      case 'eur':
+        selectedCurrency = currencies.eur
         break
 
-      case 'GBP':
-        selectedCurrency = currencies.GBP
+      case 'gbp':
+        selectedCurrency = currencies.gbp
         break
 
       default:
         break
     }
 
+    Snipcart.setCurrency(selectedCurrency.name)
     this.setState({
       currency: selectedCurrency
     })
-    // Snipcart.api.setCurrency(selectedCurrency)
-    //console.log("STATE", this.state)
+
   }
 
   componentDidMount() {
     const url = 'https://api.exchangeratesapi.io/latest?base=EUR'
-    fetch(url)
+    //Wait for snipcart to be ready get current currency and fetch exchange rates
+    Snipcart.subscribe('cart.ready', function() {
+      const cur = currencies[Snipcart.api.cart.currency()]
+      fetch(url)
       .then(data => data.json())
       .then(res => {
         const rates = {"EUR": 1, ...res.rates}
         this.setState({
-          rates: rates
+          rates: rates,
+          currency: cur,
+          isLoading: false
         })
+      }, (error) => {
+        console.log("Error: ", error)
       })
+    }.bind(this));
+  }
+
+  componentWillUnmount() {
+    Snipcart.unsubscribe('cart.ready')
   }
 
   render() {
-    //console.log("RATES", this.state.rates)
+
+    if(this.state.isLoading){
+      <p>Loading...</p>
+    }
+
     return (
       <CurrencyContext.Provider
         value={{

@@ -66,8 +66,8 @@ class Store extends React.Component {
                     Store
                   </h1>
                   <div className={styles.currencyWrapper}>
-                    <div onClick={switchCurrency} currency='EUR' className={currency === currencies.EUR ? cn(styles.currency, styles.active) : styles.currency}>EUR</div>
-                    <div onClick={switchCurrency} currency='GBP' className={currency === currencies.GBP ? cn(styles.currency, styles.active) : styles.currency}>GBP</div>
+                    <div onClick={switchCurrency} currency='eur' className={currency === currencies.eur ? cn(styles.currency, styles.active) : styles.currency}>EUR</div>
+                    <div onClick={switchCurrency} currency='gbp' className={currency === currencies.gbp ? cn(styles.currency, styles.active) : styles.currency}>GBP</div>
                   </div>
                 </div>
                 {productNodes && productNodes.length > 0 && (
