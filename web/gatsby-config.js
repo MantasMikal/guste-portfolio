@@ -10,6 +10,16 @@ module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
+    // {
+    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: `Quicksand`
+    //       }
+    //     ],
+    //   },
+    // },
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -20,6 +30,13 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
         watchMode: true,
         overlayDrafts: true
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-snipcart',
+      options: {
+        apiKey: 'ODBjMDM3MDItOGY5Zi00Nzk5LWJhYjctMWY2ZDAwMjUxYzA1NjM2OTE2NDM3MjAyODQwODE0',
+        autopop: true
       }
     },
     {

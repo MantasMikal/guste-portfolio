@@ -18,3 +18,8 @@ body {
 html, body, body > div, body > div > div {
   height: 100%;
 }
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}

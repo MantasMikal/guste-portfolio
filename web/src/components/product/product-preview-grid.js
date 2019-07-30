@@ -1,10 +1,12 @@
+import { Link } from 'gatsby'
 import React from 'react'
-import GalleryPreview from './gallery-preview'
-import LazyLoader from './lazy-loader/lazyLoader'
-import MasonryLayout from './masonry/masonry-layout'
+import ProductPreview from './product-preview'
+import LazyLoader from '../lazy-loader/lazyLoader'
+import MasonryLayout from '../masonry/masonry-layout'
 
-import styles from './gallery-preview-layout.module.css'
-export default class GalleryPreviewLayout extends React.Component {
+import styles from './product-preview-grid.module.css'
+
+export default class ProductPreviewGrid extends React.Component {
   constructor(props) {
     super(props)
 
@@ -16,10 +18,10 @@ export default class GalleryPreviewLayout extends React.Component {
     }
 
     loadMore = () => {
-      const postsLeft = this.props.nodes.length - this.state.loaded // Posts left
+      const productsLeft = this.props.nodes.length - this.state.loaded // Posts left
       const totalAmount = this.state.loaded + this.state.amountToLoad // Total amount of posts to load
 
-      if(postsLeft > 0){
+      if(productsLeft > 0){
           this.setState({
               loaded: totalAmount,
               hasMore: true
@@ -32,21 +34,27 @@ export default class GalleryPreviewLayout extends React.Component {
   }
 
   render () {
-    const posts = []
+    const products = []
     let nodes = this.props.nodes
 
     for(let i = 0; i < this.state.loaded; i++){
-      nodes[i] && posts.push(<GalleryPreview item={nodes[i]} key={nodes[i].id} />)
+      nodes[i] && products.push(<ProductPreview {...nodes[i]} key={nodes[i].id} />)
     }
-
     return (
-      // <div className={styles.wrapper}>
+      <div className={styles.root}>
         <LazyLoader loadMore={this.loadMore} hasMore={this.state.hasMore}>
           <MasonryLayout gap={10} colCount={3}>
-          {posts}
+          {products}
           </MasonryLayout>
         </LazyLoader>
-      // </div>
+      </div>
     )
   }
 }
+
+ProductPreviewGrid.defaultProps = {
+  title: '',
+  nodes: [],
+  browseMoreHref: ''
+}
+

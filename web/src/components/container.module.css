@@ -8,4 +8,14 @@
   @media (--media-max-medium) {
     /* margin: 0 calc(var(--page-margin-mobile) + var(--header-padding)); */
   }
+  animation: fadeIn 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -35,6 +35,9 @@ export default class Header extends React.Component {
               <div>
                 <Link to="/gallery/">Gallery</Link>
               </div>
+              {/* <div>
+                <Link to="/store/">Store</Link>
+              </div> */}
               {/* <li>
             <Link to='/blog/'>Blog</Link>
           </li> */}

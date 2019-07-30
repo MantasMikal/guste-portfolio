@@ -45,6 +45,7 @@ export default class MultiImage extends Component {
   render () {
     const imageId = this.state.currentImageIdx
     const image = this.props.images[imageId]
+
     return (
       <>
         <div onMouseMove={this.handleHover}>

@@ -17,7 +17,7 @@ export default class MasonryLayout extends React.Component {
     super(props)
 
     this.state = {
-      colCount: 3
+      colCount: this.props.colCount
     }
   }
 

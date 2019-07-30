@@ -1,0 +1,43 @@
+@import '../../styles/media-queries.css';
+@import '../../styles/vars.css';
+
+.title {
+  text-decoration: none;
+
+  @media (hover: hover) {
+    @nest .root:hover & {
+      text-decoration: underline;
+    }
+  }
+}
+
+.inner {
+  border-bottom: 2px solid black;
+}
+
+.titleWrapper {
+  padding: 0 0.325rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  align-self: center;
+}
+
+
+
+.itemWrapper {
+  display: block;
+  border: 2px solid black;
+  animation: slideIn 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  @nest & > * {
+    color: var(--color-black);
+  }
+}
+
+@keyframes slideIn {
+  from {transform: translateY(10vh)}
+  to {transform: translateY(0px)}
+}
+
