@@ -40,13 +40,13 @@ export default class GalleryPreviewLayout extends React.Component {
     }
 
     return (
-      <div className={styles.wrapper}>
+      // <div className={styles.wrapper}>
         <LazyLoader loadMore={this.loadMore} hasMore={this.state.hasMore}>
           <MasonryLayout gap={10} colCount={3}>
           {posts}
           </MasonryLayout>
         </LazyLoader>
-      </div>
+      // </div>
     )
   }
 }

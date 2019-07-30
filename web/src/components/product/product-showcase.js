@@ -26,7 +26,7 @@ export default class ProductShowcase extends Component {
     const currentImage = this.props.images[this.state.currentImage].asset.fluid
     return (
       <div>
-        <ImageWithModal fluid={currentImage} alt={this.props.alt} />
+        <ImageWithModal hasBorder fluid={currentImage} alt={this.props.alt} />
         <ProductShowcaseGrid images={this.props.images} handleClick={this.handleClick} />
       </div>
     )

@@ -5,9 +5,9 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import ProductPreviewGrid from '../components/product/product-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs, cn } from '../lib/helpers'
 
-import { responsiveTitle2 } from '../components/typography.module.css'
+import { responsiveTitle3, uppercase } from '../components/typography.module.css'
 
 
 export const query = graphql`
@@ -55,7 +55,7 @@ const Store = props => {
     <Layout>
       <SEO title='Store' />
       <Container>
-        <h1 className={responsiveTitle2}>Store</h1>
+      <h1 className={cn(responsiveTitle3, uppercase)} style={{paddingRight: '1em', margin: 'auto 0'}}>Store</h1>
         {productNodes && productNodes.length > 0 && <ProductPreviewGrid nodes={productNodes} />}
       </Container>
     </Layout>

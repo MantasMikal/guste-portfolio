@@ -1,29 +1,9 @@
-.root {
-  display: block;
-  color: inherit;
+@import '../../styles/media-queries.css';
+@import '../../styles/vars.css';
+
+.title {
   text-decoration: none;
-}
 
-.title {
-  composes: responsiveTitle1 from '../typography.module.css';
-}
-
-.leadMediaThumb {
-  position: relative;
-  padding-bottom: 66.666%;
-  background: #eee;
-
-  @nest & img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.title {
   @media (hover: hover) {
     @nest .root:hover & {
       text-decoration: underline;
@@ -31,12 +11,33 @@
   }
 }
 
-.excerpt {
-  @nest & p {
-    margin: 0.5em 0;
-  }
+.inner {
+  border-bottom: 2px solid black;
+}
 
-  @nest & strong {
-    font-weight: 600;
+.titleWrapper {
+  padding: 0 0.325rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  align-self: center;
+}
+
+
+
+.itemWrapper {
+  display: block;
+  border: 2px solid black;
+  animation: slideIn 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  @nest & > * {
+    color: var(--color-black);
   }
 }
+
+@keyframes slideIn {
+  from {transform: translateY(10vh)}
+  to {transform: translateY(0px)}
+}
+

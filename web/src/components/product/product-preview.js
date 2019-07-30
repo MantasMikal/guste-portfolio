@@ -2,15 +2,26 @@ import { Link } from 'gatsby'
 import React from 'react'
 import { cn } from '../../lib/helpers'
 import Image from '../image/image'
+import MainImage from '../image/zoomableImage'
 import styles from './product-preview.module.css'
-import { responsiveTitle4 } from '../typography.module.css'
+import { responsiveTitle5 } from '../typography.module.css'
 
-function ProductPreview (props) {
+function ProductPreview(props) {
+  console.log(props)
   return (
-    <Link className={styles.root} to={`/store/${props.slug.current}`}>
-      <Image fluid={props.mainImage.asset.fluid} alt={props.mainImage.asset.alt} />
-      <h4 className={cn(responsiveTitle4, styles.title)}>{props.title}</h4>
-    </Link>
+    <div className={styles.itemWrapper}>
+      <Link to={`/store/${props.slug.current}`}>
+        <div className={styles.inner}>
+          {props.mainImage && props.mainImage.asset && (
+            <Image fluid={props.mainImage.asset.fluid} />
+          )}
+        </div>
+        <div className={styles.titleWrapper}>
+          <h1 className={cn(responsiveTitle5, styles.title)}>{props.title}</h1>
+          <span className={styles.price}>{props.price + '$'}</span>
+        </div>
+      </Link>
+    </div>
   )
 }
 

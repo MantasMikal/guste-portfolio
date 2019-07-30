@@ -48,11 +48,11 @@ export default class Product extends React.Component {
 
               <BuyButton
                 id={id}
-                price={price}
+                price={{'usd': price, 'gbp': price}}
                 name={title}
                 description={shortDescription}
                 image={mainImage.asset.url}
-                url={`http://gustore.netlify.com/store/${slug.current}`} > GRAB NOW </BuyButton>
+                url={`http://gustedesigndev.netlify.com/store/${slug.current}`} > GRAB NOW </BuyButton>
             </aside>
           </div>
         </Container>
