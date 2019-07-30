@@ -1,0 +1,28 @@
+@import '../styles/vars.css';
+
+.headWraper {
+  display: flex;
+}
+
+.currencyWrapper {
+  display: flex;
+  align-self: center;
+  padding: 0.3em;
+}
+
+.currency {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 0.225em;
+  margin: 0 0.125em;
+}
+
+.currency:hover {
+  outline: 2px solid black;
+  background-color: var(--color-accent);
+}
+
+.active {
+  outline: 2px solid black;
+  background-color: var(--color-accent);
+}
