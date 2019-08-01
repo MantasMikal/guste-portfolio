@@ -45,6 +45,19 @@ module.exports = {
         trackingId: 'UA-127375966-2'
       }
     },
+    {
+      resolve: `gatsby-source-exchange-rates`,
+      options: {
+        latest: {
+          base: 'EUR'
+        },
+        history:{
+          start_at: '2018-01-01',
+          end_at: '2018-01-02',
+          base: 'EUR'
+        },
+      }
+    },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
@@ -59,7 +72,7 @@ module.exports = {
  * with directions to enter the info manually or in the environment.
  */
 
-function requireConfig (path) {
+function requireConfig(path) {
   try {
     return require('../studio/sanity.json')
   } catch (e) {

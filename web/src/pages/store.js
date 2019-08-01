@@ -54,7 +54,7 @@ class Store extends React.Component {
     return (
       <Layout>
         <SEO title="Store" />
-        <CurrencyProvider>
+        {/* <CurrencyProvider> */}
           <CurrencyContext.Consumer>
             {({currency, switchCurrency}) => {
               return (
@@ -78,7 +78,7 @@ class Store extends React.Component {
             )}
               }
           </CurrencyContext.Consumer>
-        </CurrencyProvider>
+        {/* </CurrencyProvider> */}
       </Layout>
     )
   }

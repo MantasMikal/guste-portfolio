@@ -26,6 +26,8 @@ function ProductPreview(props) {
               // console.log(rates)
               // console.log(currency.name.toUpperCase())
               // console.log((rates[currency.name.toUpperCase()]))
+              console.log("RATES: ", rates)
+              console.log("CUR", currency)
               if(currency && rates){
                 const newPrice = Math.round((rates[currency.name.toUpperCase()] * props.price))
                 return (

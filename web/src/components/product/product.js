@@ -28,6 +28,7 @@ export default class Product extends React.Component {
     return (
       <CurrencyContext.Consumer>
         {({ currency, rates }) => {
+          console.log("CUrr: ", currency, "Rate: ", rates)
           console.log("CURRENCY", rates[currency.name.toUpperCase()])
           const newPrice = Math.round(rates[currency.name.toUpperCase()] * price)
           return (
