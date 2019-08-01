@@ -23,7 +23,7 @@ export default class ProductDetailPicker extends Component {
   render() {
     const { details, calcPrice, rates } = this.props
     const current = this.state.current? this.state.current : details[0]
-
+    const { price, sign } = calcPrice(current.price, rates)
     if(!current){
       return (
         <div style={{padding: '1em 0'}}>NOT AVAILABLE</div>
@@ -34,7 +34,7 @@ export default class ProductDetailPicker extends Component {
       <div className={styles.wrapper}>
         <div className={styles.priceWrapper}>
           <div>Price: </div>
-          <div className={styles.price}>{calcPrice(current.price, rates)}</div>
+          <div className={styles.price}>{`${price}${sign}`}</div>
         </div>
         <div className={styles.sizeWrapper}>
           <div>Size: </div>
