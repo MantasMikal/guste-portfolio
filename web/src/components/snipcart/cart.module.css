@@ -18,9 +18,10 @@
   position: absolute;
   display: flex;
   background-color: var(--color-accent);
-  bottom: -0.3em;
-  right: -0.3em;
+  bottom: -0.4em;
+  right: -0.35em;
   border-radius: 50%;
-  font-size: 0.6em;
+  font-size: 0.5em;
+  border: 1px solid black;
 }
 

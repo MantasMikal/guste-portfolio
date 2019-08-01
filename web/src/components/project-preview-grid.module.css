@@ -1,14 +1,14 @@
 @import '../styles/media-queries.css';
 @import '../styles/vars.css';
+@import './typography.module.css';
 
 .root {
   margin: 0.325rem 0 0.625rem;
 }
 
 .headline {
+
   text-transform: uppercase;
-  font-size: var(--font-medium-size);
-  line-height: var(--font-small-line-height);
   margin: 0.125rem 0 0.425rem;
   font-weight: 400;
 
@@ -19,13 +19,13 @@
 
 
   @media (--media-min-small) {
-    font-size: var(--font-title3-size);
-    line-height: var(--font-title3-line-height);
+    font-size: var(--font-title4-size);
+    line-height: var(--font-title4-line-height);
   }
 
   @media (--media-min-medium) {
-    font-size: var(--font-title2-size);
-    line-height: var(--font-title2-line-height);
+    font-size: var(--font-title3-size);
+    line-height: var(--font-title3-line-height);
   }
 
 }

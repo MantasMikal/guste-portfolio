@@ -1,8 +1,15 @@
 @import './vars.css';
  /* @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap'); */
 
+ @font-face {
+  font-family: 'Avenir LT Std 65 Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir LT Std 65 Medium'), url('./AvenirLTStd-Medium.woff') format('woff');
+  }
+
 html {
-  font-family: 'Helvetica', serif;
+  font-family: 'Avenir LT Std 65 Medium';
   font-size: var(--font-base-size);
   font-display: auto;
   line-height: var(--font-base-line-height);
