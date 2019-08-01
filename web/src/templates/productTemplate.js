@@ -12,9 +12,12 @@ export const query = graphql`
       id
       publishedAt
       title
-      price
       discount
-      quantity
+      details {
+          instock
+          size
+          price
+        }
       slug {
         current
       }

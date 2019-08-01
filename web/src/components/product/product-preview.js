@@ -20,18 +20,16 @@ function ProductPreview(props) {
         <div className={styles.titleWrapper}>
           <h1 className={cn(responsiveTitle5, styles.title)}>{props.title}</h1>
           <CurrencyContext.Consumer>
-            {({currency, rates}) => {
+            {({currency, rates, calcPrice}) => {
               // Calculate value in difference currency if it is not euros
               //console.log(Math.round((rates[currency.name.toUpperCase()] * props.price)))
               // console.log(rates)
               // console.log(currency.name.toUpperCase())
               // console.log((rates[currency.name.toUpperCase()]))
-              console.log("RATES: ", rates)
-              console.log("CUR", currency)
-              if(currency && rates){
-                const newPrice = Math.round((rates[currency.name.toUpperCase()] * props.price))
+              if(currency && rates && props.details[0]){
+                // const newPrice = Math.round((rates[currency.name.toUpperCase()] * props.details[0].price))
                 return (
-                  <span className={styles.price}>{`${newPrice}${currency.sign}`}</span>
+                  <span className={styles.price}>{calcPrice(props.details[0].price, rates)}</span>
                 )
               }
             }}

@@ -9,6 +9,7 @@ export const currencies = {
 export const CurrencyContext = React.createContext({
   currency: currencies.eur,
   switchCurrency: e => {},
+  calcPrice: price => {},
   rates: {}
 })
 
@@ -33,7 +34,6 @@ export class CurrencyProvider extends React.Component {
 
   switchCurrency = e => {
     e.persist()
-
     const selectedCurrency = currencies[e.target.getAttribute('currency')]
     localStorage.setItem('currency', selectedCurrency.name)
     Snipcart.setCurrency(selectedCurrency.name)
@@ -42,6 +42,14 @@ export class CurrencyProvider extends React.Component {
     })
   }
 
+  calcPrice = (price, rates) => {
+    const convertedPrice = Math.round(rates[this.state.currency.name.toUpperCase()] * price)
+    const sign = this.state.currency.sign
+    return `${convertedPrice}${sign}`
+  }
+
+  // Insert base rate for genericly calculate prices
+  // EUR is default
   componentDidMount() {
     Snipcart.setCurrency(this.state.currency.name)
   }
@@ -61,7 +69,8 @@ export class CurrencyProvider extends React.Component {
               value={{
                 currency: this.state.currency,
                 switchCurrency: this.switchCurrency,
-                rates: rates
+                rates: rates,
+                calcPrice: this.calcPrice
                }}
             >
               {this.props.children}

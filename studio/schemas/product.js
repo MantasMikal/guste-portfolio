@@ -9,19 +9,15 @@ export default {
       type: 'string'
     },
     {
-      name: 'price',
-      title: 'Price',
-      type: 'number'
+      name: 'details',
+      title: 'Details',
+      type: 'array',
+      of: [{ type: 'productDetails' }]
     },
     {
       name: 'discount',
       title: 'Discount',
       description: 'Discount %. Leave blank if no discount!',
-      type: 'number'
-    },
-    {
-      name: 'quantity',
-      title: 'Quantity',
       type: 'number'
     },
     {

@@ -15,7 +15,7 @@ class BlogPost extends React.Component {
 
   render () {
     const { _rawBody, title, date } = this.props
-    const { prev, next } = this.props.pageContext
+    const { prev, next, prevTitle, nextTitle } = this.props.pageContext
 
     return (
       <article className={styles.root}>
@@ -33,8 +33,8 @@ class BlogPost extends React.Component {
             </div>
           </div>
           <div className={styles.navWrapper}>
-            <Link className={prev ? cn(responsiveText1, uppercase) : styles.invisible} to={prev}>Previous</Link>
-            <Link className={next ? cn(responsiveText1, uppercase) : styles.invisible} to={next}>Next</Link>
+            <Link className={prev ? cn(responsiveText1, uppercase) : styles.invisible} to={prev}>Previous: {prevTitle}</Link>
+            <Link className={next ? cn(responsiveText1, uppercase) : styles.invisible} to={next}>Next: {nextTitle}</Link>
           </div>
           {/* <div style={{ height: '23vh' }} /> */}
         </Container>

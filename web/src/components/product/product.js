@@ -12,6 +12,7 @@ import CurrencySelector from '../currency-selector/currency-selector'
 import Cart from '../snipcart/cart'
 // import Snipcart from 'gatsby-plugin-snipcart'
 import styles from './product.module.css'
+import ProductDetailPicker from './product-detail-picker'
 
 export default class Product extends React.Component {
   render() {
@@ -25,15 +26,16 @@ export default class Product extends React.Component {
       discount,
       mainImage,
       publishedAt,
-      slug
+      slug,
+      details
     } = this.props
     const allImages = images ? [mainImage, ...images] : [mainImage] // Concat main image with other product images
     const shortDescription = _rawDescription[0].children[0].text // Nasty TODO
     return (
       <CurrencyContext.Consumer>
-        {({ currency, rates, switchCurrency }) => {
+        {({ currency, rates, switchCurrency, calcPrice }) => {
           // Get price based on selected currency
-          const newPrice = Math.round(rates[currency.name.toUpperCase()] * price)
+          // const newPrice = Math.round(rates[currency.name.toUpperCase()] * price)
           return (
             <article className={styles.root}>
               <Container>
@@ -56,14 +58,10 @@ export default class Product extends React.Component {
                         <BlockText blocks={_rawDescription} />
                       </div>
                     )}
-                    <p>Quantity: {quantity}</p>
-                    <p>
-                      Price: {newPrice}
-                      {currency.sign}
-                    </p>
+                    <ProductDetailPicker details={details} calcPrice={calcPrice} rates={rates}/>
                     <BuyButton
                       id={id}
-                      price={{ eur: price, gbp: Math.round(rates['gbp'] * price) }}
+                      // price={{ eur: price, gbp: Math.round(rates['gbp'] * price) }}
                       name={title}
                       description={shortDescription}
                       image={mainImage.asset.url}
@@ -72,6 +70,8 @@ export default class Product extends React.Component {
                       GRAB NOW
                     </BuyButton>
                   </aside>
+
+
                 </div>
               </Container>
             </article>

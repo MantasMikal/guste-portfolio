@@ -29,11 +29,13 @@ async function createBlogPostPages (graphql, actions, reporter) {
         edges {
           previous {
             publishedAt
+            title
             slug {
               current
             }
           }
           next {
+            title
             publishedAt
             slug {
               current
@@ -41,6 +43,7 @@ async function createBlogPostPages (graphql, actions, reporter) {
           }
           node {
             id
+            title
             publishedAt
             slug {
               current
@@ -66,13 +69,15 @@ async function createBlogPostPages (graphql, actions, reporter) {
 
     const prev = edge.previous ? `/blog/${prevDate}/${edge.previous.slug.current}/` : null
     const next = edge.next ? `/blog/${nextDate}/${edge.next.slug.current}/` : null
+    const nextTitle = edge.next ? edge.next.title : null
+    const prevTitle = edge.prev ? edge.prev.title : null
 
     reporter.info(`Creating blog post page: ${path}`)
 
     createPage({
       path,
       component: require.resolve('./src/templates/blogPostTemplate.js'),
-      context: { id, prev, next }
+      context: { id, prev, next, nextTitle, prevTitle }
     })
   })
 }

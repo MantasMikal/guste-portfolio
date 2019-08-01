@@ -18,9 +18,10 @@ export const query = graphql`
         node {
           id
           title
-          price
           discount
-          quantity
+          details {
+          price
+        }
           slug {
             current
           }
