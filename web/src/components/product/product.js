@@ -51,24 +51,16 @@ export default class Product extends React.Component {
                     />
                   </div>
                   <aside className={styles.metaContent}>
-                    <h1 className={styles.title}>{title}</h1>
-                    <h3>Quantity: {quantity}</h3>
-                    <h3>
-                      Price: {newPrice}
-                      {currency.sign}
-                    </h3>
                     {_rawDescription && (
                       <div className={paragraphLimited}>
                         <BlockText blocks={_rawDescription} />
                       </div>
                     )}
-                    {publishedAt && (
-                      <div className={styles.publishedAt}>
-                        {differenceInDays(new Date(publishedAt), new Date()) > 3
-                          ? distanceInWords(new Date(publishedAt), new Date())
-                          : format(new Date(publishedAt), 'MMMM Do YYYY')}
-                      </div>
-                    )}
+                    <p>Quantity: {quantity}</p>
+                    <p>
+                      Price: {newPrice}
+                      {currency.sign}
+                    </p>
                     <BuyButton
                       id={id}
                       price={{ eur: price, gbp: Math.round(rates['gbp'] * price) }}
@@ -80,16 +72,6 @@ export default class Product extends React.Component {
                       GRAB NOW
                     </BuyButton>
                   </aside>
-                </div>
-                <div className="snipcart-summary">
-                  <a href="#" className="snipcart-checkout">
-                    Customer dashboard
-                  </a>
-                </div>
-                <div>Lots of content</div>
-                <div className="snipcart-summary">
-                  Number of items: <span className="snipcart-total-items" />
-                  Total price: <span className="snipcart-total-price" />
                 </div>
               </Container>
             </article>

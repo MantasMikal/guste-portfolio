@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './button.module.css'
+import styles from './snipcart-button.module.css'
 
 export default function SnipcartButton (props) {
   const { id, price, name, url, description, image } = props

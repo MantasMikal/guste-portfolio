@@ -30,8 +30,9 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-column-gap: 0.325em;
-
-  margin: 0.325rem 0 0.625rem;
+  /* grid-row-gap: 0.325em; */
+  align-items: flex-start;
+  margin: 0.325rem 0;
 
   @media (--media-min-medium) {
     grid-template-columns: 1fr 2fr;
@@ -58,8 +59,12 @@
 }
 
 .metaContent {
-  padding: 0 0.825em;
+  padding: 1em 1.825em;
   border: 2px solid black;
+  @nest & > p {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .publishedAt {

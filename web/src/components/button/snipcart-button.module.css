@@ -5,15 +5,14 @@
   font-family: inherit;
   background-color: var(--color-white);
   color: var(--color-black);
-  border: none;
+  border: 2px solid black;
   padding: 0.425em 0.425rem;
   text-decoration: none;
-  margin: 0 0em;
+  margin: 0 0;
   text-transform: uppercase;
   text-align: left;
 
   @media (--media-min-medium){
-    margin: 0em 0.225em;
     padding: 0.125em 0.425rem;
   }
 }
@@ -24,17 +23,12 @@
 
 @media (hover: hover) {
   .button:hover {
-    /* color: var(--color-white);
-    background-color: var(--color-black); */
-    outline: 2px solid black;
     cursor: pointer;
     background-color: var(--color-accent);
   }
 }
 
 .btnActive {
-  /* background-color: var(--color-black);
-  color: var(--color-white); */
   background-color: var(--color-accent);
   outline: 2px solid black;
 }
