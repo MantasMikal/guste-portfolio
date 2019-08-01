@@ -42,8 +42,8 @@ export class CurrencyProvider extends React.Component {
     })
   }
 
-  calcPrice = (price, rates) => {
-    const convertedPrice = Math.round(rates[this.state.currency.name.toUpperCase()] * price)
+  calcPrice = (price, rates, base = 'EUR') => {
+    const convertedPrice = Math.round(rates[base] * price)
     const sign = this.state.currency.sign
     return `${convertedPrice}${sign}`
   }

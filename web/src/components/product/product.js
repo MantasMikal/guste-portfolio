@@ -61,7 +61,7 @@ export default class Product extends React.Component {
                     <ProductDetailPicker details={details} calcPrice={calcPrice} rates={rates}/>
                     <BuyButton
                       id={id}
-                      // price={{ eur: price, gbp: Math.round(rates['gbp'] * price) }}
+                      price={{ eur: price, gbp: Math.round(rates, price, 'GBP') }}
                       name={title}
                       description={shortDescription}
                       image={mainImage.asset.url}
