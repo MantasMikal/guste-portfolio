@@ -14,13 +14,9 @@ export const CurrencyContext = React.createContext({
 
 const query = graphql`
   query CurrencyQuery {
-    rates: allExchangeRate {
+    rates: allExchangeRates {
       nodes {
-        latest {
-          rates {
-            GBP
-          }
-        }
+        GBP
       }
     }
   }
@@ -81,7 +77,7 @@ export class CurrencyProvider extends React.Component {
             throw new Error('Missing currency exchange data. Try again later.')
           }
           // Insert EUR value to be able genericly calculate prices
-          const rates = {'EUR': 1, ...data.rates.nodes[0].latest.rates}
+          const rates = {'EUR': 1, ...data.rates.nodes[0]}
           return (
             <CurrencyContext.Provider
               value={{

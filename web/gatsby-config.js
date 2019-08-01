@@ -46,16 +46,11 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-source-exchange-rates`,
+      resolve: `gatsby-source-exchange-rates-api`,
       options: {
-        latest: {
+        query: {
           base: 'EUR'
-        },
-        history:{
-          start_at: '2018-01-01',
-          end_at: '2018-01-02',
-          base: 'EUR'
-        },
+        }
       }
     },
     `gatsby-plugin-netlify`,

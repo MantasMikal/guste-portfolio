@@ -35,6 +35,7 @@
     "gatsby-plugin-sharp": "^2.2.3",
     "gatsby-plugin-sitemap": "^2.2.1",
     "gatsby-plugin-snipcart": "^1.1.2",
+    "gatsby-source-exchange-rates-api": "^2.0.2",
     "gatsby-source-sanity": "^5.0.1",
     "lodash": "^4.17.15",
     "postcss-import": "^12.0.1",
