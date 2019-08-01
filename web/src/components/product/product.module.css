@@ -4,7 +4,10 @@
 .root {}
 
 .title {
-  composes: responsiveTitle1 from '../typography.module.css';
+  composes: responsiveTitle3 from '../typography.module.css';
+  flex: 1;
+  padding-right: 1em;
+  margin: auto 0;
 }
 
 .mainImage {
@@ -27,6 +30,8 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-column-gap: 0.325em;
+
+  margin: 0.325rem 0 0.625rem;
 
   @media (--media-min-medium) {
     grid-template-columns: 1fr 2fr;

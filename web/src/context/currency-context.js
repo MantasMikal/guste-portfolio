@@ -33,39 +33,17 @@ export class CurrencyProvider extends React.Component {
 
   switchCurrency = e => {
     e.persist()
-    let selectedCurrency
-    // TODO:
-    // Set currency as currencies[selected]
-    switch (e.target.getAttribute('currency')) {
-      case 'eur':
-        selectedCurrency = currencies.eur
-        break
 
-      case 'gbp':
-        selectedCurrency = currencies.gbp
-        break
-
-      default:
-        break
-    }
-
+    const selectedCurrency = currencies[e.target.getAttribute('currency')]
     localStorage.setItem('currency', selectedCurrency.name)
-    console.log("Local storage: ", localStorage.getItem('currency'))
     Snipcart.setCurrency(selectedCurrency.name)
-
     this.setState({
       currency: selectedCurrency
     })
   }
 
   componentDidMount() {
-    // await this.setCurrentCurrency();
-    console.log("Local storage on mount: ", localStorage.getItem('currency'))
     Snipcart.setCurrency(this.state.currency.name)
-  }
-
-  componentWillUnmount() {
-    // Snipcart.unsubscribe('cart.ready')
   }
 
   render() {

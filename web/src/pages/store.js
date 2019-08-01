@@ -5,11 +5,11 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import ProductPreviewGrid from '../components/product/product-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import styles from './store.module.css'
-import { CurrencyContext, currencies } from '../context/currency-context'
+import { CurrencyContext } from '../context/currency-context'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs, cn } from '../lib/helpers'
-import { CurrencyProvider, currency } from '../context/currency-context'
 import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
+import Cart from '../components/snipcart/cart'
+import CurrencySelector from '../components/currency-selector/currency-selector'
 
 export const query = graphql`
   query StorePageQuery {
@@ -59,17 +59,15 @@ class Store extends React.Component {
             {({currency, switchCurrency}) => {
               return (
                 <Container>
-                  <div className={cn(styles.headWraper, border)}>
+                  <div className={border} style={{display: 'flex'}}>
                     <h1
                       className={cn(responsiveTitle3, uppercase)}
                       style={{ paddingRight: '1em', margin: 'auto 0', flex: 1 }}
                     >
                       Store
                     </h1>
-                    <div className={styles.currencyWrapper}>
-                      <div onClick={switchCurrency} currency='eur' className={currency === currencies.eur ? cn(styles.currency, styles.active) : styles.currency}>EUR</div>
-                      <div onClick={switchCurrency} currency='gbp' className={currency === currencies.gbp ? cn(styles.currency, styles.active) : styles.currency}>GBP</div>
-                    </div>
+                    <CurrencySelector currentCurrency={currency} switchCurrency={switchCurrency} />
+                    <Cart />
                   </div>
                   {productNodes && productNodes.length > 0 && (
                     <ProductPreviewGrid nodes={productNodes} />
