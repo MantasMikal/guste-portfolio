@@ -8,7 +8,7 @@ import { responsiveTitle5 } from '../typography.module.css'
 import { CurrencyContext, currencies } from '../../context/currency-context'
 
 function ProductPreview(props) {
-  console.log("RENDER!", )
+  // console.log("RENDER!", )
   return (
     <div className={styles.itemWrapper}>
       <Link to={`/store/${props.slug.current}`}>
@@ -30,9 +30,15 @@ function ProductPreview(props) {
 
               if(currency && rates && props.details[0]){
                 // const newPrice = Math.round((rates[currency.name.toUpperCase()] * props.details[0].price))
-                console.log("DETAILS: ", props.details)
+                // console.log("DETAILS: ", props.details)
                 const priceList = calcPrice(props.details[0].price, rates)
-                return (
+                //console.log("LIST: ", priceList)
+
+                // console.log("POOP: ", `${priceList[currency.name]}${currency.sign}`)
+                console.log(rates)
+                console.log(priceList)
+                console.log(currency)
+                return priceList && (
                   <span className={styles.price}>{`${priceList[currency.name]}${currency.sign}`}</span>
                 )
               }

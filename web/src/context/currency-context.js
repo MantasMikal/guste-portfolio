@@ -9,7 +9,7 @@ export const currencies = {
 export const CurrencyContext = React.createContext({
   currency: currencies.eur,
   switchCurrency: e => {},
-  calcPrice: (price, rates, base = null) => {},
+  calcPrice: (price, rates) => {},
   rates: {}
 })
 
@@ -42,22 +42,19 @@ export class CurrencyProvider extends React.Component {
     })
   }
 
+
   calcPrice = (price, rates) => {
     // Use current currency if not specified
     let priceList = {}
 
     Object.entries(currencies).forEach(([key, val]) => {
       priceList[key] = Math.round(rates[val.name.toUpperCase()] * price)
-      console.log("Prices: ", priceList)
-    })
 
-    // base = base ? base : this.state.currency.name.toUpperCase()
-    // const convertedPrice = Math.round(rates[base] * price)
-    // const sign = this.state.currency.sign
-    // //console.log("CALC", convertedPrice)
-    //console.log("RATES: ", rates)
+    })
+    //console.log("Prices: ", priceList)
     return priceList
   }
+
 
   // Insert base rate for genericly calculate prices
   // EUR is default
@@ -66,6 +63,7 @@ export class CurrencyProvider extends React.Component {
   }
 
   render() {
+    console.log("Context render")
     return (
       <StaticQuery
         query={query}
@@ -73,6 +71,7 @@ export class CurrencyProvider extends React.Component {
           if (!data.rates) {
             throw new Error('Missing currency exchange data. Try again later.')
           }
+
           // Insert EUR value to be able genericly calculate prices
           const rates = {'EUR': 1, ...data.rates.nodes[0]}
           return (

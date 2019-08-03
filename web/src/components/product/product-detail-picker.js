@@ -13,7 +13,7 @@ export default class ProductDetailPicker extends Component {
   handleSelectSize = (e) => {
     e.preventDefault()
     const selectedIdx = e.target.getAttribute('idx')
-    console.log("Slected: ", selectedIdx)
+    //console.log("Slected: ", selectedIdx)
 
     this.setState({
       current: this.props.details[selectedIdx]

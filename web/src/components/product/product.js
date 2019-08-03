@@ -37,8 +37,8 @@ export default class Product extends React.Component {
           // Get price based on selected currency
           // const newPrice = Math.round(rates[currency.name.toUpperCase()] * price)
           // const { price } = calcPrice(details[0].price, rates, 'GBP')
-          const priceList = calcPrice(details[0].price, rates)
-
+          const priceList = details[0] && calcPrice(details[0].price, rates)
+          //console.log("L: ", details)
           return (
             <article className={styles.root}>
               <Container>
@@ -62,7 +62,9 @@ export default class Product extends React.Component {
                       </div>
                     )}
                     {/* <ProductDetailPicker details={details} calcPrice={calcPrice} rates={rates}/> */}
-                    <BuyButton
+                    {
+                      details[0] && (
+                        <BuyButton
                       id={id}
                       price={priceList}
                       name={title}
@@ -73,6 +75,9 @@ export default class Product extends React.Component {
                     >
                       GRAB NOW
                     </BuyButton>
+                      )
+                    }
+
                   </aside>
 
 
