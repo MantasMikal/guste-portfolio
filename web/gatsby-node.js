@@ -1,4 +1,22 @@
 const { format } = require('date-fns')
+// const fetch = require('node-fetch')
+// const crypto = require('crypto');
+    // const rates = await fetchRate('https://api.exchangeratesapi.io/latest?base=EUR')
+    // console.log(node.details)
+    // node.details && node.details.map((detail) => {
+    //   const prices = getPrices(detail.price, rates.rates)
+    // })
+
+// exports.onCreateNode = ({ node, actions }) => {
+//   const { createNodeField } = actions
+//   if(node.internal.type === 'allSanityProduct') {
+//     createNodeField({
+//       node: node,
+//       name: `convertedPrices`,
+//       value: 'myPrices'
+//     })
+//   }
+// }
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -20,6 +38,31 @@ const { format } = require('date-fns')
 //     })
 //   }
 // }
+
+// const fetchRate = async (API) => {
+//   const response = await fetch(API)
+//   const data = await response.json()
+//   return data
+// }
+
+// Converts price to all available currencies(rates)
+// E.g.
+//  {
+//    CAD: 14.602,
+//    HKD: 86.36699999999999,
+//    ISK: 1361,
+// ..}
+// const getPrices = (price, rates) => {
+//   const prices = {}
+//   Object.entries(rates).forEach(([name, value]) => {
+//     price && rates && Object.assign(prices, {[name]:  value * price})
+//   })
+
+// }
+
+
+
+
 
 async function createBlogPostPages (graphql, actions, reporter) {
   const { createPage } = actions

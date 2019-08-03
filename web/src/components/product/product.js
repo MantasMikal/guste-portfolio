@@ -36,6 +36,9 @@ export default class Product extends React.Component {
         {({ currency, rates, switchCurrency, calcPrice }) => {
           // Get price based on selected currency
           // const newPrice = Math.round(rates[currency.name.toUpperCase()] * price)
+          // const { price } = calcPrice(details[0].price, rates, 'GBP')
+          const priceList = calcPrice(details[0].price, rates)
+
           return (
             <article className={styles.root}>
               <Container>
@@ -58,13 +61,14 @@ export default class Product extends React.Component {
                         <BlockText blocks={_rawDescription} />
                       </div>
                     )}
-                    <ProductDetailPicker details={details} calcPrice={calcPrice} rates={rates}/>
+                    {/* <ProductDetailPicker details={details} calcPrice={calcPrice} rates={rates}/> */}
                     <BuyButton
                       id={id}
-                      price={{ eur: price, gbp: calcPrice(details[0].price, rates, 'GBP').price }}
+                      price={priceList}
                       name={title}
                       description={shortDescription}
                       image={mainImage.asset.url}
+                      details={details}
                       url={`http://guste.design/store/${slug.current}`}
                     >
                       GRAB NOW

@@ -2,7 +2,18 @@ import React from 'react'
 import styles from './snipcart-button.module.css'
 
 export default function SnipcartButton (props) {
-  const { id, price, name, url, description, image } = props
+  const { id, price, name, url, description, image, details } = props
+  console.log(details)
+
+  const sizes = details.map((detail) => {
+    const basePrice = details[0].price
+    const price = detail.price - basePrice
+    return `${detail.size}[${price > 0 ? '+' : ''}${price}]`
+  }).join('|')
+
+  console.log("List: ", sizes)
+
+
   return (
     <button
       href='#'
@@ -13,6 +24,9 @@ export default function SnipcartButton (props) {
       data-item-id={id}
       data-item-price={JSON.stringify(price)}
       data-item-url={url}
+      data-item-custom1-name="Size"
+      data-item-custom1-options={sizes}
+      data-item-custom1-value={details[0].size}
       role='button'
     >
       {props.children}

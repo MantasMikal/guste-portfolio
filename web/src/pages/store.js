@@ -52,6 +52,7 @@ class Store extends React.Component {
     }
     const productNodes =
       data && data.products && mapEdgesToNodes(data.products).filter(filterOutDocsWithoutSlugs)
+
     return (
       <Layout>
         <SEO title="Store" />

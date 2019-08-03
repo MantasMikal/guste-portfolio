@@ -9,7 +9,7 @@ export const currencies = {
 export const CurrencyContext = React.createContext({
   currency: currencies.eur,
   switchCurrency: e => {},
-  calcPrice: price => {},
+  calcPrice: (price, rates, base = null) => {},
   rates: {}
 })
 
@@ -42,14 +42,21 @@ export class CurrencyProvider extends React.Component {
     })
   }
 
-  calcPrice = (price, rates, base = null) => {
+  calcPrice = (price, rates) => {
     // Use current currency if not specified
-    base = base ? base : this.state.currency.name.toUpperCase()
-    const convertedPrice = Math.round(rates[base] * price)
-    const sign = this.state.currency.sign
-    //console.log("CALC", convertedPrice)
+    let priceList = {}
+
+    Object.entries(currencies).forEach(([key, val]) => {
+      priceList[key] = Math.round(rates[val.name.toUpperCase()] * price)
+      console.log("Prices: ", priceList)
+    })
+
+    // base = base ? base : this.state.currency.name.toUpperCase()
+    // const convertedPrice = Math.round(rates[base] * price)
+    // const sign = this.state.currency.sign
+    // //console.log("CALC", convertedPrice)
     //console.log("RATES: ", rates)
-    return {'price': convertedPrice, 'sign': sign}
+    return priceList
   }
 
   // Insert base rate for genericly calculate prices

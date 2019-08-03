@@ -26,11 +26,14 @@ function ProductPreview(props) {
               // console.log(rates)
               // console.log(currency.name.toUpperCase())
               // console.log((rates[currency.name.toUpperCase()]))
-              const { price, sign } = calcPrice(props.details[0].price, rates)
+              // const { price, sign } = calcPrice(props.details[0].price, rates)
+
               if(currency && rates && props.details[0]){
                 // const newPrice = Math.round((rates[currency.name.toUpperCase()] * props.details[0].price))
+                console.log("DETAILS: ", props.details)
+                const priceList = calcPrice(props.details[0].price, rates)
                 return (
-                  <span className={styles.price}>{`${price}${sign}`}</span>
+                  <span className={styles.price}>{`${priceList[currency.name]}${currency.sign}`}</span>
                 )
               }
             }}
