@@ -168,8 +168,8 @@
   font-weight: 400;
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
-  margin: 0.5rem 0 0.5rem;
-  padding-top: 0.125em;
+  margin: 0.325rem 0 0.5rem;
+  /* padding-top: 0.125em; */
   @media (--media-min-small) {
     font-size: var(--font-large-size);
     line-height: var(--font-large-line-height);
