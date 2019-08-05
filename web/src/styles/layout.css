@@ -9,7 +9,7 @@
 } */
 
 html {
-  font-family: 'Helvetica';
+  font-family: 'Avenir LT Std 65 Medium', 'Helvetica', 'sans-serif';
   font-size: var(--font-base-size);
   font-display: auto;
   line-height: var(--font-base-line-height);
