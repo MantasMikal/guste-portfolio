@@ -32,6 +32,7 @@
   text-transform: uppercase;
   flex: 1;
   margin: auto;
+  padding-top: 0.325em;
   @nest & a {
     display: inline-block;
     color: inherit;
