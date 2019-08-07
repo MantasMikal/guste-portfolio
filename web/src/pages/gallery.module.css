@@ -16,7 +16,7 @@
   z-index: 10;
   width: 100%;
   height: 100%;
-
+  /* padding-top: 0.125em; */
   @media (--media-min-medium) {
     outline: 2px solid black;
     background-color: white;
@@ -41,7 +41,7 @@
   position: fixed;
   right: 0em;
   display: flex;
-  margin: 0 0.745em;
+  margin: -0em 0.745em;
   z-index: 10;
   padding: 0.235em 0.225em;
   outline: 2px solid black;
@@ -54,7 +54,7 @@
   @media (--media-min-medium) {
     position: relative;
     display: flex;
-    margin: 0.225em 0.225em;
+    margin: 0.235em 0.225em;
     padding: 0.085em 0.125em;
     outline: none;
   }

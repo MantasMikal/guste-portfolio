@@ -11,13 +11,15 @@ function ProjectPreviewGrid (props) {
   return (
     <div className={styles.root}>
       {props.title && (
-        <h2 className={cn(styles.headline, border)}>
-          {props.browseMoreHref ? (
-            <Link to={props.browseMoreHref}>{props.title}</Link>
-          ) : (
-            props.title
-          )}
-        </h2>
+        <div className={border} style={{margin: '0 0 0.425em 0'}}>
+          <h2 className={styles.headline}>
+            {props.browseMoreHref ? (
+              <Link to={props.browseMoreHref}>{props.title}</Link>
+            ) : (
+              props.title
+            )}
+          </h2>
+        </div>
       )}
       <ul className={gridStyle}>
         {props.nodes &&

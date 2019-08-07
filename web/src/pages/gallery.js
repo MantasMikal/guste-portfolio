@@ -111,10 +111,12 @@ export default class Gallery extends React.Component {
         <SEO title="Gallery" />
         <Container>
           <div className={cn(border, styles.wrapper)}>
-            <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
+            <div style={{padding: '0.125em 0 0 0', margin:'0 0 -0.125em 0'}}>
+              <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
+            </div>
             <div className={styles.filterWrapper}>
               <button onClick={this.state.showFilter ? this.handleHideFilter : this.handleShowFilter}  className={styles.iconWrapper}>
-                <FaFilter style={{ margin: 'auto 0' }} />
+                <FaFilter style={{ margin: 'auto 0'}} />
                 <FaArrowRight className={this.state.showFilter ? styles.closeBtn : styles.hide} />
               </button>
               <div className={this.state.showFilter ? styles.categoryWrapper : styles.hide}>
