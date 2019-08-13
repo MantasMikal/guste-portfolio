@@ -24,20 +24,16 @@ const { format } = require('date-fns')
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// exports.onCreateNode = ({ node, getNode, actions }) => {
-//   const { createNodeField } = actions
-
-//   if (node.internal.type === 'SanityPosty') {
-//     const slug = 'POOP'
-//     console.log('SLUG: ', slug)
-
-//     createNodeField({
-//       node,
-//       name: 'next',
-//       value: slug
-//     })
-//   }
-// }
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === 'SanityProduct') {
+    createNodeField({
+      node,
+      name: 'myField',
+      value: 'myValue'
+    })
+  }
+}
 
 // const fetchRate = async (API) => {
 //   const response = await fetch(API)
@@ -112,8 +108,9 @@ async function createBlogPostPages (graphql, actions, reporter) {
 
     const prev = edge.previous ? `/blog/${prevDate}/${edge.previous.slug.current}/` : null
     const next = edge.next ? `/blog/${nextDate}/${edge.next.slug.current}/` : null
+
     const nextTitle = edge.next ? edge.next.title : null
-    const prevTitle = edge.prev ? edge.prev.title : null
+    const prevTitle = edge.previous ? edge.previous.title : null
 
     reporter.info(`Creating blog post page: ${path}`)
 
@@ -132,11 +129,13 @@ async function createProjectPages (graphql, actions, reporter) {
       allSanityProject(filter: { slug: { current: { ne: null } } }) {
         edges {
           previous {
+            title
             slug {
               current
             }
           }
           next {
+            title
             slug {
               current
             }
@@ -164,12 +163,14 @@ async function createProjectPages (graphql, actions, reporter) {
     // Next and previous pages
     const prev = edge.previous ? `/project/${edge.previous.slug.current}/` : null
     const next = edge.next ? `/project/${edge.next.slug.current}/` : null
+    const nextTitle = edge.next ? edge.next.title : null
+    const prevTitle = edge.previous ? edge.previous.title : null
     reporter.info(`Creating project page: ${path}`)
 
     createPage({
       path,
       component: require.resolve('./src/templates/projectTemplate.js'),
-      context: { id, next, prev }
+      context: { id, next, prev, nextTitle, prevTitle }
     })
   })
 }
