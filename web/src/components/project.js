@@ -1,4 +1,4 @@
-import { format, distanceInWords, differenceInDays } from 'date-fns'
+import { format, distanceInWords, differenceInDays, subYears } from 'date-fns'
 import React from 'react'
 import { Link } from 'gatsby'
 import { cn } from '../lib/helpers'
@@ -11,10 +11,10 @@ import typography from './typography.module.css'
 import styles from './project.module.css'
 import { uppercase, responsiveTitle2, border } from './typography.module.css'
 class Project extends React.Component {
-  render () {
+  render() {
     const {
       _rawBody,
-      title,
+      title
       // categories,
       // publishedAt,
     } = this.props
@@ -24,13 +24,19 @@ class Project extends React.Component {
         <Container>
           <div className={styles.mainContent}>
             <h1 className={cn(styles.title, uppercase, border)}>{title}</h1>
-            <div>
-              {_rawBody && <BlockContent blocks={_rawBody || []} />}
-            </div>
+            <div>{_rawBody && <BlockContent blocks={_rawBody || []} />}</div>
           </div>
           <div className={styles.navWrapper}>
-            <Link className={prev ? cn(responsiveTitle2, uppercase) : styles.invisible} to={prev}>Previous: {prevTitle}</Link>
-            <Link className={next ? cn(responsiveTitle2, uppercase) : styles.invisible} to={next}>Next: {nextTitle}</Link>
+            
+              <Link className={prev ? cn(responsiveTitle2, uppercase) : styles.invisible} to={prev}>
+              <div className={styles.navButton}>Previous: {prevTitle}</div>
+              </Link>
+            
+            
+              <Link className={next ? cn(responsiveTitle2, uppercase) : styles.invisible} to={next}>
+              <div className={styles.navButton}> Next: {nextTitle}</div>
+              </Link>
+            
           </div>
         </Container>
       </article>
