@@ -6,7 +6,7 @@
   background-color: var(--color-white);
   color: var(--color-black);
   border: none;
-  padding: 0.425em 0.425rem;
+  padding: 0.425em .425rem 0.125em;
   text-decoration: none;
   margin: 0 0em;
   text-transform: uppercase;
@@ -14,7 +14,7 @@
 
   @media (--media-min-medium){
     margin: 0em 0.225em;
-    padding: 0.125em 0.425rem;
+    padding: 0.225em .425rem 0.125em;
   }
 }
 
