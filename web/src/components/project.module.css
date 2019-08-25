@@ -103,17 +103,29 @@
   border: 1px solid black;
 }
 
+.navButton {
+  
+
+  padding: 0.325em;
+
+}
+
 .navWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 0.625em;
 
   @nest & a {
-    color: inherit;
-    text-decoration: none;
     border: 2px solid black;
-    padding: 0.125em;
-    text-align: center;
+    color: inherit;
+    text-decoration: none; 
+    text-align: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (--media-max-medium){
+      font-size: 1em;
+    }
   }
 
   @nest & a:last-child {
