@@ -23,7 +23,9 @@ class Project extends React.Component {
       <article className={styles.root}>
         <Container>
           <div className={styles.mainContent}>
-            <h1 className={cn(styles.title, uppercase, border)}>{title}</h1>
+            <div className={border} style={{margin: '0 0 0.425em 0'}}>
+              <h1 className={cn(styles.title, uppercase)}>{title}</h1>
+            </div>
             <div>
               {_rawBody && <BlockContent blocks={_rawBody || []} />}
             </div>

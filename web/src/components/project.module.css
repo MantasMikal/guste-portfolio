@@ -5,7 +5,7 @@
 
 .title {
   composes: responsiveTitle3 from './typography.module.css';
-  margin: auto 0;
+  margin: 0.225rem 0 0;
 }
 
 .mainImage {
