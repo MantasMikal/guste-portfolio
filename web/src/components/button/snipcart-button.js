@@ -13,7 +13,8 @@ export default function SnipcartButton (props) {
 
   console.log("List: ", sizes)
   console.log(details[0].size)
-  console.log(`'${JSON.stringify(price)}'`)
+  console.log(`${JSON.stringify(price)}`)
+  const priceStr = JSON.stringify(price)
   return (
     <button
       href='#'
@@ -22,7 +23,7 @@ export default function SnipcartButton (props) {
       data-item-image={image}
       className={[styles.button, 'snipcart-add-item'].join(' ')}
       data-item-id={id}
-      data-item-price={`'${JSON.stringify(price)}'`}
+      data-item-price={priceStr}
       data-item-url={url}
       // data-item-custom1-name="Size"
       // data-item-custom1-options={sizes}
