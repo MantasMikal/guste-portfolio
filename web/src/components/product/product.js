@@ -31,7 +31,7 @@ export default class Product extends React.Component {
     } = this.props
     const allImages = images ? [mainImage, ...images] : [mainImage] // Concat main image with other product images
     const shortDescription = _rawDescription[0].children[0].text // Nasty TODO
-    console.log("Url: ",`https://guste.design/store/${slug.current}`)
+    console.log("Url: ",`http://guste.design/store/${slug.current}/`)
     return (
       <CurrencyContext.Consumer>
         {({ currency, rates, switchCurrency, calcPrice }) => {
@@ -72,7 +72,7 @@ export default class Product extends React.Component {
                       description={shortDescription}
                       image={mainImage.asset.url}
                       details={details}
-                      url={`https://guste.design/store/${slug.current}/`}
+                      url={`http://guste.design/store/${slug.current}/`}
                     >
                       GRAB NOW
                     </BuyButton>
