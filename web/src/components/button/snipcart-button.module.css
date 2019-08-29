@@ -13,7 +13,7 @@
   text-align: left;
 
   @media (--media-min-medium){
-    padding: 0.125em 0.425rem;
+    padding: 0.35em 0.425rem 0.125em;
   }
 }
 
