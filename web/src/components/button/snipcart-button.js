@@ -15,7 +15,7 @@ export default function SnipcartButton (props) {
   console.log(details[0].size)
   console.log(`${JSON.stringify(price)}`)
   const priceStr = JSON.stringify(price)
-  const tempPrice = '{ "eur": 12, "gbp: 11" }'
+  const tempPrice = JSON.stringify({"eur": 12, "gbp": 11})
   return (
     <button
       href='#'
