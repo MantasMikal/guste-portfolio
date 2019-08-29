@@ -45,7 +45,7 @@ export default class Product extends React.Component {
             <article className={styles.root}>
               <Container>
                 <div className={border} style={{ display: 'flex' }}>
-                  <h1 className={cn(styles.title, uppercase)}>{title}</h1>
+                  <h1 className={cn(styles.title, uppercase)} style={{padding: '0.125em 0 0 0'}}>{title}</h1>
                   <CurrencySelector switchCurrency={switchCurrency} currentCurrency={currency} />
                   <Cart />
                 </div>
