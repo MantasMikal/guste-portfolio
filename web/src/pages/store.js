@@ -64,7 +64,7 @@ class Store extends React.Component {
                   <div className={border} style={{display: 'flex'}}>
                     <h1
                       className={cn(responsiveTitle3, uppercase)}
-                      style={{ paddingRight: '1em', margin: 'auto 0', flex: 1 }}
+                      style={{margin: 'auto 0', flex: 1, padding: '0.125em 0 0 0' }}
                     >
                       Store
                     </h1>

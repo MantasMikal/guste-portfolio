@@ -10,8 +10,8 @@
 .currency {
   font-weight: bold;
   cursor: pointer;
-  padding: 0 0.225em;
-  margin: 0 0.225em;
+  padding: 0.125em 0.225em 0;
+  margin: -0.035em 0.225em;
 }
 
 .currency:hover {
