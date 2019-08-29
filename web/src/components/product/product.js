@@ -39,6 +39,7 @@ export default class Product extends React.Component {
           // const newPrice = Math.round(rates[currency.name.toUpperCase()] * price)
           // const { price } = calcPrice(details[0].price, rates, 'GBP')
           const priceList = details[0] && calcPrice(details[0].price, rates)
+          console.log("Price list: ", priceList)
           //console.log("L: ", details)
           return (
             <article className={styles.root}>
