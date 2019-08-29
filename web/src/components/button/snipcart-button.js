@@ -12,8 +12,8 @@ export default function SnipcartButton (props) {
   }).join('|')
 
   console.log("List: ", sizes)
-
-
+  console.log(details[0].size)
+  console.log(typeof JSON.stringify(price))
   return (
     <button
       href='#'
@@ -24,9 +24,9 @@ export default function SnipcartButton (props) {
       data-item-id={id}
       data-item-price={JSON.stringify(price)}
       data-item-url={url}
-      data-item-custom1-name="Size"
-      data-item-custom1-options={sizes}
-      data-item-custom1-value={details[0].size}
+      // data-item-custom1-name="Size"
+      // data-item-custom1-options={sizes}
+      // data-item-custom1-value={details[0].size}
       role='button'
     >
       {props.children}

@@ -1,11 +1,63 @@
 const { format } = require('date-fns')
-// const fetch = require('node-fetch')
-// const crypto = require('crypto');
-    // const rates = await fetchRate('https://api.exchangeratesapi.io/latest?base=EUR')
-    // console.log(node.details)
-    // node.details && node.details.map((detail) => {
-    //   const prices = getPrices(detail.price, rates.rates)
-    // })
+const { GraphQLString } =  require("gatsby/graphql")
+const fetch = require('node-fetch')
+const crypto = require('crypto');
+
+// // Fetch rates
+// const fetchRate = async (API) => {
+//   const response = await fetch(API)
+//   const data = await response.json()
+//   return data
+// }
+
+// // const rates = await fetchRate('https://api.exchangeratesapi.io/latest?base=EUR')
+// //     console.log(node.details)
+// //     node.details && node.details.map((detail) => {
+// //     const prices = getPrices(detail.price, rates.rates)
+// // })
+
+
+
+// // Converts price to all available currencies(rates)
+// // E.g.
+// //  {
+// //    CAD: 14.602,
+// //    HKD: 86.36699999999999,
+// //    ISK: 1361,
+// // ..}
+// const getPrices = (price, rates) => {
+//   const prices = {}
+//   Object.entries(rates).forEach(([name, value]) => {
+//     price && rates && Object.assign(prices, {[name]:  value * price})
+//   })
+// }
+
+// exports.setFieldsOnGraphQLNodeType = ({ type }) => {
+//   if (type.name === `SanityProduct`) {
+//     console.log("Create field for Sanity product: ", type)
+//     return {
+//       newField: {
+//         type: GraphQLString,
+//         myFielder: 'heey',
+//         args: {
+//           myArgument: {
+//             type: GraphQLString,
+//             argo: 'Heey',
+//             myArgument: 12
+//           }
+//         },
+//         resolve: (source, fieldArgs) => {
+//           return `Id of this node is ${source.id}.
+//                   Field was called with argument: ${fieldArgs.myArgument}`
+//         }
+//       }
+//     }
+//   }
+
+//   // by default return empty object
+//   return {}
+// }
+
 
 // exports.onCreateNode = ({ node, actions }) => {
 //   const { createNodeField } = actions
@@ -24,37 +76,34 @@ const { format } = require('date-fns')
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === 'SanityProduct') {
-    createNodeField({
-      node,
-      name: 'myField',
-      value: 'myValue'
-    })
-  }
-}
-
-// const fetchRate = async (API) => {
-//   const response = await fetch(API)
-//   const data = await response.json()
-//   return data
+// exports.onCreateNode = ({ node, actions }) => {
+//   const { createNodeField } = actions
+//   if (node.internal.type === 'SanityProduct') {
+//     createNodeField({
+//       node,
+//       name: 'myField',
+//       value: 'myValue'
+//     })
+//     createNodeField({
+//       node,
+//       name: 'myField1',
+//       value: 'myValue'
+//     })
+//     createNodeField({
+//       node,
+//       name: 'myField2',
+//       value: 'myValue'
+//     })
+//     createNodeField({
+//       node,
+//       name: 'myField3',
+//       value: 'myValue'
+//     })
+//     c
+//   }
 // }
 
-// Converts price to all available currencies(rates)
-// E.g.
-//  {
-//    CAD: 14.602,
-//    HKD: 86.36699999999999,
-//    ISK: 1361,
-// ..}
-// const getPrices = (price, rates) => {
-//   const prices = {}
-//   Object.entries(rates).forEach(([name, value]) => {
-//     price && rates && Object.assign(prices, {[name]:  value * price})
-//   })
 
-// }
 
 
 
