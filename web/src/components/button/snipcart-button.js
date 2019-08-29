@@ -24,11 +24,11 @@ export default function SnipcartButton (props) {
       data-item-image={image}
       className={[styles.button, 'snipcart-add-item'].join(' ')}
       data-item-id={id}
-      data-item-price='12'
+      data-item-price={priceStr}
       data-item-url={url}
-      // data-item-custom1-name="Size"
-      // data-item-custom1-options={sizes}
-      // data-item-custom1-value={details[0].size}
+      data-item-custom1-name="Size"
+      data-item-custom1-options={sizes}
+      data-item-custom1-value={details[0].size}
       role='button'
     >
       {props.children}
