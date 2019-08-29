@@ -72,7 +72,7 @@ export default class Product extends React.Component {
                       description={shortDescription}
                       image={mainImage.asset.url}
                       details={details}
-                      url={`https://guste.design/store/${slug.current}`}
+                      url={`https://guste.design/store/${slug.current}/`}
                     >
                       GRAB NOW
                     </BuyButton>
