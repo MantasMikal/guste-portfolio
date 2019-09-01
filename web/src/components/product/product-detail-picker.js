@@ -37,10 +37,10 @@ export default class ProductDetailPicker extends Component {
 
     console.log('Details', details)
     console.log('STATE', this.state)
-    const priceList = details[0] && calcPrice(details[0].price, rates)
-
+    const basePriceList = details[0] && calcPrice(details[0].price, rates)
+    const priceList = details[this.state.currentIdx] && calcPrice(details[this.state.currentIdx].price, rates)
     console.log('Calculated price list: ', priceList)
-    const price = details[currentIdx].price
+    const price = priceList[currentCurrency.name]
     const symbol = currentCurrency.symbol
 
     // Calculate prices for different sizes
@@ -80,13 +80,13 @@ export default class ProductDetailPicker extends Component {
           </div>
         </div>
         <div className={styles.inStockWrapper}>
-          <div>In Stock: </div>
-          {/* <div className={styles.inStock}>{current.instock}</div> */}
+          <div>Available: </div>
+          <div className={styles.inStock}>{details[this.state.currentIdx].instock}</div>
         </div>
         {details[0] && (
           <BuyButton
             id={id}
-            price={priceList}
+            price={basePriceList}
             name={title}
             description={shortDescription}
             image={mainImage.asset.url}
