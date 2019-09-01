@@ -38,7 +38,7 @@ export default class ProductDetailPicker extends Component {
     console.log('Details', details)
     console.log('STATE', this.state)
     const basePriceList = details[0] && calcPrice(details[0].price, rates)
-    const priceList = details[this.state.currentIdx] && calcPrice(details[this.state.currentIdx].price, rates)
+    const priceList = details[currentIdx] && calcPrice(details[currentIdx].price, rates)
     console.log('Calculated price list: ', priceList)
     const price = priceList[currentCurrency.name]
     const symbol = currentCurrency.symbol
