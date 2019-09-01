@@ -55,6 +55,8 @@ export const query = graphql`
 const ProductTemplate = props => {
   const { data, errors } = props
   const product = data && data.product
+  const rates = props.pageContext.rates
+
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
@@ -66,8 +68,8 @@ const ProductTemplate = props => {
         </Container>
       )}
       <CurrencyContext.Consumer>
-        {({ currency, rates, switchCurrency, calcPrice }) => {
-          const currencyContext = { currency, rates, switchCurrency, calcPrice }
+        {({ currency, switchCurrency, calcPrice }) => {
+          const currencyContext = { currency, switchCurrency, rates, calcPrice }
           return (
             product && <Product {...product} currencyContext={currencyContext} />
           )

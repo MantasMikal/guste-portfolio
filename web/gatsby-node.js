@@ -228,7 +228,7 @@ async function createProductPages (graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions
   const result = await graphql(`
     {
-      allSanityProduct(filter: { slug: { current: { ne: null } } }) {
+      products: allSanityProduct(filter: { slug: { current: { ne: null } } }) {
         edges {
           node {
             id
@@ -238,12 +238,18 @@ async function createProductPages (graphql, actions, reporter) {
           }
         }
       }
+      rates: allExchangeRates {
+        nodes {
+          GBP
+        }
+      }
     }
   `)
 
   if (result.errors) throw result.errors
 
-  const productEdges = (result.data.allSanityProduct || {}).edges || []
+  const productEdges = (result.data.products || {}).edges || []
+  const rates = {'EUR': 1, ...result.data.rates.nodes[0]}
 
   productEdges.forEach(edge => {
     const id = edge.node.id
@@ -255,7 +261,7 @@ async function createProductPages (graphql, actions, reporter) {
     createPage({
       path,
       component: require.resolve('./src/templates/productTemplate.js'),
-      context: { id }
+      context: { id, rates }
     })
 
     createPageDependency({ path, nodeId: id })
