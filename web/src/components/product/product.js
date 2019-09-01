@@ -5,7 +5,6 @@ import BuyButton from '../button/snipcart-button'
 import ProductShowcase from './product-showcase'
 import BlockText from '../block-text'
 import { paragraphLimited } from '../typography.module.css'
-import { CurrencyContext, currencies } from '../../context/currency-context'
 import { cn } from '../../lib/helpers'
 import { uppercase, responsiveTitle2, border } from '../typography.module.css'
 import CurrencySelector from '../currency-selector/currency-selector'
@@ -32,10 +31,8 @@ export default class Product extends React.Component {
     const allImages = images ? [mainImage, ...images] : [mainImage] // Concat main image with other product images
     const shortDescription = _rawDescription[0].children[0].text // Nasty TODO
     const productProps = { title, id, quantity, price, slug, shortDescription, mainImage, details }
+    const { currency, rates, switchCurrency, calcPrice } = this.props.currencyContext
     return (
-      <CurrencyContext.Consumer>
-        {({ currency, rates, switchCurrency, calcPrice }) => {
-          return (
             <article className={styles.root}>
               <Container>
                 <div className={border} style={{ display: 'flex' }}>
@@ -70,9 +67,6 @@ export default class Product extends React.Component {
                 </div>
               </Container>
             </article>
-          )
-        }}
-      </CurrencyContext.Consumer>
     )
   }
 }

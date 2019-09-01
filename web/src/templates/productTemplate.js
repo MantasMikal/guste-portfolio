@@ -5,6 +5,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import Product from '../components/product/product'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import { CurrencyContext, currencies } from '../context/currency-context'
 
 export const query = graphql`
   query ProductTemplateQuery($id: String!) {
@@ -64,7 +65,14 @@ const ProductTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {product && <Product {...product} />}
+      <CurrencyContext.Consumer>
+        {({ currency, rates, switchCurrency, calcPrice }) => {
+          const currencyContext = { currency, rates, switchCurrency, calcPrice }
+          return (
+            product && <Product {...product} currencyContext={currencyContext} />
+          )
+        }}
+      </CurrencyContext.Consumer>
     </Layout>
   )
 }
