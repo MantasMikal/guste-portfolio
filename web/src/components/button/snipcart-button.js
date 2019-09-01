@@ -3,19 +3,12 @@ import styles from './snipcart-button.module.css'
 
 export default function SnipcartButton (props) {
   const { id, price, name, url, description, image, details } = props
-  // console.log(details)
-
   const sizes = details.map((detail) => {
     const basePrice = details[0].price
     const price = detail.price - basePrice
     return `${detail.size}[${price > 0 ? '+' : ''}${price}]`
   }).join('|')
-
-  // console.log("List: ", sizes)
-  // console.log(details[0].size)
-  console.log("Price: ", `${JSON.stringify(price)}`)
   const priceStr = JSON.stringify(price)
-  const tempPrice = JSON.stringify({"eur":12,"gbp":11})
   return (
     <button
       href='#'
