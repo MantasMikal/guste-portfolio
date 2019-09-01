@@ -23,24 +23,13 @@ export default class ProductDetailPicker extends Component {
     })
   }
 
-  // componentWillMount() {
-  //   console.log("Setting state: ", this.props.productProps.details[0])
-  //   this.setState({
-  //     current: this.props.productProps.details[0]
-  //   })
-  // }
-
   render() {
     const { id, title, shortDescription, slug, mainImage, details} = this.props.productProps
     const { calcPrice, rates, currentCurrency } = this.props
     const { currentIdx } = this.state
-
-    console.log('Details', details)
-    console.log('STATE', this.state)
     const basePriceList = details[0] && calcPrice(details[0].price, rates)
     const priceList = details[currentIdx] && calcPrice(details[currentIdx].price, rates)
-    console.log('Calculated price list: ', priceList)
-    const price = priceList[currentCurrency.name]
+    const price = priceList && priceList[currentCurrency.name]
     const symbol = currentCurrency.symbol
 
     // Calculate prices for different sizes
@@ -64,7 +53,6 @@ export default class ProductDetailPicker extends Component {
           >
             {details.map((detail, i) => {
               const isActive = this.state.currentIdx == i ? true : false
-              console.log('Is active: ', this.state.currentIdx, '===', i, ' is', this.state.currentIdx == i ? true : false)
               return (
                 <div
                   idx={i}
