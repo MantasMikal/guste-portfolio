@@ -17,7 +17,7 @@ function ProjectPreview (props) {
         className={cn(styles.descriptionWrapper, styles.root)}
         to={`/project/${props.slug.current}`}
       >
-        <h6 className={cn(responsiveTitle5, styles.title)}>{props.title}</h6>
+        <h3 className={cn(responsiveTitle5, styles.title)}>{props.title}</h3>
       </Link>
     </div>
   )

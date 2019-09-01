@@ -32,7 +32,7 @@ export default class GalleryPreviewLayout extends React.Component {
           )}
         </div>
         <div className={styles.titleWrapper}>
-          <h1 className={cn(responsiveTitle5, styles.title)}>{item.title}</h1>
+          <h3 className={cn(responsiveTitle5, styles.title)}>{item.title}</h3>
           {item._rawBody && item._rawBody.length > 0 && (
             <button to="#" className={styles.readMore} onClick={this.handleOpen}>
               {' '}
