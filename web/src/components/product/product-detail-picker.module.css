@@ -52,6 +52,11 @@
       cursor: pointer;
     }
   }
+
+  @nest &.isActive {
+    background-color: var(--color-accent);
+  }
+
 }
 
 

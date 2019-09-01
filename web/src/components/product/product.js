@@ -31,21 +31,17 @@ export default class Product extends React.Component {
     } = this.props
     const allImages = images ? [mainImage, ...images] : [mainImage] // Concat main image with other product images
     const shortDescription = _rawDescription[0].children[0].text // Nasty TODO
-    console.log("Url: ",`http://guste.design/store/${slug.current}/`)
+    const productProps = { title, id, quantity, price, slug, shortDescription, mainImage, details }
     return (
       <CurrencyContext.Consumer>
         {({ currency, rates, switchCurrency, calcPrice }) => {
-          // Get price based on selected currency
-          // const newPrice = Math.round(rates[currency.name.toUpperCase()] * price)
-          // const { price } = calcPrice(details[0].price, rates, 'GBP')
-          const priceList = details[0] && calcPrice(details[0].price, rates)
-          console.log("Price list: ", priceList)
-          //console.log("L: ", details)
           return (
             <article className={styles.root}>
               <Container>
                 <div className={border} style={{ display: 'flex' }}>
-                  <h1 className={cn(styles.title, uppercase)} style={{padding: '0.125em 0 0 0'}}>{title}</h1>
+                  <h1 className={cn(styles.title, uppercase)} style={{ padding: '0.125em 0 0 0' }}>
+                    {title}
+                  </h1>
                   <CurrencySelector switchCurrency={switchCurrency} currentCurrency={currency} />
                   <Cart />
                 </div>
@@ -63,26 +59,14 @@ export default class Product extends React.Component {
                         <BlockText blocks={_rawDescription} />
                       </div>
                     )}
-                    {/* <ProductDetailPicker details={details} calcPrice={calcPrice} rates={rates}/> */}
-                    {
-                      details[0] && (
-                        <BuyButton
-                      id={id}
-                      price={priceList}
-                      name={title}
-                      description={shortDescription}
-                      image={mainImage.asset.url}
+                    <ProductDetailPicker
                       details={details}
-                      url={`http://guste.design/store/${slug.current}`}
-                    >
-                      GRAB NOW
-                    </BuyButton>
-                      )
-                    }
-
+                      calcPrice={calcPrice}
+                      rates={rates}
+                      currentCurrency={currency}
+                      productProps={productProps}
+                    />
                   </aside>
-
-
                 </div>
               </Container>
             </article>

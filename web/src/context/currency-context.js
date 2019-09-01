@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 
 export const currencies = {
-  eur: { name: 'eur', sign: '€' },
-  gbp: { name: 'gbp', sign: '£' }
+  eur: { name: 'eur', symbol: '€' },
+  gbp: { name: 'gbp', symbol: '£' }
 }
 
 export const CurrencyContext = React.createContext({

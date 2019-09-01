@@ -10,7 +10,7 @@ export default function productImageGrid (props) {
       {
         images && images.map((img, i) => {
           return (
-            <div key={img.asset.id} className={styles.gridWrapper}>
+            <div key={`${img.asset.id}${i}`} className={styles.gridWrapper}>
               <div className={styles.clickHandler} onClick={handleClick.bind(this)} imgidx={i} />
               <Image hasBorder fluid={img.asset.fluid} alt={img.asset.alt} />
             </div>

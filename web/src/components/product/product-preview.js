@@ -26,7 +26,7 @@ function ProductPreview(props) {
               // console.log(rates)
               // console.log(currency.name.toUpperCase())
               // console.log((rates[currency.name.toUpperCase()]))
-              // const { price, sign } = calcPrice(props.details[0].price, rates)
+              // const { price, symbol } = calcPrice(props.details[0].price, rates)
 
               if(currency && rates && props.details[0]){
                 // const newPrice = Math.round((rates[currency.name.toUpperCase()] * props.details[0].price))
@@ -34,12 +34,12 @@ function ProductPreview(props) {
                 const priceList = calcPrice(props.details[0].price, rates)
                 //console.log("LIST: ", priceList)
 
-                // console.log("POOP: ", `${priceList[currency.name]}${currency.sign}`)
+                // console.log("POOP: ", `${priceList[currency.name]}${currency.symbol}`)
                 console.log(rates)
                 console.log(priceList)
                 console.log(currency)
                 return priceList && (
-                  <span className={styles.price}>{`${priceList[currency.name]}${currency.sign}`}</span>
+                  <span className={styles.price}>{`${priceList[currency.name]}${currency.symbol}`}</span>
                 )
               }
             }}
