@@ -5,7 +5,13 @@ import BuyButton from '../button/snipcart-button'
 import ProductShowcase from './product-showcase'
 import BlockText from '../block-text'
 import { paragraphLimited } from '../typography.module.css'
+import { cn } from '../../lib/helpers'
+import { uppercase, responsiveTitle2, border } from '../typography.module.css'
+import CurrencySelector from '../currency-selector/currency-selector'
+import Cart from '../snipcart/cart'
+// import Snipcart from 'gatsby-plugin-snipcart'
 import styles from './product.module.css'
+import ProductDetailPicker from './product-detail-picker'
 
 export default class Product extends React.Component {
 
@@ -46,19 +52,14 @@ export default class Product extends React.Component {
 
 
     return (
-      <article className={styles.root}>
-        <Container>
-          <div className={styles.grid}>
-            <div className={styles.mainContent}>
-              <ProductShowcase image={mainImage.asset.fluid} alt={mainImage.asset.alt} images={allImages} />
-            </div>
-            <aside className={styles.metaContent}>
-              <h1 className={styles.title}>{title}</h1>
-              <h3>Price: {price}</h3>
-              <h3>Quantity: {quantity}</h3>
-              {_rawDescription && (
-                <div className={paragraphLimited}>
-                  <BlockText blocks={_rawDescription} />
+            <article className={styles.root}>
+              <Container>
+                <div className={border} style={{ display: 'flex' }}>
+                  <h1 className={cn(styles.title, uppercase)} style={{ padding: '0.125em 0 0 0' }}>
+                    {title}
+                  </h1>
+                  <CurrencySelector switchCurrency={switchCurrency} currentCurrency={currency} />
+                  <Cart />
                 </div>
                 <div className={styles.grid}>
                   <div className={styles.mainContent}>
@@ -83,29 +84,8 @@ export default class Product extends React.Component {
                     />
                   </aside>
                 </div>
-              )}
-              {categories && (
-                <div className={[styles.categories, styles.limitWidth].join(' ')}>
-                  <h3 className={styles.categoriesHeadline}>Categories</h3>
-                  <ul>
-                    {categories.map(category => (
-                      <li key={category._id}>{category.title}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <BuyButton
-                id={id}
-                price={{'usd': price, 'gbp': price}}
-                name={title}
-                description={shortDescription}
-                image={mainImage.asset.url}
-                url={`http://gustedesigndev.netlify.com/store/${slug.current}`} > GRAB NOW </BuyButton>
-            </aside>
-          </div>
-        </Container>
-      </article>
+              </Container>
+            </article>
     )
   }
 }

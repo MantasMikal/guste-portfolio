@@ -1,7 +1,7 @@
 {
   "private": false,
-  "name": "gugis-sanity",
-  "version": "1.0.0",
+  "name": "guste-portfolio",
+  "version": "1.1.0",
   "author": "Mantas Mikalauskas <mikalauskas.it@gmail.com>",
   "scripts": {
     "clean": "lerna clean",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "lerna": "^3.16.4",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.7.1"
   },
   "dependencies": {
     "react-icons": "^3.7.0"

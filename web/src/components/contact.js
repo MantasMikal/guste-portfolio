@@ -9,43 +9,48 @@ const Contacts = props => {
   const { title, _rawBody } = props.contactInfo
   return (
     <div className={styles.wrapper}>
-      <SEO title={title} />
-      <h2 className={typography.responsiveTitle1}>{title}</h2>
-      <BlockContent blocks={_rawBody || []} />
+      <SEO title="Hi" />
 
-      <div className={styles.iconGrid}>
-        <a
-          className={styles.icon}
-          href='tel:+447501714439'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <FaPhone size={'4em'} />
-        </a>
-        <a
-          className={styles.icon}
-          href='mailto:guste.vasil@gmail.com, vasilia2@coventry.ac.uk'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <FaEnvelope size={'4em'} />
-        </a>
-        <a
-          className={styles.icon}
-          href='https://www.messenger.com/t/guste.vasiliauskaite'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <FaFacebook size={'4em'} />
-        </a>
-        <a
-          className={styles.icon}
-          href='https://www.instagram.com/vasssil'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <FaInstagram size={'4em'} />
-        </a>
+      <div className={styles.grid}>
+      <h1 className={styles.title}>Hi!</h1>
+        <div className={styles.iconGrid}>
+          <a
+            className={styles.icon}
+            href='tel:+447501714439'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaPhone size={'2em'} />
+            <span>+447501714439</span>
+          </a>
+          <a
+            className={styles.icon}
+            href='mailto:hi@guste.design'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaEnvelope size={'2em'} />
+            <span>Hi@guste.design</span>
+          </a>
+          <a
+            className={styles.icon}
+            href='https://www.messenger.com/t/guste.vasiliauskaite'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaFacebook size={'2em'} />
+            <span>Guste vasiliauskaite</span>
+          </a>
+          <a
+            className={styles.icon}
+            href='https://www.instagram.com/guste.vasiliauskaite'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaInstagram size={'2em'} />
+            <span>Guste.Vasiliauskaite</span>
+          </a>
+        </div>
       </div>
     </div>
   )

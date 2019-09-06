@@ -6,7 +6,7 @@ import styles from './imageWithModal.module.css'
 // TODO
 const ImgWithOrient = (props) => {
   const { aspectRatio } = props.fluid
-  console.log(aspectRatio)
+  //console.log(aspectRatio)
   let orientation
   if (aspectRatio > 1) orientation = styles.landspace
   else if (aspectRatio < 1) orientation = styles.portrait

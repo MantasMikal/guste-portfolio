@@ -5,6 +5,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import Product from '../components/product/product'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import { CurrencyContext, currencies } from '../context/currency-context'
 
 export const query = graphql`
   query ProductTemplateQuery($id: String!) {
@@ -12,9 +13,12 @@ export const query = graphql`
       id
       publishedAt
       title
-      price
       discount
-      quantity
+      details {
+          instock
+          size
+          price
+        }
       slug {
         current
       }
@@ -27,7 +31,7 @@ export const query = graphql`
           asset {
             url
             id
-            fluid (maxHeight: 800) {
+            fluid(maxHeight: 1000, maxWidth: 1000) {
               ...GatsbySanityImageFluid
             }
           }
@@ -38,7 +42,7 @@ export const query = graphql`
       asset {
         url
         id
-        fluid {
+        fluid(maxHeight: 1000, maxWidth: 1000) {
           ...GatsbySanityImageFluid
         }
       }
@@ -51,6 +55,8 @@ export const query = graphql`
 const ProductTemplate = props => {
   const { data, errors } = props
   const product = data && data.product
+  const rates = props.pageContext.rates
+
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
@@ -61,7 +67,14 @@ const ProductTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {product && <Product {...product} />}
+      <CurrencyContext.Consumer>
+        {({ currency, switchCurrency, calcPrice }) => {
+          const currencyContext = { currency, switchCurrency, rates, calcPrice }
+          return (
+            product && <Product {...product} currencyContext={currencyContext} />
+          )
+        }}
+      </CurrencyContext.Consumer>
     </Layout>
   )
 }

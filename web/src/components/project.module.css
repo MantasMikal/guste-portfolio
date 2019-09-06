@@ -5,6 +5,7 @@
 
 .title {
   composes: responsiveTitle3 from './typography.module.css';
+  margin: 0.225rem 0 0;
 }
 
 .mainImage {
@@ -102,15 +103,33 @@
   border: 1px solid black;
 }
 
+.navButton {
+  
+
+  padding: 0.325em;
+
+}
+
 .navWrapper {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 0.625em;
 
   @nest & a {
-    color: inherit;
-    text-decoration: none;
     border: 2px solid black;
-    padding: 0.125em;
+    color: inherit;
+    text-decoration: none; 
+    text-align: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (--media-max-medium){
+      font-size: 1em;
+    }
+  }
+
+  @nest & a:last-child {
+
   }
 
   @nest & a:hover{

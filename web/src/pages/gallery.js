@@ -8,6 +8,9 @@ import { mapEdgesToNodes, cn } from '../lib/helpers'
 import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 import GalleryPreviewLayout from '../components/gallery-preview-layout'
 import CategoryButton from '../components/button/button'
+import { FaFilter } from 'react-icons/fa'
+import { FaArrowRight } from 'react-icons/fa'
+import styles from './gallery.module.css'
 
 export const query = graphql`
   query GalleryPageQuery {
@@ -47,50 +50,46 @@ export const query = graphql`
 export default class Gallery extends React.Component {
   constructor(props) {
     super(props)
-
+    const firstCategory = this.props.data.categories.edges[0].node.title
     this.state = {
-      activeFilters: [],
-      shouldFilter: false
+      activeFilter: firstCategory,
+      showFilter: true
     }
+
+  }
+
+  handleShowFilter = () => {
+    this.setState({showFilter: true})
+  }
+
+  handleHideFilter = () => {
+    this.setState({showFilter: false})
   }
 
   handleClick = e => {
     e.preventDefault()
     const category = e.target.getAttribute('cattitle')
 
-    let willAdd = true // If the category does not exist it should add
-
-    //Filter categories and exclude/include recently selected
-    const nextActiveFilters = this.state.activeFilters.filter(item => {
-      if (item === category) {
-        willAdd = false // Same category exist, so dont add
-        return false // Remove
-      } else {
-        return true // Not category we're looking from, add
-      }
-    })
-
-    if (willAdd) nextActiveFilters.push(category) // Check if category was found and include if not
+    const nextActiveFilter = category !== this.state.activeFilter ? category : null
 
     this.setState({
-      activeFilters: nextActiveFilters
+      activeFilter: nextActiveFilter
     })
   }
 
   render() {
     const { data, errors } = this.props
-
     const galleryNodes = data && data.gallery && mapEdgesToNodes(data.gallery)
     const categories = data && data.categories && mapEdgesToNodes(data.categories)
 
     //Filter posts if category is seleceted
     const filterdNodes = (() => {
-      if (this.state.activeFilters.length > 0) {
+      if (this.state.activeFilter) {
         return galleryNodes.filter(post => {
           for (let i = 0; i < post.artworkCategory.length; i++) {
-            if (this.state.activeFilters.includes(post.artworkCategory[i].title)) return true
+            if (post.artworkCategory[i].title === this.state.activeFilter) return true
+            else return false
           }
-          return false
         })
       } else {
         return galleryNodes
@@ -105,29 +104,40 @@ export default class Gallery extends React.Component {
       )
     }
 
+    // TODO
+    // Fix this prototype mess
     return (
       <Layout>
         <SEO title="Gallery" />
         <Container>
-          <div className={border} style={{display: 'flex', alignContent: 'center', justifyContent: 'space-between'}}>
-            <h1 className={cn(responsiveTitle3, uppercase)} style={{paddingRight: '1em', margin: 'auto 0'}}>Gallery</h1>
-            <div style={{paddingRight: '0.625em', margin: 'auto 0'}}>
-            {categories.map(category => {
-              // Check if filter is active to change its color
-              const isActive = this.state.activeFilters.includes(category.title) ? true : false
-              return (
-                <CategoryButton
-                  isActive={isActive}
-                  cattitle={category.title}
-                  key={category.id}
-                  onClick={this.handleClick}
-                >
-                  {category.title}
-                </CategoryButton>
-              )
-            })}
+          <div className={cn(border, styles.wrapper)}>
+            <div style={{padding: '0.125em 0 0 0', margin:'0 0 -0.125em 0'}}>
+              <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
+            </div>
+            <div className={styles.filterWrapper}>
+              <button onClick={this.state.showFilter ? this.handleHideFilter : this.handleShowFilter}  className={styles.iconWrapper}>
+                <FaFilter style={{ margin: 'auto 0'}} />
+                <FaArrowRight className={this.state.showFilter ? styles.closeBtn : styles.hide} />
+              </button>
+              <div className={this.state.showFilter ? styles.categoryWrapper : styles.hide}>
+                {categories.map(category => {
+                  // Check if filter is active to change its color
+                  const isActive = this.state.activeFilter === category.title
+                  return (
+                    <CategoryButton
+                      isActive={isActive}
+                      cattitle={category.title}
+                      key={category.id}
+                      onClick={this.handleClick}
+                    >
+                      {category.title}
+                    </CategoryButton>
+                  )
+                })}
+              </div>
             </div>
           </div>
+
           <GalleryPreviewLayout nodes={filterdNodes} />
         </Container>
       </Layout>

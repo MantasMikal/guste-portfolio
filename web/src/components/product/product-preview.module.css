@@ -30,7 +30,7 @@
 .itemWrapper {
   display: block;
   border: 2px solid black;
-  animation: slideIn 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* animation: slideIn 1s cubic-bezier(0.075, 0.82, 0.165, 1); */
   @nest & > * {
     color: var(--color-black);
   }

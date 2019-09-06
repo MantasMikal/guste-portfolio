@@ -84,7 +84,6 @@
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
   margin: 0rem 0 1rem 0;
-  text-align: justify;
 
 
   @media (--media-min-small) {
@@ -168,7 +167,8 @@
   font-weight: 400;
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
-  margin: 0.325rem 0 0.5rem;
+  margin: 0.5rem 0 0.5rem;
+  /* padding-top: 0.125em; */
   @media (--media-min-small) {
     font-size: var(--font-large-size);
     line-height: var(--font-large-line-height);
@@ -200,7 +200,7 @@
   font-weight: 400;
   font-size: var(--font-small-size);
   line-height: var(--font-small-line-height);
-  margin: 0.225rem 0 0.225rem;
+  margin: 0.225rem 0 0rem;
 
   @media (--media-min-small) {
     font-size: var(--font-base-size);

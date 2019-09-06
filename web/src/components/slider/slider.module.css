@@ -2,14 +2,16 @@
 
 .slidesWrapper {
   position: relative;
-  display: flex;
+
+  display: block;
   /* grid-template-columns: 4fr 2fr;
   grid-template-rows: 1fr;
   grid-column-gap: 10px; */
   margin: 0em 0 0rem 0;
   border: 2px solid black;
-  @media (--media-max-medium){
-    display: block;
+
+  @media (--media-min-large){
+    display: flex;
   }
 }
 

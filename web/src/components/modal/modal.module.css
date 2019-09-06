@@ -22,7 +22,7 @@
     height: 100%;
     z-index: 101;
     background-color: rgba(0, 0, 0, 0.5) !important;
-}
+  }
 
 @keyframes fadeIn {
     from { opacity: 0; }

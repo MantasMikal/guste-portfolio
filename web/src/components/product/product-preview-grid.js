@@ -5,6 +5,7 @@ import LazyLoader from '../lazy-loader/lazyLoader'
 import MasonryLayout from '../masonry/masonry-layout'
 
 import styles from './product-preview-grid.module.css'
+// import { CurrencyContext } from '../../context/currency-context';
 
 export default class ProductPreviewGrid extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ export default class ProductPreviewGrid extends React.Component {
   }
 
   render () {
+    //console.log("Product layout render")
     const products = []
     let nodes = this.props.nodes
 
@@ -41,13 +43,13 @@ export default class ProductPreviewGrid extends React.Component {
       nodes[i] && products.push(<ProductPreview {...nodes[i]} key={nodes[i].id} />)
     }
     return (
-      <div className={styles.root}>
-        <LazyLoader loadMore={this.loadMore} hasMore={this.state.hasMore}>
-          <MasonryLayout gap={10} colCount={3}>
-          {products}
-          </MasonryLayout>
-        </LazyLoader>
-      </div>
+          <div className={styles.root}>
+          <LazyLoader loadMore={this.loadMore} hasMore={this.state.hasMore}>
+            <MasonryLayout gap={10} colCount={3}>
+            {products}
+            </MasonryLayout>
+          </LazyLoader>
+        </div>
     )
   }
 }
