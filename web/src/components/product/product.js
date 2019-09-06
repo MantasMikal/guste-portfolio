@@ -8,10 +8,43 @@ import { paragraphLimited } from '../typography.module.css'
 import styles from './product.module.css'
 
 export default class Product extends React.Component {
-  render () {
-    const { title, quantity, images, id, price, _rawDescription, discount, categories, mainImage, publishedAt, slug } = this.props
+
+  calcPrice = (price, rates) => {
+    // Use current currency if not specified
+    let priceList = {}
+    const currencies = {
+      eur: { name: 'eur', symbol: '€' },
+      gbp: { name: 'gbp', symbol: '£' }
+    }
+    Object.entries(currencies).forEach(([key, val]) => {
+      priceList[key] = Math.round(rates[val.name.toUpperCase()] * price)
+
+    })
+    //console.log("Prices: ", priceList)
+    return priceList
+  }
+
+  render() {
+    const {
+      title,
+      quantity,
+      images,
+      id,
+      price,
+      _rawDescription,
+      discount,
+      mainImage,
+      publishedAt,
+      slug,
+      details
+    } = this.props
     const allImages = images ? [mainImage, ...images] : [mainImage] // Concat main image with other product images
     const shortDescription = _rawDescription[0].children[0].text // Nasty TODO
+    const productProps = { title, id, quantity, price, slug, shortDescription, mainImage, details }
+    const { currency, rates, switchCurrency } = this.props.currencyContext
+    console.log('CONTEXT: ', this.props.currencyContext)
+
+
     return (
       <article className={styles.root}>
         <Container>
@@ -27,12 +60,28 @@ export default class Product extends React.Component {
                 <div className={paragraphLimited}>
                   <BlockText blocks={_rawDescription} />
                 </div>
-              )}
-              {publishedAt && (
-                <div className={styles.publishedAt}>
-                  {differenceInDays(new Date(publishedAt), new Date()) > 3
-                    ? distanceInWords(new Date(publishedAt), new Date())
-                    : format(new Date(publishedAt), 'MMMM Do YYYY')}
+                <div className={styles.grid}>
+                  <div className={styles.mainContent}>
+                    <ProductShowcase
+                      image={mainImage.asset.fluid}
+                      alt={mainImage.asset.alt}
+                      images={allImages}
+                    />
+                  </div>
+                  <aside className={styles.metaContent}>
+                    {_rawDescription && (
+                      <div className={paragraphLimited}>
+                        <BlockText blocks={_rawDescription} />
+                      </div>
+                    )}
+                    <ProductDetailPicker
+                      details={details}
+                      calcPrice={this.calcPrice}
+                      rates={rates}
+                      currentCurrency={currency}
+                      productProps={productProps}
+                    />
+                  </aside>
                 </div>
               )}
               {categories && (
