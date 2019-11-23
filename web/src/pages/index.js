@@ -102,7 +102,7 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        <Slider slides={slideNodes} />
+//         <Slider slides={slideNodes} />
         {projectNodes && (
           <ProjectPreviewGrid
             title='Latest projects'
