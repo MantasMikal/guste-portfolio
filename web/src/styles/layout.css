@@ -1,15 +1,8 @@
 @import './vars.css';
-/* @import url('https://fonts.googleapis.com/css?family=Spinnaker&display=swap'); */
-
- @font-face {
-  font-family: 'Avenir LT Std 65 Medium';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Avenir LT Std 65 Medium'), url('./AvenirLTStd-Medium.woff') format('woff');
-}
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 html {
-  font-family: 'Avenir LT Std 65 Medium', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: var(--font-base-size);
   font-display: auto;
   line-height: var(--font-base-line-height);
@@ -21,10 +14,6 @@ body {
   color: var(--color-black);
   margin: 0;
 }
-/*
-html, body, body > div, body > div > div {
-  height: 100%;
-} */
 
 a:hover, a:visited, a:link, a:active
 {

@@ -30,7 +30,7 @@ const Contacts = props => {
             rel='noopener noreferrer'
           >
             <FaEnvelope size={'2em'} />
-            <span>Hi@guste.design</span>
+            <span>Hi@Guste.Design</span>
           </a>
           <a
             className={styles.icon}
@@ -39,7 +39,7 @@ const Contacts = props => {
             rel='noopener noreferrer'
           >
             <FaFacebook size={'2em'} />
-            <span>Guste vasiliauskaite</span>
+            <span>Guste Vasiliauskaite</span>
           </a>
           <a
             className={styles.icon}

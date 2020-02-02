@@ -7,8 +7,6 @@
   color: var(--color-black);
   background-color: var(--color-white);
   width: 100%;
-  /* background-color: var(--color-black);
-  color:  var(--color-white); */
 }
 
 .wrapper {
@@ -67,17 +65,11 @@
   }
 }
 
-/*
-border-top: 2px solid black;
-border-left: 2px solid black;
-border-right: 2px solid black; */
-
 .nav {
   display: none;
   text-transform: uppercase;
   font-weight: bolder;
   @nest & ul {
-    /* background-color: var(--color-black); */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -90,23 +82,12 @@ border-right: 2px solid black; */
   }
 
   @nest & ul div a {
-    margin-top: 0.125em;
     color: inherit;
     text-decoration: none;
-    /* border-bottom: 2px solid black; */
-  }
-
-  @nest & ul div a:last-child{
-    /* border: none; */
-  }
-
-  @nest & ul div:last-child {
-    /* border-right: 2px solid black; */
   }
 
   @media (hover: hover) {
     @nest & ul div:hover {
-      /* text-decoration: underline; */
       font-style: italic;
       background-color: var(--color-accent);
     }
@@ -128,8 +109,6 @@ border-right: 2px solid black; */
 
     @nest & ul div a {
       padding: 0.5rem 1.5rem;
-      /* border-top: 2px solid black; */
-
     }
 
     @nest & ul div {

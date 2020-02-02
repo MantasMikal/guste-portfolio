@@ -3,14 +3,13 @@
 @import './typography.module.css';
 
 .root {
-  margin: 0.325rem 0 0.625rem;
+  margin: 0.025rem 0 0.625rem;
 }
 
 .headline {
   text-transform: uppercase;
-  margin: 0.225rem 0 0;
+  margin: 0 auto;
   font-weight: 400;
-  /* padding-top: 0.125em; */
 
   @nest & a {
     color: inherit;
@@ -38,7 +37,7 @@
   grid-template-columns: 1fr;
   grid-column-gap: 0.625em;
   grid-row-gap: 0.625em;
-
+  margin: 0.325rem 0 0;
   @media (--media-min-small) {
     grid-template-columns: 1fr 1fr;
   }

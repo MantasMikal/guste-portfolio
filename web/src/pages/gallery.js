@@ -111,7 +111,7 @@ export default class Gallery extends React.Component {
         <SEO title="Gallery" />
         <Container>
           <div className={cn(border, styles.wrapper)}>
-            <div style={{padding: '0.125em 0 0 0', margin:'0 0 -0.125em 0'}}>
+            <div>
               <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
             </div>
             <div className={styles.filterWrapper}>
