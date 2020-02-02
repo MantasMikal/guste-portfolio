@@ -4,8 +4,10 @@ import { cn } from '../../lib/helpers'
 import Image from '../image/image'
 import MainImage from '../image/zoomableImage'
 import styles from './product-preview.module.css'
-import { responsiveTitle5 } from '../typography.module.css'
+import { responsiveTitle4 } from '../typography.module.css'
 import { CurrencyContext, currencies } from '../../context/currency-context'
+
+// Handle price in the top component
 
 function ProductPreview(props) {
   // console.log("RENDER!", )
@@ -18,7 +20,7 @@ function ProductPreview(props) {
           )}
         </div>
         <div className={styles.titleWrapper}>
-          <h1 className={cn(responsiveTitle5, styles.title)}>{props.title}</h1>
+          <h1 className={cn(responsiveTitle4, styles.title)}>{props.title}</h1>
           <CurrencyContext.Consumer>
             {({currency, rates, calcPrice}) => {
               // Calculate value in difference currency if it is not euros
@@ -39,7 +41,7 @@ function ProductPreview(props) {
                 console.log(priceList)
                 console.log(currency)
                 return priceList && (
-                  <span className={styles.price}>{`${priceList[currency.name]}${currency.symbol}`}</span>
+                  <div className={styles.price}>{`${priceList[currency.name]}${currency.symbol}`}</div>
                 )
               }
             }}

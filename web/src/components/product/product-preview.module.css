@@ -3,12 +3,7 @@
 
 .title {
   text-decoration: none;
-
-  @media (hover: hover) {
-    @nest .root:hover & {
-      text-decoration: underline;
-    }
-  }
+  text-transform: uppercase;
 }
 
 .inner {
@@ -16,16 +11,18 @@
 }
 
 .titleWrapper {
-  padding: 0 0.325rem;
+  padding: 0 0 0 0.325rem;
   display: flex;
   justify-content: space-between;
 }
 
 .price {
   align-self: center;
+  padding: 0.425em;
+  min-width: 1.725em;
+  text-align: center;
+  border-left: 2px solid black;
 }
-
-
 
 .itemWrapper {
   display: block;
@@ -36,8 +33,15 @@
   }
 }
 
-@keyframes slideIn {
-  from {transform: translateY(10vh)}
-  to {transform: translateY(0px)}
+.itemWrapper:hover .title {
+  text-decoration: underline;
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateY(10vh);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
