@@ -1,4 +1,4 @@
-const { format } = require('date-fns')
+const { parseISO } = require('date-fns')
 const { GraphQLString } =  require("gatsby/graphql")
 const fetch = require('node-fetch')
 const crypto = require('crypto');
@@ -148,12 +148,12 @@ async function createBlogPostPages (graphql, actions, reporter) {
 
   postEdges.forEach((edge, index) => {
     const { id, slug = {}, publishedAt } = edge.node
-    const dateSegment = format(publishedAt, 'YYYY/MM')
+    const dateSegment = parseISO(publishedAt, 'YYYY/MM')
     const path = `/blog/${dateSegment}/${slug.current}/`
 
     // Next and previous pages
-    const prevDate = edge.previous ? format(edge.previous.publishedAt, 'YYYY/MM') : null
-    const nextDate = edge.next ? format(edge.next.publishedAt, 'YYYY/MM') : null
+    const prevDate = edge.previous ? parseISO(edge.previous.publishedAt, 'YYYY/MM') : null
+    const nextDate = edge.next ? parseISO(edge.next.publishedAt, 'YYYY/MM') : null
 
     const prev = edge.previous ? `/blog/${prevDate}/${edge.previous.slug.current}/` : null
     const next = edge.next ? `/blog/${nextDate}/${edge.next.slug.current}/` : null
