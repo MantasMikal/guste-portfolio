@@ -31,6 +31,7 @@
   flex: 1;
   margin: auto;
   padding-top: 0.325em;
+  letter-spacing: 1.1px;
   @nest & a {
     display: inline-block;
     color: inherit;
@@ -69,6 +70,7 @@
   display: none;
   text-transform: uppercase;
   font-weight: bolder;
+  letter-spacing: 1.1px;
   @nest & ul {
     list-style: none;
     margin: 0;
