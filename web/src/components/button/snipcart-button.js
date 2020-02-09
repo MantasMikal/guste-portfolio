@@ -7,6 +7,8 @@ export default function SnipcartButton (props) {
   const priceStr = JSON.stringify(price)
   console.log('%c%s', 'color: #733d00',"Price:", price);
   console.log('%c%s', 'color: #f2ceb6', "Url", url);
+
+  console.log('%c%s', 'color: #f200e2', 'ID', id);
   return (
     <button
       href='#'
