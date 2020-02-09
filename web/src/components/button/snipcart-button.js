@@ -17,9 +17,9 @@ export default function SnipcartButton (props) {
       data-item-id={id}
       data-item-price="30"
       data-item-url={url}
-      data-item-custom1-name="Size"
-      data-item-custom1-options={sizePriceList}
-      data-item-custom1-value={details[currentOption].size}
+      // data-item-custom1-name="Size"
+      // data-item-custom1-options={sizePriceList}
+      // data-item-custom1-value={details[currentOption].size}
       role='button'
     >
       {props.children}

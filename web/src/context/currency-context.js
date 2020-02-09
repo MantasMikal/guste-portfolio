@@ -51,8 +51,6 @@ export class CurrencyProvider extends React.Component {
       // console.log('%c%s', 'color: #ffa640', val)
       // console.log('%c%s', 'color: #d90000', key)
 
-
-      
       Object.assign(priceList, { [key]: Math.round(rates[val.name.toUpperCase()] * price) })
       // priceList[key] = Math.round(rates[val.name.toUpperCase()] * price)
     })
@@ -71,7 +69,15 @@ export class CurrencyProvider extends React.Component {
   // Insert base rate for genericly calculate prices
   // EUR is default
   componentDidMount() {
-    Snipcart.setCurrency(this.state.currency.name)
+    document.addEventListener('snipcart.ready', function() {
+      
+      console.log('%c%s', 'color: #1d5673', "Setting currency to ", this.state.currency.name);
+      Snipcart.setCurrency(this.state.currency.name)
+    })
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('snipcart.ready')
   }
 
   render() {
