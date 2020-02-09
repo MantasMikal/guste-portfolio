@@ -82,7 +82,7 @@ export default class ProductDetailPicker extends Component {
             sizePriceList={sizePriceList}
             currentOption={this.state.currentIdx}
             codeName={slug.current}
-            url={`http://guste.desisgn/store/${slug.current}`}
+            url={`http://guste.design/store/${slug.current}`}
           >
             GRAB NOW
           </BuyButton>
