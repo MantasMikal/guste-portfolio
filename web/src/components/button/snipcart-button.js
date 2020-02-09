@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './snipcart-button.module.css'
 
 export default function SnipcartButton (props) {
-  const { id, price, name, url, description, image, details, currentOption, sizePriceList } = props
+  const { id, price, name, url, description, image, details, currentOption, sizePriceList, codeName } = props
  
   const priceStr = JSON.stringify(price)
   console.log('%c%s', 'color: #733d00',"Price:", price);
@@ -16,7 +16,7 @@ export default function SnipcartButton (props) {
       data-item-description={description}
       data-item-image={image}
       className={[styles.button, 'snipcart-add-item'].join(' ')}
-      data-item-id={id}
+      data-item-id={codeName}
       data-item-price="30.00"
       data-item-url={url}
       // data-item-custom1-name="Size"
