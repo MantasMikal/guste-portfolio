@@ -45,7 +45,7 @@ export default class ProductDetailPicker extends Component {
             style={{ gridTemplateColumns: `repeat(${details.length}, 1fr)` }}
           >
             {details.map((detail, i) => {
-              const isActive = this.state.currentIdx == i ? true : false
+              const isActive = currentIdx == i ? true : false
               return (
                 <div
                   idx={i}
@@ -61,7 +61,7 @@ export default class ProductDetailPicker extends Component {
         </div>
         <div className={styles.inStockWrapper}>
           <div>Available: </div>
-          <div className={styles.inStock}>{details[this.state.currentIdx].instock}</div>
+          <div className={styles.inStock}>{details[currentIdx].instock}</div>
         </div>
         {details[0] && (
           <BuyButton
@@ -71,8 +71,7 @@ export default class ProductDetailPicker extends Component {
             description={shortDescription}
             image={mainImage.asset.url}
             sizePriceList={sizePriceList}
-            currentOption={this.state.currentIdx}
-            codeName={slug.current}
+            currentOption={currentIdx}
             url={`http://guste.design/store/${slug.current}`}
           >
             GRAB NOW
