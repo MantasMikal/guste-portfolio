@@ -2,15 +2,13 @@ import { Link } from 'gatsby'
 import React from 'react'
 import { cn } from '../../lib/helpers'
 import Image from '../image/image'
-import MainImage from '../image/zoomableImage'
 import styles from './product-preview.module.css'
 import { responsiveTitle4 } from '../typography.module.css'
-import { CurrencyContext, currencies } from '../../context/currency-context'
 
-// Handle price in the top component
 
 function ProductPreview(props) {
-  // console.log("RENDER!", )
+  console.log("Product preview: ", props)
+  const { details } = props
   return (
     <div className={styles.itemWrapper}>
       <Link to={`/store/${props.slug.current}`}>
@@ -21,31 +19,7 @@ function ProductPreview(props) {
         </div>
         <div className={styles.titleWrapper}>
           <h1 className={cn(responsiveTitle4, styles.title)}>{props.title}</h1>
-          <CurrencyContext.Consumer>
-            {({currency, rates, calcPrice}) => {
-              // Calculate value in difference currency if it is not euros
-              //console.log(Math.round((rates[currency.name.toUpperCase()] * props.price)))
-              // console.log(rates)
-              // console.log(currency.name.toUpperCase())
-              // console.log((rates[currency.name.toUpperCase()]))
-              // const { price, symbol } = calcPrice(props.details[0].price, rates)
-
-              if(currency && rates && props.details[0]){
-                // const newPrice = Math.round((rates[currency.name.toUpperCase()] * props.details[0].price))
-                // console.log("DETAILS: ", props.details)
-                const priceList = calcPrice(props.details[0].price, rates)
-                //console.log("LIST: ", priceList)
-
-                // console.log("POOP: ", `${priceList[currency.name]}${currency.symbol}`)
-                console.log(rates)
-                console.log(priceList)
-                console.log(currency)
-                return priceList && (
-                  <div className={styles.price}>{`${priceList[currency.name]}${currency.symbol}`}</div>
-                )
-              }
-            }}
-          </CurrencyContext.Consumer>
+          <div className={styles.price}>{`${details[0].price}£`}</div>
         </div>
       </Link>
     </div>

@@ -31,7 +31,7 @@ export default class Product extends React.Component {
     const allImages = images ? [mainImage, ...images] : [mainImage] // Concat main image with other product images
     const shortDescription = _rawDescription[0].children[0].text // Nasty TODO
     const productProps = { title, id, quantity, price, slug, shortDescription, mainImage, details }
-    const { currency, rates, switchCurrency, calcPrice } = this.props.currencyContext
+  
     return (
             <article className={styles.root}>
               <Container>
@@ -39,7 +39,6 @@ export default class Product extends React.Component {
                   <h1 className={cn(styles.title, uppercase)} style={{ padding: '0.125em 0 0 0' }}>
                     {title}
                   </h1>
-                  <CurrencySelector switchCurrency={switchCurrency} currentCurrency={currency} />
                   <Cart />
                 </div>
                 <div className={styles.grid}>
@@ -58,9 +57,6 @@ export default class Product extends React.Component {
                     )}
                     <ProductDetailPicker
                       details={details}
-                      calcPrice={calcPrice}
-                      rates={rates}
-                      currentCurrency={currency}
                       productProps={productProps}
                     />
                   </aside>

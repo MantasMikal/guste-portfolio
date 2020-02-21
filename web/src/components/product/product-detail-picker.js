@@ -16,8 +16,6 @@ export default class ProductDetailPicker extends Component {
   handleSelectSize = e => {
     e.preventDefault()
     const selectedIdx = e.target.getAttribute('idx')
-    console.log('Slected: ', selectedIdx)
-
     this.setState({
       currentIdx: selectedIdx
     })
@@ -25,12 +23,7 @@ export default class ProductDetailPicker extends Component {
 
   render() {
     const { id, title, shortDescription, slug, mainImage, details} = this.props.productProps
-    const { calcPrice, rates, currentCurrency } = this.props
     const { currentIdx } = this.state
-    const basePriceList = details[0] && calcPrice(details[0].price, rates)
-    const priceList = details[currentIdx] && calcPrice(details[currentIdx].price, rates)
-    const price = priceList && priceList[currentCurrency.name]
-    const symbol = currentCurrency.symbol
 
     // Calculate prices for different sizes
     const sizePriceList = details.map(detail => {
@@ -43,7 +36,7 @@ export default class ProductDetailPicker extends Component {
       <div className={styles.wrapper}>
         <div className={styles.priceWrapper}>
           <div>Price: </div>
-          <div className={styles.price}>{`${price}${symbol}`}</div>
+          <div className={styles.price}>{`${details[currentIdx].price}£`}</div>
         </div>
         <div className={styles.sizeWrapper}>
           <div>Size: </div>
@@ -64,7 +57,6 @@ export default class ProductDetailPicker extends Component {
                 </div>
               )
             })}
-            {/* For each size add div */}
           </div>
         </div>
         <div className={styles.inStockWrapper}>
@@ -74,11 +66,10 @@ export default class ProductDetailPicker extends Component {
         {details[0] && (
           <BuyButton
             id={id}
-            price={basePriceList}
+            price={details[currentIdx].price}
             name={title}
             description={shortDescription}
             image={mainImage.asset.url}
-            details={details}
             sizePriceList={sizePriceList}
             currentOption={this.state.currentIdx}
             codeName={slug.current}

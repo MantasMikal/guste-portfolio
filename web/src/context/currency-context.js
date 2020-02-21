@@ -69,19 +69,19 @@ export class CurrencyProvider extends React.Component {
   // Insert base rate for genericly calculate prices
   // EUR is default
   componentDidMount() {
-    document.addEventListener('snipcart.ready', function() {
+    // document.addEventListener('snipcart.ready', function() {
       
-      console.log('%c%s', 'color: #1d5673', "Setting currency to ", this.state.currency.name);
-      Snipcart.setCurrency(this.state.currency.name)
-    })
+    //   // console.log('%c%s', 'color: #1d5673', "Setting currency to ", this.state.currency.name);
+    //   // Snipcart.setCurrency(this.state.currency.name)
+    // })
   }
 
   componentWillUnmount() {
-    document.removeEventListener('snipcart.ready')
+    // document.removeEventListener('snipcart.ready')
   }
 
   render() {
-    console.log('Context render')
+    // console.log('Context render')
     return (
       <StaticQuery
         query={query}

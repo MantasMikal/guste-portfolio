@@ -5,11 +5,9 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import ProductPreviewGrid from '../components/product/product-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import { CurrencyContext } from '../context/currency-context'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs, cn } from '../lib/helpers'
 import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 import Cart from '../components/snipcart/cart'
-import CurrencySelector from '../components/currency-selector/currency-selector'
 
 export const query = graphql`
   query StorePageQuery {
@@ -20,8 +18,8 @@ export const query = graphql`
           title
           discount
           details {
-          price
-        }
+            price
+          }
           slug {
             current
           }
@@ -56,32 +54,17 @@ class Store extends React.Component {
     return (
       <Layout>
         <SEO title="Store" />
-        {/* <CurrencyProvider> */}
-          <CurrencyContext.Consumer>
-            {({currency, switchCurrency}) => {
-              return (
-                <Container>
-                  <div className={border} style={{display: 'flex'}}>
-                    <h1
-                      className={cn(responsiveTitle3, uppercase)}
-                      style={{margin: 'auto 0', flex: 1 }}
-                    >
-                      Store
-                    </h1>
-                    <CurrencySelector currentCurrency={currency} switchCurrency={switchCurrency} />
-                    <Cart />
-                  </div>
-                  {productNodes && productNodes.length > 0 && (
-                    <ProductPreviewGrid nodes={productNodes} />
-                  )}
-                </Container>
-            )}
-              }
-          </CurrencyContext.Consumer>
-        {/* </CurrencyProvider> */}
+        <Container>
+          <div className={border} style={{ display: 'flex' }}>
+            <h1 className={cn(responsiveTitle3, uppercase)} style={{ margin: 'auto 0', flex: 1 }}>
+              Store
+            </h1>
+            <Cart />
+          </div>
+          {productNodes && productNodes.length > 0 && <ProductPreviewGrid nodes={productNodes} />}
+        </Container>
       </Layout>
     )
   }
 }
-
 export default Store

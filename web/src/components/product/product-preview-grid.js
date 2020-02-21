@@ -5,7 +5,6 @@ import LazyLoader from '../lazy-loader/lazyLoader'
 import MasonryLayout from '../masonry/masonry-layout'
 
 import styles from './product-preview-grid.module.css'
-// import { CurrencyContext } from '../../context/currency-context';
 
 export default class ProductPreviewGrid extends React.Component {
   constructor(props) {
