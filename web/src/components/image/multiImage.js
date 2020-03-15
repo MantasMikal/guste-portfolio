@@ -47,7 +47,6 @@ export default class MultiImage extends Component {
       <>
         <div className={styles.Wrapper} onMouseMove={this.handleHover}>
           {this.props.images.map((img, i) => {
-            console.log(img, ( i=== imageId || i === 0))
             return (
               <div className={cn(styles.MultiImage, (i === imageId || i === 0) && styles.active)}>
                 <Img key={img.asset.id} fluid={img.asset.fluid} alt={img.alt} />

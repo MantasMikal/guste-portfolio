@@ -8,6 +8,10 @@
 
 .gridWrapper {
   position: relative;
+  cursor: pointer;
+  @nest &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .clickHandler {

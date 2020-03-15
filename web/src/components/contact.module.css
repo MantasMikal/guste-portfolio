@@ -65,11 +65,14 @@
 }
 
 .icon {
-  padding: 0.125em 0.325em !important;
+  padding: 0.125em 1.325em 1em 0.325em !important;
   border: none;
   display: flex;
   border: none;
   margin: auto 0;
+  letter-spacing: 2.5px;
+
+
   @nest & > * {
     border-left: none !important;
   }
@@ -79,7 +82,7 @@
   }
 
   @nest & > span {
-    margin: auto 0 0 0.325em;
+    margin: auto 0 0 0.625em;
     font-size: 1.5em;
   }
 }
