@@ -48,6 +48,7 @@
   border-top: 2px solid black;
   background-color: var(--color-white);
   overflow: hidden;
+  min-height: 1.7rem;
 }
 .descriptionWrapper:hover {
   background-color: var(--color-accent);
