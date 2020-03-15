@@ -62,14 +62,14 @@ export const query = graphql`
     #   }
     # }
 
-  slides: allSanitySlide {
-    edges {
-      node {
-        title
-        _rawBody(resolveReferences: { maxDepth: 5 })
-      }
-    }
-  }
+  # slides: allSanitySlide {
+  #   edges {
+  #     node {
+  #       title
+  #       _rawBody(resolveReferences: { maxDepth: 5 })
+  #     }
+  #   }
+  # }
 }
 `
 
@@ -90,8 +90,8 @@ const IndexPage = props => {
   const projectNodes = (data || {}).projects
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : []
-  const slideNodes = (data || {}).slides ? mapEdgesToNodes(data.slides)
-    : []
+  // const slideNodes = (data || {}).slides ? mapEdgesToNodes(data.slides)
+  //   : []
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
