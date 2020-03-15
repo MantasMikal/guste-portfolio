@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import styles from './multiImage.module.css'
 import Img from 'gatsby-image'
+import { cn } from '../../lib/helpers'
 
 export default class MultiImage extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -14,7 +15,7 @@ export default class MultiImage extends Component {
   }
 
   // Prevent from updating on every pixel moved
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     if (this.state.currentImageIdx === nextState.currentImageIdx) {
       return false
     } else {
@@ -22,7 +23,7 @@ export default class MultiImage extends Component {
     }
   }
 
-  handleHover () {
+  handleHover() {
     // Decrease counter on mouse move and change images
     const skipAmount = this.props.skipAmount ? this.props.skipAmount : 10 // How much pixels to go trough to change image
     this.setState({
@@ -40,21 +41,19 @@ export default class MultiImage extends Component {
       })
     }
   }
-  // TODO
-  // Render all on load and then just switch between with css to improve performance
-  render () {
+  render() {
     const imageId = this.state.currentImageIdx
-    const image = this.props.images[imageId]
-
     return (
       <>
-        <div onMouseMove={this.handleHover}>
-          <Img
-            key={image.asset.id}
-            className={[styles.multiImage, styles.active].join('')}
-            fluid={image.asset.fluid}
-            alt={image.alt}
-          />
+        <div className={styles.Wrapper} onMouseMove={this.handleHover}>
+          {this.props.images.map((img, i) => {
+            console.log(img, ( i=== imageId || i === 0))
+            return (
+              <div className={cn(styles.MultiImage, (i === imageId || i === 0) && styles.active)}>
+                <Img key={img.asset.id} fluid={img.asset.fluid} alt={img.alt} />
+              </div>
+            )
+          })}
         </div>
       </>
     )
