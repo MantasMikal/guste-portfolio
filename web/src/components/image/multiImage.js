@@ -43,12 +43,14 @@ export default class MultiImage extends Component {
   }
   render() {
     const imageId = this.state.currentImageIdx
+    // true if first or current. Used to put image on top
+    const isActive = (i, id) => i == id || (i == 0 && i != id)
     return (
       <>
         <div className={styles.Wrapper} onMouseMove={this.handleHover}>
           {this.props.images.map((img, i) => {
             return (
-              <div className={cn(styles.MultiImage, (i === imageId || i === 0) && styles.active)}>
+              <div className={cn(styles.MultiImage, isActive(i + 1, imageId) && styles.active)}>
                 <Img key={img.asset.id} fluid={img.asset.fluid} alt={img.alt} />
               </div>
             )

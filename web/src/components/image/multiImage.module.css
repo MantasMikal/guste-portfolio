@@ -15,10 +15,11 @@
   height: 100%;
   top: 0;
   left: 0;
-  display: none;
+  display: block;
+  z-index: 0;
 }
 
 .active {
-  display: block;
+  z-index: 1;
 }
 
