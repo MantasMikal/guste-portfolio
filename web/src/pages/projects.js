@@ -6,7 +6,6 @@ import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs, cn } from '../lib/helpers'
-import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 
 export const query = graphql`
   query ProjectsPageQuery {
@@ -22,7 +21,7 @@ export const query = graphql`
           mainImages {
             alt
             asset {
-              fluid(maxWidth: 1000, maxHeight: 600) {
+              fluid(maxWidth: 450) {
                 ...GatsbySanityImageFluid
               }
             }
