@@ -26,7 +26,7 @@ export const query = graphql`
             alt
             asset {
               id
-              fluid(maxWidth: 450) {
+              fluid(maxHeight: 170, maxWidth: 300) {
                 ...GatsbySanityImageFluid
               }
             }
