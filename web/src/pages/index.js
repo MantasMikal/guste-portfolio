@@ -62,15 +62,15 @@ export const query = graphql`
     #   }
     # }
 
-  # slides: allSanitySlide {
-  #   edges {
-  #     node {
-  #       title
-  #       _rawBody(resolveReferences: { maxDepth: 5 })
-  #     }
-  #   }
-  # }
-}
+    # slides: allSanitySlide {
+    #   edges {
+    #     node {
+    #       title
+    #       _rawBody(resolveReferences: { maxDepth: 5 })
+    #     }
+    #   }
+    # }
+  }
 `
 
 const IndexPage = props => {
@@ -102,14 +102,15 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        { /* <Slider slides={slideNodes} /> */}
+        {/* <Slider slides={slideNodes} /> */}
         {projectNodes && (
           <ProjectPreviewGrid
-            title='Latest projects'
+            title="Latest projects"
             nodes={projectNodes}
-            browseMoreHref='/projects/'
+            browseMoreHref="/projects/"
           />
         )}
+        <div styles={{ height: '20vw' }} />
         {/* {postNodes && (
           <BlogPostPreviewGrid
             title='Latest blog posts'
