@@ -110,7 +110,7 @@ const IndexPage = props => {
             browseMoreHref="/projects/"
           />
         )}
-        <div styles={{ height: '20vw' }} />
+        <div style={{ height: '20vw' }} />
         {/* {postNodes && (
           <BlogPostPreviewGrid
             title='Latest blog posts'
