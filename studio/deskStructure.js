@@ -14,7 +14,10 @@ const hiddenTypes = [
   'post',
   'project',
   'siteSettings',
-  'illustrations'
+  'illustrations',
+  'project',
+  'category',
+  'person'
 ]
 
 export default () =>
