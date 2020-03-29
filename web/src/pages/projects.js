@@ -21,7 +21,7 @@ export const query = graphql`
           mainImages {
             alt
             asset {
-              fluid(maxHeight: 165, maxWidth: 290) {
+              fluid(maxHeight: 450) {
                 ...GatsbySanityImageFluid
               }
             }
@@ -49,7 +49,7 @@ const ProjectsPage = props => {
       <SEO title='Projects' />
       <Container>
         {projectNodes && projectNodes.length > 0 && (
-          <ProjectPreviewGrid nodes={projectNodes} colCount={3} title="Projects" />
+          <ProjectPreviewGrid nodes={projectNodes} colCount={2} title="Projects" />
         )}
       </Container>
     </Layout>

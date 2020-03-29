@@ -3,9 +3,10 @@ import styles from './gallery-preview.module.css'
 import { responsiveTitle5 } from './typography.module.css'
 import BlockContent from '../components/block-content'
 import BlockText from './block-text'
-import MainImage from './image/zoomableImage'
 import { cn } from '../lib/helpers'
 import Button from './button/button'
+import Image from './image/zoomableImage'
+// import Image from './zomable-image'
 // Takes in artwork nodes and returns list of components
 export default class GalleryPreviewLayout extends React.Component {
   constructor(props) {
@@ -27,9 +28,7 @@ export default class GalleryPreviewLayout extends React.Component {
     return (
       <div className={styles.itemWrapper}>
         <div className={styles.inner}>
-          {item.mainImage && item.mainImage.asset && (
-            <MainImage fluid={item.mainImage.asset.fluid} />
-          )}
+          {item.mainImage && item.mainImage.asset && <Image isZoomable fluid={item.mainImage.asset.fluid} />}
         </div>
         <div className={styles.titleWrapper}>
           <h3 className={cn(responsiveTitle5, styles.title)}>{item.title}</h3>

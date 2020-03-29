@@ -17,7 +17,7 @@ export const query = graphql`
       keywords
     }
 
-    projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
+    projects: allSanityProject(limit: 50, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           id
@@ -26,7 +26,7 @@ export const query = graphql`
             alt
             asset {
               id
-              fluid(maxHeight: 165, maxWidth: 290) {
+              fluid(maxHeight: 450,) {
                 ...GatsbySanityImageFluid
               }
             }
@@ -105,9 +105,10 @@ const IndexPage = props => {
         {/* <Slider slides={slideNodes} /> */}
         {projectNodes && (
           <ProjectPreviewGrid
-            title="Latest projects"
+            title="Projects"
             nodes={projectNodes}
-            browseMoreHref="/projects/"
+            // browseMoreHref="/projects/"
+            colCount={2}
           />
         )}
         <div style={{ height: '5vw' }} />

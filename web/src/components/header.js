@@ -17,7 +17,7 @@ export default class Header extends React.Component {
       </Link> */}
 
           <h1 className={styles.branding}>
-            <Link to="/">{siteTitle}</Link>
+            <Link to="/about/">{siteTitle}</Link>
           </h1>
 
           <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
@@ -27,7 +27,7 @@ export default class Header extends React.Component {
           <nav className={cn(styles.nav, showNav && styles.showNav)}>
             <ul>
               <div>
-                <Link to="/projects/">Projects</Link>
+                <Link to="/">Projects</Link>
               </div>
               {/* <div>
             <Link to='/illustrations/'>Illustrations</Link>
