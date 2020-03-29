@@ -15,21 +15,7 @@ export const query = graphql`
       id
       _id
       title
-      _rawBody
-    }
-    people: allSanityPerson {
-      edges {
-        node {
-          id
-          image {
-            asset {
-              _id
-            }
-          }
-          name
-          _rawBio
-        }
-      }
+      _rawBody(resolveReferences: { maxDepth: 5 })
     }
   }
 `
@@ -46,8 +32,7 @@ const AboutPage = props => {
   }
 
   const page = data && data.page
-  const personNodes =
-    data && data.people && mapEdgesToNodes(data.people).filter(filterOutDocsWithoutSlugs)
+ 
   if (!page) {
     throw new Error(
       'Missing "About" page data. Open the studio at http://localhost:3333 and add "About" page data and restart the development server.'
@@ -60,7 +45,6 @@ const AboutPage = props => {
       <Container>
         <h1 className={cn(responsiveTitle2, uppercase)}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
-        {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title='People' />}
       </Container>
     </Layout>
   )

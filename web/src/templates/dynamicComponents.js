@@ -75,7 +75,7 @@ export function makeGrid (component) {
   const gridComponents = gridMedia.map(item => {
     return makeMediaComponent(item)
   })
-  return (
+  return gridComponents && (
     <Grid style={styles} key={component._key}>
       {gridComponents}
     </Grid>
