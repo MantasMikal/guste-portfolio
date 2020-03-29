@@ -147,16 +147,16 @@ async function createBlogPostPages (graphql, actions, reporter) {
   const postEdges = (result.data.allSanityPost || {}).edges || []
 
   postEdges.forEach((edge, index) => {
-    const { id, slug = {}, publishedAt } = edge.node
-    const dateSegment = parseISO(publishedAt, 'YYYY/MM')
-    const path = `/blog/${dateSegment}/${slug.current}/`
+    const { id, slug = {} } = edge.node
+    // const dateSegment = parseISO(publishedAt, 'YYYY/MM')
+    const path = `/blog/${slug.current}/`
 
     // Next and previous pages
-    const prevDate = edge.previous ? parseISO(edge.previous.publishedAt, 'YYYY/MM') : null
-    const nextDate = edge.next ? parseISO(edge.next.publishedAt, 'YYYY/MM') : null
+    // const prevDate = edge.previous ? parseISO(edge.previous.publishedAt, 'YYYY/MM') : null
+    // const nextDate = edge.next ? parseISO(edge.next.publishedAt, 'YYYY/MM') : null
 
-    const prev = edge.previous ? `/blog/${prevDate}/${edge.previous.slug.current}/` : null
-    const next = edge.next ? `/blog/${nextDate}/${edge.next.slug.current}/` : null
+    const prev = edge.previous ? `/blog/${edge.previous.slug.current}/` : null
+    const next = edge.next ? `/blog/${edge.next.slug.current}/` : null
 
     const nextTitle = edge.next ? edge.next.title : null
     const prevTitle = edge.previous ? edge.previous.title : null
