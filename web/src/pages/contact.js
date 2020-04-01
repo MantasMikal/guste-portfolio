@@ -40,7 +40,7 @@ const ContactPage = props => {
     <Layout>
       <SEO title={page.title} />
       <Container>
-        <h1 className={cn(responsiveTitle3, uppercase, border)}>{page.title}</h1>
+        <h1 className={cn(responsiveTitle3, border)}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
       </Container>
     </Layout>
