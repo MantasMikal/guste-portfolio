@@ -38,6 +38,7 @@
   font-size: 5rem;
   margin: auto;
   padding: 0.325em 0.325em;
+  font-weight: 400;
 }
 
 .wrapper:hover {
@@ -57,6 +58,7 @@
   color: white;
   flex-wrap: wrap;
   border: none !important;
+  font-weight: 400;
 }
 
 .iconGrid:hover {
@@ -65,7 +67,7 @@
 }
 
 .icon {
-  padding: 0.125em 1.325em 1em 0.325em !important;
+  padding: 0.125em 1.325em 0.625em 0.325em !important;
   border: none;
   display: flex;
   border: none;
