@@ -39,6 +39,12 @@
   margin: auto;
   padding: 0.325em 0.325em;
   font-weight: 400;
+
+  @media (--media-max-small) {
+    font-size: 3rem;
+    padding: 0.325em 0;
+    /* padding-left: 3rem; */
+  }
 }
 
 .wrapper:hover {
@@ -70,6 +76,7 @@
   padding: 0.125em 1.325em 0.625em 0.325em !important;
   border: none;
   display: flex;
+  align-items: center;
   border: none;
   margin: auto 0;
   letter-spacing: 2.5px;
@@ -81,11 +88,21 @@
 
   @nest & > svg {
     margin: auto 0;
+    
+    @media (--media-max-small) {
+      width: 25px;
+
+    }
+
   }
 
   @nest & > span {
-    margin: auto 0 0 0.625em;
+    margin-left: 1rem;
     font-size: 1.5em;
+
+    @media (--media-max-small) {
+      font-size: 1em;
+    }
   }
 }
 

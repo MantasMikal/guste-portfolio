@@ -9,7 +9,7 @@ function getColCount (width) {
     if (width > 1000) {
       return 3
     } else return 2
-  } else return 1
+  } else return 2
 }
 
 export default class MasonryLayout extends React.Component {
