@@ -5,9 +5,7 @@ import { cn } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
 import Container from './container'
-import RoleList from './role-list'
-import { makeComponents } from '../templates/dynamicComponents'
-import typography from './typography.module.css'
+import {RiArrowRightSLine, RiArrowLeftSLine} from 'react-icons/ri'
 import styles from './project.module.css'
 import { uppercase, responsiveTitle2, border } from './typography.module.css'
 class Project extends React.Component {
@@ -33,12 +31,12 @@ class Project extends React.Component {
           <div className={styles.navWrapper}>
 
               <Link className={prev ? cn(responsiveTitle2, uppercase) : styles.invisible} to={prev}>
-              <div className={styles.navButton}>Previous: {prevTitle}</div>
+              <div className={styles.navButton}><RiArrowLeftSLine /> Previous</div>
               </Link>
 
 
               <Link className={next ? cn(responsiveTitle2, uppercase) : styles.invisible} to={next}>
-              <div className={styles.navButton}> Next: {nextTitle}</div>
+              <div className={styles.navButton}> Next <RiArrowRightSLine /></div>
               </Link>
 
           </div>
