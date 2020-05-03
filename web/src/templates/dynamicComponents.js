@@ -7,6 +7,16 @@ import Img from '../components/image/zoomableImage'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 const cfg = { projectId: 'ee0lu4ue', dataset: 'production' }
 
+
+export function makeLine(component) {
+  const {lineStyle, margin} = component
+
+  switch(component._type) {
+      case 'line':
+        return <div style={{borderBottom: lineStyle, margin: margin, minHeight: '1px'}} />
+    }
+}
+
 export function makeMediaComponent (component) {
   const hasBorder = component.hasBorder ? component.hasBorder : false
   switch (component._type) {
@@ -94,6 +104,8 @@ export function makeComponents (components) {
       return makeMediaComponent(component)
     case 'video':
       return makeMediaComponent(component)
+    case 'line':
+      return makeLine(component)
     default:
       console.log(component._type, ' does not exist!')
       return <div>Missing component</div>
