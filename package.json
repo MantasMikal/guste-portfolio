@@ -22,6 +22,6 @@
     "rimraf": "^2.7.1"
   },
   "dependencies": {
-    "react-icons": "^3.7.0"
+    "react-icons": "^3.10.0"
   }
 }
