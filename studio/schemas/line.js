@@ -1,10 +1,7 @@
-import {AiOutlineDash} from 'react-icons/ai'
-
 export default {
     type: 'object',
     name: 'line',
     title: 'Line',
-    icon: AiOutlineDash,
     fields: [
       {
         type: 'string',
