@@ -41,20 +41,15 @@ export default class ProductDetailPicker extends Component {
       .map((detail) => {
         const basePrice = details[0].price;
         const price = detail.price - basePrice;
-        return `${detail.size}[${price > 0 ? "+" : ""}${price}]`;
+        return `${detail.size}[${price > 0 ? "+" : ""}${price.toFixed(2)}]`;
       })
       .join("|");
 
-    console.log('Sizepricem, ',sizePriceList, details)
-      console.log( Array(details[currentIdx].instock))
-      console.log('st', this.state)
     return (
       <div className={styles.wrapper}>
           <div className={styles.title}>{title}</div>
-          <div className={styles.price}>{`£${details[currentIdx].price}`}</div>
-     
+          <div className={styles.price}>{`£${details[currentIdx].price * this.state.qty}`}</div>
             <div className={styles.label}>SIZE </div>
-
             <select value={this.state.selectedIdx} onChange={this.handleSelectSize} className={styles.selector}>
               {details &&
                 details.map((det, i) => (
@@ -104,14 +99,14 @@ export default class ProductDetailPicker extends Component {
         {details[0] && (
           <BuyButton
             id={id}
-            price={details[currentIdx].price}
+            price={details[currentIdx].price.toFixed(2)}
             name={title}
             description={shortDescription}
             image={mainImage.asset.url}
             sizePriceList={sizePriceList}
             qty={this.state.qty}
             selectedSize={details[currentIdx].size}
-            url={`http://guste.design/store/${slug.current}`}
+            url={`/store/${slug.current}`}
           >
             PURCHASE
           </BuyButton>
