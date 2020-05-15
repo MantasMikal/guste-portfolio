@@ -34,7 +34,7 @@
   align-items: flex-start;
   margin: 0.325rem 0;
 
-  @media (--media-min-medium) {
+  @media only screen and (min-width: 1000px) {
     grid-template-columns: 1fr 1.8fr;
   }
 }
@@ -47,7 +47,7 @@
 .description {
   border-top: 2px solid black;
   margin-top: 1.5em;
-  padding: 1em 0;
+  padding: 1em 0 0.5em;
 }
 
 .label{
@@ -141,11 +141,21 @@
 .deliveryDescription {
   border-top: 2px solid black;
   margin-top: 0.5em;
-  padding: 1em 0;
-  @nest & > * {
-    font-size: 0.8em;
-  }
+  padding: 1em 0 0.5em;
 
+}
+
+.deliveryDescription > .content > p, stong {
+  font-size: 0.8em !important;
+  line-height: 2em;
+  margin-bottom: 0;
+}
+
+.content {
+  @media (--media-min-medium) {
+    max-width: 50vw;
+  }
+  
 }
 
 .deliveryLabel {

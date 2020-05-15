@@ -61,7 +61,7 @@ export default class Product extends React.Component {
                       <div className={styles.label}>
                       Details
                     </div>
-                        <BlockContent blocks={_rawDescription} />
+                        <BlockContent className={styles.content} blocks={_rawDescription} />
                       </div>
                     )}
 
@@ -71,7 +71,7 @@ export default class Product extends React.Component {
                         <div className={styles.deliveryLabel}>
                         Delivery
                       </div>
-                          <BlockContent blocks={_rawDescription} />
+                          <BlockContent className={styles.content} blocks={_rawDescription} />
                         </div>
                       )
                     }

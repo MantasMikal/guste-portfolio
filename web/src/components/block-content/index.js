@@ -56,5 +56,5 @@ const serializers = {
   }
 }
 
-const BlockContent = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />
+const BlockContent = ({ blocks, className }) => <BaseBlockContent className={className} blocks={blocks} serializers={serializers} />
 export default BlockContent

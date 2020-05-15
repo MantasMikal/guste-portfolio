@@ -31,10 +31,14 @@
   @nest & > * {
     color: var(--color-black);
   }
+
+  @nest &:hover .titleWrapper {
+    background-color: var(--color-accent)
+  }
 }
 
 .itemWrapper:hover .title {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 @keyframes slideIn {

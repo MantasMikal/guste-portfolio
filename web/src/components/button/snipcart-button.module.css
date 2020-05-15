@@ -3,7 +3,7 @@
 
 .button {
   font-family: inherit;
-  background-color: var(--color-white);
+  background-color: var(--color-accent);
   color: var(--color-black);
   border: 2px solid black;
   padding: 0.425em 0.425rem;
@@ -12,6 +12,7 @@
   margin: 0 0;
   text-transform: uppercase;
   text-align: left;
+  font-weight: bold;
 }
 
 .border {
@@ -21,6 +22,7 @@
 @media (hover: hover) {
   .button:hover {
     cursor: pointer;
+    font-style: italic;
     background-color: var(--color-accent);
   }
 }
