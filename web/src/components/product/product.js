@@ -29,7 +29,7 @@ export default class Product extends React.Component {
       details
     } = this.props
     const allImages = images ? [mainImage, ...images] : [mainImage] // Concat main image with other product images
-    const shortDescription = _rawDescription[0].children[0].text // Nasty TODO
+    const shortDescription = _rawDescription && _rawDescription[0].children[0].text // Nasty TODO
     const productProps = { title, id, quantity, price, slug, shortDescription, mainImage, details }
   
     return (

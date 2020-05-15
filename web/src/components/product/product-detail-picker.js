@@ -24,13 +24,15 @@ export default class ProductDetailPicker extends Component {
   render() {
     const { id, title, shortDescription, slug, mainImage, details} = this.props.productProps
     const { currentIdx } = this.state
-
+    // console.log('Current: ', currentIdx)
     // Calculate prices for different sizes
     const sizePriceList = details.map(detail => {
       const basePrice = details[0].price
       const price = detail.price - basePrice
       return `${detail.size}[${price > 0 ? '+' : ''}${price}]`
     }).join('|')
+
+    // console.log('Sizepricem, ',sizePriceList, details)
 
     return (
       <div className={styles.wrapper}>
@@ -71,7 +73,7 @@ export default class ProductDetailPicker extends Component {
             description={shortDescription}
             image={mainImage.asset.url}
             sizePriceList={sizePriceList}
-            currentOption={currentIdx}
+            selectedSize={details[currentIdx].size}
             url={`http://guste.design/store/${slug.current}`}
           >
             GRAB NOW
