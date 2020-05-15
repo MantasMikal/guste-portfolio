@@ -44,6 +44,19 @@
   max-width: 70%;
 }
 
+.description {
+  border-top: 2px solid black;
+  margin-top: 1.5em;
+  padding: 1em 0;
+}
+
+.label{
+  font-weight: bold;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
 .mainContent {
   /* border: 2px solid black; */
   /* padding: 0.325em; */
@@ -123,4 +136,21 @@
   height: 1px;
   width: 70%;
   border: 1px solid black;
+}
+
+.deliveryDescription {
+  border-top: 2px solid black;
+  margin-top: 0.5em;
+  padding: 1em 0;
+  @nest & > * {
+    font-size: 0.8em;
+  }
+
+}
+
+.deliveryLabel {
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
 }

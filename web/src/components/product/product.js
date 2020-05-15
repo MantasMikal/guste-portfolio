@@ -3,7 +3,7 @@ import React from 'react'
 import Container from '../container'
 import BuyButton from '../button/snipcart-button'
 import ProductShowcase from './product-showcase'
-import BlockText from '../block-text'
+import BlockContent from '../block-content'
 import { paragraphLimited } from '../typography.module.css'
 import { cn } from '../../lib/helpers'
 import { uppercase, responsiveTitle2, border } from '../typography.module.css'
@@ -22,6 +22,7 @@ export default class Product extends React.Component {
       id,
       price,
       _rawDescription,
+      _rawDelivery,
       discount,
       mainImage,
       publishedAt,
@@ -37,7 +38,7 @@ export default class Product extends React.Component {
               <Container>
                 <div className={border} style={{ display: 'flex' }}>
                   <h1 className={cn(styles.title, uppercase)} style={{ padding: '0.125em 0 0 0' }}>
-                    {title}
+                    STORE
                   </h1>
                   <Cart />
                 </div>
@@ -50,15 +51,30 @@ export default class Product extends React.Component {
                     />
                   </div>
                   <aside className={styles.metaContent}>
-                    {_rawDescription && (
-                      <div className={paragraphLimited}>
-                        <BlockText blocks={_rawDescription} />
-                      </div>
-                    )}
                     <ProductDetailPicker
                       details={details}
                       productProps={productProps}
                     />
+
+                    {_rawDescription && (
+                      <div className={styles.description}>
+                      <div className={styles.label}>
+                      Details
+                    </div>
+                        <BlockContent blocks={_rawDescription} />
+                      </div>
+                    )}
+
+                    {
+                      _rawDelivery && (
+                        <div className={styles.deliveryDescription}>
+                        <div className={styles.deliveryLabel}>
+                        Delivery
+                      </div>
+                          <BlockContent blocks={_rawDescription} />
+                        </div>
+                      )
+                    }
                   </aside>
                 </div>
               </Container>

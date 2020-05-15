@@ -56,6 +56,11 @@ export default {
     {
       name: 'description',
       title: 'Description',
+      type: 'blockContent'
+    },
+    {
+      name: 'delivery',
+      title: 'Delivery',
       type: 'blockText'
     }
   ],
