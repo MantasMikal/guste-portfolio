@@ -9,6 +9,7 @@
 .gridWrapper {
   position: relative;
   cursor: pointer;
+  max-width: 250px;
   @nest &:hover {
     transform: scale(1.05);
   }
