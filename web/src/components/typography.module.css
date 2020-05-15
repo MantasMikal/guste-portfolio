@@ -206,12 +206,12 @@
   letter-spacing: 1.1px;
 
   @media (--media-min-small) {
-    font-size: calc(var(--font-base-size) - 4px);
+    font-size: calc(var(--font-base-size));
     line-height: var(--font-base-line-height);
   }
 
   @media (--media-min-small) {
-    font-size: calc(var(--font-base-size) - 4px);
+    font-size: calc(var(--font-base-size));
     line-height: var(--font-base-line-height);
   }
 

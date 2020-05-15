@@ -27,6 +27,7 @@
 
 .branding {
   font-size: inherit;
+  font-weight: 600;
   text-transform: uppercase;
   flex: 1;
   margin: auto;
@@ -68,7 +69,7 @@
 .nav {
   display: none;
   text-transform: uppercase;
-  font-weight: bolder;
+  font-weight: 600;
   letter-spacing: 1.1px;
   @nest & ul {
     list-style: none;

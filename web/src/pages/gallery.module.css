@@ -67,7 +67,7 @@
   @media (--media-min-medium) {
     position: relative;
     display: flex;
-    margin: 0.14em 0.225em;
+    margin: 0.15em 0.225em;
     padding: 0.085em 0.125em;
     outline: none;
   }

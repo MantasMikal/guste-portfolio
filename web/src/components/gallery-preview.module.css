@@ -38,6 +38,7 @@
   }
 }
 .titleWrapper {
+  text-transform: uppercase;
   padding: 0 0.325rem;
   display: flex;
   justify-content: space-between;

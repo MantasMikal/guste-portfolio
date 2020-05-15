@@ -71,7 +71,7 @@ export default class Product extends React.Component {
                         <div className={styles.deliveryLabel}>
                         Delivery
                       </div>
-                          <BlockContent className={styles.content} blocks={_rawDescription} />
+                          <BlockContent className={styles.content} blocks={_rawDelivery} />
                         </div>
                       )
                     }
