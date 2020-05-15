@@ -23,6 +23,9 @@ body {
 }
 
 
+strong {
+  font-weight: 600;
+}
 
 a:hover, a:visited, a:link, a:active
 {
