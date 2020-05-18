@@ -23,6 +23,19 @@ body {
   margin: 0;
 }
 
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  /* background-color:  */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: white;
+  border: 2px solid black;
+}
+
 
 strong {
   font-weight: 600;
