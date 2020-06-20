@@ -27,3 +27,10 @@ export function buildImageObj (source) {
 
   return imageObj
 }
+
+export function getCurrencySymbol (code) {
+  const currencyMap = {
+    GBP: '£'
+  }
+  return currencyMap[code]
+}

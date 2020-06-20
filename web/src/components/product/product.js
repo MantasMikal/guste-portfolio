@@ -1,84 +1,42 @@
-import { format, distanceInWords, differenceInDays } from 'date-fns'
 import React from 'react'
 import Container from '../container'
-import BuyButton from '../button/snipcart-button'
+import Prose from '../prose'
 import ProductShowcase from './product-showcase'
-import BlockContent from '../block-content'
-import { paragraphLimited } from '../typography.module.css'
+import { uppercase, border } from '../typography.module.css'
 import { cn } from '../../lib/helpers'
-import { uppercase, responsiveTitle2, border } from '../typography.module.css'
-import CurrencySelector from '../currency-selector/currency-selector'
 import Cart from '../snipcart/cart'
-// import Snipcart from 'gatsby-plugin-snipcart'
 import styles from './product.module.css'
 import ProductDetailPicker from './product-detail-picker'
 
-export default class Product extends React.Component {
-  render() {
-    const {
-      title,
-      quantity,
-      images,
-      id,
-      price,
-      _rawDescription,
-      _rawDelivery,
-      discount,
-      mainImage,
-      publishedAt,
-      slug,
-      details
-    } = this.props
-    const allImages = images ? [mainImage, ...images] : [mainImage] // Concat main image with other product images
-    const shortDescription = _rawDescription && _rawDescription[0].children[0].text // Nasty TODO
-    const productProps = { title, id, quantity, price, slug, shortDescription, mainImage, details }
-  
-    return (
-            <article className={styles.root}>
-              <Container>
-                <div className={border} style={{ display: 'flex' }}>
-                  <h1 className={cn(styles.title, uppercase)} style={{ padding: '0.125em 0 0 0' }}>
-                    STORE
-                  </h1>
-                  <Cart />
-                </div>
-                <div className={styles.grid}>
-                  <div className={styles.mainContent}>
-                    <ProductShowcase
-                      image={mainImage.asset.fluid}
-                      alt={mainImage.asset.alt}
-                      images={allImages}
-                    />
-                  </div>
-                  <aside className={styles.metaContent}>
-                    <ProductDetailPicker
-                      details={details}
-                      productProps={productProps}
-                    />
-
-                    {_rawDescription && (
-                      <div className={styles.description}>
-                      <div className={styles.label}>
-                      Details
-                    </div>
-                        <BlockContent className={styles.content} blocks={_rawDescription} />
-                      </div>
-                    )}
-
-                    {
-                      _rawDelivery && (
-                        <div className={styles.deliveryDescription}>
-                        <div className={styles.deliveryLabel}>
-                        Delivery
-                      </div>
-                          <BlockContent className={styles.content} blocks={_rawDelivery} />
-                        </div>
-                      )
-                    }
-                  </aside>
-                </div>
-              </Container>
-            </article>
-    )
-  }
+const Product = ({ product }) => {
+  const { title, images, descriptionHtml } = product
+  return (
+    <article className={styles.root}>
+      <Container>
+        <div className={cn(border, styles.productWrapper)}>
+          <h1 className={cn(styles.title, uppercase)}>{title}</h1>
+          <Cart />
+        </div>
+        <div className={styles.grid}>
+          <div className={styles.mainContent}>
+            <ProductShowcase
+              image={images[0].localFile.childImageSharp.fluid}
+              alt={title}
+              images={images}
+            />
+          </div>
+          <aside className={styles.metaContent}>
+            <ProductDetailPicker product={product} />
+            {descriptionHtml && (
+              <div className={styles.description}>
+                <Prose html={descriptionHtml} />
+              </div>
+            )}
+          </aside>
+        </div>
+      </Container>
+    </article>
+  )
 }
+
+export default Product

@@ -1,0 +1,120 @@
+@import '../../../styles/media-queries.css';
+@import '../../../styles/vars.css';
+
+.LineItem {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 0 2rem 0;
+  margin: 1rem auto;
+  max-width: 900px;
+  border: 2px solid var(--color-black) */
+  margin: 0 auto 2rem;
+}
+
+.productImage {
+  width: 100%;
+}
+
+.productTitle {
+  composes: responsiveTitle3 from '../../typography.module.css';
+  text-transform: uppercase;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.225em;
+  border: 2px solid var(--color-black);
+  background-color: var(--color-accent);
+  margin: 0;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  vertical-align: middle;
+  @nest & svg {
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+
+    @nest &:hover {
+      transform: scale(1.2)
+    }
+  }
+}
+
+.product {
+  border: 2px solid var(--color-black);
+  border-top: 0;
+  display: flex;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid var(--color-black);
+  flex: 1 1 90px;
+
+  @media (--media-min-small) {
+    flex: 1 1 20%;
+  }
+}
+
+.details {
+  border-right: 2px solid var(--color-black);
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.quantity {
+  composes: responsiveTitle3 from '../../typography.module.css';
+  flex: 1 1 50%;
+  font-size: 1rem;
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  font-weight: 500;
+  border-bottom: 2px solid var(--color-black);
+  padding: 0 0.5rem;
+  @media (--media-min-medium) {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 50%;
+  height: 100%;
+  composes: responsiveTitle3 from '../../typography.module.css';
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0 0.5rem;
+  @media (--media-min-medium) {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+.price {
+  flex: 1 1 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  composes: responsiveTitle3 from '../../typography.module.css';
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  @media (--media-min-medium) {
+    font-size: 1.2rem;
+  }
+}

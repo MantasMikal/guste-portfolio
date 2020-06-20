@@ -1,56 +1,49 @@
-import { Link } from 'gatsby'
-import React from 'react'
+import React, { useState } from 'react'
 import ProductPreview from './product-preview'
 import LazyLoader from '../lazy-loader/lazyLoader'
 import MasonryLayout from '../masonry/masonry-layout'
 
+import { border } from '../typography.module.css'
 import styles from './product-preview-grid.module.css'
 
-export default class ProductPreviewGrid extends React.Component {
-  constructor(props) {
-    super(props)
+const ProductPreviewGrid = ({ nodes, title }) => {
+  console.log('ProductPreviewGrid -> nodes', nodes) 
+  const [layoutState, setLayoutState] = useState({
+    loaded: 10,
+    amountToLoad: 10,
+    hasMore: true
+  })
+  const loadMore = () => {
+    const productsLeft = nodes.length - layoutState.loaded // Posts left
+    const totalAmount = layoutState.loaded + layoutState.amountToLoad // Total amount of posts to load
 
-      this.state = {
-         loaded: 10,
-         amountToLoad: 10,
-         hasMore: true,
-      }
+    if (productsLeft > 0) {
+      setLayoutState({
+        loaded: totalAmount,
+        hasMore: true
+      })
+    } else {
+      setLayoutState({
+        hasMore: false
+      })
     }
-
-    loadMore = () => {
-      const productsLeft = this.props.nodes.length - this.state.loaded // Posts left
-      const totalAmount = this.state.loaded + this.state.amountToLoad // Total amount of posts to load
-
-      if(productsLeft > 0){
-          this.setState({
-              loaded: totalAmount,
-              hasMore: true
-          })
-      }else {
-          this.setState({
-              hasMore: false
-          })
-      }
   }
 
-  render () {
-    //console.log("Product layout render")
-    const products = []
-    let nodes = this.props.nodes
+  const products = []
 
-    for(let i = 0; i < this.state.loaded; i++){
-      nodes[i] && products.push(<ProductPreview {...nodes[i]} key={nodes[i].id} />)
-    }
-    return (
-          <div className={styles.root}>
-          <LazyLoader loadMore={this.loadMore} hasMore={this.state.hasMore}>
-            <MasonryLayout gap={10} colCount={3}>
-            {products}
-            </MasonryLayout>
-          </LazyLoader>
-        </div>
-    )
+  for (let i = 0; i < layoutState.loaded; i++) {
+    nodes[i] && products.push(<ProductPreview {...nodes[i]} key={`Shop-node-${i}}`} />)
   }
+
+  return (
+    <div className={styles.root}>
+      <LazyLoader loadMore={loadMore} hasMore={layoutState.hasMore}>
+        <MasonryLayout gap={10} colCount={3}>
+          {products}
+        </MasonryLayout>
+      </LazyLoader>
+    </div>
+  )
 }
 
 ProductPreviewGrid.defaultProps = {
@@ -59,3 +52,4 @@ ProductPreviewGrid.defaultProps = {
   browseMoreHref: ''
 }
 
+export default ProductPreviewGrid

@@ -3,7 +3,8 @@
 .wrapper {
   display: flex;
   position: relative;
-  margin: 0.225em 0.325em 0.225em 0 ;
+  margin: 0.225em 0.325em 0.225em 0;
+  padding: 0 0 0 0.325em;
   color: var(--color-black);
 }
 
@@ -12,6 +13,11 @@
     background-color: var(--color-accent);
     outline: 2px solid black;
   }
+}
+
+.quantity {
+  padding: 0 0.35em;
+  margin: auto;
 }
 
 .itemCount {

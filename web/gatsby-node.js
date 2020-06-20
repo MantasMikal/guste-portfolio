@@ -1,7 +1,7 @@
 const { parseISO } = require('date-fns')
-const { GraphQLString } =  require("gatsby/graphql")
+const { GraphQLString } = require('gatsby/graphql')
 const fetch = require('node-fetch')
-const crypto = require('crypto');
+const crypto = require('crypto')
 
 // // Fetch rates
 // const fetchRate = async (API) => {
@@ -15,8 +15,6 @@ const crypto = require('crypto');
 // //     node.details && node.details.map((detail) => {
 // //     const prices = getPrices(detail.price, rates.rates)
 // // })
-
-
 
 // // Converts price to all available currencies(rates)
 // // E.g.
@@ -57,7 +55,6 @@ const crypto = require('crypto');
 //   // by default return empty object
 //   return {}
 // }
-
 
 // exports.onCreateNode = ({ node, actions }) => {
 //   const { createNodeField } = actions
@@ -102,12 +99,6 @@ const crypto = require('crypto');
 //     c
 //   }
 // }
-
-
-
-
-
-
 
 async function createBlogPostPages (graphql, actions, reporter) {
   const { createPage } = actions
@@ -228,19 +219,35 @@ async function createProductPages (graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions
   const result = await graphql(`
     {
-      products: allSanityProduct(filter: { slug: { current: { ne: null } } }) {
+      products:   allShopifyProduct {
         edges {
           node {
-            id
-            slug {
-              current
+            variants {
+              availableForSale
+              compareAtPrice
+              id
+              price
+              priceV2 {
+                amount
+                currencyCode
+              }
+              requiresShipping
+              selectedOptions {
+                name
+                value
+              }
+              shopifyId
+              sku
+              title
+              weightUnit
+              weight
             }
+            id
+            description
+            descriptionHtml
+            handle
+            productType
           }
-        }
-      }
-      rates: allExchangeRates {
-        nodes {
-          GBP
         }
       }
     }
@@ -249,22 +256,18 @@ async function createProductPages (graphql, actions, reporter) {
   if (result.errors) throw result.errors
 
   const productEdges = (result.data.products || {}).edges || []
-  const rates = {'EUR': 1, ...result.data.rates.nodes[0]}
 
   productEdges.forEach(edge => {
     const id = edge.node.id
-    const slug = edge.node.slug.current
-    const path = `/store/${slug}/`
-
+    const handle = edge.node.handle
+    const path = `/store/${handle}/`
     reporter.info(`Creating project page: ${path}`)
 
     createPage({
       path,
       component: require.resolve('./src/templates/productTemplate.js'),
-      context: { id, rates }
+      context: { id, handle }
     })
-
-    createPageDependency({ path, nodeId: id })
   })
 }
 

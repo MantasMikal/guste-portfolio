@@ -1,0 +1,115 @@
+.Prose [style*=box-sizing] {
+  box-sizing: inherit !important;
+}
+.Prose [style*=color] {
+  color: inherit !important;
+}
+.Prose [style*=font-family] {
+  font-family: inherit !important;
+}
+.Prose [style*=font-size] {
+  font-size: inherit !important;
+}
+.Prose [style*=font-style] {
+  font-style: inherit !important;
+}
+.Prose [style*=font-weight] {
+  font-weight: inherit !important;
+}
+.Prose [style*=line-height] {
+  line-height: inherit !important;
+}
+.Prose [style*=margin] {
+  margin: inherit !important;
+}
+.Prose [style*=padding] {
+  padding: inherit !important;
+}
+.Prose [style*=text-decoration] {
+  text-decoration: inherit !important;
+}
+.Prose [style*=white-space] {
+  white-space: inherit !important;
+}
+.Prose > * + * {
+  margin-top: spacing(2);
+}
+.Prose h1,
+.Prose h2,
+.Prose h3,
+.Prose h4,
+.Prose h5,
+.Prose h6 {
+  font-family: unset;
+  font-weight: 400;
+}
+.Prose > h2,
+.Prose > h3,
+.Prose > h4,
+.Prose > h5,
+.Prose > h6 {
+  margin-top: spacing(4);
+}
+.Prose h1 {
+  font-size: spacing(4);
+  line-height: spacing(6);
+}
+.Prose h2 {
+  font-size: spacing(3);
+  line-height: spacing(4);
+}
+.Prose h3 {
+  font-size: spacing(2.5);
+  line-height: spacing(4);
+}
+.Prose h4,
+.Prose h5,
+.Prose h6 {
+  font-size: spacing(2);
+  line-height: spacing(3);
+}
+.Prose em {
+  font-style: italic;
+}
+.Prose li {
+  list-style-position: outside;
+  margin-left: spacing(4);
+}
+.Prose ul li {
+  list-style-type: disc;
+}
+.Prose ul li li {
+  list-style-type: circle;
+}
+.Prose ol li {
+  list-style-type: decimal;
+}
+.Prose ol li li {
+  list-style-type: lower-roman;
+}
+.Prose a {
+  color: unset;
+  text-decoration: underline;
+  transition: unset;
+}
+.Prose a:hover, .Prose a:focus, .Prose a:active {
+  color: unset;
+  transition-duration: unset;
+}
+.Prose hr {
+  height: 0;
+  opacity: 0.5;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  margin-bottom: -1px;
+}
+.Prose > *:first-child {
+  margin-top: 0;
+}
+
+.inverse a {
+  color: unset;
+}
+.inverse a:hover, .inverse a:focus, .inverse a:active {
+  color: unset;
+}

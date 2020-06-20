@@ -1,0 +1,44 @@
+@import '../../styles/media-queries.css';
+@import '../../styles/vars.css';
+
+.root {
+  /* max-width: 1366px;
+  margin: 0 auto; */
+}
+
+.title {
+  composes: responsiveTitle3 from '../typography.module.css';
+  flex: 1;
+  padding-right: 1em;
+  margin: auto 0;
+}
+
+.titleWrapper {
+  margin-bottom: 2rem;
+}
+
+.checkoutWrapper {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+.checkout {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.price {
+  composes: responsiveTitle3 from '../typography.module.css';
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  @nest & p { 
+    margin: 0.5rem 0;
+  }
+}
+
+.checkoutButton {
+  display: block;
+  margin: 1rem 0 0 auto;
+}

@@ -1,14 +1,5 @@
 @import '../../styles/vars.css';
 
-.wrapper {
-  /* display: grid;
-  grid-template-rows: 1fr 1fr; */
-  /* max-width: 20vw; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: start; */
-}
-
 .title {
   text-transform: uppercase;
   font-size: 2em;
@@ -41,13 +32,10 @@
   font-size: 2em;
   font-weight: 500;
   margin-bottom: 0.5em;
-  /* border: 2px solid black; */
 }
 
 .sizeGrid {
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
-  /* margin: 0.325em; */
   border: 2px solid black;
 }
 
@@ -72,6 +60,11 @@
 
 }
 
+.addToCartButton {
+  margin-top: 1rem;
+}
+
+
 .selector {
 	display: block;
 	font-size: 16px;
@@ -95,10 +88,8 @@
 	display: none;
 }
 .selector:hover {
-	/* background-color: var(--color-accent); */
 }
 .selector:focus {
-	/* background-color: var(--color-accent); */
 	outline: none;
 }
 .selector option {

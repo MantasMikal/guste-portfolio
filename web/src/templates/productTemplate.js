@@ -6,52 +6,6 @@ import Product from '../components/product/product'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
-export const query = graphql`
-  query ProductTemplateQuery($id: String!) {
-    product: sanityProduct(id: { eq: $id }) {
-      id
-      publishedAt
-      title
-      discount
-      details {
-        instock
-        size
-        price
-      }
-      slug {
-        current
-      }
-      categories {
-        _id
-        title
-      }
-
-      mainImage {
-        asset {
-          url
-          id
-          fluid(maxHeight: 1000, maxWidth: 1000) {
-            ...GatsbySanityImageFluid
-          }
-        }
-        alt
-      }
-
-      images {
-        asset {
-          url
-          id
-          fluid(maxHeight: 1000, maxWidth: 1000) {
-            ...GatsbySanityImageFluid
-          }
-        }
-      }
-      _rawDescription
-      _rawDelivery
-    }
-  }
-`
-
 const ProductTemplate = props => {
   const { data, errors } = props
   const product = data && data.product
@@ -66,9 +20,64 @@ const ProductTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {product && <Product {...product} />}
+      {product && <Product product={product} />}
     </Layout>
   )
 }
+
+export const query = graphql`
+  query($handle: String!) {
+    product: shopifyProduct(handle: { eq: $handle }) {
+      id
+      title
+      handle
+      productType
+      description
+      descriptionHtml
+      shopifyId
+      options {
+        id
+        name
+        values
+      }
+      variants {
+        id
+        title
+        price
+        priceV2 {
+            amount
+            currencyCode
+          }
+        availableForSale
+        shopifyId
+        selectedOptions {
+          name
+          value
+        }
+      }
+      priceRange {
+        minVariantPrice {
+          amount
+          currencyCode
+        }
+        maxVariantPrice {
+          amount
+          currencyCode
+        }
+      }
+      images {
+        originalSrc
+        id
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 910) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default ProductTemplate

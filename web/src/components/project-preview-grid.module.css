@@ -3,7 +3,7 @@
 @import './typography.module.css';
 
 .root {
-  margin: 0.025rem 0 0.625rem;
+  margin: 0 0 0.625rem;
 }
 
 .headline {

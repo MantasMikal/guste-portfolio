@@ -5,21 +5,20 @@ import Image from '../image/image'
 import styles from './product-preview.module.css'
 import { responsiveTitle4 } from '../typography.module.css'
 
-
-function ProductPreview(props) {
-  console.log("Product preview: ", props)
-  const { details } = props
+function ProductPreview (props) {
+  const { images, variants, title, handle } = props
+  const { price } = variants[0]
   return (
     <div className={styles.itemWrapper}>
-      <Link to={`/store/${props.slug.current}`}>
+      <Link to={`/store/${handle}`}>
         <div className={styles.inner}>
-          {props.mainImage && props.mainImage.asset && (
-            <Image fluid={props.mainImage.asset.fluid} />
+          {images.length > 0 && images[0].localFile.childImageSharp && (
+            <Image fluid={images[0].localFile.childImageSharp.fluid} />
           )}
         </div>
         <div className={styles.titleWrapper}>
-          <h1 className={cn(responsiveTitle4, styles.title)}>{props.title}</h1>
-          <div className={styles.price}>{`${details[0].price}£`}</div>
+          <h1 className={cn(responsiveTitle4, styles.title)}>{title}</h1>
+          <div className={styles.price}>{`${price ? price + '£' : 'NOT FOR SALE'}`}</div>
         </div>
       </Link>
     </div>

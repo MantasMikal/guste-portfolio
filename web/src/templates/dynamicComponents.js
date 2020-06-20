@@ -7,14 +7,13 @@ import Img from '../components/image/zoomableImage'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 const cfg = { projectId: 'ee0lu4ue', dataset: 'production' }
 
+export function makeLine (component) {
+  const { lineStyle, margin } = component
 
-export function makeLine(component) {
-  const {lineStyle, margin} = component
-
-  switch(component._type) {
-      case 'line':
-        return <div style={{borderBottom: lineStyle, margin: margin, minHeight: '1px'}} />
-    }
+  switch (component._type) {
+  case 'line':
+    return <div style={{ borderBottom: lineStyle, margin: margin, minHeight: '1px' }} />
+  }
 }
 
 export function makeMediaComponent (component) {

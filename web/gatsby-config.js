@@ -1,15 +1,19 @@
-require('dotenv').config()
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
 const {
   api: { projectId, dataset }
 } = requireConfig('../studio/sanity.json')
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://guste.design`
+    siteUrl: 'https://guste.design'
   },
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
     // {
     //   resolve: `gatsby-plugin-prefetch-google-fonts`,
     //   options: {
@@ -29,58 +33,49 @@ module.exports = {
         // and add a token with read permissions
         token: process.env.SANITY_TOKEN,
         watchMode: true,
-        overlayDrafts:false
+        overlayDrafts: false
       }
     },
     {
-      resolve: 'gatsby-plugin-snipcart',
-      options: {
-        apiKey: process.env.SNIPCART_TOKEN,
-        autopop: true,
-        jquery: 'https://code.jquery.com/jquery-3.4.1.min.js'
-      }
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-127375966-2'
       }
     },
     {
-      resolve: `gatsby-source-exchange-rates-api`,
+      resolve: 'gatsby-source-exchange-rates-api',
       options: {
         query: {
           base: 'EUR'
         }
       }
     },
-    // {
-    //   resolve: `gatsby-source-shopify`,
-    //   options: {
-    //     // The domain name of your Shopify shop. This is required.
-    //     // Example: 'gatsby-source-shopify-test-shop' if your Shopify address is
-    //     // 'gatsby-source-shopify-test-shop.myshopify.com'.
-    //     shopName: process.env.SHOP_NAME,
+    {
+      resolve: 'gatsby-source-shopify',
+      options: {
+        // The domain name of your Shopify shop. This is required.
+        // Example: 'gatsby-source-shopify-test-shop' if your Shopify address is
+        // 'gatsby-source-shopify-test-shop.myshopify.com'.
+        shopName: process.env.SHOP_NAME,
 
-    //     // An API access token to your Shopify shop. This is required.
-    //     // You can generate an access token in the "Manage private apps" section
-    //     // of your shop's Apps settings. In the Storefront API section, be sure
-    //     // to select "Allow this app to access your storefront data using the
-    //     // Storefront API".
-    //     // See: https://help.shopify.com/api/custom-storefronts/storefront-api/getting-started#authentication
-    //     accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+        // An API access token to your Shopify shop. This is required.
+        // You can generate an access token in the "Manage private apps" section
+        // of your shop's Apps settings. In the Storefront API section, be sure
+        // to select "Allow this app to access your storefront data using the
+        // Storefront API".
+        // See: https://help.shopify.com/api/custom-storefronts/storefront-api/getting-started#authentication
+        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
 
-    //     // Set verbose to true to display a verbose output on `npm run develop`
-    //     // or `npm run build`. This prints which nodes are being fetched and how
-    //     // much time was required to fetch and process the data.
-    //     // Defaults to true.
-    //     verbose: true,
-    //   },
-    // },
-    `gatsby-plugin-netlify`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-offline`
+        // Set verbose to true to display a verbose output on `npm run develop`
+        // or `npm run build`. This prints which nodes are being fetched and how
+        // much time was required to fetch and process the data.
+        // Defaults to true.
+        verbose: true
+      }
+    },
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline'
   ]
 }
 
@@ -91,7 +86,7 @@ module.exports = {
  * with directions to enter the info manually or in the environment.
  */
 
-function requireConfig(path) {
+function requireConfig (path) {
   try {
     return require('../studio/sanity.json')
   } catch (e) {

@@ -8,14 +8,17 @@
   border: none;
   padding: 0.325em .425rem 0.355em;
   text-decoration: none;
-  margin: 0 0em;
   text-transform: uppercase;
   text-align: left;
 
   @media (--media-min-medium){
-    margin: 0em 0.225em;
-    padding: 0.325em .425rem 0.355em;
+    padding: 1px .425rem 1px;
   }
+}
+
+.large.button {
+  font-size: 1rem;
+  padding: 0.625em .825rem 0.625em;
 }
 
 .border {

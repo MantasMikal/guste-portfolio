@@ -129,6 +129,7 @@ export default class Gallery extends React.Component {
                       cattitle={category.title}
                       key={category.id}
                       onClick={this.handleClick}
+                      className={styles.categoryButton}
                     >
                       {category.title}
                     </CategoryButton>

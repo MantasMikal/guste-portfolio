@@ -3,6 +3,7 @@ import Header from './header'
 import Head from './head/head'
 import '../styles/layout.css'
 import styles from './layout.module.css'
+import StoreContextProvider from '../provider/StoreContextProvider'
 
 const Layout = ({
   children,
@@ -23,8 +24,9 @@ const Layout = ({
       showNav={showNav}
       contactInfo={contactInfo}
     />
-
-    <div className={styles.content}>{children}</div>
+    <StoreContextProvider>
+      <div className={styles.content}>{children}</div>
+    </StoreContextProvider>
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         {/* <div className={styles.personalInfo}>

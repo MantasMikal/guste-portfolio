@@ -1,121 +1,192 @@
-import React, { Component } from "react";
-import styles from "./product-detail-picker.module.css";
-import BuyButton from "../button/snipcart-button";
-import cn from "../../lib/helpers";
-import PropTypes from "prop-types";
+import React, { useState, useContext, useCallback, useEffect } from 'react'
+import Button from '../button/button'
+import find from 'lodash/find'
+import isEqual from 'lodash/isEqual'
+import cn from '../../lib/helpers'
+import PropTypes from 'prop-types'
+import StoreContext from '../../context/store-context'
 
-export default class ProductDetailPicker extends Component {
-  constructor(props) {
-    super(props);
+import styles from './product-detail-picker.module.css'
 
-    this.state = {
-      currentIdx: 0,
-      qty: 1
-    };
-  }
+const ProductDetailPicker = ({ product }) => {
+  const {
+    options,
+    variants,
+    variants: [initialVariant],
+    priceRange: { minVariantPrice }
+  } = product
+  const [variant, setVariant] = useState({ ...initialVariant })
+  const [quantity, setQuantity] = useState(1)
+  const {
+    addVariantToCart,
+    store: { client, adding }
+  } = useContext(StoreContext)
 
-  handleSelectSize = (e) => {
-    this.setState({currentIdx: e.target.value});
-  };
+  const productVariant = client.product.helpers.variantForOptions(product, variant) || variant
+  const [available, setAvailable] = useState(productVariant.availableForSale)
 
-  handleSelectQty = (e) => {
-
-    this.setState({
-      qty: e.target.value
-    });
-  };
-
-  render() {
-    const {
-      id,
-      title,
-      shortDescription,
-      slug,
-      mainImage,
-      details,
-    } = this.props.productProps;
-    const { currentIdx } = this.state;
-    // console.log('Current: ', currentIdx)
-    // Calculate prices for different sizes
-    const sizePriceList = details
-      .map((detail) => {
-        const basePrice = details[0].price;
-        const price = detail.price - basePrice;
-        return `${detail.size}[${price > 0 ? "+" : ""}${price.toFixed(2)}]`;
+  const checkAvailability = useCallback(
+    productId => {
+      client.product.fetch(productId).then(fetchedProduct => {
+        // this checks the currently selected variant for availability
+        const result = fetchedProduct.variants.filter(
+          variant => variant.id === productVariant.shopifyId
+        )
+        if (result.length > 0) {
+          setAvailable(result[0].available)
+        }
       })
-      .join("|");
+    },
+    [client.product, productVariant.shopifyId, variants]
+  )
 
-    return (
-      <div className={styles.wrapper}>
-          <div className={styles.title}>{title}</div>
-          <div className={styles.price}>{`£${details[currentIdx].price * this.state.qty}`}</div>
-            <div className={styles.label}>SIZE </div>
-            <select value={this.state.selectedIdx} onChange={this.handleSelectSize} className={styles.selector}>
-              {details &&
-                details.map((det, i) => (
-                  <option value={i} key={det.name + i} className={styles.option}>
-                    {det.size}
-                  </option>
-                ))}
-            </select>
-            <div className={styles.label}>QUANTITY </div>
-            <select value={this.state.qty} onChange={this.handleSelectQty} className={styles.selector}>
-              {details &&
-                Array(details[currentIdx].instock + 1).fill().map((q, i) => (
-                  <option value={i + 1} key={q + i} className={styles.option}>
-                    {i + 1}
-                  </option>
-                ))}
-            </select>
+  useEffect(() => {
+    checkAvailability(product.shopifyId)
+  }, [productVariant, checkAvailability, product.shopifyId])
 
-          
-          {/* <div
-            className={styles.sizeGrid}
-            style={{ gridTemplateColumns: `repeat(${details.length}, 1fr)` }}
-          >
-            {details.map((detail, i) => {
-              const isActive = currentIdx == i ? true : false;
-              return (
-                <div
-                  idx={i}
-                  key={`${i}-${detail.size}`}
-                  className={
-                    isActive
-                      ? [styles.size, styles.isActive].join(" ")
-                      : styles.size
-                  }
-                  onClick={this.handleSelectSize}
-                >
-                  {detail.size}
-                </div>
-              );
-            })}
-          </div> */}
-        
-        {/* <div className={styles.inStockWrapper}>
-          <div>Available: </div>
-          <div className={styles.inStock}>{details[currentIdx].instock}</div>
-        </div> */}
-        {details[0] && (
-          <BuyButton
-            id={id}
-            price={details[currentIdx].price.toFixed(2)}
-            name={title}
-            description={shortDescription}
-            image={mainImage.asset.url}
-            sizePriceList={sizePriceList}
-            qty={this.state.qty}
-            selectedSize={details[currentIdx].size}
-            url={`/store/${slug.current}`}
-          >
-            PURCHASE
-          </BuyButton>
-        )}
-      </div>
-    );
+  const handleQuantityChange = ({ target }) => {
+    console.log("handleQuantityChange -> target", target)
+    setQuantity(target.value)
   }
+
+  const handleOptionChange = (optionIndex, { target }) => {
+    const { value } = target
+    const currentOptions = [...variant.selectedOptions]
+
+    currentOptions[optionIndex] = {
+      ...currentOptions[optionIndex],
+      value
+    }
+
+    const selectedVariant = find(variants, ({ selectedOptions }) =>
+      isEqual(currentOptions, selectedOptions)
+    )
+
+    setVariant({ ...selectedVariant })
+  }
+
+  const handleAddToCart = () => {
+    addVariantToCart(productVariant.shopifyId, quantity)
+  }
+
+  /*
+Using this in conjunction with a select input for variants
+can cause a bug where the buy button is disabled, this
+happens when only one variant is available and it's not the
+first one in the dropdown list. I didn't feel like putting
+in time to fix this since its an edge case and most people
+wouldn't want to use dropdown styled selector anyways -
+at least if the have a sense for good design lol.
+*/
+  const checkDisabled = (name, value) => {
+    const match = find(variants, {
+      selectedOptions: [
+        {
+          name: name,
+          value: value
+        }
+      ]
+    })
+    if (match === undefined) return true
+    if (match.availableForSale === true) return false
+    return true
+  }
+
+  const price = Intl.NumberFormat(undefined, {
+    currency: minVariantPrice.currencyCode,
+    minimumFractionDigits: 2,
+    style: 'currency'
+  }).format(variant.price)
+
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.title}>{product.title}</div>
+      <div className={styles.price}>{price}</div>
+      <label className={styles.label}>SIZE</label>
+      {options.map(({ id, name, values }, index) => (
+        <React.Fragment key={id}>
+          <label hidden htmlFor={name}>
+            {name}{' '}
+          </label>
+          <select
+            name={name}
+            key={id}
+            onChange={event => handleOptionChange(index, event)}
+            className={styles.selector}
+          >
+            {values.map(value => (
+              <option
+                value={value}
+                key={`${name}-${value}`}
+                disabled={checkDisabled(name, value)}
+                className={styles.option}
+              >
+                {value}
+              </option>
+            ))}
+          </select>
+          <br />
+        </React.Fragment>
+      ))}
+      <label htmlFor='quantity' className={styles.label}>
+        QUANTITY
+      </label>
+      <select value={quantity} onChange={handleQuantityChange} className={styles.selector}>
+        {variants &&
+          Array(5)
+            .fill()
+            .map((q, i) => (
+              <option value={i + 1} key={'q' + i} className={styles.option}>
+                {i + 1}
+              </option>
+            ))}
+      </select>
+      <Button border buttonStyle='large' type='submit' disabled={!available || adding} className={styles.addToCartButton} onClick={handleAddToCart}>
+        Add to Cart
+      </Button>
+      {!available && <p>This Product is out of Stock!</p>}
+    </div>
+  )
 }
 
 ProductDetailPicker.propTypes = {
-  details: PropTypes.array.isRequired,
-};
+  product: PropTypes.shape({
+    descriptionHtml: PropTypes.string,
+    handle: PropTypes.string,
+    id: PropTypes.string,
+    shopifyId: PropTypes.string,
+    images: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        originalSrc: PropTypes.string
+      })
+    ),
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string,
+        values: PropTypes.arrayOf(PropTypes.string)
+      })
+    ),
+    productType: PropTypes.string,
+    title: PropTypes.string,
+    variants: PropTypes.arrayOf(
+      PropTypes.shape({
+        availableForSale: PropTypes.bool,
+        id: PropTypes.string,
+        price: PropTypes.string,
+        title: PropTypes.string,
+        shopifyId: PropTypes.string,
+        selectedOptions: PropTypes.arrayOf(
+          PropTypes.shape({
+            name: PropTypes.string,
+            value: PropTypes.string
+          })
+        )
+      })
+    )
+  }),
+  addVariantToCart: PropTypes.func
+}
+
+export default ProductDetailPicker
