@@ -2,7 +2,7 @@ import React, { useState, useContext, useCallback, useEffect } from 'react'
 import Button from '../button/button'
 import find from 'lodash/find'
 import isEqual from 'lodash/isEqual'
-import cn from '../../lib/helpers'
+import { cn } from '../../lib/helpers'
 import PropTypes from 'prop-types'
 import StoreContext from '../../context/store-context'
 
@@ -45,7 +45,6 @@ const ProductDetailPicker = ({ product }) => {
   }, [productVariant, checkAvailability, product.shopifyId])
 
   const handleQuantityChange = ({ target }) => {
-    console.log("handleQuantityChange -> target", target)
     setQuantity(target.value)
   }
 

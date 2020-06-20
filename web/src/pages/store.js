@@ -63,9 +63,7 @@ const StorePage = () => {
     `
   )
   const galleryNodes = products && mapEdgesToNodes(products)
-  console.log('galleryNodes', galleryNodes)
   const categories = collectCategories(galleryNodes)
-  console.log('categories', categories)
   const firstCategory = galleryNodes[0] && galleryNodes[0].productType
   const [filter, setFilter] = useState({
     activeFilter: firstCategory,
@@ -101,7 +99,6 @@ const StorePage = () => {
     }
   })()
 
-  console.log('filterdNodes -> filterdNodes', filterdNodes)
   return (
     <Layout>
       <SEO title='Store' />
@@ -119,7 +116,6 @@ const StorePage = () => {
               {categories.map(category => {
                 // Check if filter is active to change its color
                 const isActive = filter.activeFilter === category
-                console.log('Is Active? ', isActive)
                 return (
                   <CategoryButton
                     isActive={isActive}

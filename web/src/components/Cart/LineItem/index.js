@@ -7,7 +7,6 @@ import styles from './LineItem.module.css'
 
 const LineItem = props => {
   const { item } = props
-  console.log('item', item)
   const {
     removeLineItem,
     store: { client, checkout }

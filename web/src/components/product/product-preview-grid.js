@@ -3,11 +3,9 @@ import ProductPreview from './product-preview'
 import LazyLoader from '../lazy-loader/lazyLoader'
 import MasonryLayout from '../masonry/masonry-layout'
 
-import { border } from '../typography.module.css'
 import styles from './product-preview-grid.module.css'
 
 const ProductPreviewGrid = ({ nodes, title }) => {
-  console.log('ProductPreviewGrid -> nodes', nodes) 
   const [layoutState, setLayoutState] = useState({
     loaded: 10,
     amountToLoad: 10,
