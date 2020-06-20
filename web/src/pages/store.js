@@ -66,16 +66,16 @@ const StorePage = () => {
   const categories = collectCategories(galleryNodes)
   const firstCategory = galleryNodes[0] && galleryNodes[0].productType
   const [filter, setFilter] = useState({
-    activeFilter: firstCategory,
-    showFilter: true
+    activeFilter: ''
   })
+  const [showFilter, setShowFilter] = useState(true)
 
   const handleShowFilter = () => {
-    setFilter({ showFilter: true })
+    setShowFilter(true)
   }
 
   const handleHideFilter = () => {
-    setFilter({ showFilter: false })
+    setShowFilter(false)
   }
 
   const handleClick = e => {
@@ -108,11 +108,12 @@ const StorePage = () => {
             <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
           </div>
           <div className={styles.filterWrapper}>
-            <button onClick={filter.showFilter ? handleHideFilter : handleShowFilter} className={styles.iconWrapper}>
-              <FaFilter style={{ margin: 'auto 0' }} />
-              <FaArrowRight className={filter.showFilter ? styles.closeBtn : styles.hide} />
+            <button onClick={showFilter ? handleHideFilter : handleShowFilter} className={styles.iconWrapper}>
+              <label className={styles.filterLabel}>CATEGORIES</label>
+              <FaFilter size='0.9rem'  style={{ margin: 'auto 0' }} />
+              <FaArrowRight size='0.9rem'  className={showFilter ? styles.closeBtn : styles.hide} />
             </button>
-            <div className={filter.showFilter ? styles.categoryWrapper : styles.hide}>
+            <div className={showFilter ? styles.categoryWrapper : styles.hide}>
               {categories.map(category => {
                 // Check if filter is active to change its color
                 const isActive = filter.activeFilter === category

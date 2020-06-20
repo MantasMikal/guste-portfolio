@@ -52,7 +52,7 @@ export default class Gallery extends React.Component {
     super(props)
     const firstCategory = this.props.data.categories.edges[0].node.title
     this.state = {
-      activeFilter: firstCategory,
+      activeFilter: '',
       showFilter: true
     }
 
@@ -116,8 +116,9 @@ export default class Gallery extends React.Component {
             </div>
             <div className={styles.filterWrapper}>
               <button onClick={this.state.showFilter ? this.handleHideFilter : this.handleShowFilter}  className={styles.iconWrapper}>
-                <FaFilter style={{ margin: 'auto 0'}} />
-                <FaArrowRight className={this.state.showFilter ? styles.closeBtn : styles.hide} />
+                <label className={styles.filterLabel}>CATEGORIES</label>
+                <FaFilter size='0.9rem' style={{ margin: 'auto 0'}} />
+                <FaArrowRight size='0.9rem' className={this.state.showFilter ? styles.closeBtn : styles.hide} />
               </button>
               <div className={this.state.showFilter ? styles.categoryWrapper : styles.hide}>
                 {categories.map(category => {
