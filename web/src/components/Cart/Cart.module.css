@@ -6,6 +6,7 @@
   margin: 0 auto; */
 }
 
+
 .title {
   composes: responsiveTitle3 from '../typography.module.css';
   flex: 1;
@@ -15,6 +16,10 @@
 
 .titleWrapper {
   margin-bottom: 2rem;
+}
+
+.taxes {
+  border-bottom: 1px solid black;
 }
 
 .checkoutWrapper {

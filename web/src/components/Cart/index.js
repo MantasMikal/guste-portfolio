@@ -35,7 +35,7 @@ const Cart = () => {
                 {getCurrencySymbol(checkout.currencyCode)} {checkout.subtotalPrice}
               </p>
             </div>
-            <div className={styles.price}>
+            <div className={cn(styles.price, styles.taxes)}>
               <p>Taxes</p>
               <p>
                 {getCurrencySymbol(checkout.currencyCode)} {checkout.totalTax}
