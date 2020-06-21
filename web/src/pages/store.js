@@ -15,7 +15,7 @@ import styles from './store.module.css'
 function collectCategories (nodes) {
   const categories = []
   for (let i = 0; i < nodes.length; i++) {
-    if (categories.indexOf(nodes.productType) === -1) categories.push(nodes[i].productType)
+    if (categories.indexOf(nodes[i].productType) === -1) categories.push(nodes[i].productType)
   }
   return categories
 }
