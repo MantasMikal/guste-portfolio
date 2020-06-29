@@ -31,7 +31,7 @@ export function makeMediaComponent (component) {
 
     if (image.mimeType === 'image/gif') {
       return (
-        <img src={image.url} alt={imageAlt} style={{ width: '100%' }} key={component.asset.id} />
+        <img src={image.url} alt={imageAlt} style={{ width: '100%', border: hasBorder && '2px solid black' }} key={component.asset.id} />
       )
     } else {
       const fluidProps = image.fluid
