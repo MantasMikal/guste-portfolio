@@ -26,7 +26,7 @@
 .footerLogo {
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
-  font-weight: 600;
+  font-weight: 500;
   padding-bottom: 2rem;
   
 }

@@ -111,7 +111,6 @@ const IndexPage = props => {
             colCount={2}
           />
         )}
-        <div style={{ height: '2rem' }} />
         {/* {postNodes && (
           <BlogPostPreviewGrid
             title='Latest blog posts'

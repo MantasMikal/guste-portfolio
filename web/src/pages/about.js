@@ -46,8 +46,6 @@ const AboutPage = props => {
   }
 
   const page = data && data.page
-  console.log("page", page)
-
   if (!page) {
     throw new Error(
       'Missing "About" page data. Open the studio at http://localhost:3333 and add "About" page data and restart the development server.'
@@ -58,8 +56,8 @@ const AboutPage = props => {
     <Layout>
       <SEO title={page.title} />
       <Container>
-        <About heroImage={page.heroImage} pageImage={page.pageImage} title={page.title} _rawBody={page._rawBody || []} />
         <h1 className={cn(responsiveTitle3, border, uppercase)}>{page.title}</h1>
+        <About heroImage={page.heroImage} pageImage={page.pageImage} title={page.title} _rawBody={page._rawBody || []} />
       </Container>
     </Layout>
   )
