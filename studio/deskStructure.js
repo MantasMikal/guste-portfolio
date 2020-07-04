@@ -17,7 +17,8 @@ const hiddenTypes = [
   'illustrations',
   'project',
   'category',
-  'person'
+  'person',
+  'aboutPage'
 ]
 
 export default () =>
@@ -68,8 +69,8 @@ export default () =>
                 .child(
                   S.editor()
                     .id('aboutPage')
-                    .schemaType('page')
-                    .documentId('about')
+                    .schemaType('aboutPage')
+                    .documentId('aboutPage')
                 )
                 .icon(FaFileO),
               S.listItem()

@@ -5,6 +5,6 @@ import { cn } from '../../lib/helpers'
 import styles from './image.module.css'
 
 export default function Image (props) {
-  const { fluid, alt, hasBorder } = props
-  return fluid ? <GatsbyImage fluid={fluid} alt={alt} className={hasBorder ? cn(styles.border, styles.image) : styles.image} /> : <NoImage />
+  const { fluid, alt, hasBorder, className } = props
+  return fluid ? <GatsbyImage fluid={fluid} alt={alt} className={cn(styles.image, hasBorder && styles.border, className)} /> : <NoImage />
 }

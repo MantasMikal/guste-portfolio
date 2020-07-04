@@ -27,7 +27,7 @@
 
 .branding {
   font-size: inherit;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   flex: 1;
   margin: auto;
@@ -69,7 +69,7 @@
 .nav {
   display: none;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1.1px;
   @nest & ul {
     list-style: none;
@@ -90,7 +90,6 @@
 
   @media (hover: hover) {
     @nest & ul div:hover {
-      font-style: italic;
       background-color: var(--color-accent);
     }
   }

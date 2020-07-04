@@ -31,6 +31,7 @@ import productCategory from './productCategory'
 import product from './product'
 import productDetails from './productDetails'
 import line from './line'
+import aboutPage from './aboutPage'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -65,7 +66,8 @@ export default createSchema({
     product,
     productCategory,
     productDetails,
-    line
+    line,
+    aboutPage
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

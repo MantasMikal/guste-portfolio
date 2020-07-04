@@ -11,6 +11,7 @@ const ProductPreviewGrid = ({ nodes, title }) => {
     amountToLoad: 10,
     hasMore: true
   })
+
   const loadMore = () => {
     const productsLeft = nodes.length - layoutState.loaded // Posts left
     const totalAmount = layoutState.loaded + layoutState.amountToLoad // Total amount of posts to load
@@ -18,11 +19,14 @@ const ProductPreviewGrid = ({ nodes, title }) => {
     if (productsLeft > 0) {
       setLayoutState({
         loaded: totalAmount,
-        hasMore: true
+        hasMore: true,
+        amountToLoad: 10
       })
     } else {
       setLayoutState({
-        hasMore: false
+        hasMore: false,
+        amountToLoad: 10,
+        loaded: totalAmount
       })
     }
   }

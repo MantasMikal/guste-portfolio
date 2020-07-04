@@ -1,21 +1,35 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import BlockContent from '../components/block-content'
+
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import PeopleGrid from '../components/people-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import About from '../components/about'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs, cn } from '../lib/helpers'
 import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 
 export const query = graphql`
   query AboutPageQuery {
-    page: sanityPage(_id: { regex: "/(drafts.|)about/" }) {
+    page: sanityAboutPage(_id: { regex: "/(drafts.|)aboutPage/" }) {
       id
       _id
       title
       _rawBody(resolveReferences: { maxDepth: 5 })
+      pageImage {
+        asset {
+          fluid(maxWidth: 1920) {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
+      heroImage {
+        asset {
+          fluid(maxWidth: 1920) {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
     }
   }
 `
@@ -32,7 +46,8 @@ const AboutPage = props => {
   }
 
   const page = data && data.page
- 
+  console.log("page", page)
+
   if (!page) {
     throw new Error(
       'Missing "About" page data. Open the studio at http://localhost:3333 and add "About" page data and restart the development server.'
@@ -43,8 +58,8 @@ const AboutPage = props => {
     <Layout>
       <SEO title={page.title} />
       <Container>
+        <About heroImage={page.heroImage} pageImage={page.pageImage} title={page.title} _rawBody={page._rawBody || []} />
         <h1 className={cn(responsiveTitle3, border, uppercase)}>{page.title}</h1>
-        <BlockContent blocks={page._rawBody || []} />
       </Container>
     </Layout>
   )

@@ -89,6 +89,7 @@ const StorePage = () => {
   }
 
   const filterdNodes = (() => {
+    console.log('Active: ', filter.activeFilter)
     if (filter.activeFilter) {
       return galleryNodes.filter(node => {
         if (node.productType === filter.activeFilter) return true
@@ -99,6 +100,7 @@ const StorePage = () => {
     }
   })()
 
+  console.log("filterdNodes -> filterdNodes", filterdNodes)
   return (
     <Layout>
       <SEO title='Store' />

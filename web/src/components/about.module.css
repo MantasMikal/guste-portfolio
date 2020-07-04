@@ -1,0 +1,50 @@
+@import '../styles/media-queries.css';
+@import '../styles/vars.css';
+
+.header {
+  border: 2px solid var(--color-black);
+  margin-bottom: 0.325em;
+}
+
+.aboutContent {
+  display: block;
+  margin: 0.625em 0;
+}
+
+.pageImage {
+  border: 2px solid var(--color-black);
+  margin-bottom: 0.625em;
+  display: flex;
+}
+
+.about {
+  border: 2px solid var(--color-black);
+  padding: 5rem;
+  display: flex;
+}
+
+.image {
+  margin: auto;
+  width: 100%;
+}
+
+.content {
+  margin: auto;
+}
+
+@media(--media-min-large) {
+  .aboutContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+  }
+
+  .about {
+    padding: 5rem;
+  }
+
+  .pageImage {
+    margin-bottom: 0em;
+  }
+}

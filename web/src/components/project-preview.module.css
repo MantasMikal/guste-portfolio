@@ -2,6 +2,10 @@
   border: 2px solid black;
 }
 
+.wrapper:hover  .descriptionWrapper {
+  background-color: var(--color-accent);
+}
+
 .root {
   display: block;
   color: inherit;
@@ -49,7 +53,4 @@
   background-color: var(--color-white);
   overflow: hidden;
   min-height: 1.7rem;
-}
-.descriptionWrapper:hover {
-  background-color: var(--color-accent);
 }
