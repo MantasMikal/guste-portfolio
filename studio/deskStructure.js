@@ -18,7 +18,8 @@ const hiddenTypes = [
   'project',
   'category',
   'person',
-  'aboutPage'
+  'aboutPage',
+  'customerServicePage'
 ]
 
 export default () =>
@@ -80,6 +81,15 @@ export default () =>
                     .id('contactPage')
                     .schemaType('page')
                     .documentId('contact')
+                )
+                .icon(FaFileO),
+                S.listItem()
+                .title('Customer Service')
+                .child(
+                  S.editor()
+                    .id('customerServicePage')
+                    .schemaType('customerServicePage')
+                    .documentId('customerServicePage')
                 )
                 .icon(FaFileO)
             ])

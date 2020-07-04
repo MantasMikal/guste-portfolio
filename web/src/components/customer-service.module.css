@@ -1,0 +1,29 @@
+@import '../styles/media-queries.css';
+@import '../styles/vars.css';
+
+.headline {
+  text-transform: uppercase;
+  margin: 0 auto;
+  font-weight: 400;
+  letter-spacing: 1.1px;
+  @nest & a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+
+  @media (--media-min-small) {
+    font-size: var(--font-large-size:);
+    line-height: var(--font-large-line-height);
+  }
+}
+
+.contentWrapper {
+  margin: 0.625em 0 0.325em;
+  /* border: 2px solid var(--color-black); */
+}
+
+/* 
+@media(--media-min-large) {
+
+} */
