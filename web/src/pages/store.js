@@ -100,7 +100,6 @@ const StorePage = () => {
     }
   })()
 
-  console.log("filterdNodes -> filterdNodes", filterdNodes)
   return (
     <Layout>
       <SEO title='Store' />
