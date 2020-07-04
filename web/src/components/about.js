@@ -14,9 +14,9 @@ const About = ({ pageImage, heroImage, _rawBody, title }) => {
           </h2>
         </div>
       )}
-      <div className={styles.header}>
+      {/* <div className={styles.header}>
         <Image fluid={heroImage.asset.fluid} />
-      </div>
+      </div> */}
       <div className={styles.aboutContent}>
         <div className={styles.pageImage}>
           <Image className={styles.image} fluid={pageImage.asset.fluid} />

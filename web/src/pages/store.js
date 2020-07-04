@@ -106,7 +106,7 @@ const StorePage = () => {
       <Container>
         <div className={cn(border, styles.wrapper)}>
           <div>
-            <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
+            <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Store</h1>
           </div>
           <div className={styles.filterWrapper}>
             <button onClick={showFilter ? handleHideFilter : handleShowFilter} className={styles.iconWrapper}>
