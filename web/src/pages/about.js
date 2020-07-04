@@ -56,7 +56,6 @@ const AboutPage = props => {
     <Layout>
       <SEO title={page.title} />
       <Container>
-        <h1 className={cn(responsiveTitle3, border, uppercase)}>{page.title}</h1>
         <About heroImage={page.heroImage} pageImage={page.pageImage} title={page.title} _rawBody={page._rawBody || []} />
       </Container>
     </Layout>

@@ -2,10 +2,18 @@ import React from 'react'
 import Image from './image/image'
 import BlockContent from './block-content'
 import styles from './about.module.css'
+import { border } from './typography.module.css'
 
-const About = ({ pageImage, heroImage, _rawBody }) => {
+const About = ({ pageImage, heroImage, _rawBody, title }) => {
   return (
     <div className={styles.wrapper}>
+      {title && (
+        <div className={border}>
+          <h2 className={styles.headline}>
+            {title}
+          </h2>
+        </div>
+      )}
       <div className={styles.header}>
         <Image fluid={heroImage.asset.fluid} />
       </div>
