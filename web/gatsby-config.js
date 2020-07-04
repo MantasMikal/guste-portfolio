@@ -1,8 +1,8 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
-})
+// require('dotenv').config({
+//   path: `.env.${process.env.NODE_ENV}`
+// })
 
-// require('dotenv').config()
+require('dotenv').config()
 
 const {
   api: { projectId, dataset }
