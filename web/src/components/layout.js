@@ -60,13 +60,13 @@ const Layout = ({
         <div className={styles.siteInfo}>© {new Date().getFullYear()} Guste Design</div>
         <div className={styles.footerNav}>
           <Link to='/' className={styles.footerNavLink}>
-            HOME
+            <span>HOME</span>
           </Link>
           <Link to='/contact' className={styles.footerNavLink}>
-            CONTACT
+            <span>CONTACT</span>
           </Link>
           <Link to='/customer-service' className={styles.footerNavLink}>
-            CUSTOMER SERVICE
+            <span>CUSTOMER SERVICE</span>
           </Link>
         </div>
       </div>
