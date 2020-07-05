@@ -42,7 +42,7 @@
 
 .about {
   border: 2px solid var(--color-black);
-  padding: 5rem;
+  padding: 2rem;
   display: flex;
 }
 
@@ -53,6 +53,12 @@
 
 .content {
   margin: auto;
+}
+
+@media(--media-min-medium) {
+  .about {
+    padding: 5rem;
+  }
 }
 
 @media(--media-min-large) {

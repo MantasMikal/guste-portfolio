@@ -37,24 +37,24 @@ const Layout = ({
         <div className={styles.footerLogo}>GUSTE.DESIGN</div>
         <div className={styles.socialWrapper}>
           <a className={styles.socialLink} href='https://www.pinterest.co.uk/7d92dd8c2b39b140904e223db3da1d/' target='_blank noopener'>
-            <FaPinterestP size='2rem' />
+            <FaPinterestP size='1.5rem' />
           </a>
           <a
             className={styles.socialLink}
             href='https://www.instagram.com/guste.vasiliauskaite'
             target='_blank noopener'
           >
-            <TiSocialInstagram size='2rem' />
+            <TiSocialInstagram size='1.5rem' />
           </a>
           <a
             className={styles.socialLink}
             href='https://www.messenger.com/t/guste.vasiliauskaite'
             target='_blank noopener'
           >
-            <FaFacebookF size='2rem' />
+            <FaFacebookF size='1.5rem' />
           </a>
           <a className={styles.socialLink} href='mailto:hi@guste.design' target='_blank noopener'>
-            <IoMdMail size='2rem' />
+            <IoMdMail size='1.5rem' />
           </a>
         </div>
         <div className={styles.siteInfo}>© {new Date().getFullYear()} Guste Design</div>

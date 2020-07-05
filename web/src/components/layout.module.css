@@ -80,6 +80,10 @@
 @media (--media-min-medium) {
   .socialLink {
     padding-bottom: 2rem;
+    @nest & svg {
+      width: 2rem !important;
+      height: 2rem !important;
+    }
   }
   .siteInfo {
     padding-bottom: 2rem;
