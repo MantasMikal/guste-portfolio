@@ -10,7 +10,6 @@ import ProductDetailPicker from './product-detail-picker'
 import ProductPreview from './product-preview'
 
 const Product = ({ product, similarProducts }) => {
-  console.log("Product -> product", product)
   const { title, images, descriptionHtml } = product
   return (
     <article className={styles.root}>

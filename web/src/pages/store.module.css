@@ -123,7 +123,6 @@
 }
 
 .categoryButton {
-  
   @media (--media-min-medium) {
     margin-left: 0.2rem;
     margin-right: 0.1rem;

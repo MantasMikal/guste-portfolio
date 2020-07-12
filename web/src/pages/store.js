@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { mapEdgesToNodes, cn } from '../lib/helpers'
 import ProductPreviewGrid from '../components/product/product-preview-grid'
@@ -22,6 +22,23 @@ function collectCategories(nodes) {
 }
 
 const StorePage = () => {
+  const [grid, setGrid] = useState(false)
+  const [showFilter, setShowFilter] = useState({ show: true, wasClicked: false })
+  const [filter, setFilter] = useState({
+    activeFilter: ''
+  })
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 60
+      handleScrollFilter(!show)
+    }
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [showFilter])
+
   const { products } = useStaticQuery(
     graphql`
       query {
@@ -66,24 +83,25 @@ const StorePage = () => {
   const galleryNodes = products && mapEdgesToNodes(products)
   const categories = collectCategories(galleryNodes)
   const firstCategory = galleryNodes[0] && galleryNodes[0].productType
-  const [filter, setFilter] = useState({
-    activeFilter: ''
-  })
-
-  const [grid, setGrid] = useState(false)
-
-  const [showFilter, setShowFilter] = useState(true)
 
   const handleShowFilter = () => {
-    setShowFilter(true)
+    setShowFilter({ wasClicked: true, show: true })
   }
 
   const handleHideFilter = () => {
-    setShowFilter(false)
+    setShowFilter({ wasClicked: true, show: false })
+  }
+
+  const handleScrollFilter = state => {
+    console.log('WAS CLOCKED: ', showFilter.wasClicked)
+    if (showFilter.wasClicked) {
+      setShowFilter({ wasClicked: showFilter.wasClicked, show: showFilter.show })
+    } else setShowFilter({ wasClicked: false, show: state })
   }
 
   const handleClick = e => {
     e.preventDefault()
+    setShowFilter({ show: showFilter.show, wasClicked: true })
     const category = e.target.getAttribute('cattitle')
     const nextActiveFilter = category !== filter.activeFilter ? category : null
 
@@ -120,14 +138,17 @@ const StorePage = () => {
           </div>
           <div className={styles.filterWrapper}>
             <button
-              onClick={showFilter ? handleHideFilter : handleShowFilter}
+              onClick={showFilter.show ? handleHideFilter : handleShowFilter}
               className={styles.iconWrapper}
             >
               <label className={styles.filterLabel}>CATEGORIES</label>
               <FaFilter size="0.9rem" style={{ margin: 'auto 0' }} />
-              <FaArrowRight size="0.9rem" className={showFilter ? styles.closeBtn : styles.hide} />
+              <FaArrowRight
+                size="0.9rem"
+                className={showFilter.show ? styles.closeBtn : styles.hide}
+              />
             </button>
-            <div className={showFilter ? styles.categoryWrapper : styles.hide}>
+            <div className={showFilter.show ? styles.categoryWrapper : styles.hide}>
               {categories.map(category => {
                 // Check if filter is active to change its color
                 const isActive = filter.activeFilter === category

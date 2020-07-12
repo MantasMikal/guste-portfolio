@@ -96,6 +96,7 @@ at least if the have a sense for good design lol.
     minimumFractionDigits: 2,
     style: 'currency'
   }).format(variant.price)
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>{product.title}</div>
