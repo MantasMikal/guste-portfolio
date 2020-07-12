@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import debounce from 'lodash/debounce'
 import { useStaticQuery, graphql } from 'gatsby'
 import { mapEdgesToNodes, cn } from '../lib/helpers'
 import ProductPreviewGrid from '../components/product/product-preview-grid'
@@ -29,10 +30,11 @@ const StorePage = () => {
   })
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = debounce(() => {
       const show = window.scrollY > 60
       handleScrollFilter(!show)
-    }
+    }, 15)
+
     document.addEventListener('scroll', handleScroll)
     return () => {
       document.removeEventListener('scroll', handleScroll)
