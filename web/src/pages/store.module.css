@@ -28,6 +28,18 @@
   }
 }
 
+
+.cart {
+  margin: 0.25em 0.225em 0.25em 0.325em;
+  font-size: 0.7em;
+}
+
+.cart > svg {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  font-size: 0.9rem;
+}
+
 .filterLabel {
   font-size: 0.7rem;
   margin-right: 5px;

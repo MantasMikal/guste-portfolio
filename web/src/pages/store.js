@@ -5,6 +5,7 @@ import { mapEdgesToNodes, cn } from '../lib/helpers'
 import ProductPreviewGrid from '../components/product/product-preview-grid'
 import Container from '../components/container'
 import SEO from '../components/seo'
+import Cart from '../components/snipcart/cart'
 import Layout from '../containers/layout'
 import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 import { FaFilter, FaArrowRight } from 'react-icons/fa'
@@ -23,24 +24,6 @@ function collectCategories(nodes) {
 }
 
 const StorePage = () => {
-  const [grid, setGrid] = useState(false)
-  const [showFilter, setShowFilter] = useState({ show: true, wasClicked: false })
-  const [filter, setFilter] = useState({
-    activeFilter: ''
-  })
-
-  useEffect(() => {
-    const handleScroll = debounce(() => {
-      const show = window.scrollY > 60
-      handleScrollFilter(!show)
-    }, 15)
-
-    document.addEventListener('scroll', handleScroll)
-    return () => {
-      document.removeEventListener('scroll', handleScroll)
-    }
-  }, [showFilter])
-
   const { products } = useStaticQuery(
     graphql`
       query {
@@ -82,9 +65,28 @@ const StorePage = () => {
       }
     `
   )
+
   const galleryNodes = products && mapEdgesToNodes(products)
   const categories = collectCategories(galleryNodes)
-  const firstCategory = galleryNodes[0] && galleryNodes[0].productType
+  const firstCategory = galleryNodes[0] && galleryNodes[galleryNodes.length - 1].productType
+
+  const [grid, setGrid] = useState(false)
+  const [showFilter, setShowFilter] = useState({ show: true, wasClicked: false })
+  const [filter, setFilter] = useState({
+    activeFilter: firstCategory
+  })
+
+  useEffect(() => {
+    const handleScroll = debounce(() => {
+      const show = window.scrollY > 60
+      handleScrollFilter(!show)
+    }, 15)
+
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [showFilter])
 
   const handleShowFilter = () => {
     setShowFilter({ wasClicked: true, show: true })
@@ -138,7 +140,9 @@ const StorePage = () => {
               <RiLayoutRowLine size="0.9rem" style={{ margin: 'auto 0' }} />
             )}
           </div>
+
           <div className={styles.filterWrapper}>
+            <Cart className={styles.cart} />
             <button
               onClick={showFilter.show ? handleHideFilter : handleShowFilter}
               className={styles.iconWrapper}

@@ -14,10 +14,10 @@ const useQuantity = () => {
   const total = reduce(items, (acc, item) => acc + item.quantity, 0)
   return [total !== 0, total]
 }
-const Cart = () => {
+const Cart = ({ className }) => {
   const [hasItems, quantity] = useQuantity()
   return (
-    <Link to='/cart' className={cn(styles.wrapper)}>
+    <Link to="/cart" className={cn(styles.wrapper, className)}>
       CART
       <FaShoppingCart style={{ margin: 'auto', padding: '0.125em 0.425em' }} />
       {hasItems && (
