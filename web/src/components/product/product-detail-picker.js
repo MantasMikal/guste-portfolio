@@ -65,8 +65,6 @@ const ProductDetailPicker = ({ product }) => {
   }
 
   const handleAddToCart = () => {
-    console.log('productVariant.shopifyId', productVariant.shopifyId)
-    console.log('quantity', quantity)
     addVariantToCart(productVariant.shopifyId, quantity)
   }
 
@@ -98,7 +96,6 @@ at least if the have a sense for good design lol.
     minimumFractionDigits: 2,
     style: 'currency'
   }).format(variant.price)
-  console.log('options', options)
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>{product.title}</div>
@@ -142,7 +139,7 @@ at least if the have a sense for good design lol.
         onChange={handleQuantityChange}
       >
         {variants &&
-          Array(5)
+          Array(quantity < 5 ? quantity : 7)
             .fill()
             .map((q, i) => (
               <option value={i + 1} key={'q' + i} className={styles.option}>
