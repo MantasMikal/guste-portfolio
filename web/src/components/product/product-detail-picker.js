@@ -131,7 +131,7 @@ at least if the have a sense for good design lol.
         )}
       </div>
       <label htmlFor="quantity" className={styles.label}>
-        QUANTITY
+        Quantity
       </label>
       <select
         className={cn(styles.qualitySelector, styles.selector)}
