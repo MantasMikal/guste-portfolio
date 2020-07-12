@@ -139,7 +139,7 @@ at least if the have a sense for good design lol.
         onChange={handleQuantityChange}
       >
         {variants &&
-          Array(quantity < 5 ? quantity : 7)
+          Array(5)
             .fill()
             .map((q, i) => (
               <option value={i + 1} key={'q' + i} className={styles.option}>
