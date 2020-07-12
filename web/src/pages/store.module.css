@@ -15,7 +15,6 @@
   z-index: 10;
   /* width: 100%;
   height: 100%; */
-  animation: slideIn 0.35s cubic-bezier(0.7, 0.1, 0.3, 0.9);
 
   /* padding-top: 0.125em; */
   @media (--media-min-medium) {
@@ -29,12 +28,11 @@
 }
 
 .cart {
-  padding: 0.2em;
+  padding: 0.4em 0.3em;
   font-size: 0.7em;
-  margin: 0 0 0.1rem 0;
+  margin: 0;
   background-color: var(--color-white);
   outline: 2px solid black;
-
   @media (--media-min-medium) {
     margin: 0.25em 0.225em 0.25em 0.325em;
     padding: 0;
@@ -81,7 +79,7 @@
   position: fixed;
   right: 0em;
   display: flex;
-  margin: -0em 0.745em;
+  margin: 0.1em 0.745em 0;
   z-index: 10;
   padding: 5px 12px;
   outline: 2px solid black;
@@ -114,16 +112,16 @@
   flex-direction: column;
   flex-wrap: wrap;
   right: 0;
-  margin: 1.6em 0.745em 0;
+  margin: 1.7em 0.745em 0;
   outline: 2px solid black;
   background-color: white;
   z-index: 10;
-  max-width: 123px;
+  max-width: 122.5px;
   /* animation: slideIn 0.25s; */
   & > button {
     border-bottom: 2px solid black;
   }
-
+  /* animation: slideIn 0.35s cubic-bezier(0.7, 0.1, 0.3, 0.9); */
   & > button:last-child {
     border-bottom: none;
   }
@@ -173,7 +171,7 @@
   outline: 2px solid black;
   height: 20px;
   z-index: 10;
-
+  padding: 0.155em 0.27em 0.155em 0.2em;
   @media (--media-min-small) {
     display: none;
   }
@@ -187,7 +185,7 @@
   display: none;
 }
 
-/* 
+
 @keyframes slideIn {
   from {
     transform: translateX(30vw);
@@ -195,4 +193,4 @@
   to {
     transform: translateX(0);
   }
-} */
+}
