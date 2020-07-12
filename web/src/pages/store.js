@@ -7,12 +7,13 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 import { FaFilter, FaArrowRight } from 'react-icons/fa'
-
+import { FiGrid } from 'react-icons/fi'
+import { RiLayoutRowLine } from 'react-icons/ri'
 import CategoryButton from '../components/button/button'
 
 import styles from './store.module.css'
 
-function collectCategories (nodes) {
+function collectCategories(nodes) {
   const categories = []
   for (let i = 0; i < nodes.length; i++) {
     if (categories.indexOf(nodes[i].productType) === -1) categories.push(nodes[i].productType)
@@ -68,6 +69,9 @@ const StorePage = () => {
   const [filter, setFilter] = useState({
     activeFilter: ''
   })
+
+  const [grid, setGrid] = useState(false)
+
   const [showFilter, setShowFilter] = useState(true)
 
   const handleShowFilter = () => {
@@ -89,7 +93,6 @@ const StorePage = () => {
   }
 
   const filterdNodes = (() => {
-    console.log('Active: ', filter.activeFilter)
     if (filter.activeFilter) {
       return galleryNodes.filter(node => {
         if (node.productType === filter.activeFilter) return true
@@ -102,17 +105,27 @@ const StorePage = () => {
 
   return (
     <Layout>
-      <SEO title='Store' />
+      <SEO title="Store" />
       <Container>
         <div className={cn(border, styles.wrapper)}>
           <div>
             <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Store</h1>
           </div>
+          <div className={styles.gridIcon} onClick={() => setGrid(!grid)}>
+            {grid ? (
+              <FiGrid size="0.9rem" style={{ margin: 'auto 0' }} />
+            ) : (
+              <RiLayoutRowLine size="0.9rem" style={{ margin: 'auto 0' }} />
+            )}
+          </div>
           <div className={styles.filterWrapper}>
-            <button onClick={showFilter ? handleHideFilter : handleShowFilter} className={styles.iconWrapper}>
+            <button
+              onClick={showFilter ? handleHideFilter : handleShowFilter}
+              className={styles.iconWrapper}
+            >
               <label className={styles.filterLabel}>CATEGORIES</label>
-              <FaFilter size='0.9rem'  style={{ margin: 'auto 0' }} />
-              <FaArrowRight size='0.9rem'  className={showFilter ? styles.closeBtn : styles.hide} />
+              <FaFilter size="0.9rem" style={{ margin: 'auto 0' }} />
+              <FaArrowRight size="0.9rem" className={showFilter ? styles.closeBtn : styles.hide} />
             </button>
             <div className={showFilter ? styles.categoryWrapper : styles.hide}>
               {categories.map(category => {
@@ -134,7 +147,7 @@ const StorePage = () => {
           </div>
         </div>
         {filterdNodes && filterdNodes.length > 0 && (
-          <ProductPreviewGrid nodes={filterdNodes} colCount={3} title='Store' />
+          <ProductPreviewGrid nodes={filterdNodes} gridLayout={grid} colCount={3} title="Store" />
         )}
       </Container>
     </Layout>

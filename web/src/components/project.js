@@ -5,7 +5,7 @@ import { cn } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
 import BlockContent from './block-content'
 import Container from './container'
-import {RiArrowRightSLine, RiArrowLeftSLine} from 'react-icons/ri'
+import { RiArrowRightSLine, RiArrowLeftSLine } from 'react-icons/ri'
 import styles from './project.module.css'
 import { uppercase, responsiveTitle2, border } from './typography.module.css'
 class Project extends React.Component {
@@ -21,24 +21,24 @@ class Project extends React.Component {
       <article className={styles.root}>
         <Container>
           <div className={styles.mainContent}>
-            <div className={border} style={{margin: '0 0 0.425em 0'}}>
+            <div className={border} style={{ margin: '0 0 0.425em 0' }}>
               <h1 className={cn(styles.title, uppercase)}>{title}</h1>
             </div>
-            <div>
-              {_rawBody && <BlockContent blocks={_rawBody || []} />}
-            </div>
+            <div>{_rawBody && <BlockContent blocks={_rawBody || []} />}</div>
           </div>
           <div className={styles.navWrapper}>
+            <Link className={prev ? cn(responsiveTitle2, uppercase) : styles.invisible} to={prev}>
+              <div className={styles.navButton}>
+                <RiArrowLeftSLine /> Previous
+              </div>
+            </Link>
 
-              <Link className={prev ? cn(responsiveTitle2, uppercase) : styles.invisible} to={prev}>
-              <div className={styles.navButton}><RiArrowLeftSLine /> Previous</div>
-              </Link>
-
-
-              <Link className={next ? cn(responsiveTitle2, uppercase) : styles.invisible} to={next}>
-              <div className={styles.navButton}> Next <RiArrowRightSLine /></div>
-              </Link>
-
+            <Link className={next ? cn(responsiveTitle2, uppercase) : styles.invisible} to={next}>
+              <div className={styles.navButton}>
+                {' '}
+                Next <RiArrowRightSLine />
+              </div>
+            </Link>
           </div>
         </Container>
       </article>

@@ -124,10 +124,19 @@
 
 .categoryButton {
   margin: 0 0em;
-  text-decoration: underline;
   @media (--media-min-medium){
     margin: 0.225em 0.225em;
     padding: 0 .425rem 0;
+  }
+}
+
+.gridIcon {
+  position: relative;
+  margin-right: 8rem;
+  display: flex;
+  cursor: pointer;
+  @media (--media-min-small){
+    display: none;
   }
 }
 

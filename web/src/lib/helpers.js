@@ -1,4 +1,4 @@
-import { parseISO } from 'date-fns'
+const { parseISO } = require('date-fns')
 
 export function cn (...args) {
   return args.filter(Boolean).join(' ')

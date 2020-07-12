@@ -23,7 +23,7 @@ const Cart = () => {
   return (
     <Container className={styles.root}>
       <div className={cn(border, styles.titleWrapper)}>
-        <h1 className={cn(styles.title, uppercase)}>SHOPPING CART</h1>
+        <h1 className={cn(styles.title, uppercase)}>CART</h1>
       </div>
       <div className={styles.checkoutWrapper}>
         {lineItems}

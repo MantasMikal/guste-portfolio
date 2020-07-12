@@ -18,7 +18,7 @@ const Cart = () => {
   const [hasItems, quantity] = useQuantity()
   return (
     <Link to='/cart' className={cn(styles.wrapper)}>
-      SHOPPING CART
+      CART
       <FaShoppingCart style={{ margin: 'auto', padding: '0.125em 0.425em' }} />
       {hasItems && (
         <div className={cn(styles.itemCount)}>

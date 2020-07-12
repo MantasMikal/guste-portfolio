@@ -41,7 +41,7 @@
     height: 25px;
 
     @nest &:hover {
-      transform: scale(1.2)
+      transform: scale(1.2);
     }
   }
 }
@@ -98,6 +98,11 @@
   text-transform: uppercase;
   font-weight: 500;
   padding: 0 0.5rem;
+
+  @nest &:not(:last-child) {
+    border-bottom: 2px solid var(--color-black);
+  }
+
   @media (--media-min-medium) {
     padding: 0 1rem;
     font-size: 1.2rem;

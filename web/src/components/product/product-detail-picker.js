@@ -65,6 +65,8 @@ const ProductDetailPicker = ({ product }) => {
   }
 
   const handleAddToCart = () => {
+    console.log('productVariant.shopifyId', productVariant.shopifyId)
+    console.log('quantity', quantity)
     addVariantToCart(productVariant.shopifyId, quantity)
   }
 
@@ -96,41 +98,49 @@ at least if the have a sense for good design lol.
     minimumFractionDigits: 2,
     style: 'currency'
   }).format(variant.price)
-
+  console.log('options', options)
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>{product.title}</div>
       <div className={styles.price}>{price}</div>
-      <label className={styles.label}>SIZE</label>
-      {options.map(({ id, name, values }, index) => (
-        <React.Fragment key={id}>
-          <label hidden htmlFor={name}>
-            {name}{' '}
-          </label>
-          <select
-            name={name}
-            key={id}
-            onChange={event => handleOptionChange(index, event)}
-            className={styles.selector}
-          >
-            {values.map(value => (
-              <option
-                value={value}
-                key={`${name}-${value}`}
-                disabled={checkDisabled(name, value)}
-                className={styles.option}
-              >
-                {value}
-              </option>
-            ))}
-          </select>
-          <br />
-        </React.Fragment>
-      ))}
-      <label htmlFor='quantity' className={styles.label}>
+      <div className={styles.optionWrapper}>
+        {options.map(
+          ({ id, name, values }, index) =>
+            name !== 'Title' && (
+              <div key={id}>
+                <label htmlFor={name} className={styles.label}>
+                  {name}{' '}
+                </label>
+                <select
+                  name={name}
+                  key={id}
+                  onChange={event => handleOptionChange(index, event)}
+                  className={styles.selector}
+                >
+                  {values.map(value => (
+                    <option
+                      value={value}
+                      key={`${name}-${value}`}
+                      disabled={checkDisabled(name, value)}
+                      className={styles.option}
+                    >
+                      {value}
+                    </option>
+                  ))}
+                </select>
+                <br />
+              </div>
+            )
+        )}
+      </div>
+      <label htmlFor="quantity" className={styles.label}>
         QUANTITY
       </label>
-      <select value={quantity} onChange={handleQuantityChange} className={styles.selector}>
+      <select
+        className={cn(styles.qualitySelector, styles.selector)}
+        value={quantity}
+        onChange={handleQuantityChange}
+      >
         {variants &&
           Array(5)
             .fill()
@@ -140,7 +150,14 @@ at least if the have a sense for good design lol.
               </option>
             ))}
       </select>
-      <Button border buttonStyle='large' type='submit' disabled={!available || adding} className={styles.addToCartButton} onClick={handleAddToCart}>
+      <Button
+        border
+        buttonStyle="large"
+        type="submit"
+        disabled={!available || adding}
+        className={styles.addToCartButton}
+        onClick={handleAddToCart}
+      >
         Add to Cart
       </Button>
       {!available && <p>This Product is out of Stock!</p>}

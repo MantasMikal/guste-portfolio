@@ -7,8 +7,10 @@ import { cn } from '../../lib/helpers'
 import Cart from '../snipcart/cart'
 import styles from './product.module.css'
 import ProductDetailPicker from './product-detail-picker'
+import ProductPreview from './product-preview'
 
-const Product = ({ product }) => {
+const Product = ({ product, similarProducts }) => {
+  console.log("Product -> product", product)
   const { title, images, descriptionHtml } = product
   return (
     <article className={styles.root}>
@@ -33,6 +35,14 @@ const Product = ({ product }) => {
               </div>
             )}
           </aside>
+        </div>
+        <div className={cn(border, styles.productWrapper)}>
+          <h1 className={cn(styles.title, uppercase)}>SIMILAR PRODUCTS</h1>
+        </div>
+        <div className={styles.similarProducts}>
+          {similarProducts.map((prod, i) => (
+            <ProductPreview {...prod.node} handle={prod.node.handle} key={`similarProd-${i}`} />
+          ))}
         </div>
       </Container>
     </article>

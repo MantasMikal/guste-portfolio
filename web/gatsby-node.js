@@ -1,7 +1,4 @@
-const { parseISO } = require('date-fns')
-const { GraphQLString } = require('gatsby/graphql')
-const fetch = require('node-fetch')
-const crypto = require('crypto')
+const shuffleArray = require('./src/lib/shuffleArray')
 
 // // Fetch rates
 // const fetchRate = async (API) => {
@@ -100,7 +97,7 @@ const crypto = require('crypto')
 //   }
 // }
 
-async function createBlogPostPages (graphql, actions, reporter) {
+async function createBlogPostPages(graphql, actions, reporter) {
   const { createPage } = actions
   const result = await graphql(`
     {
@@ -162,7 +159,7 @@ async function createBlogPostPages (graphql, actions, reporter) {
   })
 }
 
-async function createProjectPages (graphql, actions, reporter) {
+async function createProjectPages(graphql, actions, reporter) {
   const { createPage } = actions
   const result = await graphql(`
     {
@@ -200,8 +197,12 @@ async function createProjectPages (graphql, actions, reporter) {
     const slug = edge.node.slug.current
     const path = `/project/${slug}/`
     // Next and previous pages
-    const prev = edge.previous ? `/project/${edge.previous.slug.current}/` : `/project/${projectEdges[projectEdges.length - 1].node.slug.current}`
-    const next = edge.next ? `/project/${edge.next.slug.current}/` : `/project/${projectEdges[0].node.slug.current}`
+    const prev = edge.previous
+      ? `/project/${edge.previous.slug.current}/`
+      : `/project/${projectEdges[projectEdges.length - 1].node.slug.current}`
+    const next = edge.next
+      ? `/project/${edge.next.slug.current}/`
+      : `/project/${projectEdges[0].node.slug.current}`
     const nextTitle = edge.next ? edge.next.title : null
     const prevTitle = edge.previous ? edge.previous.title : null
     reporter.info(`Creating project page: ${path}`)
@@ -214,11 +215,11 @@ async function createProjectPages (graphql, actions, reporter) {
   })
 }
 
-async function createProductPages (graphql, actions, reporter) {
+async function createProductPages(graphql, actions, reporter) {
   const { createPage, createPageDependency } = actions
   const result = await graphql(`
     {
-      products:   allShopifyProduct {
+      products: allShopifyProduct {
         edges {
           node {
             variants {
@@ -242,10 +243,29 @@ async function createProductPages (graphql, actions, reporter) {
               weight
             }
             id
+            title
             description
             descriptionHtml
             handle
             productType
+            images {
+              id
+              originalSrc
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 910) {
+                    base64
+                    aspectRatio
+                    srcWebp
+                    srcSetWebp
+                    sizes
+                    src
+                    originalImg
+                    tracedSVG
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -256,16 +276,26 @@ async function createProductPages (graphql, actions, reporter) {
 
   const productEdges = (result.data.products || {}).edges || []
 
+  const getProductsWithCategories = (category, products, thisProduct) => {
+    return products.filter(
+      (prod, i) => category === prod.node.productType && thisProduct.node.id !== prod.node.id
+    )
+  }
+
   productEdges.forEach(edge => {
     const id = edge.node.id
     const handle = edge.node.handle
     const path = `/store/${handle}/`
     reporter.info(`Creating project page: ${path}`)
 
+    const similarProducts = shuffleArray(
+      getProductsWithCategories(edge.node.productType, productEdges, edge)
+    ).splice(0, 5)
+
     createPage({
       path,
       component: require.resolve('./src/templates/productTemplate.js'),
-      context: { id, handle }
+      context: { id, handle, similarProducts }
     })
   })
 }

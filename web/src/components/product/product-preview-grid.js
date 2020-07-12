@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import ProductPreview from './product-preview'
 import LazyLoader from '../lazy-loader/lazyLoader'
 import MasonryLayout from '../masonry/masonry-layout'
-
+import { cn } from '../../lib/helpers'
 import styles from './product-preview-grid.module.css'
 
-const ProductPreviewGrid = ({ nodes, title }) => {
+const ProductPreviewGrid = ({ nodes, title, gridLayout }) => {
   const [layoutState, setLayoutState] = useState({
     loaded: 10,
     amountToLoad: 10,
@@ -34,13 +34,24 @@ const ProductPreviewGrid = ({ nodes, title }) => {
   const products = []
 
   for (let i = 0; i < layoutState.loaded; i++) {
-    nodes[i] && products.push(<ProductPreview {...nodes[i]} key={`Shop-node-${i}}`} />)
+    nodes[i] &&
+      products.push(
+        <ProductPreview
+          {...nodes[i]}
+          key={`Shop-node-${i}}`}
+          gridLayout={gridLayout}
+        />
+      )
   }
 
   return (
     <div className={styles.root}>
       <LazyLoader loadMore={loadMore} hasMore={layoutState.hasMore}>
-        <MasonryLayout gap={10} colCount={3}>
+        <MasonryLayout
+          gap={10}
+          colCount={3}
+          className={cn(styles.wrapper, gridLayout && styles.isGrid)}
+        >
           {products}
         </MasonryLayout>
       </LazyLoader>

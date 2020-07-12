@@ -33,7 +33,7 @@
   /* grid-row-gap: 0.325em; */
   align-items: flex-start;
   margin: 0.325rem 0;
-
+  margin-bottom: 1em;
   @media only screen and (min-width: 1000px) {
     grid-template-columns: 1fr 1.8fr;
   }
@@ -168,3 +168,21 @@
   text-transform: uppercase;
   margin-bottom: 0.5em;
 }
+
+
+.similarProducts {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(100px, 1fr) );
+  gap: 0.325em;
+  align-items: flex-start;
+  margin: 0.325rem 0;
+
+  @media (--media-min-small) {
+    grid-template-columns: repeat(2, minmax(100px, 1fr) );
+  }
+ 
+  @media (--media-min-medium) {
+    grid-template-columns: repeat(4, minmax(250px, 1fr) );
+  }
+}
+

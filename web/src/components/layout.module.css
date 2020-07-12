@@ -79,17 +79,17 @@
 
 @media (--media-min-medium) {
   .socialLink {
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     @nest & svg {
       width: 2rem !important;
       height: 2rem !important;
     }
   }
   .siteInfo {
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
   .footerLogo { 
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
 
   .footerNavLink {
@@ -97,6 +97,6 @@
   }
 
   .footerWrapper {
-    padding: 2rem;
+    padding: 1rem;
   }
 }

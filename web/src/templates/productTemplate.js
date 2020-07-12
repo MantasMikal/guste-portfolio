@@ -9,10 +9,10 @@ import Layout from '../containers/layout'
 const ProductTemplate = props => {
   const { data, errors } = props
   const product = data && data.product
-  
+  const { similarProducts } = props.pageContext
   return (
     <Layout>
-      {errors && <SEO title="GraphQL Error" />}
+      {errors && <SEO title='GraphQL Error' />}
       {product && <SEO title={product.title || 'Untitled'} />}
 
       {errors && (
@@ -20,7 +20,7 @@ const ProductTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {product && <Product product={product} />}
+      {product && <Product product={product} similarProducts={similarProducts} />}
     </Layout>
   )
 }
@@ -45,9 +45,9 @@ export const query = graphql`
         title
         price
         priceV2 {
-            amount
-            currencyCode
-          }
+          amount
+          currencyCode
+        }
         availableForSale
         shopifyId
         selectedOptions {

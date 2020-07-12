@@ -5,11 +5,10 @@ import Image from '../image/image'
 import styles from './product-preview.module.css'
 import { responsiveTitle4 } from '../typography.module.css'
 
-function ProductPreview (props) {
-  const { images, variants, title, handle } = props
+function ProductPreview ({ images, variants, title, handle, gridLayout }) {
   const { price } = variants[0]
   return (
-    <div className={styles.itemWrapper}>
+    <div className={cn(styles.itemWrapper, gridLayout && styles.gridLayout)}>
       <Link to={`/store/${handle}`}>
         <div className={styles.inner}>
           {images.length > 0 && images[0].localFile.childImageSharp && (

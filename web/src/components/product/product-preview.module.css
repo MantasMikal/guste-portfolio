@@ -4,6 +4,22 @@
 .title {
   text-decoration: none;
   text-transform: uppercase;
+  font-size: calc(var(--font-base-size) - 4px);
+  margin: 0.2rem 0.2rem 0 0.2rem;
+
+  @media (--media-min-small) {
+    margin: 0 0 0 0;
+  }
+
+  @media (--media-min-medium) {
+    font-size: var(--font-base-size);
+  }
+
+  @nest .gridLayout & {
+    margin-left: 0;
+    margin-right: auto;
+    padding-right: 0.3rem;
+  }
 }
 
 .inner {
@@ -13,15 +29,39 @@
 .titleWrapper {
   padding: 0 0 0 0.325rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+
+  @nest .gridLayout & {
+    
+    flex-direction: column;
+    @media (--media-min-small) {
+      flex-direction: row;
+    }
+  }
 }
+
 
 .price {
   align-self: center;
   padding: 0.425em;
-  min-width: 1.725em;
   text-align: center;
-  border-left: 2px solid black;
+
+
+  @media (--media-min-small) {
+    margin: 0;
+    border-left: 2px solid black;
+    padding: 0.425em;
+  }
+
+  @nest .gridLayout & {
+    padding: 0.425em 0;
+    margin-left: 0;
+    margin-right: auto;
+    @media (--media-min-small) {
+      padding: 0.425em;
+    }
+  }
 }
 
 .itemWrapper {
@@ -33,7 +73,7 @@
   }
 
   @nest &:hover .titleWrapper {
-    background-color: var(--color-accent)
+    background-color: var(--color-accent);
   }
 }
 

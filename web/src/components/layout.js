@@ -36,9 +36,6 @@ const Layout = ({
       <div className={styles.footerWrapper}>
         <div className={styles.footerLogo}>GUSTE.DESIGN</div>
         <div className={styles.socialWrapper}>
-          <a className={styles.socialLink} href='https://www.pinterest.co.uk/7d92dd8c2b39b140904e223db3da1d/' target='_blank noopener'>
-            <FaPinterestP size='1.5rem' />
-          </a>
           <a
             className={styles.socialLink}
             href='https://www.instagram.com/guste.vasiliauskaite'
@@ -59,14 +56,8 @@ const Layout = ({
         </div>
         <div className={styles.siteInfo}>© {new Date().getFullYear()} Guste Design</div>
         <div className={styles.footerNav}>
-          <Link to='/' className={styles.footerNavLink}>
-            <span>HOME</span>
-          </Link>
-          <Link to='/contact' className={styles.footerNavLink}>
-            <span>CONTACT</span>
-          </Link>
           <Link to='/customer-service' className={styles.footerNavLink}>
-            <span>CUSTOMER SERVICE</span>
+            <span>DELIVERY & RETURNS</span>
           </Link>
         </div>
       </div>
