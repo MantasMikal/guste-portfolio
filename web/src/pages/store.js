@@ -112,7 +112,7 @@ const StorePage = () => {
             <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Store</h1>
           </div>
           <div className={styles.gridIcon} onClick={() => setGrid(!grid)}>
-            {grid ? (
+            {!grid ? (
               <FiGrid size="0.9rem" style={{ margin: 'auto 0' }} />
             ) : (
               <RiLayoutRowLine size="0.9rem" style={{ margin: 'auto 0' }} />

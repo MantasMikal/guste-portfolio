@@ -123,11 +123,16 @@
 }
 
 .categoryButton {
-  margin: 0 0em;
+  
+  @media (--media-min-medium) {
+    margin-left: 0.2rem;
+    margin-right: 0.1rem;
+  }
+  /* margin: 0 0em;
   @media (--media-min-medium){
     margin: 0.225em 0.225em;
     padding: 0 .425rem 0;
-  }
+  } */
 }
 
 .gridIcon {
