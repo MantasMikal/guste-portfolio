@@ -25,7 +25,9 @@
 .checkoutWrapper {
   max-width: 1366px;
   margin: 0 auto;
+  margin-bottom: 1rem;
 }
+
 .checkout {
   max-width: 400px;
   margin-left: auto;
