@@ -31,7 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  overflow: hidden;
   @nest .gridLayout & {
     
     flex-direction: column;
@@ -46,20 +46,36 @@
   align-self: center;
   padding: 0.425em;
   text-align: center;
-
-
+  position: relative;
   @media (--media-min-small) {
     margin: 0;
-    border-left: 2px solid black;
     padding: 0.425em;
+  }
+
+  @nest &:after {
+    content: '';
+    position: absolute;
+    border-left: 2px solid black;
+    width: 2px;
+    height: 130%;
+    left: 0;
+    top: -5px;
   }
 
   @nest .gridLayout & {
     padding: 0.425em 0;
     margin-left: 0;
     margin-right: auto;
+    @nest &:after {
+      display: none;
+    }
+
     @media (--media-min-small) {
       padding: 0.425em;
+
+      @nest &:after {
+        display: block;
+      }
     }
   }
 }
