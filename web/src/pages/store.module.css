@@ -98,6 +98,7 @@
   outline: 2px solid black;
   background-color: white;
   z-index: 10;
+  max-width: 123px;
   /* animation: slideIn 0.25s; */
   & > button {
     border-bottom: 2px solid black;
@@ -115,7 +116,8 @@
     flex-direction: row;
     justify-content: flex-start;
     margin: auto 0.125em auto 0;
-
+    max-width: unset;
+  
     & > button {
       border: none;
     }
@@ -123,6 +125,8 @@
 }
 
 .categoryButton {
+  margin: 0;
+
   @media (--media-min-medium) {
     margin-left: 0.2rem;
     margin-right: 0.1rem;
