@@ -97,10 +97,11 @@ const StorePage = () => {
   }
 
   const handleScrollFilter = state => {
-    console.log('WAS CLOCKED: ', showFilter.wasClicked)
-    if (showFilter.wasClicked) {
-      setShowFilter({ wasClicked: showFilter.wasClicked, show: showFilter.show })
-    } else setShowFilter({ wasClicked: false, show: state })
+    if (state !== showFilter.show) setShowFilter({ wasClicked: false, show: state })
+
+    // if (showFilter.wasClicked) {
+    //   setShowFilter({ wasClicked: showFilter.wasClicked, show: showFilter.show })
+    // } else setShowFilter({ wasClicked: false, show: state })
   }
 
   const handleClick = e => {
