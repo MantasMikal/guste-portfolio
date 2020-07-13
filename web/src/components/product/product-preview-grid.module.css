@@ -5,16 +5,18 @@
 }
 
 .wrapper {
-  
-
   margin: 0.325rem 0 0.325rem;
+  
+  /* @nest & > div:not(:first-child) {
+    margin-left: 5px !important;
+  } */
+  
   @media (--media-max-small) {
     margin: 0.325rem 0 0.625rem;
     display: block;
-  }
-
-  @nest & > div:not(:first-child) {
-    margin-left: 5px !important;
+    @nest & > div {
+      margin: 0 !important;
+    }
   }
 }
 

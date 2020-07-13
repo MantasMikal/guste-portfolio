@@ -23,7 +23,7 @@
     background-color: white;
     width: auto;
     height: auto;
-    padding: 1px 0;
+    padding: 0.5px 0 1px;
   }
 }
 
@@ -79,7 +79,7 @@
   position: fixed;
   right: 0em;
   display: flex;
-  margin: 0.1em 0.745em 0;
+  margin: 0.09em 0.745em 0;
   z-index: 10;
   padding: 5px 12px;
   outline: 2px solid black;
@@ -154,6 +154,11 @@
   } */
 }
 
+
+.controls {
+  display: flex;
+}
+
 .gridIcon {
   /* position: absolute;
   margin-left: 4.5rem;
@@ -163,13 +168,13 @@
   top: 0;
   bottom: 0; */
 
-  position: absolute;
+  position: relative;
   display: flex;
   cursor: pointer;
   right: 0;
-  margin-right: 4.155rem;
   background-color: #fff;
   outline: 2px solid #000;
+  margin-right: 2px;
   height: 20px;
   z-index: 10;
   padding: .155em .2em .155em .2em;

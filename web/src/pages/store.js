@@ -15,7 +15,7 @@ import CategoryButton from '../components/button/button'
 
 import styles from './store.module.css'
 
-function collectCategories (nodes) {
+function collectCategories(nodes) {
   const categories = []
   for (let i = 0; i < nodes.length; i++) {
     if (categories.indexOf(nodes[i].productType) === -1) categories.push(nodes[i].productType)
@@ -127,29 +127,31 @@ const StorePage = () => {
 
   return (
     <Layout>
-      <SEO title='Store' />
+      <SEO title="Store" />
       <Container>
         <div className={cn(border, styles.wrapper)}>
           <div>
             <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Store</h1>
           </div>
           <div className={styles.filterWrapper}>
-            <div className={styles.gridIcon} onClick={() => setGrid(!grid)}>
-              {!grid ? (
-                <FiGrid size='0.9rem' style={{ margin: 'auto 0' }} />
-              ) : (
-                <RiLayoutRowLine size='0.9rem' style={{ margin: 'auto 0' }} />
-              )}
+            <div className={styles.controls}>
+              <div className={styles.gridIcon} onClick={() => setGrid(!grid)}>
+                {!grid ? (
+                  <FiGrid size="0.9rem" style={{ margin: 'auto 0' }} />
+                ) : (
+                  <RiLayoutRowLine size="0.9rem" style={{ margin: 'auto 0' }} />
+                )}
+              </div>
+              <Cart className={styles.cart} />
             </div>
-            <Cart className={styles.cart} />
             <button
               onClick={showFilter.show ? handleHideFilter : handleShowFilter}
               className={styles.iconWrapper}
             >
               <label className={styles.filterLabel}>CATEGORIES</label>
-              <FaFilter size='0.9rem' style={{ margin: 'auto 0' }} />
+              <FaFilter size="0.9rem" style={{ margin: 'auto 0' }} />
               <FaArrowRight
-                size='0.9rem'
+                size="0.9rem"
                 className={showFilter.show ? styles.closeBtn : styles.hide}
               />
             </button>
@@ -173,7 +175,7 @@ const StorePage = () => {
           </div>
         </div>
         {filterdNodes && filterdNodes.length > 0 && (
-          <ProductPreviewGrid nodes={filterdNodes} gridLayout={grid} colCount={3} title='Store' />
+          <ProductPreviewGrid nodes={filterdNodes} gridLayout={grid} colCount={3} title="Store" />
         )}
       </Container>
     </Layout>
