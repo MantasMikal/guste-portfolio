@@ -45,14 +45,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-source-exchange-rates-api',
-      options: {
-        query: {
-          base: 'EUR'
-        }
-      }
-    },
-    {
       resolve: 'gatsby-source-shopify',
       options: {
         // The domain name of your Shopify shop. This is required.
@@ -72,7 +64,9 @@ module.exports = {
         // or `npm run build`. This prints which nodes are being fetched and how
         // much time was required to fetch and process the data.
         // Defaults to true.
-        verbose: true
+        verbose: true,
+        paginationSize: 10,
+        apiVersion: '2020-10'
       }
     },
     'gatsby-plugin-sharp',

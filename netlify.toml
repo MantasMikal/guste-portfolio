@@ -2,3 +2,5 @@
   base = "web/"
   command = "npm run build"
   publish = "web/public"
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
