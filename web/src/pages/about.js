@@ -32,11 +32,12 @@ export const query = graphql`
       }
     }
 
-    instagram: allInstaNode {
+    instagram: allInstaNode(sort: {fields: timestamp, order: DESC}) {
       edges {
         node {
           id
           caption
+          timestamp
           localFile {
             childImageSharp {
               fluid(maxWidth: 600, maxHeight: 600) {
