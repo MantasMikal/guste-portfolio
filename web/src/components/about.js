@@ -3,15 +3,14 @@ import Image from './image/image'
 import BlockContent from './block-content'
 import styles from './about.module.css'
 import { border } from './typography.module.css'
+import ZomableImage from './image/zoomableImage'
 
-const About = ({ pageImage, heroImage, _rawBody, title }) => {
+const About = ({ pageImage, heroImage, _rawBody, title, instagram }) => {
   return (
     <div className={styles.wrapper}>
       {title && (
         <div className={border}>
-          <h2 className={styles.headline}>
-            {title}
-          </h2>
+          <h2 className={styles.headline}>{title}</h2>
         </div>
       )}
       {/* <div className={styles.header}>
@@ -24,6 +23,18 @@ const About = ({ pageImage, heroImage, _rawBody, title }) => {
         <div className={styles.about}>
           <BlockContent className={styles.content} blocks={_rawBody} />
         </div>
+      </div>
+      <div className={styles.instagramWrapper}>
+        {instagram &&
+          instagram.map((insta, i) => (
+            <ZomableImage
+              key={insta.node.id}
+              isZoomable
+              fluid={insta.node.localFile.childImageSharp.fluid}
+              alt={insta.node.caption}
+              hasBorder
+            />
+          ))}
       </div>
     </div>
   )

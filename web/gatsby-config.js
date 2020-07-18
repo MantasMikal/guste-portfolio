@@ -69,6 +69,12 @@ module.exports = {
         apiVersion: '2020-10'
       }
     },
+    {
+      resolve: 'gatsby-source-instagram',
+      options: {
+        username: '289675843'
+      }
+    },
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline'

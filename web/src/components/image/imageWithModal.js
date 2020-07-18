@@ -11,11 +11,11 @@ const wrapperStyle = {
   height: '100%'
 }
 
-const ModalImage = ({ fluid, hasBorder, alt }) => {
+const ModalImage = ({ fluid, fixed, hasBorder, alt }) => {
   return (
     <div className={hasBorder && styles.border}>
       <Zoom zoomMargin={20} transitionDuration={200}>
-        <Img style={wrapperStyle} fluid={fluid} alt={alt} />
+        <Img style={wrapperStyle} fixed={fixed} fluid={fluid} alt={alt} />
       </Zoom>
     </div>
   )

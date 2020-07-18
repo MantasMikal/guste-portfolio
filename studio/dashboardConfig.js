@@ -7,9 +7,9 @@ export default {
           sites: [
             {
               title: 'Website',
-              apiId: 'a6402da5-2b3a-4a22-9b24-1d6ed2908dca',
-              buildHookId: '5e80d0d0d2979dca75272b1c',
-              name: 'gustevasil'
+              apiId: '9e513f12-786c-4fe0-b714-41a3370cbfc3',
+              buildHookId: '5f12e6a59030312b07c87c72',
+              name: 'guste-design'
             }
           ]
         }

@@ -31,6 +31,22 @@ export const query = graphql`
         }
       }
     }
+
+    instagram: allInstaNode {
+      edges {
+        node {
+          id
+          caption
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 600, maxHeight: 600) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
 
@@ -46,6 +62,9 @@ const AboutPage = props => {
   }
 
   const page = data && data.page
+  const instagram = data && data.instagram && data.instagram.edges.slice(0, 4)
+  console.log('instagram', instagram)
+
   if (!page) {
     throw new Error(
       'Missing "About" page data. Open the studio at http://localhost:3333 and add "About" page data and restart the development server.'
@@ -56,7 +75,13 @@ const AboutPage = props => {
     <Layout>
       <SEO title={page.title} />
       <Container>
-        <About heroImage={page.heroImage} pageImage={page.pageImage} title={page.title} _rawBody={page._rawBody || []} />
+        <About
+          heroImage={page.heroImage}
+          pageImage={page.pageImage}
+          title={page.title}
+          instagram={instagram}
+          _rawBody={page._rawBody || []}
+        />
       </Container>
     </Layout>
   )

@@ -35,6 +35,7 @@
     "gatsby-plugin-sitemap": "^2.4.10",
     "gatsby-plugin-snipcart": "^1.1.2",
     "gatsby-source-exchange-rates-api": "^2.0.2",
+    "gatsby-source-instagram": "^0.8.0",
     "gatsby-source-sanity": "^6.0.2",
     "gatsby-source-shopify": "^3.2.18",
     "gatsby-transformer-sharp": "^2.5.10",
