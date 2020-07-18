@@ -27,13 +27,20 @@ const About = ({ pageImage, heroImage, _rawBody, title, instagram }) => {
       <div className={styles.instagramWrapper}>
         {instagram &&
           instagram.map((insta, i) => (
-            <ZomableImage
+            <a
+              href='https://www.instagram.com/guste.vasiliauskaite'
+              target='__blank'
+              rel='noreferer noopener'
+              className={styles.imageWrapper}
               key={insta.node.id}
-              isZoomable
-              fluid={insta.node.localFile.childImageSharp.fluid}
-              alt={insta.node.caption}
-              hasBorder
-            />
+            >
+              <ZomableImage
+                isZoomable={false}
+                fluid={insta.node.localFile.childImageSharp.fluid}
+                alt={insta.node.caption}
+                hasBorder
+              />
+            </a>
           ))}
       </div>
     </div>
