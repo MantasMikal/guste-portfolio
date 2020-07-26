@@ -27,7 +27,7 @@ export default class Header extends React.Component {
           <nav className={cn(styles.nav, showNav && styles.showNav)}>
             <ul>
               <div>
-                <Link to="/">Projects</Link>
+                <Link to="/projects">Projects</Link>
               </div>
               {/* <div>
             <Link to='/illustrations/'>Illustrations</Link>
