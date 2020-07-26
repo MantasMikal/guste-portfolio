@@ -1,13 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
-import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
-import Slider from '../components/slider/slider'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import Hero from '../components/Hero'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -39,37 +38,6 @@ export const query = graphql`
         }
       }
     }
-
-    # posts: allSanityPost(limit: 4, sort: { fields: [publishedAt], order: DESC }) {
-    #   edges {
-    #     node {
-    #       id
-    #       publishedAt
-    #       mainImage {
-    #         alt
-    #         asset {
-    #           fluid(maxWidth: 500) {
-    #             ...GatsbySanityImageFluid
-    #           }
-    #         }
-    #       }
-    #       title
-    #       _rawExcerpt
-    #       slug {
-    #         current
-    #       }
-    #     }
-    #   }
-    # }
-
-    # slides: allSanitySlide {
-    #   edges {
-    #     node {
-    #       title
-    #       _rawBody(resolveReferences: { maxDepth: 5 })
-    #     }
-    #   }
-    # }
   }
 `
 
@@ -84,14 +52,10 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  // const postNodes = (data || {}).posts
-  //   ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
-  //   : []
+
   const projectNodes = (data || {}).projects
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : []
-  // const slideNodes = (data || {}).slides ? mapEdgesToNodes(data.slides)
-  //   : []
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
@@ -103,14 +67,15 @@ const IndexPage = props => {
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
         {/* <Slider slides={slideNodes} /> */}
-        {projectNodes && (
+        <Hero />
+        {/* {projectNodes && (
           <ProjectPreviewGrid
-            title="Projects"
+            title='Projects'
             nodes={projectNodes}
             // browseMoreHref="/projects/"
             colCount={2}
           />
-        )}
+        )} */}
         {/* {postNodes && (
           <BlogPostPreviewGrid
             title='Latest blog posts'

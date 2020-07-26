@@ -1,0 +1,33 @@
+@import '../../styles/media-queries.css';
+@import '../../styles/vars.css';
+
+.Hero {
+  border: 2px solid var(--color-black);
+  padding: 2rem;
+  margin-bottom: 0.35em;
+  background-color: #b2e0dd;
+}
+
+.HeadWrapper {
+  height: 77vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (--media-min-large) {
+    height: 90vh;
+  }
+}
+
+.TextWrapper {
+  font-size: var(--font-title3-size);
+  line-height: var(--font-title3-line-height);
+  text-align: center;
+}
+
+.Head {
+  height: 100%;
+}
+
+
+

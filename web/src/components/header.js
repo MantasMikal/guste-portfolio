@@ -18,7 +18,7 @@ export default class Header extends React.Component {
 
           <h1 className={styles.branding}>
             <img className={styles.logo} src={logo} alt="Guste Vasiliauskaite" />
-            <Link to="/about/">{siteTitle}</Link>
+            <Link to="/">{siteTitle}</Link>
           </h1>
 
           <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
@@ -39,9 +39,9 @@ export default class Header extends React.Component {
               {/* <div>
                 <Link to="/store/">Store</Link>
               </div> */}
-              {/* <div>
-                <Link to="/store/">Store</Link>
-              </div> */}
+              <div>
+                <Link to="/about/">About</Link>
+              </div>
               {/* <li>
             <Link to='/blog/'>Blog</Link>
           </li> */}
