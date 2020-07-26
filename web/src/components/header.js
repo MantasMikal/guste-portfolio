@@ -17,7 +17,6 @@ export default class Header extends React.Component {
       </Link> */}
 
           <h1 className={styles.branding}>
-            <img className={styles.logo} src={logo} alt="Guste Vasiliauskaite" />
             <Link to="/">{siteTitle}</Link>
           </h1>
 
