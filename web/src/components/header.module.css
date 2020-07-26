@@ -20,9 +20,9 @@
 
 .logo {
   align-self: flex-start;
-  margin: auto;
-  width: 2rem;
-  margin-right: 0.625rem;
+  width: 1.5rem;
+  margin-right: 0.425rem;
+  order: 0;
 }
 
 .branding {
@@ -32,6 +32,11 @@
   flex: 1;
   margin: auto;
   letter-spacing: 1.1px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
   @nest & a {
     display: inline-block;
     color: inherit;

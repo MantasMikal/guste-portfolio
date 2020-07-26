@@ -3,11 +3,11 @@ import React from 'react'
 import Icon from './icons'
 import { cn } from '../lib/helpers'
 import ContactPage from './contactPage'
-import logoImg from '../images/logo2.png'
+import logo from '../images/icon.png'
 import styles from './header.module.css'
 
 export default class Header extends React.Component {
-  render () {
+  render() {
     const { onHideNav, onShowNav, showNav, siteTitle, contactInfo } = this.props
     return (
       <div className={styles.root}>
@@ -17,6 +17,7 @@ export default class Header extends React.Component {
       </Link> */}
 
           <h1 className={styles.branding}>
+            <img className={styles.logo} src={logo} alt="Guste Vasiliauskaite" />
             <Link to="/about/">{siteTitle}</Link>
           </h1>
 

@@ -290,7 +290,7 @@ async function createProductPages(graphql, actions, reporter) {
 
     const similarProducts = shuffleArray(
       getProductsWithCategories(edge.node.productType, productEdges, edge)
-    ).splice(0, 5)
+    ).splice(0, 4)
 
     createPage({
       path,
