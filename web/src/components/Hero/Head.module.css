@@ -33,43 +33,43 @@ svg, path, line {
 
 .LeftLineOne {
   stroke-dasharray: 100;
-  animation: fadeIn 2.3s forwards 0s,
-   dash2 5s linear 4s reverse;
+  animation: fadeIn 1.3s forwards 0s,
+   dash2 5s linear 2s reverse;
 }
 
 .LeftLineTwo {
   stroke-dasharray: 83;
-  animation: fadeIn 2.3s forwards 0s, 
-  dash2 5s linear 4s forwards;
+  animation: fadeIn 1.3s forwards 0s, 
+  dash2 5s linear 2s forwards;
 }
 
 .LeftLineThree {
   stroke-dasharray: 100;
-  animation: fadeIn 2.3s forwards 0s, 
-  dash2 5s linear 4s reverse;
+  animation: fadeIn 1.3s forwards 0s, 
+  dash2 5s linear 2s reverse;
 }
 
 .RightLineOne {
   stroke-dasharray: 100;
-  animation: fadeIn 2.3s forwards 0s, 
-  dash2 5s linear 4s reverse;
+  animation: fadeIn 1.3s forwards 0s, 
+  dash2 5s linear 2s reverse;
 }
 
 .RightLineTwo {
   stroke-dasharray: 83;
-  animation: fadeIn 2.3s forwards 0s, 
-  dash2 5s linear 4s reverse;
+  animation: fadeIn 1.3s forwards 0s, 
+  dash2 5s linear 2s reverse;
 }
 
 .RightLineThree {
   stroke-dasharray: 100;
-  animation: fadeIn 2.3s forwards 0s, 
-  dash2 5s linear 4s reverse;
+  animation: fadeIn 1.3s forwards 0s, 
+  dash2 5s linear 2s reverse;
 }
 
 /* .EyeLeft, .EyeRight {
   position: relative;
-  animation: eye1 0.4s forwards 2.1s,
+  animation: eye1 0 2s forwards 2.1s,
               eye2 0.2s forwards 2.5s,
               eye3 0.2s forwards 3.3s;
 } */
