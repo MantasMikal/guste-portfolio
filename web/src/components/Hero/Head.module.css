@@ -1,6 +1,6 @@
 .Head {
   border: 1px solid red;
-  animation: fadeInRotate 1s forwards;
+  animation: moveHead 0.6s ease forwards;
   transform-origin: center center;
 }
 
@@ -63,11 +63,30 @@
   dash2 5s linear 4s reverse;
 }
 
-.EyeLeft, .EyeRight {
+/* .EyeLeft, .EyeRight {
   position: relative;
   animation: eye1 0.4s forwards 2.1s,
               eye2 0.2s forwards 2.5s,
               eye3 0.2s forwards 3.3s;
+} */
+
+@keyframes moveHead {
+  0% {
+    transform: scale(0);
+  }
+  /* 20% {
+    transform: rotate(5deg);
+  } */
+
+  /* 40% {
+    transform: rotate(0deg);
+  }  */
+  /* 60% {
+    transform: rotate(-5deg);
+  } */
+  80% {
+    transform: scale(1);
+  }
 }
 
 @keyframes fadeIn {
