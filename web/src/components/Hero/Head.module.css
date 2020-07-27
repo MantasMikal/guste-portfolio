@@ -19,6 +19,7 @@
   stroke: #000000;
   stroke-width: 11.3386;
   stroke-miterlimit: 10;
+  stroke-linecap: round;
   /* stroke-dasharray: 100;
   stroke-dashoffset: 100; */
 
@@ -68,7 +69,6 @@
               eye2 0.2s forwards 2.5s,
               eye3 0.2s forwards 3.3s;
 }
-/*  */
 
 @keyframes fadeIn {
  0% {
