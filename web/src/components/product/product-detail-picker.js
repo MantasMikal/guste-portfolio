@@ -65,6 +65,7 @@ const ProductDetailPicker = ({ product }) => {
   }
 
   const handleAddToCart = () => {
+    window.scrollTo(0, 0)
     addVariantToCart(productVariant.shopifyId, quantity)
   }
 

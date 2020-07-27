@@ -4,6 +4,10 @@
   transform-origin: center center;
 }
 
+svg, path, line {
+  stroke-linecap: round;
+}
+
 .LeftLineOne,
 .LeftLineTwo,
 .LeftLineThree,
