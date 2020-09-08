@@ -4,12 +4,9 @@
   "version": "1.0.0",
   "author": "Mantas Mikalauskas <mikalauskas.it@gmail.com>",
   "scripts": {
-    "build": "npm run build:dir && npm run build:favicons && gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "lint": "eslint .",
-    "build:dir": "mkdir -p public/icons/",
-    "build:dir-win": "mkdir public\\icons\\",
-    "build:favicons": "node scripts/favicons",
     "now-build": "npm run build",
     "start": "npm run develop",
     "start-shared": "gatsby develop --host 0.0.0.0",
