@@ -9,11 +9,22 @@ const detailsQuery = graphql`
       title
       description
       keywords
+      image {
+        asset {
+          url
+          metadata {
+            dimensions {
+              width
+              height
+            }
+          }
+        }
+      }
     }
   }
 `
 
-function SEO ({ description, lang, meta, keywords = [], title }) {
+function SEO ({ description, lang, meta, keywords = [], title, image }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -22,6 +33,7 @@ function SEO ({ description, lang, meta, keywords = [], title }) {
           return
         }
         const metaDescription = description || data.site.description
+        const metaImage = image && image.asset && image.asset.url ? image : data.site.metaImage
         return (
           <Helmet
             htmlAttributes={{
@@ -63,6 +75,33 @@ function SEO ({ description, lang, meta, keywords = [], title }) {
                 content: metaDescription
               }
             ]
+              .concat(
+                metaImage
+                  ? [
+                    {
+                      property: 'og:image',
+                      content: metaImage.asset.url
+                    },
+                    {
+                      property: 'og:image:width',
+                      content: metaImage.asset.metadata.dimensions.width
+                    },
+                    {
+                      property: 'og:image:height',
+                      content: metaImage.asset.metadata.dimensions.height
+                    },
+                    {
+                      name: 'twitter:card',
+                      content: 'summary_large_image'
+                    }
+                  ]
+                  : [
+                    {
+                      name: 'twitter:card',
+                      content: 'summary'
+                    }
+                  ]
+              )
               .concat(
                 keywords && keywords.length > 0
                   ? {
