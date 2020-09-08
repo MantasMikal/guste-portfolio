@@ -75,9 +75,20 @@ module.exports = {
         username: '289675843'
       }
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'GUSTE.DESIGN',
+        short_name: 'G',
+        background_color: 'white',
+        theme_color: 'black',
+        icon: 'src/images/icon-sm.png',
+        start_url: '/',
+        display: 'standalone'
+      }
+    },
     'gatsby-plugin-sharp',
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-offline'
+    'gatsby-plugin-sitemap'
   ]
 }
 
@@ -88,7 +99,7 @@ module.exports = {
  * with directions to enter the info manually or in the environment.
  */
 
-function requireConfig (path) {
+function requireConfig(path) {
   try {
     return require('../studio/sanity.json')
   } catch (e) {
