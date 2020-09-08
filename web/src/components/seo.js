@@ -9,7 +9,7 @@ const detailsQuery = graphql`
       title
       description
       keywords
-      image {
+      logo {
         asset {
           url
           metadata {
@@ -24,7 +24,7 @@ const detailsQuery = graphql`
   }
 `
 
-function SEO ({ description, lang, meta, keywords = [], title, image }) {
+function SEO ({ description, lang, meta, keywords = [], title, logo }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -33,7 +33,7 @@ function SEO ({ description, lang, meta, keywords = [], title, image }) {
           return
         }
         const metaDescription = description || data.site.description
-        const metaImage = image && image.asset && image.asset.url ? image : data.site.metaImage
+        const metaImage = logo && logo.asset && logo.asset.url ? logo : data.site.logo
         return (
           <Helmet
             htmlAttributes={{
