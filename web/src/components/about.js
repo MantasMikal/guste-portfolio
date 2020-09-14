@@ -24,22 +24,26 @@ const About = ({ pageImage, heroImage, _rawBody, title, instagram }) => {
           <BlockContent className={styles.content} blocks={_rawBody} />
         </div>
       </div>
+      <div className={border}>
+        <h2 className={styles.headline}>More on instagram</h2>
+      </div>
       <div className={styles.instagramWrapper}>
         {instagram &&
           instagram.map((insta, i) => (
             <a
-              href='https://www.instagram.com/guste.vasiliauskaite'
-              target='__blank'
-              rel='noreferer noopener'
+              href="https://www.instagram.com/guste.vasiliauskaite"
+              target="__blank"
+              rel="noreferer noopener"
               className={styles.imageWrapper}
               key={insta.node.id}
             >
-              <ZomableImage
-                isZoomable={false}
-                fluid={insta.node.localFile.childImageSharp.fluid}
-                alt={insta.node.caption}
-                hasBorder
-              />
+              <div className={styles.image}>
+                <ZomableImage
+                  isZoomable={false}
+                  fluid={insta.node.localFile.childImageSharp.fluid}
+                  alt={insta.node.caption}
+                />
+              </div>
             </a>
           ))}
       </div>

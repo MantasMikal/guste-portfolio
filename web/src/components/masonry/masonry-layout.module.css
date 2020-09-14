@@ -7,3 +7,15 @@
     display: block;
   }
 }
+
+.column {
+  @media (--media-max-small) {
+    @nest &:last-child {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+.isGrid {
+  display: flex;
+}

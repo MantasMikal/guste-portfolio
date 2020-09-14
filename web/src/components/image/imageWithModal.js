@@ -14,7 +14,12 @@ const wrapperStyle = {
 const ModalImage = ({ fluid, fixed, hasBorder, alt }) => {
   return (
     <div className={hasBorder && styles.border}>
-      <Zoom zoomMargin={20} transitionDuration={200}>
+      <Zoom
+        overlayBgColorEnd='rgba(0, 0, 0, 0.85)'
+        overlayBgColorStart='rgba(0, 0, 0, 0)'
+        zoomMargin={20}
+        transitionDuration={200}
+      >
         <Img style={wrapperStyle} fixed={fixed} fluid={fluid} alt={alt} />
       </Zoom>
     </div>

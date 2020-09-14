@@ -134,6 +134,46 @@
   display: none;
 }
 
+.controls {
+  display: flex;
+  position: absolute;
+  right: 7.625rem;
+}
+
+.gridIcon {
+  /* position: absolute;
+  margin-left: 4.5rem;
+  display: flex;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  bottom: 0; */
+
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  right: 0;
+  background-color: #fff;
+  outline: 2px solid #000;
+  margin-right: 2px;
+  height: 20px;
+  z-index: 10;
+  padding: .155em .2em .155em .2em;
+
+  @media (--media-min-small) {
+    display: none;
+  }
+}
+
+.gridIcon svg {
+  padding: 0.1rem 0.2rem;
+}
+
+.hide {
+  display: none;
+}
+
+
 /* 
 @keyframes slideIn {
   from {

@@ -26,5 +26,10 @@
 }
 
 .Head {
-  height: 100%;
+  height: 90%;
+  transition: ease 0.25s;
+  @nest &:hover {
+    transform: scale(1.05);
+    transition: ease 0.25s;
+  }
 }

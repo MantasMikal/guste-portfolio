@@ -8,8 +8,9 @@ import { mapEdgesToNodes, cn } from '../lib/helpers'
 import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 import GalleryPreviewLayout from '../components/gallery-preview-layout'
 import CategoryButton from '../components/button/button'
-import { FaFilter } from 'react-icons/fa'
-import { FaArrowRight } from 'react-icons/fa'
+import { FaFilter, FaArrowRight } from 'react-icons/fa'
+import { FiGrid } from 'react-icons/fi'
+import { RiLayoutRowLine } from 'react-icons/ri'
 import styles from './gallery.module.css'
 
 export const query = graphql`
@@ -53,17 +54,17 @@ export default class Gallery extends React.Component {
     const firstCategory = this.props.data.categories.edges[0].node.title
     this.state = {
       activeFilter: '',
-      showFilter: true
+      showFilter: true,
+      isGrid: false
     }
-
   }
 
   handleShowFilter = () => {
-    this.setState({showFilter: true})
+    this.setState({ showFilter: true })
   }
 
   handleHideFilter = () => {
-    this.setState({showFilter: false})
+    this.setState({ showFilter: false })
   }
 
   handleClick = e => {
@@ -75,6 +76,8 @@ export default class Gallery extends React.Component {
     this.setState({
       activeFilter: nextActiveFilter
     })
+
+    typeof window !== 'undefined' && window.scrollTo(0, 0)
   }
 
   render() {
@@ -115,10 +118,28 @@ export default class Gallery extends React.Component {
               <h1 className={cn(responsiveTitle3, uppercase, styles.title)}>Gallery</h1>
             </div>
             <div className={styles.filterWrapper}>
-              <button onClick={this.state.showFilter ? this.handleHideFilter : this.handleShowFilter}  className={styles.iconWrapper}>
+              <div className={styles.controls}>
+                <div
+                  className={styles.gridIcon}
+                  onClick={() => this.setState({ isGrid: !this.state.isGrid })}
+                >
+                  {!this.state.isGrid ? (
+                    <FiGrid size="0.9rem" style={{ margin: 'auto 0' }} />
+                  ) : (
+                    <RiLayoutRowLine size="0.9rem" style={{ margin: 'auto 0' }} />
+                  )}
+                </div>
+              </div>
+              <button
+                onClick={this.state.showFilter ? this.handleHideFilter : this.handleShowFilter}
+                className={styles.iconWrapper}
+              >
                 <label className={styles.filterLabel}>CATEGORIES</label>
-                <FaFilter size='0.9rem' style={{ margin: 'auto 0'}} />
-                <FaArrowRight size='0.9rem' className={this.state.showFilter ? styles.closeBtn : styles.hide} />
+                <FaFilter size="0.9rem" style={{ margin: 'auto 0' }} />
+                <FaArrowRight
+                  size="0.9rem"
+                  className={this.state.showFilter ? styles.closeBtn : styles.hide}
+                />
               </button>
               <div className={this.state.showFilter ? styles.categoryWrapper : styles.hide}>
                 {categories.map(category => {
@@ -140,7 +161,7 @@ export default class Gallery extends React.Component {
             </div>
           </div>
 
-          <GalleryPreviewLayout nodes={filterdNodes} />
+          <GalleryPreviewLayout gridLayout={this.state.isGrid} nodes={filterdNodes} />
         </Container>
       </Layout>
     )

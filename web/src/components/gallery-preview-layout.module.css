@@ -5,4 +5,7 @@
 
 .wrapper {
   margin: 0.225em 0 0;
+  @nest &.isGrid {
+    display: flex !important;
+  }
 }

@@ -62,6 +62,7 @@ export default class MasonryLayout extends React.Component {
     for (let i = 0; i < this.state.colCount; i++) {
       result.push(
         <div
+          className={!this.props.isGrid && styles.column}
           style={{
             marginLeft: `${i > 0 ? '10px' : '0px'}`,
             flex: 1
@@ -73,7 +74,7 @@ export default class MasonryLayout extends React.Component {
       )
     }
     return (
-      <div id={this.props.id && this.props.id} className={cn(styles.masonryLayout, this.props.className && this.props.className)}>
+      <div id={this.props.id && this.props.id} className={cn(styles.masonryLayout, this.props.isGrid && styles.isGrid, this.props.className && this.props.className)}>
         {result}
       </div>
     )

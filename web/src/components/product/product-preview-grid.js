@@ -50,7 +50,8 @@ const ProductPreviewGrid = ({ nodes, title, gridLayout }) => {
         <MasonryLayout
           gap={10}
           colCount={3}
-          className={cn(styles.wrapper, gridLayout && styles.isGrid)}
+          className={cn(styles.wrapper)}
+          isGrid={gridLayout}
         >
           {products}
         </MasonryLayout>

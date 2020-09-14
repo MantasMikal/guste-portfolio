@@ -49,10 +49,25 @@
   background-color: var(--color-white);
 }
 
-
-
 .itemWrapper {
   border: 2px solid black;
+}
+
+.itemWrapper:hover .titleWrapper {
+  background-color: var(--color-accent);
+}
+
+.inner {
+  overflow: hidden;
+}
+
+.image {
+  transition: ease 0.25s;
+}
+
+.image:hover {
+  transform: scale(1.04);
+  transition: ease 0.25s;
 }
 
 

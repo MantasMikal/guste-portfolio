@@ -109,10 +109,11 @@ const StorePage = () => {
     setShowFilter({ show: showFilter.show, wasClicked: true })
     const category = e.target.getAttribute('cattitle')
     const nextActiveFilter = category !== filter.activeFilter ? category : null
-
     setFilter({
       activeFilter: nextActiveFilter
     })
+
+    typeof window !== 'undefined' && window.scrollTo(0, 0)
   }
 
   const filterdNodes = (() => {

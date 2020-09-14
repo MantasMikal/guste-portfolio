@@ -24,11 +24,13 @@ export default class GalleryPreviewLayout extends React.Component {
   }
 
   render() {
-    const { item } = this.props
+    const { item, gridLayout } = this.props
     return (
-      <div className={styles.itemWrapper}>
+      <div className={cn(styles.itemWrapper, gridLayout && styles.gridLayout)}>
         <div className={styles.inner}>
+          <div className={styles.image}>
           {item.mainImage && item.mainImage.asset && <Image isZoomable fluid={item.mainImage.asset.fluid} />}
+          </div>
         </div>
         <div className={styles.titleWrapper}>
           <h3 className={cn(responsiveTitle5, styles.title)}>{item.title}</h3>
