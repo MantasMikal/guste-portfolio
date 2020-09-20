@@ -20,11 +20,13 @@ const Product = ({ product, similarProducts }) => {
         </div>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
-            <ProductShowcase
-              image={images[0].localFile.childImageSharp.fluid}
-              alt={title}
-              images={images}
-            />
+            {images && (
+              <ProductShowcase
+                image={images[0] && images[0].localFile && images[0].localFile.childImageSharp.fluid}
+                alt={title}
+                images={images}
+              />
+            )}
           </div>
           <aside className={styles.metaContent}>
             <ProductDetailPicker product={product} />

@@ -65,7 +65,7 @@ module.exports = {
         // much time was required to fetch and process the data.
         // Defaults to true.
         verbose: true,
-        paginationSize: 20,
+        paginationSize: 10,
         apiVersion: '2020-10'
       }
     },
