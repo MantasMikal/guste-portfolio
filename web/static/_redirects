@@ -3,3 +3,4 @@
 
 # Redirect default Netlify subdomain to primary domain
 https://gustevasil.netlify.com/* https://guste.design/:splat 301!
+https://preview.guste.design/* http://159.65.212.97/:splat 301!
