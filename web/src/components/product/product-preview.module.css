@@ -23,7 +23,14 @@
 }
 
 .inner {
+  position: relative;
+  height: 0;
+  padding-top: 100%;
   border-bottom: 2px solid black;
+}
+
+.itemWrapper:hover .Image:last-child {
+  z-index: -1;
 }
 
 .titleWrapper {
@@ -95,6 +102,16 @@
 
 .itemWrapper:hover .title {
   /* text-decoration: underline; */
+}
+
+
+
+.Image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
 }
 
 @keyframes slideIn {
