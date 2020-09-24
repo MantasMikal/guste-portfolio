@@ -5,6 +5,10 @@
   padding-top: 56.25%;
 }
 
+.square {
+  padding-top: 100%;
+}
+
 .MultiImage {
   position: absolute;
   width: 100%;

@@ -15,13 +15,13 @@ export default class MultiImage extends Component {
   }
 
   // Prevent from updating on every pixel moved
-  shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.currentImageIdx === nextState.currentImageIdx) {
-      return false
-    } else {
-      return true
-    }
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if (this.state.currentImageIdx === nextState.currentImageIdx) {
+  //     return false
+  //   } else {
+  //     return true
+  //   }
+  // }
 
   handleHover() {
     // Decrease counter on mouse move and change images
@@ -43,15 +43,20 @@ export default class MultiImage extends Component {
   }
   render() {
     const imageId = this.state.currentImageIdx
+    const { square } = this.props
+
     // true if first or current. Used to put image on top
     const isActive = (i, id) => i == id || (i == 0 && i != id)
     return (
       <>
-        <div className={styles.Wrapper} onMouseMove={this.handleHover}>
+        <div className={cn(styles.Wrapper, square && styles.square)} onMouseMove={this.handleHover}>
           {this.props.images.map((img, i) => {
-            return (
-              <div className={cn(styles.MultiImage, isActive(i + 1, imageId) && styles.active)}>
-                <Img key={img.asset.id} fluid={img.asset.fluid} alt={img.alt} />
+            return img && img.asset && (
+              <div
+                key={`MultImage-${i}-${imageId}-${img.alt}`}
+                className={cn(styles.MultiImage, isActive(i + 1, imageId) && styles.active)}
+              >
+                <Img fluid={img.asset.fluid} alt={img.alt} />
               </div>
             )
           })}
