@@ -29,7 +29,7 @@
   height: 90%;
   transition: ease 0.25s;
   @nest &:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
     transition: ease 0.25s;
   }
 }

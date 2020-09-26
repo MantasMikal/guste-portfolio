@@ -28,9 +28,6 @@
   grid-column-gap: 1em;
   grid-gap: 1em;
 
-  @media (--media-max-small) {
-    display: block !important;
-  }
 }
 
 
@@ -65,6 +62,7 @@
   flex-wrap: wrap;
   border: none !important;
   font-weight: 400;
+  
 }
 
 .iconGrid:hover {
@@ -80,8 +78,8 @@
   border: none;
   margin: auto 0;
   letter-spacing: 2.5px;
-
-
+  background-color: unset !important; 
+  border: none !important;
   @nest & > * {
     border-left: none !important;
   }
