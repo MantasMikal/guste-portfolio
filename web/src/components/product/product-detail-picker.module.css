@@ -63,6 +63,7 @@
 .addToCartButton {
   margin-top: 1rem;
   background-color: var(--color-accent);
+  min-width: 130px;
 }
 
 .optionWrapper {

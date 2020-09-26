@@ -10,7 +10,6 @@
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
-  min-width: 130px;
   @media (--media-min-medium){
     padding: 0px .425rem 0px;
   }
