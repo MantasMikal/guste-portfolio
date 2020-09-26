@@ -6,9 +6,6 @@ import styles from './product-showcase-grid.module.css'
 const ProductImageGrid = ({ images, handleClick, alt }) => (
   <div
     className={styles.grid}
-    style={{
-      gridTemplateColumns: images.length < 3 && 'repeat(auto-fill, minmax(200px, 1fr))'
-    }}
   >
     {images &&
       images.map((img, i) => {

@@ -75,6 +75,7 @@
   @media (--media-min-medium) {
     position: relative;
     display: flex;
+    top: 0;
     margin: 0.15em 0.225em;
     padding: 0.085em 0.125em;
     outline: none;
@@ -95,7 +96,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   right: 0;
-  margin: 3.15em 0.745em 0;
+  margin: 3.2em 0.745em 0;
   outline: 2px solid black;
   background-color: white;
   z-index: 10;

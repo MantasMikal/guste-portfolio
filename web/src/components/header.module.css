@@ -61,6 +61,7 @@
   color:  var(--color-black);
   background-color: var(--color-white);
   transition: 0.25s;
+  cursor: pointer;
 
   & svg {
     display: block;
@@ -82,19 +83,20 @@
     padding: 0;
   }
 
-  @nest & ul div {
+  @nest & .navWrapper {
     border-left: 2px solid black;
-    display: flex;
     align-content: center;
   }
 
-  @nest & ul div a {
+  @nest & .navWrapper a {
+    display: flex;
     color: inherit;
     text-decoration: none;
+    background-color: var(--color-white);
   }
 
   @media (hover: hover) {
-    @nest & ul div:hover {
+    @nest & div a:hover {
       background-color: var(--color-accent);
     }
   }
@@ -102,27 +104,26 @@
   @media (--media-max-medium2) {
     position: absolute;
     background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     left: 0;
     right: 0;
     top: 2.3rem;
     margin: 0 0.625em;
 
-    @nest & ul {
+    @nest & {
       padding: 0rem 0;
       height: 100%;
     }
 
-    @nest & ul div a {
+    @nest & .navWrapper a {
       padding: 0.5rem 1.5rem;
     }
 
-    @nest & ul div {
+    @nest & .navWrapper a {
       border-right: 2px solid black;
       border-top: 2px solid black;
     }
 
-    @nest & ul div:last-child {
+    @nest & .navWrapper a:last-child {
       border-bottom: 2px solid black;
     }
 
@@ -131,14 +132,19 @@
   @media (--media-min-medium) {
     display: block;
 
-    @nest & ul {
+    @nest & .navWrapper {
       list-style: none;
       display: flex;
       justify-content: flex-end;
     }
 
-    @nest & ul div a {
+    @nest & .navWrapper a {
       padding: 0.5rem;
+      border-right: 2px solid black;
+
+      @nest &:last-child {
+        border-right: 0;
+      }
     }
   }
 }

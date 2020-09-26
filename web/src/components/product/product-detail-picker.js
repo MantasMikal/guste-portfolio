@@ -17,6 +17,7 @@ const ProductDetailPicker = ({ product }) => {
   } = product
   const [variant, setVariant] = useState({ ...initialVariant })
   const [quantity, setQuantity] = useState(1)
+  const [isAddedToCart, setAddedToCart] = useState(false)
   const {
     addVariantToCart,
     store: { client, adding }
@@ -65,6 +66,7 @@ const ProductDetailPicker = ({ product }) => {
   }
 
   const handleAddToCart = () => {
+    setAddedToCart(true)
     window.scrollTo(0, 0)
     addVariantToCart(productVariant.shopifyId, quantity)
   }
@@ -157,7 +159,7 @@ at least if the have a sense for good design lol.
         className={styles.addToCartButton}
         onClick={handleAddToCart}
       >
-        Add to Cart
+        {isAddedToCart ? 'Added!' : 'Add to cart'}
       </Button>
       {!available && <p>This Product is out of Stock!</p>}
     </div>

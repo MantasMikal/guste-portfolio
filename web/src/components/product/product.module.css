@@ -35,7 +35,7 @@
   margin: 0.325rem 0;
   margin-bottom: 1em;
   @media only screen and (min-width: 1000px) {
-    grid-template-columns: 1fr 1.8fr;
+    grid-template-columns: 1fr 1.2fr;
   }
 }
 
@@ -78,6 +78,7 @@
 .metaContent {
   padding: 1em 1.825em;
   border: 2px solid black;
+  height: 95%;
   @nest & > p {
     padding: 0;
     margin: 0;
@@ -181,8 +182,8 @@
     grid-template-columns: repeat(2, minmax(100px, 1fr) );
   }
  
-  @media (--media-min-medium) {
-    grid-template-columns: repeat(4, minmax(250px, 1fr) );
+  @media (--media-min-large) {
+    grid-template-columns: repeat(4, minmax(230px, 1fr) );
   }
 }
 

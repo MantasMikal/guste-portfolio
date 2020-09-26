@@ -42,7 +42,7 @@ const StorePage = () => {
                 originalSrc
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 710) {
+                    fluid(maxWidth: 1000) {
                       ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }
                   }

@@ -25,29 +25,12 @@ export default class Header extends React.Component {
           </button>
 
           <nav className={cn(styles.nav, showNav && styles.showNav)}>
-            <ul>
-              <div>
+            <div className={styles.navWrapper}>
                 <Link to="/projects">Projects</Link>
-              </div>
-              {/* <div>
-            <Link to='/illustrations/'>Illustrations</Link>
-          </div> */}
-              <div>
                 <Link to="/gallery/">Gallery</Link>
-              </div>
-              {/* <div>
-                <Link to="/store/">Store</Link>
-              </div> */}
-              <div>
                 <Link to="/about/">About</Link>
-              </div>
-              {/* <li>
-            <Link to='/blog/'>Blog</Link>
-          </li> */}
-              <div>
                 <ContactPage contactInfo={contactInfo} />
-              </div>
-            </ul>
+            </div>
           </nav>
         </div>
       </div>

@@ -11,7 +11,7 @@
     margin: 0 0 0 0;
   }
 
-  @media (--media-min-medium) {
+  @media (--media-min-large2) {
     font-size: var(--font-base-size);
   }
 

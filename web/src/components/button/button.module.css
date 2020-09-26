@@ -9,8 +9,8 @@
   padding: 0.325em .425rem 0.355em;
   text-decoration: none;
   text-transform: uppercase;
-  text-align: left;
-
+  text-align: center;
+  min-width: 130px;
   @media (--media-min-medium){
     padding: 0px .425rem 0px;
   }
@@ -29,7 +29,7 @@
   .button:hover {
     /* color: var(--color-white);
     background-color: var(--color-black); */
-    outline: 2px solid black;
+    outline: 1px solid black;
     cursor: pointer;
     background-color: var(--color-accent);
   }
