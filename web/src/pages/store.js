@@ -50,14 +50,6 @@ const StorePage = () => {
               }
               variants {
                 price
-                compareAtPriceV2 {
-                  amount
-                  currencyCode
-                }
-                selectedOptions {
-                  name
-                  value
-                }
               }
             }
           }
@@ -116,7 +108,7 @@ const StorePage = () => {
     typeof window !== 'undefined' && window.scrollTo(0, 0)
   }
 
-  const filterdNodes = (() => {
+  const filteredNodes = (() => {
     if (filter.activeFilter) {
       return galleryNodes.filter(node => {
         if (node.productType === filter.activeFilter) return true
@@ -176,8 +168,8 @@ const StorePage = () => {
             </div>
           </div>
         </div>
-        {filterdNodes && filterdNodes.length > 0 && (
-          <ProductPreviewGrid nodes={filterdNodes} gridLayout={grid} colCount={3} title="Store" />
+        {filteredNodes && filteredNodes.length > 0 && (
+          <ProductPreviewGrid nodes={filteredNodes} gridLayout={grid} colCount={3} title="Store" />
         )}
       </Container>
     </Layout>

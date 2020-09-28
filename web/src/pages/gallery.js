@@ -86,7 +86,7 @@ export default class Gallery extends React.Component {
     const categories = data && data.categories && mapEdgesToNodes(data.categories)
 
     //Filter posts if category is seleceted
-    const filterdNodes = (() => {
+    const filteredNodes = (() => {
       if (this.state.activeFilter) {
         return galleryNodes.filter(post => {
           for (let i = 0; i < post.artworkCategory.length; i++) {
@@ -161,7 +161,7 @@ export default class Gallery extends React.Component {
             </div>
           </div>
 
-          <GalleryPreviewLayout gridLayout={this.state.isGrid} nodes={filterdNodes} />
+          <GalleryPreviewLayout gridLayout={this.state.isGrid} nodes={filteredNodes} />
         </Container>
       </Layout>
     )
