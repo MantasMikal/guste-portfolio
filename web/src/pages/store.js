@@ -61,10 +61,14 @@ const StorePage = () => {
   )
   const galleryNodes = products && mapEdgesToNodes(products)
   const categories = collectCategories(galleryNodes)
-  const [queryCat, setQueryCat] = useQueryParam('', StringParam)
+  const [queryCat, setQueryCat] = useQueryParam('Prints', StringParam)
 
   const [grid, setGrid] = useState(false)
   const [showFilter, setShowFilter] = useState({ show: true, wasClicked: false })
+
+  useEffect(() => {
+
+  })
 
   useEffect(() => {
     const handleScroll = debounce(() => {
