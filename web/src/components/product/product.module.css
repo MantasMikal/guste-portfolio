@@ -65,7 +65,7 @@
   /* border: 2px solid black; */
   /* padding: 0.325em; */
   @nest & a {
-    color: var(--color-accent);
+    color: var(--color-link);
 
     @media (hover: hover) {
       @nest &:hover {
@@ -183,7 +183,7 @@
   }
  
   @media (--media-min-large) {
-    grid-template-columns: repeat(4, minmax(230px, 1fr) );
+    grid-template-columns: repeat(4, minmax(200px, 1fr) );
   }
 }
 

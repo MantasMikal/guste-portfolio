@@ -3,12 +3,13 @@
 :root {
   --color-black: #222;
   --color-white: #fff;
-  --color-accent:#56B78F;
+  --color-accent: #fbe462;
+  --color-link: #56b78f;
   --header-padding: 0.325em;
   --page-margin: 0.625em;
   --page-margin-mobile: 0.325em;
 
-  @media(--media-max-medium){
+  @media (--media-max-medium) {
     --page-margin: 0.625em;
   }
 }

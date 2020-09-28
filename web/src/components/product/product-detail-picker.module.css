@@ -85,6 +85,7 @@
   margin-bottom: 1em;
   width: 100%;
   max-width: 200px;
+  min-width: 70px;
 	box-sizing: border-box;
 
 	border: 2px solid black;

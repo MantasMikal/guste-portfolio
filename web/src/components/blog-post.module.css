@@ -58,7 +58,7 @@
 
 .mainContent {
   @nest & a {
-    color: var(--color-accent);
+    color: var(--color-link);
 
     @media (hover: hover) {
       @nest &:hover {
