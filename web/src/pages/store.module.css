@@ -142,6 +142,7 @@
 
 .categoryButton {
   margin: 0;
+  text-align: left;
 
   @media (--media-min-medium) {
     margin-left: 0.2rem;

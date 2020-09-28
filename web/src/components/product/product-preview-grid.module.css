@@ -7,10 +7,6 @@
 .wrapper {
   margin: 0.325rem 0 0.325rem;
   
-  @nest & > div:not(:first-child) {
-    margin-left: 5px !important;
-  }
-  
   @media (--media-max-small) {
     margin: 0.325rem 0 0.625rem;
     /* display: block; */
@@ -18,6 +14,11 @@
       margin: 0 !important;
     }
   }
+
+}
+
+.girdLayout > div:not(:first-child) {
+  margin-left: 5px !important; 
 }
 
 .headline {

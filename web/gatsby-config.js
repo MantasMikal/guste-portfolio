@@ -87,6 +87,7 @@ module.exports = {
         display: 'standalone'
       }
     },
+    'gatsby-plugin-use-query-params',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap'
   ]

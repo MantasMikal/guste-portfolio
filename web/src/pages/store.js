@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useQueryParam, StringParam } from 'use-query-params'
+
 import debounce from 'lodash/debounce'
 import { useStaticQuery, graphql } from 'gatsby'
 import { mapEdgesToNodes, cn } from '../lib/helpers'
@@ -57,16 +59,12 @@ const StorePage = () => {
       }
     `
   )
-
   const galleryNodes = products && mapEdgesToNodes(products)
   const categories = collectCategories(galleryNodes)
-  const firstCategory = galleryNodes[0] && galleryNodes[galleryNodes.length - 1].productType
+  const [queryCat, setQueryCat] = useQueryParam('', StringParam)
 
   const [grid, setGrid] = useState(false)
   const [showFilter, setShowFilter] = useState({ show: true, wasClicked: false })
-  const [filter, setFilter] = useState({
-    activeFilter: firstCategory
-  })
 
   useEffect(() => {
     const handleScroll = debounce(() => {
@@ -90,28 +88,21 @@ const StorePage = () => {
 
   const handleScrollFilter = state => {
     if (state !== showFilter.show) setShowFilter({ wasClicked: false, show: state })
-
-    // if (showFilter.wasClicked) {
-    //   setShowFilter({ wasClicked: showFilter.wasClicked, show: showFilter.show })
-    // } else setShowFilter({ wasClicked: false, show: state })
   }
 
   const handleClick = e => {
     e.preventDefault()
     setShowFilter({ show: showFilter.show, wasClicked: true })
     const category = e.target.getAttribute('cattitle')
-    const nextActiveFilter = category !== filter.activeFilter ? category : null
-    setFilter({
-      activeFilter: nextActiveFilter
-    })
-
+    const nextActiveFilter = category !== queryCat ? category : null
+    setQueryCat(nextActiveFilter)
     typeof window !== 'undefined' && window.scrollTo(0, 0)
   }
 
   const filteredNodes = (() => {
-    if (filter.activeFilter) {
+    if (queryCat) {
       return galleryNodes.filter(node => {
-        if (node.productType === filter.activeFilter) return true
+        if (node.productType === queryCat) return true
         else return false
       })
     } else {
@@ -152,7 +143,7 @@ const StorePage = () => {
             <div className={showFilter.show ? styles.categoryWrapper : styles.hide}>
               {categories.map(category => {
                 // Check if filter is active to change its color
-                const isActive = filter.activeFilter === category
+                const isActive = queryCat === category
                 return (
                   <CategoryButton
                     isActive={isActive}

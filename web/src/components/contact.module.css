@@ -27,7 +27,7 @@
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1em;
   grid-gap: 1em;
-
+  margin: auto;
 }
 
 

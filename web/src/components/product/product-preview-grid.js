@@ -36,23 +36,14 @@ const ProductPreviewGrid = ({ nodes, title, gridLayout }) => {
   for (let i = 0; i < layoutState.loaded; i++) {
     nodes[i] &&
       products.push(
-        <ProductPreview
-          {...nodes[i]}
-          key={`Shop-node-${i}}`}
-          gridLayout={gridLayout}
-        />
+        <ProductPreview {...nodes[i]} key={`Shop-node-${i}}`} gridLayout={gridLayout} />
       )
   }
-
+  console.log(gridLayout)
   return (
-    <div className={styles.root}>
+    <div className={cn(styles.root)}>
       <LazyLoader loadMore={loadMore} hasMore={layoutState.hasMore}>
-        <MasonryLayout
-          gap={10}
-          colCount={3}
-          className={cn(styles.wrapper)}
-          isGrid={gridLayout}
-        >
+        <MasonryLayout gap={10} colCount={3} className={cn(styles.wrapper, gridLayout && styles.girdLayout)} isGrid={gridLayout}>
           {products}
         </MasonryLayout>
       </LazyLoader>
