@@ -36,8 +36,7 @@ const Layout = ({
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         <div className={styles.footerLogo}>GUSTE.DESIGN</div>
-        <div className={styles.footerTag}>#PaintYourLifeWithColours</div>
-        <div className={styles.siteInfo}>© {new Date().getFullYear()} Guste Design</div>
+        <div className={styles.siteInfo}>© {new Date().getFullYear()} GUSTE.DESIGN</div>
         <div className={styles.footerNav}>
           <Link to="/customer-service" className={styles.footerNavLink}>
             <span>DELIVERY & RETURNS</span>

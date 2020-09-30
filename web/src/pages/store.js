@@ -61,14 +61,14 @@ const StorePage = () => {
   )
   const galleryNodes = products && mapEdgesToNodes(products)
   const categories = collectCategories(galleryNodes)
-  const [queryCat, setQueryCat] = useQueryParam('Prints', StringParam)
+  const [queryCat, setQueryCat] = useQueryParam('category', StringParam)
 
   const [grid, setGrid] = useState(false)
   const [showFilter, setShowFilter] = useState({ show: true, wasClicked: false })
 
-  useEffect(() => {
-
-  })
+  // useEffect(() => {
+  //   console.log('eefect q', queryCat)
+  // })
 
   useEffect(() => {
     const handleScroll = debounce(() => {
@@ -148,6 +148,7 @@ const StorePage = () => {
               {categories.map(category => {
                 // Check if filter is active to change its color
                 const isActive = queryCat === category
+                console.log('queryCat', queryCat)
                 return (
                   <CategoryButton
                     isActive={isActive}

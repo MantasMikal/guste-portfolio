@@ -33,7 +33,8 @@
 
 .title {
   font-size: 5rem;
-  margin: auto;
+  margin: 0;
+  text-align: right;
   padding: 0.325em 0.325em;
   font-weight: 400;
 
