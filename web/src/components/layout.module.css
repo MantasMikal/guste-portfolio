@@ -50,7 +50,7 @@
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
   font-weight: 500;
-  padding-bottom: 1rem;
+  /* padding-bottom: 1rem; */
   @nest & a {
     color: inherit;
   }
@@ -58,6 +58,7 @@
 
 .footerNav {
   display: flex;
+  margin-bottom: 1em;
 }
 
 .footerNavLink {
@@ -78,7 +79,7 @@
 
 .footerTag {
   padding-bottom: 1em;
-  font-weight: 500;
+  
 }
 
 
@@ -91,10 +92,12 @@
     }
   }
   .siteInfo {
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
   }
   .footerLogo { 
     padding-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
   }
 
   .footerNavLink {

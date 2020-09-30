@@ -35,13 +35,13 @@ const Layout = ({
     <ScrollTop />
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
-        <div className={styles.footerLogo}>GUSTE.DESIGN</div>
-        <div className={styles.siteInfo}>© {new Date().getFullYear()} GUSTE.DESIGN</div>
+        {/* <div className={styles.footerLogo}>GUSTE.DESIGN</div> */}
         <div className={styles.footerNav}>
           <Link to="/customer-service" className={styles.footerNavLink}>
             <span>DELIVERY & RETURNS</span>
           </Link>
         </div>
+        <div className={styles.siteInfo}>© {new Date().getFullYear()} GUSTE.DESIGN</div>
       </div>
     </footer>
   </>
