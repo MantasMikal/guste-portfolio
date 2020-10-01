@@ -1,22 +1,35 @@
 .Head {
   border: 1px solid red;
-  animation: moveHead 0.6s ease forwards;
-  transform-origin: center center;
+
 }
 
-svg, path, line {
+svg,
+path,
+line {
   stroke-linecap: round;
 }
 
-.LeftLineOne,
-.LeftLineTwo,
-.LeftLineThree,
-.RightLineOne,
-.RightLineTwo,
-.RightLineThree {
-  /* opacity: 0; */
-  /* animation: Eyes 0.5s forwards 1s cubic-bezier(0.68, -0.55, 0.265, 1.55); */
+.ear {
+  cursor: pointer;
+  transition: 0.25s ease;
 }
+
+.ear:hover, .ear:hover ~ .ear {
+  fill: #e258b0;
+  transition: 0.25s ease;
+}
+
+.eye {
+  r: 15;
+  cursor: pointer;
+  animation: shrink 0.2s forwards ease-in;
+}
+
+.eyeWide {
+  cursor: pointer;
+  animation: widen 0.2s forwards ease-in;
+}
+
 
 .Line {
   fill: none;
@@ -24,48 +37,50 @@ svg, path, line {
   stroke-width: 11.3386;
   stroke-miterlimit: 10;
   stroke-linecap: round;
-  /* stroke-dasharray: 100;
-  stroke-dashoffset: 100; */
-
-  /* animation: dash 1s ease-in-out 2s forwards; */
 }
-
 
 .LeftLineOne {
   stroke-dasharray: 100;
-  animation: fadeIn 1.3s forwards 0s,
-   dash2 5s linear 2s reverse;
+  animation: fadeIn 1.3s forwards 0s, dash2 5s linear 2s reverse;
 }
 
 .LeftLineTwo {
-  stroke-dasharray: 83;
-  animation: fadeIn 1.3s forwards 0s, 
-  dash2 5s linear 2s forwards;
+  stroke-dasharray: 100;
+  animation: fadeIn 1.3s forwards 0s, dash2 5s linear 2s forwards;
 }
 
 .LeftLineThree {
   stroke-dasharray: 100;
-  animation: fadeIn 1.3s forwards 0s, 
-  dash2 5s linear 2s reverse;
+  animation: fadeIn 1.3s forwards 0s, dash2 5s linear 2s reverse;
 }
 
 .RightLineOne {
   stroke-dasharray: 100;
-  animation: fadeIn 1.3s forwards 0s, 
-  dash2 5s linear 2s reverse;
+  animation: fadeIn 1.3s forwards 0s, dash2 5s linear 2s reverse;
 }
 
 .RightLineTwo {
   stroke-dasharray: 83;
-  animation: fadeIn 1.3s forwards 0s, 
-  dash2 5s linear 2s reverse;
+  animation: fadeIn 1.3s forwards 0s, dash2 5s linear 2s reverse;
 }
 
 .RightLineThree {
   stroke-dasharray: 100;
-  animation: fadeIn 1.3s forwards 0s, 
-  dash2 5s linear 2s reverse;
+  animation: fadeIn 1.3s forwards 0s, dash2 5s linear 2s reverse;
 }
+
+.linesAnimation .Line {
+  stroke-dasharray: 100;
+  animation: dash2 5s linear reverse infinite;
+}
+
+.linesAnimation .LeftLineTwo {
+  animation: dash2 5s linear infinite forwards;
+ }
+
+ .linesAnimation .ear {
+  fill: #e258b0;
+ }
 
 /* .EyeLeft, .EyeRight {
   position: relative;
@@ -73,6 +88,24 @@ svg, path, line {
               eye2 0.2s forwards 2.5s,
               eye3 0.2s forwards 3.3s;
 } */
+
+@keyframes widen {
+  0% {
+    r: 15;
+  }
+  100% {
+    r: 19;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    r: 19;
+  }
+  100% {
+    r: 15;
+  }
+}
 
 @keyframes moveHead {
   0% {
@@ -94,15 +127,15 @@ svg, path, line {
 }
 
 @keyframes fadeIn {
- 0% {
-   opacity: 0;
- }
- 60% {
-   opacity: 0;
- }
- 100% {
-   opacity: 1;
- }
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes dash2 {
@@ -111,38 +144,35 @@ svg, path, line {
   }
 }
 
-
 @keyframes eye1 {
-  0%{ 
+  0% {
     transform: translate(0, 0px);
   }
-  
-  100%{ 
+
+  100% {
     transform: translate(0, 7px);
   }
 }
 
 @keyframes eye2 {
-  0%{ 
+  0% {
     transform: translate(0, 7px);
   }
-  
-  100%{ 
+
+  100% {
     transform: translate(7px, 0px);
   }
 }
 
 @keyframes eye3 {
-  0%{ 
+  0% {
     transform: translate(7px, 0px);
   }
-  
-  100%{ 
+
+  100% {
     transform: translate(0px, 0px);
   }
 }
-
-
 
 @keyframes Eyes {
   0% {
@@ -172,9 +202,8 @@ svg, path, line {
   }
 }
 
-
 @keyframes dash {
-  0%{
+  0% {
     opacity: 0;
   }
   30% {

@@ -6,18 +6,21 @@
   padding: 2rem;
   margin-bottom: 0.35em;
   background-color: #b2e0dd;
+
 }
 
 .HeadWrapper {
-  height: 77vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  height: 77vh;
   @media (--media-min-large) {
     height: 90vh;
   }
 }
+
+
+
 
 .TextWrapper {
   font-size: var(--font-title3-size);
@@ -27,9 +30,26 @@
 
 .Head {
   height: 90%;
-  transition: ease 0.25s;
-  @nest &:hover {
-    transform: scale(1.01);
-    transition: ease 0.25s;
+  animation: moveHead 0.6s ease forwards;
+  transform-origin: center center;
+}
+
+
+@keyframes moveHead {
+  0% {
+    transform: scale(0);
+  }
+  /* 20% {
+    transform: rotate(5deg);
+  } */
+
+  /* 40% {
+    transform: rotate(0deg);
+  }  */
+  /* 60% {
+    transform: rotate(-5deg);
+  } */
+  80% {
+    transform: scale(1);
   }
 }
