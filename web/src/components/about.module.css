@@ -85,9 +85,18 @@
   margin: auto;
 }
 
+
+.content > p {
+  font-size: 1.25em;
+}
+
 @media (--media-min-medium) {
   .about {
-    padding: 5rem;
+    padding: 3rem;
+  }
+
+  .content > p {
+    font-size: 1.4em;
   }
 }
 
@@ -98,6 +107,7 @@
   overflow: hidden;
   border: 2px solid var(--color-black);
 }
+
 
 @media (--media-min-large) {
   .aboutContent {
@@ -113,5 +123,9 @@
 
   .pageImage {
     margin-bottom: 0em;
+  }
+
+  .content > p {
+    font-size: 1.7em;
   }
 }
