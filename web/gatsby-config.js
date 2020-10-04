@@ -79,9 +79,10 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'GUSTE.DESIGN',
-        short_name: 'G',
-        background_color: 'white',
-        theme_color: 'black',
+        description: 'Collaborative and intuitive Designer that enjoys all stages of a project and is passionate about creating & exploring the creative process.',
+        short_name: 'GD',
+        background_color: '#fff',
+        theme_color: '#000',
         icon: 'src/images/icon-sm.png',
         start_url: '/',
         display: 'standalone'
