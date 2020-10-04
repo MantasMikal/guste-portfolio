@@ -3,23 +3,9 @@
 
 .Hero {
   border: 2px solid var(--color-black);
-  padding: 2rem;
   margin-bottom: 0.35em;
   background-color: #b2e0dd;
-
 }
-
-.HeadWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 77vh;
-  @media (--media-min-large) {
-    height: 90vh;
-  }
-}
-
-
 
 
 .TextWrapper {

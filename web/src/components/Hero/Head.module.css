@@ -1,7 +1,40 @@
-.Head {
-  border: 1px solid red;
-
+.HeadWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 77vh;
+  padding: 2rem;
+  position: relative;
+  @media (--media-min-large) {
+    height: 90vh;
+  }
 }
+
+.TheHead {
+  background-color: inherit !important;
+}
+
+.ColorPickerWrapper {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+body {
+  cursor: none;
+}
+
+
+.Cursor {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--color-black);
+  border-radius: 50%;
+  z-index: 9999;
+  /* mix-blend-mode: difference; */
+}
+
 
 svg,
 path,
@@ -10,26 +43,31 @@ line {
 }
 
 .ear {
-  cursor: pointer;
+  cursor: none;
   transition: 0.25s ease;
 }
 
-.ear:hover, .ear:hover ~ .ear {
+.ear:hover,
+.ear:hover ~ .ear {
   fill: #e258b0;
   transition: 0.25s ease;
 }
 
+.eye:hover .Cursor {
+  width: 20px;
+  height: 20px;
+}
+
 .eye {
   r: 15;
-  cursor: pointer;
+  cursor: none;
   animation: shrink 0.2s forwards ease-in;
 }
 
 .eyeWide {
-  cursor: pointer;
+  cursor: none;
   animation: widen 0.2s forwards ease-in;
 }
-
 
 .Line {
   fill: none;
@@ -76,11 +114,11 @@ line {
 
 .linesAnimation .LeftLineTwo {
   animation: dash2 5s linear infinite forwards;
- }
+}
 
- .linesAnimation .ear {
+.linesAnimation .ear {
   fill: #e258b0;
- }
+}
 
 /* .EyeLeft, .EyeRight {
   position: relative;

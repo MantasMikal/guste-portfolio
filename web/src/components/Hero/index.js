@@ -6,12 +6,7 @@ import Head from './Head'
 const Hero = props => {
   return (
     <div className={styles.Hero}>
-      {/* <div className={styles.TextWrapper}>
-        HELLO, HUMAN
-      </div> */}
-      <div className={styles.HeadWrapper}>
-        <Head className={styles.Head} />
-      </div>
+      <Head className={styles.Head} />
     </div>
   )
 }
