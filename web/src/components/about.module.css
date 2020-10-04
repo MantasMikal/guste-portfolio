@@ -126,6 +126,10 @@
   }
 
   .content > p {
-    font-size: 1.7em;
+    font-size: 2em;
+
+    @nest &:last-child {
+      font-size: 1.5em;
+    }
   }
 }
