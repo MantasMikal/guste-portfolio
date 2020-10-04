@@ -67,10 +67,8 @@ const StorePage = () => {
 
   const [grid, setGrid] = useState(false)
   const [showFilter, setShowFilter] = useState({ show: true, wasClicked: false })
-
-  // useEffect(() => {
-  //   console.log('eefect q', queryCat)
-  // })
+  const [activeFilter, setActiveFilter] = useState(queryCat)
+  console.log("activeFilter", activeFilter)
 
   useEffect(() => {
     const handleScroll = debounce(() => {
@@ -102,6 +100,7 @@ const StorePage = () => {
     const category = e.target.getAttribute('cattitle')
     const nextActiveFilter = category !== queryCat ? category : null
     setQueryCat(nextActiveFilter)
+    setActiveFilter(nextActiveFilter)
     typeof window !== 'undefined' && window.scrollTo(0, 0)
   }
 
@@ -149,11 +148,10 @@ const StorePage = () => {
             <div className={showFilter.show ? styles.categoryWrapper : styles.hide}>
               {categories.map(category => {
                 // Check if filter is active to change its color
-                const isActive = queryCat === category
-                console.log('queryCat', queryCat)
+                console.log('activeFilter', activeFilter)
                 return (
                   <CategoryButton
-                    isActive={isActive}
+                    isActive={activeFilter === category}
                     cattitle={category}
                     key={category}
                     onClick={handleClick}
