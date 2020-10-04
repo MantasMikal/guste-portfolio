@@ -61,17 +61,13 @@ const StorePage = () => {
   )
   const galleryNodes = products && mapEdgesToNodes(products)
   const categories = collectCategories(galleryNodes)
-  console.log('categories', categories)
   const [queryCat, setQueryCat] = useQueryParam('category', StringParam)
-  console.log('queryCat', queryCat)
 
   const [grid, setGrid] = useState(false)
   const [showFilter, setShowFilter] = useState({ show: true, wasClicked: false })
   const [activeFilter, setActiveFilter] = useState('Prints')
-  console.log('activeFilter', activeFilter)
 
   useEffect(() => {
-    console.log('Setting active filter... to be', queryCat)
     setActiveFilter(queryCat)
   })
 
