@@ -12,8 +12,7 @@ const COLORS = [
   'CD4592',
   '58B789',
   '277FC3',
-  '6164AB',
-  'B2E0DD'
+  '6164AB'
 ]
 
 const Head = ({ className, bbox, ref, ...props }) => {

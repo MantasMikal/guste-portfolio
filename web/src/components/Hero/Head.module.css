@@ -32,6 +32,10 @@ body {
   border: 2px solid var(--color-black);
   border-radius: 50%;
   z-index: 9999;
+
+  @media (hover: none) {
+    display: none;
+  }
   /* mix-blend-mode: difference; */
 }
 
