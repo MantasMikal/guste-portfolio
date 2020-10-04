@@ -249,7 +249,7 @@ const Head = ({ className, ...props }) => {
             <a.circle
               cx={342.34}
               cy={536.65}
-              // r={isWide ? 19 : 14.71}
+              r={isWide ? 19 : 15}
               onClick={() => setWide(!isWide)}
               transform={interpPupil}
               className={[styles.EyeLeft, isWide ? styles.eyeWide : styles.eye, 'EYE'].join(' ')}
@@ -258,7 +258,7 @@ const Head = ({ className, ...props }) => {
               cx={654.72}
               cy={536.87}
               onClick={() => setWide(!isWide)}
-              // r={isWide ? 19 : 14.71}
+              r={isWide ? 19 : 15}
               transform={interpPupil}
               className={[styles.EyeRight, isWide ? styles.eyeWide : styles.eye, 'EYE'].join(' ')}
             />

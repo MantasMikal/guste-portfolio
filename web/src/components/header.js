@@ -26,11 +26,11 @@ export default class Header extends React.Component {
 
           <nav className={cn(styles.nav, showNav && styles.showNav)}>
             <div className={styles.navWrapper}>
-                <Link to="/projects">Projects</Link>
-                <Link to="/gallery/">Gallery</Link>
-                <Link to="/about/">About</Link>
-                {/* <Link to="/store?=Prints">Store</Link> */}
-                <ContactPage contactInfo={contactInfo} />
+              <Link to="/store/?category=Prints">Store</Link>
+              <Link to="/projects">Projects</Link>
+              <Link to="/gallery/">Gallery</Link>
+              <Link to="/about/">About</Link>
+              <ContactPage contactInfo={contactInfo} />
             </div>
           </nav>
         </div>
