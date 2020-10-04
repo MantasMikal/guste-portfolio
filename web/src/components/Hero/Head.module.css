@@ -96,7 +96,7 @@ line {
 }
 
 .RightLineTwo {
-  stroke-dasharray: 83;
+  stroke-dasharray: 100s;
   animation: fadeIn 1.3s forwards 0s, dash2 5s linear 2s reverse;
 }
 
@@ -176,7 +176,7 @@ line {
 
 @keyframes dash2 {
   to {
-    stroke-dashoffset: 1000;
+    stroke-dashoffset: 980;
   }
 }
 
