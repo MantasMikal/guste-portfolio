@@ -2,7 +2,7 @@ import React from 'react'
 import { array } from 'prop-types'
 import styles from './ColorPallet.module.css'
 
-const ColorPallet = ({ colors, onColorClick, onClear }) => {
+const ColorPallet = ({ colors, onColorClick, onClear, activeColor }) => {
   return (
     <div className={styles.ColorPallet}>
       {colors.map((color, i) => (
@@ -10,7 +10,7 @@ const ColorPallet = ({ colors, onColorClick, onClear }) => {
           onClick={() => onColorClick(color)}
           style={{ backgroundColor: `#${color}` }}
           key={`COLOR-${i}`}
-          className={styles.Color}
+          className={[styles.Color, color === activeColor && styles.active].join(' ')}
         />
       ))}
     </div>
