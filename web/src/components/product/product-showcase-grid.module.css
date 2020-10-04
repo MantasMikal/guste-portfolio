@@ -1,6 +1,8 @@
+@import '../../styles/media-queries.css';
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 100px));
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: auto;
   gap: 0.625em;
   margin: 0.625em auto;
@@ -22,5 +24,16 @@
   z-index: 1;
 }
 
+@media (--media-min-small) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (--media-min-large) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 100px));
+  }
+}
 
 /* repeat(auto-fill, minmax(70px, 1fr)); */

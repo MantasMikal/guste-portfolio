@@ -9,7 +9,6 @@ import { responsiveTitle4 } from '../typography.module.css'
 const ProductPreview = ({ images, variants, title, handle, gridLayout }) => {
   const { price } = variants[0]
   const [isLoaded, setLoaded] = useState(false)
-  console.log('ProductPreview -> isVisible', isLoaded)
   return (
     <div className={cn(styles.itemWrapper, gridLayout && styles.gridLayout)}>
       <Link to={`/store/${handle}`} onMouseEnter={() => setLoaded(true)}>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQueryParam, StringParam } from 'use-query-params'
 
 import debounce from 'lodash/debounce'
@@ -147,21 +147,17 @@ const StorePage = () => {
               />
             </button>
             <div className={showFilter.show ? styles.categoryWrapper : styles.hide}>
-              {categories.map(category => {
-                // Check if filter is active to change its color
-                console.log('activeFilter', activeFilter)
-                return (
-                  <CategoryButton
-                    isActive={activeFilter === category}
-                    cattitle={category}
-                    key={category}
-                    onClick={handleClick}
-                    className={styles.categoryButton}
-                  >
-                    {category}
-                  </CategoryButton>
-                )
-              })}
+              {categories.map(category => (
+                <CategoryButton
+                  isActive={activeFilter === category}
+                  cattitle={category}
+                  key={category}
+                  onClick={handleClick}
+                  className={styles.categoryButton}
+                >
+                  {category}
+                </CategoryButton>
+              ))}
             </div>
           </div>
         </div>

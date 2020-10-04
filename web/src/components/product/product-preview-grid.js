@@ -39,7 +39,6 @@ const ProductPreviewGrid = ({ nodes, title, gridLayout }) => {
         <ProductPreview {...nodes[i]} key={`Shop-node-${i}}`} gridLayout={gridLayout} />
       )
   }
-  console.log(gridLayout)
   return (
     <div className={cn(styles.root)}>
       <LazyLoader loadMore={loadMore} hasMore={layoutState.hasMore}>

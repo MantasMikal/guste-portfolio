@@ -64,7 +64,6 @@ const AboutPage = props => {
 
   const page = data && data.page
   const instagram = data && data.instagram && data.instagram.edges.slice(0, 4)
-  console.log('instagram', instagram)
 
   if (!page) {
     throw new Error(

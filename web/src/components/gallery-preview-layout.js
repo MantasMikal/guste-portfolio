@@ -36,7 +36,6 @@ export default class GalleryPreviewLayout extends React.Component {
     const posts = []
     let nodes = this.props.nodes
    const { gridLayout } = this.props
-   console.log("GalleryPreviewLayout -> render -> gridLayout", gridLayout)
 
     for (let i = 0; i < this.state.loaded; i++) {
       nodes[i] &&
