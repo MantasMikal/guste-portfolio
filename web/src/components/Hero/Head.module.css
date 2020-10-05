@@ -2,11 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 77vh;
+  height: 86.5vh;
   padding: 2rem;
   position: relative;
   @media (--media-min-large) {
-    height: 90vh;
+    height: 100vh;
+  }
+  cursor: none !important; 
+  @nest & * {
+    cursor: none !important; 
   }
 }
 
@@ -19,11 +23,6 @@
   top: 0px;
   right: 0px;
 }
-
-body {
-  cursor: none;
-}
-
 
 .Cursor {
   position: absolute;
