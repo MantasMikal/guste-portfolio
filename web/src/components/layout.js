@@ -41,7 +41,7 @@ const Layout = ({
             <span>DELIVERY & RETURNS</span>
           </Link>
         </div>
-        <div className={styles.siteInfo}>© {new Date().getFullYear()} GUSTE.DESIGN. All rights reserved </div>
+        <div className={styles.siteInfo}>© {new Date().getFullYear()} GUSTE.DESIGN All rights reserved </div>
       </div>
     </footer>
   </>
