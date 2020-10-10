@@ -65,6 +65,7 @@
 
   & svg {
     display: block;
+    stroke-width: 2px;
   }
 
   @media (--media-min-medium) {
