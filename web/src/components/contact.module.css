@@ -106,7 +106,7 @@
 }
 
 .icon:hover {
-  color: var(--color-accent);
+  color: var(--color-accent) !important;
   transition: 0.2s ease-in-out;
   @nest & > * {
     background-color: transparent !important;

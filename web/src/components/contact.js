@@ -1,8 +1,6 @@
 import React from 'react'
-import { FaPhone, FaEnvelope, FaFacebook, FaInstagram } from 'react-icons/fa'
+import { FaEnvelope, FaFacebookMessenger, FaInstagram } from 'react-icons/fa'
 import styles from './contact.module.css'
-import BlockContent from './block-content'
-import typography from './typography.module.css'
 import SEO from '../components/seo'
 
 const Contacts = props => {
@@ -29,12 +27,12 @@ const Contacts = props => {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaFacebook size={'2em'} />
+            <FaFacebookMessenger size={'2em'} />
             <span>Guste Vasiliauskaite</span>
           </a>
           <a
             className={styles.icon}
-            href='https://www.instagram.com/guste.vasiliauskaite'
+            href='https://www.instagram.com/guste.design'
             target='_blank'
             rel='noopener noreferrer'
           >

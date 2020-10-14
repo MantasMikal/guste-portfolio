@@ -2,7 +2,7 @@
 @import '../styles/vars.css';
 
 .content {
-  padding-top: 2.925rem;
+  padding-top: calc(2.925rem + var(--page-margin));
   margin: 0 var(--page-margin);
   min-height: calc(100% - 73px - 152px);
   @media (--media-min-small) {
@@ -121,6 +121,7 @@
   cursor: pointer;
 
   @nest &:hover {
+    cursor: pointer;
     background-color: var(--color-accent);
   }
 }

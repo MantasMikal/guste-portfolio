@@ -6,15 +6,10 @@ import styles from './layout.module.css'
 import StoreContextProvider from '../provider/StoreContextProvider'
 import { Link } from 'gatsby'
 
-import { FaPinterestP, FaFacebookF, FaArrowUp } from 'react-icons/fa'
-import { TiSocialInstagram } from 'react-icons/ti'
-import { IoMdMail } from 'react-icons/io'
-
+import { FaArrowUp } from 'react-icons/fa'
 const Layout = ({
   children,
-  personalInfo,
   contactInfo,
-  footerText,
   onHideNav,
   onShowNav,
   showNav,
@@ -35,9 +30,8 @@ const Layout = ({
     <ScrollTop />
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
-        {/* <div className={styles.footerLogo}>GUSTE.DESIGN</div> */}
         <div className={styles.footerNav}>
-          <Link to="/customer-service" className={styles.footerNavLink}>
+          <Link to='/customer-service' className={styles.footerNavLink}>
             <span>DELIVERY & RETURNS</span>
           </Link>
         </div>
@@ -52,10 +46,11 @@ export default Layout
 const ScrollTop = () => {
   return (
     <button
-      onClick={() => typeof window !== 'undefined' && window.scrollTo(0, 0)}
+      onClick={() => typeof window !== 'undefined' && window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
       className={styles.scrollTop}
+      aria-label='Scroll to Top'
     >
-      <FaArrowUp size="1.5rem" className={styles.scrollTopIcon} />
+      <FaArrowUp size='1.5rem' className={styles.scrollTopIcon} />
     </button>
   )
 }

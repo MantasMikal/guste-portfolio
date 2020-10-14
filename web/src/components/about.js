@@ -31,9 +31,9 @@ const About = ({ pageImage, heroImage, _rawBody, title, instagram }) => {
         {instagram &&
           instagram.map((insta, i) => (
             <a
-              href="https://www.instagram.com/guste.vasiliauskaite"
-              target="__blank"
-              rel="noreferer noopener"
+              href='https://www.instagram.com/guste.design'
+              target='__blank'
+              rel='noreferer noopener'
               className={styles.imageWrapper}
               key={insta.node.id}
             >
