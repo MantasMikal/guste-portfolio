@@ -108,7 +108,7 @@
     background: #fff;
     left: 0;
     right: 0;
-    top: 2.3rem;
+    top: 3rem;
     margin: 0 0.625em;
 
     @nest & {
