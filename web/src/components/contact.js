@@ -37,7 +37,7 @@ const Contacts = props => {
             rel='noopener noreferrer'
           >
             <FaInstagram size={'2em'} />
-            <span>Guste.Vasiliauskaite</span>
+            <span>GUSTE.DESIGN</span>
           </a>
         </div>
       </div>
