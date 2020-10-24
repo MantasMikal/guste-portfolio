@@ -10,11 +10,12 @@ const ProductShowcase = ({ images, alt }) => {
     images[currentImage].localFile &&
     images[currentImage].localFile.childImageSharp &&
     images[currentImage].localFile.childImageSharp.fluid
-  
+
   const handleClick = e => {
     const newImageIdx = e.target.attributes.imgidx.value
     setCurrentImage(newImageIdx)
   }
+
   return (
     <div className={styles.showcaseWrapper}>
       <ImageWithModal hasBorder fluid={image} alt={alt} />
