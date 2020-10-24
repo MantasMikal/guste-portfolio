@@ -85,9 +85,9 @@
   outline: 2px solid black;
   border: none;
   background-color: white;
-  cursor: pointer;
   line-height: inherit;
   font-size: inherit;
+  cursor: pointer;
 
   @media (--media-min-medium) {
     position: relative;
@@ -117,6 +117,7 @@
   background-color: white;
   z-index: 10;
   max-width: 123px;
+  line-height: 1;
   /* animation: slideIn 0.25s; */
   & > button {
     border-bottom: 2px solid black;
@@ -148,30 +149,17 @@
     margin-left: 0.2rem;
     margin-right: 0.1rem;
   }
-  /* margin: 0 0em;
-  @media (--media-min-medium){
-    margin: 0.225em 0.225em;
-    padding: 0 .425rem 0;
-  } */
 }
 
 
 .controls {
   display: flex;
+  line-height: 0;
 }
 
 .gridIcon {
-  /* position: absolute;
-  margin-left: 4.5rem;
-  display: flex;
-  cursor: pointer;
-  left: 0;
-  top: 0;
-  bottom: 0; */
-
   position: relative;
   display: flex;
-  cursor: pointer;
   right: 0;
   background-color: #fff;
   outline: 2px solid #000;
@@ -179,7 +167,7 @@
   height: 20px;
   z-index: 10;
   padding: .155em .2em .155em .2em;
-
+  cursor: pointer;
   @media (--media-min-small) {
     display: none;
   }

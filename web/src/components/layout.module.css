@@ -47,19 +47,22 @@
 }
 
 .siteInfo {
-  font-size: var(--font-base-size);
-  line-height: var(--font-base-line-height);
+  font-size: 0.9rem;
   font-weight: 500;
   text-align: center;
   /* padding-bottom: 1rem; */
   @nest & a {
     color: inherit;
   }
+
+  @nest & span {
+    font-size: 0.8rem;
+  }
 }
 
 .footerNav {
   display: flex;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .footerNavLink {
