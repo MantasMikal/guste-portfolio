@@ -17,17 +17,14 @@ const COLORS = [
 
 const Head = ({ className, bbox, ref, ...props }) => {
   const [color, setColor] = useState(null)
-
   const [{ st, xy }, set] = useSpring(() => ({ st: 0, xy: [0, 0] }))
   const [isWide, setWide] = useState(false)
   const [linesAnimation, setlinesAnimation] = useState(false)
-  const [position, setPosition] = useState({ x: 0, y: 0 })
 
   const setPartColor = e => (e.target.style.fill = `#${color}`)
 
   const onMove = useCallback(({ clientX: x, clientY: y }) => {
     set({ xy: [x - window.innerWidth / 2, y - window.innerHeight / 2] })
-    setPosition({ x, y })
   }, [])
 
   const interpPupil = interpolate(
@@ -36,14 +33,19 @@ const Head = ({ className, bbox, ref, ...props }) => {
   )
 
   const cursorClassNames = [styles.Cursor, 'Cursor'].join(' ')
+
   return (
-    <div onMouseMove={onMove}>
+    <div onMouseMove={e => {
+      const cursor = document.getElementById("cursor")
+      cursor.style.left = `${e.pageX}px`
+      cursor.style.top = `${e.pageY}px`
+      onMove(e)
+    }}>
       <div style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%' }}>
         <div
+          id='cursor'
           className={cursorClassNames}
           style={{
-            left: `${position.x}px`,
-            top: `${position.y}px`,
             backgroundColor: `#${color}`
           }}
         />
