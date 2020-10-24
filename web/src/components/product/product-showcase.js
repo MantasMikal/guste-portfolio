@@ -5,8 +5,13 @@ import styles from './product-showcase.module.css'
 
 const ProductShowcase = ({ images, alt }) => {
   const [currentImage, setCurrentImage] = useState(0)
-  const image = images[currentImage].localFile.childImageSharp.fluid
-  const handleClick = (e) => {
+  const image =
+    images[currentImage] &&
+    images[currentImage].localFile &&
+    images[currentImage].localFile.childImageSharp &&
+    images[currentImage].localFile.childImageSharp.fluid
+  
+  const handleClick = e => {
     const newImageIdx = e.target.attributes.imgidx.value
     setCurrentImage(newImageIdx)
   }
