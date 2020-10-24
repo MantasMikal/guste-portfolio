@@ -20,6 +20,7 @@
 
 .contentWrapper {
   margin: 0.625em 0 0.325em;
+  min-height: 73.8vh
   /* border: 2px solid var(--color-black); */
 }
 

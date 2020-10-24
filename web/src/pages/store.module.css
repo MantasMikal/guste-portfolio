@@ -118,15 +118,7 @@
   z-index: 10;
   max-width: 123px;
   line-height: 1;
-  /* animation: slideIn 0.25s; */
-  & > button {
-    border-bottom: 2px solid black;
-  }
-  /* animation: slideIn 0.35s cubic-bezier(0.7, 0.1, 0.3, 0.9); */
-  & > button:last-child {
-    border-bottom: none;
-  }
-
+ 
   @media (--media-min-medium) {
     position: relative;
     outline: none;

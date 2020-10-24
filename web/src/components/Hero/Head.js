@@ -36,11 +36,12 @@ const Head = ({ className, bbox, ref, ...props }) => {
 
   return (
     <div onMouseMove={e => {
-      const cursor = document.getElementById("cursor")
+      const cursor = document.getElementById('cursor')
       cursor.style.left = `${e.pageX}px`
       cursor.style.top = `${e.pageY}px`
       onMove(e)
-    }}>
+    }}
+    >
       <div style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%' }}>
         <div
           id='cursor'
@@ -428,7 +429,22 @@ const Head = ({ className, bbox, ref, ...props }) => {
             </g>
           </g>
           <g id='head__TOP_LIPS' onClick={e => setPartColor(e)}>
-            <g id='head__XMLID_20_'>
+            <g
+              draggable='true'
+              // onClick={(e) => {
+              //   console.log(e)
+              // }}
+              onDrag={(e) => {
+                console.log(e)
+                console.log('e', e)
+                const lip = document.getElementById('head__XMLID_20_')
+                console.log('lip', lip)
+                lip.style.top = +`${e.pageY}px`
+              }} id='head__XMLID_20_'
+              onDragStart={(e) => {
+                console.log(e)
+              }} id='head__XMLID_20_'
+            >
               <path
                 className='head__st9'
                 d='M750 1234.4c-37.3 1.4-93.4-2.4-153.7-7.5l114.7-78.6c14.3 15.2 20.4 27.2 35 29.2h7.4c14.6-2 20.7-14 35-29.2l114.7 78.6c-60.1 5-115.9 8.9-153.1 7.5z'

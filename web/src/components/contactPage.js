@@ -22,7 +22,7 @@ export default class Nav extends React.Component {
   render () {
     return (
       <>
-        <a onClick={this.handleOverlay} style={{ cursor: 'pointer', borderRight: 0 }}>
+        <a onClick={this.handleOverlay} style={{ cursor: 'pointer'}}>
           Contact
         </a>
         <Modal

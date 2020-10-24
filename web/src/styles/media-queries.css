@@ -1,5 +1,5 @@
-@custom-media --media-min-small (min-width: 450px);
-@custom-media --media-max-small (max-width: 449px);
+@custom-media --media-min-small (min-width: 550px);
+@custom-media --media-max-small (max-width: 549px);
 @custom-media --media-min-medium (min-width: 775px);
 @custom-media --media-max-medium2 (max-width: 774px);
 @custom-media --media-max-medium (max-width: 900px);

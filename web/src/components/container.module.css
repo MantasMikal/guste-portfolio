@@ -2,14 +2,12 @@
 
 .root {
   box-sizing: border-box;
-  /* min-height: 94vh; */
-  /* Compensate header padding */
-  /* padding: 0 calc(0.625em + var(--header-padding)); */
-  /* margin: 0 calc(var(--page-margin) + var(--header-padding)) 0.625em var(--page-margin); */
+  display: flex;
+  flex-direction: column;
   @media (--media-max-medium) {
     /* margin: 0 calc(var(--page-margin-mobile) + var(--header-padding)); */
   }
-  animation: fadeIn 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
+  
 }
 
 @keyframes fadeIn {
