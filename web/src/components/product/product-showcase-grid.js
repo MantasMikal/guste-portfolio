@@ -13,7 +13,7 @@ const ProductImageGrid = ({ images, handleClick, alt }) => {
             img.localFile &&
             img.localFile.childImageSharp &&
             img.localFile.childImageSharp.fluid
-          return (
+          return image && (
             <div key={`Product-image-${i}`} className={styles.gridWrapper}>
               <div className={styles.clickHandler} onClick={e => handleClick(e)} imgidx={i} />
               <Image hasBorder fluid={image} alt={alt} />
