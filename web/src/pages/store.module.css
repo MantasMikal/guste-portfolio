@@ -118,7 +118,15 @@
   z-index: 10;
   max-width: 123px;
   line-height: 1;
- 
+
+  @nest & > button {
+    border-bottom: 2px solid black;
+  }
+
+  @nest & > button:last-child {
+    border-bottom: none;
+  }
+
   @media (--media-min-medium) {
     position: relative;
     outline: none;
@@ -143,7 +151,6 @@
   }
 }
 
-
 .controls {
   display: flex;
   line-height: 0;
@@ -158,7 +165,7 @@
   margin-right: 2px;
   height: 20px;
   z-index: 10;
-  padding: .155em .2em .155em .2em;
+  padding: 0.155em 0.2em 0.155em 0.2em;
   cursor: pointer;
   @media (--media-min-small) {
     display: none;
@@ -172,7 +179,6 @@
 .hide {
   display: none;
 }
-
 
 @keyframes slideIn {
   from {
