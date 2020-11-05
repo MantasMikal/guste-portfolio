@@ -102,6 +102,15 @@
   line-height: 1;
   z-index: 10; 
   /* animation: slideIn 0.25s; */
+
+  & > button {
+    border-bottom: 2px solid black;
+  }
+
+  & > button:last-child {
+    border-bottom: none;
+  }
+
   @media (--media-min-medium) {
     position: relative;
     outline: none;
