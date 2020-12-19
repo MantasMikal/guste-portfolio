@@ -13,7 +13,7 @@ const ProductPreview = ({ images, variants, title, handle, gridLayout }) => {
     <div className={cn(styles.itemWrapper, gridLayout && styles.gridLayout)}>
       <Link to={`/store/${handle}`} onMouseEnter={() => setLoaded(true)}>
         <div className={styles.inner}>
-          {images.length > 1 && images[1].localFile.childImageSharp && isLoaded && (
+          {images.length > 1 && images[1].localFile.childImageSharp && (
             <div className={styles.Image}>
               <Image fluid={images[1].localFile.childImageSharp.fluid} />
             </div>
