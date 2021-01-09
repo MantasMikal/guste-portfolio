@@ -16,6 +16,7 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-preact',
     // {
     //   resolve: `gatsby-plugin-prefetch-google-fonts`,
     //   options: {
@@ -70,6 +71,15 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        // Setting a color is optional.
+        color: '#fbe462',
+        // Disable the loading spinner.
+        showSpinner: false
+      }
+    },
+    {
       resolve: 'gatsby-source-instagram',
       options: {
         username: '289675843'
@@ -79,7 +89,8 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'GUSTE.DESIGN',
-        description: 'Collaborative and intuitive Designer that enjoys all stages of a project and is passionate about creating & exploring the creative process.',
+        description:
+          'Collaborative and intuitive Designer that enjoys all stages of a project and is passionate about creating & exploring the creative process.',
         short_name: 'GD',
         background_color: '#fff',
         theme_color: '#000',
