@@ -86,6 +86,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-instagram-all',
+      options: {
+        access_token: process.env.INSTAGRAM_TOKEN
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'GUSTE.DESIGN',

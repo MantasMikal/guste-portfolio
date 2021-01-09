@@ -35,12 +35,12 @@ const About = ({ pageImage, heroImage, _rawBody, title, instagram }) => {
               target='__blank'
               rel='noreferer noopener'
               className={styles.imageWrapper}
-              key={insta.node.id}
+              key={`Insta-${i}`}
             >
               <div className={styles.image}>
                 <ZomableImage
                   isZoomable={false}
-                  fluid={insta.node.localFile.childImageSharp.fluid}
+                  fluid={insta.node.localImage.childImageSharp.fluid}
                   alt={insta.node.caption}
                 />
               </div>

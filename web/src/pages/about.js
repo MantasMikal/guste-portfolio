@@ -6,8 +6,8 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import About from '../components/about'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs, cn } from '../lib/helpers'
-import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
+// import { mapEdgesToNodes, filterOutDocsWithoutSlugs, cn } from '../lib/helpers'
+// import { responsiveTitle3, uppercase, border } from '../components/typography.module.css'
 
 export const query = graphql`
   query AboutPageQuery {
@@ -32,16 +32,15 @@ export const query = graphql`
       }
     }
 
-    instagram: allInstaNode(sort: {fields: timestamp, order: DESC}) {
+    instagram:  allInstagramContent(limit: 4) {
       edges {
         node {
-          id
           caption
-          timestamp
-          localFile {
+          media_url
+          localImage {
             childImageSharp {
-              fluid(maxWidth: 600, maxHeight: 600) {
-                ...GatsbyImageSharpFluid
+              fluid(maxHeight: 500, maxWidth: 500, quality: 90) {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
