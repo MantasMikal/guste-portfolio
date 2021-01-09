@@ -151,7 +151,7 @@ at least if the have a sense for good design lol.
               </option>
             ))}
       </select>
-      <Button
+      {/* <Button
         border
         buttonStyle="large"
         type="submit"
@@ -160,7 +160,15 @@ at least if the have a sense for good design lol.
         onClick={handleAddToCart}
       >
         {isAddedToCart ? 'Added!' : 'Add to cart'}
-      </Button>
+      </Button> */}
+
+      <b>
+        <p>
+          The shop is currently closed and will be available at the end of January. Contact me if you want
+          to buy it now.
+        </p>
+      </b>
+
       {!available && <p>This Product is out of Stock!</p>}
     </div>
   )
