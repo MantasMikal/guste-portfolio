@@ -98,65 +98,44 @@ const Head = ({
     </Helmet>
   )
 }
-export default props => {
-  useEffect(() => {
-    const s = document.createElement('script')
-    s.type = 'text/javascript'
-    s.async = true
-    s.innerHTML = `
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:2213358,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`
-    document.head.appendChild(s)
-    return () => {
-      document.head.removeChild(s)
-    }
-  }, [])
-
-  return (
-    <StaticQuery
-      query={graphql`
-        query SiteSettings {
-          allSanitySiteSettings {
-            nodes {
-              title
-              titleShort
-              description
-              siteUrl
-              themeColor
-              backgroundColor
-              logo {
-                asset {
-                  url
-                  label
-                  id
-                  size
-                  url
-                }
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query SiteSettings {
+        allSanitySiteSettings {
+          nodes {
+            title
+            titleShort
+            description
+            siteUrl
+            themeColor
+            backgroundColor
+            logo {
+              asset {
+                url
+                label
+                id
+                size
+                url
               }
             }
           }
         }
-      `}
-      render={data => (
-        <Location>
-          {({ location }) => {
-            return (
-              <Head
-                {...data.allSanitySiteSettings.nodes}
-                logo={data.allSanitySiteSettings.nodes[0].logo.asset.url}
-                {...props}
-                location={location}
-              />
-            )
-          }}
-        </Location>
-      )}
-    />
-  )
-}
+      }
+    `}
+    render={data => (
+      <Location>
+        {({ location }) => {
+          return (
+            <Head
+              {...data.allSanitySiteSettings.nodes}
+              logo={data.allSanitySiteSettings.nodes[0].logo.asset.url}
+              {...props}
+              location={location}
+            />
+          )
+        }}
+      </Location>
+    )}
+  />
+)
