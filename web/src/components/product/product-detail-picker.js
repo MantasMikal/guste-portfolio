@@ -164,7 +164,7 @@ at least if the have a sense for good design lol.
 
       <b>
         <p>
-          The shop is currently closed and will be available at the end of January. Contact me if you want
+          The shop is currently closed. Contact me if you want
           to buy it now.
         </p>
       </b>
