@@ -36,7 +36,7 @@
     "gatsby-plugin-use-query-params": "^1.0.1",
     "gatsby-source-exchange-rates-api": "^2.0.2",
     "gatsby-source-instagram": "^0.9.0",
-    "gatsby-source-instagram-all": "^3.0.3",
+    "gatsby-source-instagram-all": "^3.0.4",
     "gatsby-source-sanity": "^6.0.4",
     "gatsby-source-shopify": "^3.8.0",
     "gatsby-transformer-sharp": "^2.10.0",

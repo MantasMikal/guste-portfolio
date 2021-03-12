@@ -24,20 +24,20 @@
 
 .grid {
   display: flex;
+  flex-direction: column;
+  justify-content: center;  
   align-items: center;
   margin: auto;
 }
 
-
 .title {
   font-size: 5rem;
-  margin-right: 0.2em;
-  padding: 0.325em 0.325em;
+  padding: 0.225em 0.225em;
   font-weight: 400;
-
+  margin: 0;
   @media (--media-max-small) {
     font-size: 3rem;
-    padding: 0.325em 0;
+    padding: 0.225em 0;
     /* padding-left: 3rem; */
   }
 }
@@ -52,15 +52,10 @@
   }
 }
 
-.iconGrid{
-  /* display: grid;
-  flex-direction: column;
-  z-index: 200;
-  color: white;
-  flex-wrap: wrap; */
+.iconGrid {
+  display: flex;
   border: none !important;
   font-weight: 400;
-  
 }
 
 .iconGrid:hover {
@@ -69,30 +64,24 @@
 }
 
 .icon {
-  padding: 0.125em 1.325em 0.625em 0.325em !important;
   border: none;
-  display: flex;
-  align-items: center;
   border: none;
   margin: auto 0;
-  background-color: unset !important; 
+  padding: 10px !important;
+
+  background-color: unset !important;
   border: none !important;
   @nest & > * {
     border-left: none !important;
   }
 
-  @media (--media-max-small) {
-    padding: 0.125em 1.325em 0.125em 0.325em !important;
-  }
 
-  @nest & > svg {
+  /* @nest & > svg {
     margin: auto 0;
-    
+
     @media (--media-max-small) {
       width: 25px;
-
     }
-
   }
 
   @nest & > span {
@@ -102,7 +91,7 @@
     @media (--media-max-small) {
       font-size: 1em;
     }
-  }
+  } */
 }
 
 .icon:hover {

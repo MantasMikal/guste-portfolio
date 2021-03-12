@@ -16,6 +16,7 @@ export const query = graphql`
       _id
       title
       _rawBody(resolveReferences: { maxDepth: 5 })
+      _rawBody2(resolveReferences: { maxDepth: 5 })
       pageImage {
         asset {
           fluid(maxWidth: 1920) {
@@ -80,6 +81,7 @@ const AboutPage = props => {
           title={page.title}
           instagram={instagram}
           _rawBody={page._rawBody || []}
+          _rawBody2={page._rawBody2 || []}
         />
       </Container>
     </Layout>

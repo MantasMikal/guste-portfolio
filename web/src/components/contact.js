@@ -7,10 +7,10 @@ const Contacts = props => {
   const { title, _rawBody } = props.contactInfo
   return (
     <div className={styles.wrapper}>
-      <SEO title="Hi" />
+      <SEO title='About' />
 
       <div className={styles.grid}>
-      <h1 className={styles.title}>Hi!</h1>
+        <h1 className={styles.title}>Hi!</h1>
         <div className={styles.iconGrid}>
           <a
             className={styles.icon}
@@ -18,8 +18,7 @@ const Contacts = props => {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaEnvelope size={'2em'} />
-            <span>Hi@Guste.Design</span>
+            <FaEnvelope size='2em' />
           </a>
           <a
             className={styles.icon}
@@ -27,8 +26,7 @@ const Contacts = props => {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaFacebookMessenger size={'2em'} />
-            <span>Guste Vasiliauskaite</span>
+            <FaFacebookMessenger size='2em' />
           </a>
           <a
             className={styles.icon}
@@ -36,8 +34,7 @@ const Contacts = props => {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaInstagram size={'2em'} />
-            <span>Guste.Design</span>
+            <FaInstagram size='2em' />
           </a>
         </div>
       </div>

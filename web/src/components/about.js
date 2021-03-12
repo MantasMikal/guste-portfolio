@@ -5,7 +5,7 @@ import styles from './about.module.css'
 import { border } from './typography.module.css'
 import ZomableImage from './image/zoomableImage'
 
-const About = ({ pageImage, heroImage, _rawBody, title, instagram }) => {
+const About = ({ pageImage, heroImage, _rawBody, _rawBody2, title, instagram }) => {
   return (
     <div className={styles.wrapper}>
       {title && (
@@ -24,6 +24,7 @@ const About = ({ pageImage, heroImage, _rawBody, title, instagram }) => {
           <BlockContent className={styles.content} blocks={_rawBody} />
         </div>
       </div>
+      <BlockContent className={styles.content} blocks={_rawBody2} />
       <div className={border}>
         <h2 className={styles.headline}>More on instagram</h2>
       </div>

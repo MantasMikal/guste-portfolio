@@ -23,6 +23,11 @@ export default {
       name: 'body',
       title: 'Body',
       type: 'blockContent'
+    },
+    {
+      name: 'body2',
+      title: 'Body 2',
+      type: 'blockContent'
     }
   ]
 }
