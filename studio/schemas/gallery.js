@@ -18,6 +18,11 @@ export default {
       type: 'mainImage'
     },
     {
+      name: 'mainVideo',
+      title: "Main video",
+      type: 'file'
+    },
+    {
       name: 'publishedAt',
       title: 'Published at',
       description: 'You can use this field to schedule projects where you show them',
@@ -28,7 +33,7 @@ export default {
       title: 'Artwork Category',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'artworkCategory' } }]
-    },
+    },  
     {
       name: 'excerpt',
       title: 'Excerpt',

@@ -6,6 +6,8 @@ import BlockText from './block-text'
 import { cn } from '../lib/helpers'
 import Button from './button/button'
 import Image from './image/zoomableImage'
+import Video from './video/video'
+
 // import Image from './zomable-image'
 // Takes in artwork nodes and returns list of components
 export default class GalleryPreviewLayout extends React.Component {
@@ -25,11 +27,22 @@ export default class GalleryPreviewLayout extends React.Component {
 
   render() {
     const { item, gridLayout } = this.props
+    console.log(
+      '🚀 ~ file: gallery-preview.js ~ line 29 ~ GalleryPreviewLayout ~ render ~ item',
+      item
+    )
     return (
       <div className={cn(styles.itemWrapper, gridLayout && styles.gridLayout)}>
         <div className={styles.inner}>
           <div className={styles.image}>
-          {item.mainImage && item.mainImage.asset && <Image isZoomable fluid={item.mainImage.asset.fluid} />}
+            {item.mainImage && item.mainImage.asset && !item.mainVideo && (
+              <Image isZoomable fluid={item.mainImage.asset.fluid} />
+            )}
+            {item.mainVideo && (
+              <div className={styles.Video}>
+                <Video controls={false} src={item.mainVideo.asset.url} />
+              </div>
+            )}
           </div>
         </div>
         <div className={styles.titleWrapper}>

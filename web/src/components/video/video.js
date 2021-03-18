@@ -8,7 +8,7 @@ export default class Video extends Component {
   }
 
   render () {
-    const { src, alt } = this.props
+    const { src, alt, controls, autoPlay } = this.props
     return (
       <div className={styles.videoWrapper}>
         <video
@@ -19,11 +19,11 @@ export default class Video extends Component {
           type='video/mp4'
           alt={alt}
           muted
-          controls
-          autoPlay
+          controls={controls || false}
+          autoPlay={autoPlay || true}
           loop
           playsInline
-          ref={'video'}
+          ref='video'
         >
           Your browser does not support the video tag.
         </video>

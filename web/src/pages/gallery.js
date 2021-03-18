@@ -28,6 +28,11 @@ export const query = graphql`
               }
             }
           }
+          mainVideo {
+            asset {
+              url
+            }
+          }
           _rawExcerpt
           _rawBody(resolveReferences: { maxDepth: 5 })
           artworkCategory {
@@ -36,7 +41,6 @@ export const query = graphql`
         }
       }
     }
-
     categories: allSanityArtworkCategory {
       edges {
         node {
