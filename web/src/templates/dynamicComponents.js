@@ -31,7 +31,12 @@ export function makeMediaComponent (component) {
 
     if (image.mimeType === 'image/gif') {
       return (
-        <img src={image.url} alt={imageAlt} style={{ width: '100%', outline: hasBorder && '2px solid black' }} key={component.asset.id} />
+        <img
+          src={image.url}
+          alt={imageAlt}
+          style={{ width: '100%', outline: hasBorder && '2px solid black' }}
+          key={component.asset.id}
+        />
       )
     } else {
       const fluidProps = image.fluid
@@ -39,7 +44,13 @@ export function makeMediaComponent (component) {
         : getFluidGatsbyImage(image._id, { maxWidth: 1920 }, cfg)
       const isZoomable = component.isZoomable
       return (
-        <Img fluid={fluidProps} alt={imageAlt} key={component.asset.id} isZoomable={isZoomable} hasBorder={hasBorder} />
+        <Img
+          fluid={fluidProps}
+          alt={imageAlt}
+          key={component.asset.id}
+          isZoomable={isZoomable}
+          hasBorder={hasBorder}
+        />
       )
     }
 
@@ -49,13 +60,22 @@ export function makeMediaComponent (component) {
       break
     }
 
-    return <UrlVideo url={component.url} alt={component.alt} key={component._key} hasBorder={hasBorder} />
+    return (
+      <UrlVideo
+        url={component.url}
+        alt={component.alt}
+        key={component._key}
+        hasBorder={hasBorder}
+      />
+    )
 
   case 'contentBlock':
     const margin = component.margin ? { margin: `${component.margin}` } : { margin: '' }
     const padding = component.padding ? { padding: `${component.padding}` } : { padding: '' }
     const border = component.border ? { border: `${component.border}` } : { border: '' }
-    const backgroundColor = component.backgroundColor ? { backgroundColor: `${component.backgroundColor}` } : { backgroundColor: '' }
+    const backgroundColor = component.backgroundColor
+      ? { backgroundColor: `${component.backgroundColor}` }
+      : { backgroundColor: '' }
     const styles = Object.assign({}, padding, margin, border, backgroundColor)
     return (
       <div key={component._key} style={styles}>
@@ -73,7 +93,9 @@ export function makeGrid (component) {
   const gridMedia = component.gridMedia
 
   const colCount = component.colCount ? { colCount: `${component.colCount}` } : { colCount: '' }
-  const colTemplate = component.colTemplate ? { gridTemplateColumns: `${component.colTemplate}` } : { gridTemplateColumns: '' }
+  const colTemplate = component.colTemplate
+    ? { gridTemplateColumns: `${component.colTemplate}` }
+    : { gridTemplateColumns: '' }
   const rowGap = component.rowGap ? { gridRowGap: `${component.rowGap}` } : { gridRowGap: '' }
   const colGap = component.colGap ? { gridColumnGap: `${component.colGap}` } : { gridColumnGap: '' }
   const margin = component.margin ? { margin: component.margin } : { margin: '' }
@@ -81,13 +103,15 @@ export function makeGrid (component) {
   const styles = Object.assign({}, colCount, colTemplate, rowGap, colGap, margin)
 
   // Build content
-  const gridComponents = gridMedia.map(item => {
+  const gridComponents = gridMedia && gridMedia.map(item => {
     return makeMediaComponent(item)
   })
-  return gridComponents && (
-    <Grid style={styles} key={component._key}>
-      {gridComponents}
-    </Grid>
+  return (
+    gridComponents && (
+      <Grid style={styles} key={component._key}>
+        {gridComponents}
+      </Grid>
+    )
   )
 }
 
