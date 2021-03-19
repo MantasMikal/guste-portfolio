@@ -38,11 +38,11 @@ export default class GalleryPreviewLayout extends React.Component {
             {!item.mainVideo && item.mainImage && item.mainImage.asset && (
               <Image isZoomable fluid={item.mainImage.asset.fluid} />
             )}
-            {/* {item.mainVideo && (
+            {item.mainVideo && (
               <div className={styles.Video}>
                 <Video controls={false} src={item.mainVideo.asset.url} />
               </div>
-            )} */}
+            )}
           </div>
         </div>
         <div className={styles.titleWrapper}>
