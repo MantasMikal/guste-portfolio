@@ -35,7 +35,7 @@ export default class GalleryPreviewLayout extends React.Component {
       <div className={cn(styles.itemWrapper, gridLayout && styles.gridLayout)}>
         <div className={styles.inner}>
           <div className={styles.image}>
-            {item.mainImage && item.mainImage.asset && !item.mainVideo && (
+            {item.mainImage && item.mainImage.asset && !item.mainVideo && !item.mainVideo.asset && (
               <Image isZoomable fluid={item.mainImage.asset.fluid} />
             )}
             {item.mainVideo && (
