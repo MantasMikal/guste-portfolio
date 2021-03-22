@@ -17,16 +17,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-preact',
-    // {
-    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       {
-    //         family: `Quicksand`
-    //       }
-    //     ],
-    //   },
-    // },
     {
       resolve: 'gatsby-source-sanity',
       options: {
