@@ -37,6 +37,9 @@ const serializers = {
     video (props) {
       return makeMediaComponent(props.node)
     },
+    videoFile (props) {
+      return makeMediaComponent(props.node)
+    },
     grid (props) {
       return makeGrid(props.node)
     },

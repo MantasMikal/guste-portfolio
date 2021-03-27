@@ -69,6 +69,12 @@ export function makeMediaComponent (component) {
       />
     )
 
+  case 'videoFile':
+      console.log("VID: ", component)
+      return (
+        <Video src={component.asset.url} />
+      )
+
   case 'contentBlock':
     const margin = component.margin ? { margin: `${component.margin}` } : { margin: '' }
     const padding = component.padding ? { padding: `${component.padding}` } : { padding: '' }

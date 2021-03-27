@@ -33,6 +33,8 @@ import productDetails from './productDetails'
 import line from './line'
 import aboutPage from './aboutPage'
 import customerServicePage from './customerServicePage'
+import videoFile from './videoFile'
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -69,7 +71,8 @@ export default createSchema({
     productDetails,
     line,
     aboutPage,
-    customerServicePage
+    customerServicePage,
+    videoFile
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

@@ -102,6 +102,9 @@ export default {
     },
     {
       type: 'line',
+    },
+    {
+      type: 'videoFile',
     }
   ]
 }
