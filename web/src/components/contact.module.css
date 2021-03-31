@@ -32,12 +32,10 @@
 
 .title {
   font-size: 5rem;
-  padding: 0.225em 0.225em;
   font-weight: 400;
   margin: 0;
   @media (--media-max-small) {
     font-size: 3rem;
-    padding: 0.225em 0;
     /* padding-left: 3rem; */
   }
 }
