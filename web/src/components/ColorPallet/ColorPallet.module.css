@@ -18,9 +18,10 @@
 
   /* outline:  */
   cursor: none;
+
 }
 
-.active {
+.Color:hover, .active {
   outline: 3px solid var(--color-black);
   z-index: 2;
 }
