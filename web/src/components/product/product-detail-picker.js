@@ -151,7 +151,7 @@ at least if the have a sense for good design lol.
               </option>
             ))}
       </select>
-      {/* <Button
+      <Button
         border
         buttonStyle="large"
         type="submit"
@@ -160,14 +160,14 @@ at least if the have a sense for good design lol.
         onClick={handleAddToCart}
       >
         {isAddedToCart ? 'Added!' : 'Add to cart'}
-      </Button> */}
+      </Button>
 
-      <b>
+      {/* <b>
         <p>
           The shop is currently closed. Contact me if you want
           to buy it.
         </p>
-      </b>
+      </b> */}
 
       {!available && <p>This Product is out of Stock!</p>}
     </div>
