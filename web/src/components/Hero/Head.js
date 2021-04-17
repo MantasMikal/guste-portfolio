@@ -20,9 +20,12 @@ const Head = ({ className, bbox, ref, ...props }) => {
   const [{ st, xy }, set] = useSpring(() => ({ st: 0, xy: [0, 0] }))
   const [isWide, setWide] = useState(false)
   const [linesAnimation, setlinesAnimation] = useState(false)
+  const [didColor, setDidColor] = useState(false)
 
-  const setPartColor = e => (e.target.style.fill = `#${color}`)
-
+  const setPartColor = e => {
+    e.target.style.fill = `#${color}`
+    setDidColor(true)
+  }
   const onMove = useCallback(({ clientX: x, clientY: y }) => {
     set({ xy: [x - window.innerWidth / 2, y - window.innerHeight / 2] })
   }, [])
@@ -55,6 +58,7 @@ const Head = ({ className, bbox, ref, ...props }) => {
       <div id='headContainer' className={styles.HeadWrapper}>
         <div className={styles.ColorPickerWrapper}>
           <ColorPallet colors={COLORS} onColorClick={setColor} activeColor={color} />
+          {!didColor && <span>{color ? 'Yuo know what do next' : 'Pick a color'}</span>}
         </div>
         <a.svg
           className={[linesAnimation && styles.linesAnimation, className].join(' ')}

@@ -24,6 +24,7 @@
   right: 0px;
 }
 
+
 .Cursor {
   position: absolute;
   width: 10px;
@@ -44,6 +45,12 @@ path,
 line {
   stroke-linecap: round;
 }
+
+/* path:hover {
+  transform: scale(1.1);
+} */
+
+
 
 .ear {
   cursor: none;
