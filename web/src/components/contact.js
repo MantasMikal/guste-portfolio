@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaLinkedin } from 'react-icons/fa'
+import { FaLinkedinIn } from 'react-icons/fa'
 import { GrInstagram } from 'react-icons/gr'
 import { HiOutlineMail } from 'react-icons/hi'
 import { SiBehance } from 'react-icons/si'
@@ -30,7 +30,7 @@ const Contacts = props => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <GrInstagram size="2em" />
+            <GrInstagram size="1.5em" />
           </a>
           <a
             className={styles.icon}
@@ -46,7 +46,7 @@ const Contacts = props => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedin size="2em" />
+            <FaLinkedinIn size="2em" />
           </a>
         </div>
       </div>
