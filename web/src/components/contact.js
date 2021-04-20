@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaEnvelope, FaFacebookMessenger, FaInstagram } from 'react-icons/fa'
+import { FaBehance, FaEnvelope, FaFacebookMessenger, FaInstagram, FaLinkedin } from 'react-icons/fa'
 import styles from './contact.module.css'
 import SEO from '../components/seo'
 
@@ -35,6 +35,22 @@ const Contacts = props => {
             rel='noopener noreferrer'
           >
             <FaInstagram size='2em' />
+          </a>
+          <a
+            className={styles.icon}
+            href='https://www.behance.net/GusteDesign'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaBehance size='2em' />
+          </a>
+          <a
+            className={styles.icon}
+            href='https://www.linkedin.com/in/guste-vasil/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaLinkedin size='2em' />
           </a>
         </div>
       </div>
