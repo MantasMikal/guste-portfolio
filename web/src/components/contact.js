@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaBehance, FaEnvelope, FaFacebookMessenger, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import { FaBehanceSquare, FaEnvelope, FaInstagramSquare, FaLinkedin } from 'react-icons/fa'
 import styles from './contact.module.css'
 import SEO from '../components/seo'
 
@@ -22,19 +22,11 @@ const Contacts = props => {
           </a>
           <a
             className={styles.icon}
-            href='https://www.messenger.com/t/guste.vasiliauskaite'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <FaFacebookMessenger size='2em' />
-          </a>
-          <a
-            className={styles.icon}
             href='https://www.instagram.com/guste.design'
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaInstagram size='2em' />
+            <FaInstagramSquare size='2em' />
           </a>
           <a
             className={styles.icon}
@@ -42,7 +34,7 @@ const Contacts = props => {
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaBehance size='2em' />
+            <FaBehanceSquare size='2em' />
           </a>
           <a
             className={styles.icon}
