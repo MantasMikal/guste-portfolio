@@ -46,7 +46,7 @@ const Contacts = props => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedinIn size="2em" />
+            <FaLinkedinIn size="1.6em" />
           </a>
         </div>
       </div>
