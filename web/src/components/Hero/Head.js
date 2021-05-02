@@ -58,7 +58,7 @@ const Head = ({ className, bbox, ref, ...props }) => {
       <div id='headContainer' className={styles.HeadWrapper}>
         <div className={styles.ColorPickerWrapper}>
           <ColorPallet colors={COLORS} onColorClick={setColor} activeColor={color} />
-          {!didColor && <span>{color ? 'Yuo know what do next' : 'Pick a color'}</span>}
+          {!didColor && <span>{color ? 'You know what do next' : 'Pick a color'}</span>}
         </div>
         <a.svg
           className={[linesAnimation && styles.linesAnimation, className].join(' ')}
